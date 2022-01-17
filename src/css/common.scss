@@ -1,0 +1,34 @@
+:root {
+  --button--color: #5D7400
+  --button--color: #C4F000
+  --button--color: #8FAF00
+  --button--color: #8FAF00
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  background: var(--button--color);
+
+  .label {
+    flex: 1;
+  }
+}
+
+.button {
+  display: block;
+  border-radius: 10px;
+  background: #C4F000;
+  color: #242732;
+}
+
+.button {
+  display: block;
+  border-radius: 10px;
+  background: #C4F000;
+  color: #242732;
+}
