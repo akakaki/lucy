@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+  include head.pug
+  body
+    .wrap
+      .full__bg.sign-in
+      .container.flex
+        .intro.flex-1.center
+          h1.text-white 使用露西助理
+          h2.text-white 面試無往不利，省時隨心所欲
+          a.button.green 註冊加入
+        .sign-in.flex-1.center
+          .sign-in.white-bg
+            img.logo(src="./images/Lucy_logo_black-16.svg")
+            .title
+              .title__icon
+              .title__lable
+            .sub 嗨，歡迎回來
+            form.form
+              div.gird
+                label(for="mail")
+                  | Email
+                  span *
+                input(id="mail")
+              div 
+                label(for="password")
+                  | 密碼
+                  span *
+                input(id="password")
+              div
+                .remember
+                  input(type="checkbox")
+                  span 記得我的登入資訊
+                .forget 
+                  a 忘記密碼？
+              div 
+                button.button.black.full 確認
+              div
+                span 還沒使用過露西助理?
+                a 我要註冊
+
+
+          //- img(src="./images/螢幕快照 2021-12-28 下午7.54.04.png")
+
+
