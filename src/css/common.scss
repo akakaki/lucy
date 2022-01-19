@@ -1,9 +1,9 @@
-:root {
-  --button--color: #5D7400
-  --button--color: #C4F000
-  --button--color: #8FAF00
-  --button--color: #8FAF00
-}
+// :root {
+//   --button--color: #5D7400
+//   --button--color: #C4F000
+//   --button--color: #8FAF00
+//   --button--color: #8FAF00
+// }
 
 @font-face {
   font-family: 'NotoSansTC';
@@ -26,6 +26,122 @@ a {
 .container {
   position: relative;
   min-height: 100vh;
+}
+
+// == 側邊欄 ==
+.nav__wrap {
+  box-sizing: border-box;
+  background: #191919;
+  color: #fff;
+  width: 263px;
+  font-size: 16px;
+  max-height: 100vh;
+  height: 100vh;
+  overflow-x: auto;
+}
+
+.nav__list,
+.nav__item {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__list {
+  padding: 0 53px;
+}
+
+.nav__item {
+  margin-bottom: 55px;
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+  padding: 78px 40px 83px;
+
+  .icon {
+    width: 40px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    width: 98px;
+  }
+}
+
+.nav__icon {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  margin-right: 15px;
+
+  &.noteboard {
+    -webkit-mask: url('../images/icon/Black line=Noteboard line.svg');
+    mask: url('../images/icon/Black line=Noteboard line.svg');
+  }
+
+  &.website {
+    -webkit-mask: url('../images/icon/Black line=website.svg');
+    mask: url('../images/icon/Black line=website.svg');
+  }
+
+  &.boy {
+    -webkit-mask: url('../images/icon/Black line=Boy line.svg');
+    mask: url('../images/icon/Black line=Boy line.svg');
+  }
+
+  &.folder {
+    -webkit-mask: url('../images/icon/Black line=Folder line.svg');
+    mask: url('../images/icon/Black line=Folder line.svg');
+  }
+
+  &.plans {
+    -webkit-mask: url('../images/icon/Black line=Plans.svg');
+    mask: url('../images/icon/Black line=Plans.svg');
+  }
+
+  &.share {
+    -webkit-mask: url('../images/icon/Black line=Share line.svg');
+    mask: url('../images/icon/Black line=Share line.svg');
+  }
+
+  &.setting {
+    -webkit-mask: url('../images/icon/Black line=setting.svg');
+    mask: url('../images/icon/Black line=setting.svg');
+  }
+}
+
+.nav__help {
+  border: 1px solid #C4F000;
+  border-radius: 10px;
+  margin: 0 35px;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: center;
+
+  .help__icon {
+    width: 20px;
+    height: 18px;
+    background: #C4F000;
+    margin-right: 8px;
+    -webkit-mask: url('../images/icon/Black line=Prize line.svg');
+    mask: url('../images/icon/Black line=Prize line.svg');
+  }
+  
+  .help__text {
+    font-weight: 500;
+    color: #C4F000;
+  }
 }
 
 .full__bg {
