@@ -1,9 +1,11 @@
+include ./templete/mixin.pug
 doctype html
 html(lang="en")
   include ./templete/head.pug
   body
     .container.flex
-      include ./templete/nav.pug
+      +nav('website')
       .content
-        include ./templete/header.pug
-        span 徵才網站
+        +header()
+        .content-article
+          +h1('徵才網站')

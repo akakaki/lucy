@@ -1,0 +1,174 @@
+-
+  let headerList = [
+    { id: 'record', label: '交易紀錄', href: 'record.html' },
+    { id: 'setting', label: '設定', href: 'setting.html' },
+    { id: 'signout', label: '登出', href: '#' },
+  ]
+
+  let navList = [
+    { id: 'noteboard', label: '露西面試助理', href: 'index.html' },
+    { id: 'website', label: '徵才網站', href: 'opening-website.html' },
+    { id: 'boy', label: '職缺', href: 'dropdown.html' },
+    { id: 'folder', label: '面試者資料', href: 'candidate-response.html' },
+    { id: 'plans', label: '方案', href: 'plan.html' },
+    { id: 'share', label: '露西交流網', href: '' },
+    { id: 'setting', label: '設定', href: 'setting.html' },
+  ]
+
+  let notificationListToday = [
+    { tips: false, icon: 'job', picture: '', label: '平面設計師 職缺創建完成', text: '您創建的職缺「平面設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。', date: '2021-12-26' },
+    { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
+    { tips: true, icon: 'calendar', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
+    { tips: true, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
+    { tips: true, icon: 'coin', picture: '', label: '露西助理已收到您的款項', text: '露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！', date: '2021-12-26' },
+    { tips: false, icon: 'congratulations', picture: '', label: '徵才網站完成創建', text: '恭喜你，擁有屬於你的徵才網站囉！可以盡情編輯你所需要的職缺內容。', date: '2021-12-26' },
+  ]
+
+  let notificationMessageBefore = [
+    { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
+    { tips: false, icon: 'job', picture: '', label: 'UI設計師 職缺創建完成', text: '您創建的職缺「UI設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。', date: '2021-12-26' },
+    { tips: true, icon: 'calendar', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
+    { tips: false, icon: 'warring', picture: '', label: '您的「企業」方案已快到期', text: '您所使用的企業方案在2021-01-22即將到期，請儘速更新您的方案或是聯絡露西助理。', date: '2021-12-26' },
+    { tips: true, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-24' },
+    { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-24' },
+    { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-24' },
+    { tips: true, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-24' },
+    { tips: true, icon: 'coin', picture: '', label: '露西助理已收到您的款項', text: '露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！', date: '2021-12-24' },
+  ]
+
+  let notificationMessageToday = [
+    { tips: false, icon: 'job', picture: '', label: '平面設計師 職缺創建完成', text: '您創建的職缺「平面設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。', date: '2021-12-26' },
+    { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
+    { tips: true, icon: 'calendar', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
+    { tips: true, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
+    { tips: true, icon: 'coin', picture: '', label: '露西助理已收到您的款項', text: '露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！', date: '2021-12-26' },
+  ]
+
+  let notificationListBefore = [
+    { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
+    { tips: false, icon: 'job', picture: '', label: 'UI設計師 職缺創建完成', text: '您創建的職缺「UI設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。', date: '2021-12-26' },
+    { tips: true, icon: 'calendar', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
+    { tips: false, icon: 'warring', picture: '', label: '您的「企業」方案已快到期', text: '您所使用的企業方案在2021-01-22即將到期，請儘速更新您的方案或是聯絡露西助理。', date: '2021-12-26' },
+    { tips: true, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-24' },
+  ]
+
+  let userTitleObject = ['職缺名稱', '面試者資訊', '線上面試回傳影片', '狀態', '聯絡他']
+
+mixin header(id='')
+  header.header__wrap
+    .header__container
+      .header__tool
+        .header__icon.search
+        .header__search__wrap.hidden
+          .remind__search__container
+      .header__tool
+        .header__icon.remind
+        .remind__message__wrap.hidden
+          .remind__message__container
+            .remind__message__top
+              .remind__message__icon
+              .remind__message__title 通知
+              a.remind__go(href="notification.html")
+                .remind__go-text 查看全部通知
+                .remind__go-icon
+            .remind__message__list
+              +notification-list('今日通知', notificationMessageToday)
+              +notification-list('先前通知', notificationListBefore)
+      .header__tool
+        .header__icon.member
+        .header__member__wrap.hidden
+          .remind__member__container
+            .remind__member__title
+              .remind__member__icon.user
+              .remind__member__label 諾比科技
+            .remind__member__list
+              for value in headerList
+                if value.id === id
+                  a.remind__member__item.active(href=value.href)
+                    .remind__member__icon(class=value.id)
+                    .remind__member__text= value.label
+                else
+                  a.remind__member__item(href=value.href)
+                    .remind__member__icon(class=value.id)
+                    .remind__member__text= value.label
+
+mixin nav(id='')
+  nav.nav__wrap
+    a.nav__logo(href="/")
+      img.icon(src="./images/nav_logo_icon.svg")
+      img.text(src="./images/nav_logo_text.svg")
+    ul.nav__list
+      for value in navList
+        if value.id === id
+          li.nav__item.active
+            a.nav__link(href=value.href)
+              .nav__icon(class=value.id)
+              .nav__label=value.label
+        else 
+          li.nav__item
+            a.nav__link(href=value.href)
+              .nav__icon(class=value.id)
+              .nav__label=value.label
+    .nav__help.flex
+      .help__icon
+      .help__text 露西給您更多服務
+
+mixin h1(text)
+  h1.page-title= text
+
+mixin notification-list(title, list)
+  .notification__wrap
+    .notification__title= title
+    .notification__container
+      ul.notification__list
+        for value in list
+          li.notification__item
+            if value.tips
+              .notification__tips
+            else
+              .notification__tips.non
+            
+            if value.picture
+              img.notification__picture(src=value.picture)
+            else if value.icon
+              .notification__picture(class=value.icon)
+            else
+              .notification__picture
+            .notification__detail
+              .notification__label
+                .label=value.label
+                .date=value.date
+              .notification__text=value.text
+
+mixin switch(list)
+  .switch__list
+    for value in list
+      .switch__item(class=value.id)= value.label
+
+mixin input-wrap(value)
+  .form__item
+    if value.required
+      label.form__label(for=value.id)= value.label
+        span *
+    else
+      label.form__label(for=value.id)= value.label
+    input.form__input(id=value.id placeholder=value.placeholder)
+
+mixin textarea-wrap(value)
+  .form__item
+    if value.required
+      label.form__label(for=value.id)= value.label
+        span *
+    else
+      label.form__label(for=value.id)= value.label
+    .form__textarea__wrap
+      textarea.form__textarea(id=value.id placeholder=value.placeholder)
+
+mixin select-wrap(value)
+  .form__item
+    if value.required
+      label.form__label(for=value.id)= value.label
+        span *
+    else
+      label.form__label(for=value.id)= value.label
+    select(name="")

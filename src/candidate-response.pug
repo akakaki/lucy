@@ -1,9 +1,34 @@
+include ./templete/mixin.pug
 doctype html
 html(lang="en")
   include ./templete/head.pug
   body
     .container.flex
-      include ./templete/nav.pug
+      +nav('folder')
       .content
-        include ./templete/header.pug
-        span 面試者資料
+        +header()
+        .content-article
+          +h1('面試者資料')
+          -
+            let switchList = [
+              { id: 'all', label: '全部' },
+              { id: 'vacancies', label: '申請職缺' },
+              { id: 'interview', label: '虛擬面試' },
+              { id: 'audit', label: '審核中' },
+              { id: 'incompatible', label: '不符合' },
+              { id: 'admit', label: '錄取' },
+            ]
+          form.form__wrap
+            .form__container.flex
+              +select-wrap({ id: 'vacancies', label: '職缺名稱', placeholder: '請輸入面試者名字' })
+              +input-wrap({ id: 'name', label: '面試者姓名', placeholder: '請輸入面試者名字' })
+              +input-wrap({ id: 'date', label: '應徵日期', placeholder: '請輸入面試者名字' })
+              .button.green 創建職缺
+              .button.black 發送多封郵件
+
+          .switch__wrap
+            .switch__container
+              +switch(switchList)
+
+            div 目前方案｜企業版
+            div 線上面試人數｜20/100

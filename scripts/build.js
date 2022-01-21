@@ -1,6 +1,24 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { PAGE_LIST } = require('./../src/route')
+
+const plugins = [
+  new MiniCssExtractPlugin()
+]
+
+for (const item of PAGE_LIST) {
+  plugins.push(
+    new HtmlWebpackPlugin({
+      template: item.path,
+      filename: item.file,
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true,
+      }
+    }),
+  )
+}
 
 const config = {
   mode: 'development',
@@ -49,18 +67,7 @@ const config = {
       },
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/about.pug',
-      filename: 'about.html',
-      minify: {
-        collapseWhitespace: false,
-        removeComments: true,
-      }
-    }),
-
-    new MiniCssExtractPlugin()
-  ]
+  plugins,
 }
 
 module.exports = config

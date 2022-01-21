@@ -1,0 +1,61 @@
+include ./templete/mixin.pug
+doctype html
+html(lang="en")
+  include ./templete/head.pug
+  body
+    .container.flex
+      +nav('setting')
+      .content
+        +header('setting')
+        .content-article
+          +h1('設定')
+          -
+            let settingSystemList = [
+              { id: 'account', label: '帳戶' },
+              { id: 'system-save', label: '安全' },
+              { id: 'system-letter', label: '系統信' },
+            ]
+
+            let settingFormList = [
+              { id: 'office', required: true, label: '公司名稱', placeholder: '公司名稱' },
+              { id: 'name', required: true, label: '姓名', placeholder: '姓名' },
+              { id: 'phone', required: true, label: '聯絡電話', placeholder: '聯絡電話' },
+              { id: 'office', required: true, label: 'Email', placeholder: '信箱' },
+            ]
+
+            let settingPasswordList = [
+              { id: 'password', required: true, label: '密碼', placeholder: '密碼' },
+              { id: 'newPassword', required: true, label: '新密碼', placeholder: '新密碼' },
+              { id: 'checkPassword', required: true, label: '新密碼確認', placeholder: '請再輸入一次新密碼' },
+            ]
+          .switch__wrap
+            +switch(settingSystemList)
+            .switch__content
+              .switch__content.account.hidden
+                form.form__wrap
+                  .form__container
+                    for value in settingFormList
+                      +input-wrap(value)
+                a.button.black 保存變更
+              .switch__content.system-save.hidden
+                form.form__wrap
+                  .form__container
+                    for value in settingPasswordList
+                      +input-wrap(value)
+                a.button.black 保存變更
+              .switch__content.system-letter.hidden
+                form.form__wrap
+                  .form__container
+                    .form__item
+                      .form__label 目前創建的範本
+                      .form__templete
+                        a.button.black.sm 我的寄送範本
+                        a.button.white.sm 寄送範本2
+                        a.button.white.sm 寄送範本3
+                    +input-wrap( { id: 'templete', required: true, label: '範本名稱', placeholder: '我的寄送範本' } )
+                    +textarea-wrap( { id: 'content', required: false, label: '面試邀請信件內容', placeholder: '密碼' } )
+                    p #lucy.interview.link# 為虛擬面試連結，會自動生成並呈現專屬連結。
+                a.button.white 刪除範本
+                a.button.black 保存變更
+          
+

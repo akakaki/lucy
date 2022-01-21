@@ -1,4 +1,13 @@
 doctype html
 html(lang="en")
-  body
-    .hello 強化結界
+  include ./templete/head.pug
+  body.black
+    header
+      .logo
+    .container.error-404
+      .img
+        img(src="./images/Group 1000003599.png")
+        img(src="./images/Group 1000003598.png")
+      .title 找不到這個畫面...
+      .text 沒事！莫急莫慌，露西助理帶你回家。
+      a(href="/").button.green 我想回家

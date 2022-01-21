@@ -1,4 +1,20 @@
+include ./templete/mixin.pug
 doctype html
 html(lang="en")
+  include ./templete/head.pug
   body
-    .hello 強化結界
+    .container.flex
+      +nav()
+      .content
+        +header('record')
+        .content-article
+          +h1('交易紀錄')
+          -
+            let settingSystemList = [
+              { id: 'all', label: '全部' },
+              { id: 'audit', label: '審核中' },
+              { id: 'complete', label: '完成' },
+            ]
+          .switch__wrap
+            .switch__container
+              +switch(settingSystemList)
