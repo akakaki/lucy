@@ -1,9 +1,9 @@
+include ./templete/mixin.pug
 doctype html
 html(lang="en")
   include ./templete/head.pug
   body
-    .wrap
-      .full__bg.sign-in
+    .sign-in__wrap.sign-in
       .container.flex
         .intro.flex-1.center
           h1.text-white 使用露西助理
@@ -12,34 +12,28 @@ html(lang="en")
         .sign-in.flex-1.center
           .sign-in.white-bg
             img.logo(src="./images/Lucy_logo_black-16.svg")
-            .title
-              .title__icon
-              .title__lable
-            .sub 嗨，歡迎回來
-            form.form
-              div.gird
-                label(for="mail")
-                  | Email
-                  span *
-                input(id="mail")
-              div 
-                label(for="password")
-                  | 密碼
-                  span *
-                input(id="password")
-              div
-                .remember
-                  input(type="checkbox")
-                  span 記得我的登入資訊
-                .forget 
-                  a 忘記密碼？
-              div 
-                button.button.black.full 確認
-              div
-                span 還沒使用過露西助理?
-                a 我要註冊
-
-
-          //- img(src="./images/螢幕快照 2021-12-28 下午7.54.04.png")
-
+            .login__title
+              img.title__icon.icon(src="./images/icon/Black line=sign in.svg")
+              .login__label 登入
+            .login__sub 嗨，歡迎回來
+            -
+              let signFormList = [
+                { id: 'mail', required: true, label: 'Email', placeholder: 'Email' },
+                { id: 'passowrd', required: true, label: '密碼', placeholder: '密碼' },
+              ]
+            form.form__wrap
+              .form__container
+                for value in signFormList
+                  +input-wrap(value)
+            .remember__container
+              .remember
+                input(id="remember" type="checkbox")
+                label(for="remember") 記得我的登入資訊
+              .forget 
+                a 忘記密碼？
+            div 
+              button.button.black.full 確認
+            .login__tips
+              span 還沒使用過露西助理?
+              a 我要註冊
 

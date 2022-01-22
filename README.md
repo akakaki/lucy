@@ -4,19 +4,16 @@
 
 ## 頁面
 - [x] 404 : 404
-- [ ] setting : 設定
+- [x] setting : 設定
 - [ ] candidate-response : 面試者資料
 - [ ] dropdown : 職缺
-- [ ] plan : 方案
-- [ ] record : 交易紀錄
+- [x] plan : 方案
+- [x] record : 交易紀錄
+- [x] notification : 通知
 - [ ] user : 應徵頁面
-- [ ] opening-website : 徵才網站
+- [ ] website : 徵才網站
 - [ ] index : 露西面試助理
-- [ ] sign-in : 登入
-- [ ] sign-up : 註冊
-- [ ] forget-password-step-1 : 忘記密碼-step-1
-- [ ] forget-password-step-2 : 忘記密碼-step-1
-- [ ] forget-password-step-3 : 忘記密碼-step-1
-- [ ] 交易紀錄
-- [ ] 設定
-- [ ] 登出(?)
+- [x] sign-in : 登入
+- [x] sign-up : 註冊
+- [x] forget-password-step-1 : 忘記密碼-step-1
+- [x] forget-password-step-2 : 忘記密碼-step-2

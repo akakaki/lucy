@@ -7,7 +7,7 @@
 
   let navList = [
     { id: 'noteboard', label: '露西面試助理', href: 'index.html' },
-    { id: 'website', label: '徵才網站', href: 'opening-website.html' },
+    { id: 'website', label: '徵才網站', href: 'website.html' },
     { id: 'boy', label: '職缺', href: 'dropdown.html' },
     { id: 'folder', label: '面試者資料', href: 'candidate-response.html' },
     { id: 'plans', label: '方案', href: 'plan.html' },
@@ -153,6 +153,7 @@ mixin input-wrap(value)
     else
       label.form__label(for=value.id)= value.label
     input.form__input(id=value.id placeholder=value.placeholder)
+    .form__text= value.text
 
 mixin textarea-wrap(value)
   .form__item
@@ -171,4 +172,4 @@ mixin select-wrap(value)
         span *
     else
       label.form__label(for=value.id)= value.label
-    select(name="")
+    select.select(id=value.id)

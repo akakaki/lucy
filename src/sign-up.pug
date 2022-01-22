@@ -1,7 +1,42 @@
-head
-  meta(charset="UTF-8")
-  meta(http-equiv="X-UA-Compatible", content="IE=edge")
-  meta(name="viewport", content="width=device-width, initial-scale=1.0")
-  title LUCY
-  link(rel="icon" type="image/png" sizes="32x32" href="./images/icon.png")
-  script(src="./js/jquery.min.js")
+include ./templete/mixin.pug
+doctype html
+html(lang="en")
+  include ./templete/head.pug
+  body
+    .sign-in__wrap
+      .container.flex
+        .intro.flex-1.center
+          h1.text-white 使用露西助理
+          h2.text-white 面試無往不利，省時隨心所欲
+          a.button.green 註冊加入
+        .sign-in.flex-1.center
+          .sign-in.white-bg
+            img.logo(src="./images/Lucy_logo_black-16.svg")
+            .login__title
+              img.title__icon.icon(src="./images/icon/Black line=sign in.svg")
+              .login__label 註冊
+            .login__sub 請先填入註冊時的信箱，驗證完成後請去信箱收信確認
+            -
+              let signFormList = [
+                { id: 'mail', required: true, label: 'Email', placeholder: 'Email' },
+                { id: 'company', required: true, label: '公司名稱', placeholder: '公司名稱' },
+                { id: 'name', required: true, label: '姓名', placeholder: '姓名' },
+                { id: 'phone', required: true, label: '電話', placeholder: '電話' },
+                { id: 'passowrd', required: true, label: '密碼', placeholder: '密碼' },
+                { id: 'checkPassword', required: true, label: '密碼確認', placeholder: '請再輸入一次上方密碼' },
+              ]
+            form.form__wrap
+              .form__container
+                for value in signFormList
+                  +input-wrap(value)
+            .remember__container
+              .remember
+                input(id="remember" type="checkbox")
+                label(for="remember") 我同意露西助理的隱私權條款
+                a 隱私權條款
+            div 
+              button.button.black.full 確認
+            .login__tips
+              span 已經有帳號了嗎？
+              a 我要登入
+
