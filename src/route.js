@@ -11,12 +11,17 @@ const pageData = [
   { id: 'notification', label: '通知' },
   { id: 'website', label: '徵才網站' },
   { id: 'dropdown', label: '職缺' },
+  { id: 'dropdown-setup-1', label: '職缺-step-1' },
+  { id: 'dropdown-setup-2', label: '職缺-step-2' },
+  { id: 'dropdown-setup-3', label: '職缺-step-3' },
   { id: 'candidate-response', label: '面試者資料' },
   { id: 'plan', label: '方案' },
   // { id: '', label: '露西交流網' },
   { id: 'setting', label: '設定' },
   { id: 'record', label: '交易紀錄' },
   { id: 'user', label: '應徵頁面' },
+  { id: 'user-setup-1', label: '應徵頁面-setup-1' },
+  { id: 'user-setup-2', label: '應徵頁面-setup-2' },
   { id: '404', label: '404' },
 ]
 

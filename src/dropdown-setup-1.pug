@@ -1,0 +1,74 @@
+include ./templete/mixin.pug
+doctype html
+html(lang="en")
+  include ./templete/head.pug
+  body
+    -
+      let typeList = [
+        { id: 'name', label: '姓名', required: 'true' },
+        { id: 'mail', label: '信箱', required: 'true' },
+        { id: 'phone', label: '聯絡電話', required: 'true' },
+        { id: 'resume', label: '履歷', required: 'true' },
+        { id: 'cv', label: 'CV' },
+      ]
+    .container.flex
+      +nav('body')
+      .content
+        +header()
+        .content-article.vacancies
+          .vacancies__top
+            .vacancies-back__title
+              .vacancies-back__icon
+              .vacancies-back__label 返回
+            .vacancies-progress__wrap
+              .vacancies-progress__container
+                .vacancies-progress__line
+                .vacancies-progress__item
+                  .vacancies-progress__number 1
+                  .vacancies-progress__label 職缺名稱
+                .vacancies-progress__item
+                  .vacancies-progress__number 2
+                  .vacancies-progress__label 選擇問題
+                .vacancies-progress__item
+                  .vacancies-progress__number 3
+                  .vacancies-progress__label 成功創建
+          .vacancies__content
+            .vacancies-setup__title
+              .vacancies-setup__icon 1
+              .vacancies-setup__label 創建職缺
+            .vacancies-setup-detail__title
+              .vacancies-setup__icon.user 
+              .vacancies-setup__label 職缺名稱
+            +input-wrap({ id: 'name', label: '職缺名稱', placeholder: '請輸入職缺名稱', text: '您預開設的職缺名稱。' })
+            .vacancies-setup-detail__title
+              .vacancies-setup__icon.user 
+              .vacancies-setup__label 職缺填寫需求與檔案上傳
+            .vacancies-setup-detail__tips
+              | 您對求職者要求填寫個人資訊，請勾選您需要求職者上傳的基本資料。
+              br
+              |（支援檔案類型 pdf. doc. docx. jpg. png. 或 URL / 檔案上限 5 MB)  
+            .vacancies-setup-detail__type
+              .vacancies-setup-detail__type__title 必填：
+              .vacancies-setup-detail__type__list
+                for value in typeList
+                  .vacancies-setup-detail__type__item
+                    input(type="radio" id=value.id)
+                    label(for=value.id)
+                      span= value.label
+                      if value.required
+                        span *
+              .vacancies-setup-detail__type__title 選填：
+              .vacancies-setup-detail__type__list
+                for value in typeList
+                  .vacancies-setup-detail__type__item
+                    input(type="radio" id=value.id)
+                    label(for=value.id)
+                      span= value.label
+            .vacancies-setup-detail__bottom
+              .vacancies-setup-detail__button.button.white
+                .vacancies-setup-detail__icon
+                .vacancies-setup-detail__label 儲存草稿
+              .vacancies-setup-detail__button.button.black
+                .vacancies-setup-detail__icon
+                .vacancies-setup-detail__label 下一步
+

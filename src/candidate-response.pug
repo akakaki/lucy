@@ -20,15 +20,123 @@ html(lang="en")
             ]
           form.form__wrap
             .form__container.flex
-              +select-wrap({ id: 'vacancies', label: '職缺名稱', placeholder: '請輸入面試者名字' })
+              .form__item
+                label.form__label 職缺名稱
+                select.form__item__select
+                  option(value="0" disabled selected) 請選擇職缺名稱
+                  option(value="1") 平面設計
+                  option(value="2") 前端工程師
+                  option(value="3") 動畫製作師
               +input-wrap({ id: 'name', label: '面試者姓名', placeholder: '請輸入面試者名字' })
-              +input-wrap({ id: 'date', label: '應徵日期', placeholder: '請輸入面試者名字' })
+              .form__item
+                label.form__label(for="date") 應徵日期
+                .flex.form__input__date
+                  input(id="date-before" placeholder="YYYY-MM-DD" type="date")
+                  -
+                  input(id="date-after" placeholder="YYYY-MM-DD" type="date")
+                  .form__input__date__icon
               .button.green 創建職缺
               .button.black 發送多封郵件
-
           .switch__wrap
             .switch__container
               +switch(switchList)
+            .data__count
+              div 目前方案｜企業版
+              div 線上面試人數｜20/100
+          .candidate__wrap
+            .candidate__container
+              .candidate-top
+                .candidate-top__input
+                  input.candidate__input(type="checkbox")
+                .candidate-top__title
+                  .candidate-top__label 職缺名稱
+                .candidate-top__title
+                  .candidate-top__label 面試者資訊
+                  .candidate-top__arrow
+                .candidate-top__title
+                  .candidate-top__label 線上面試回傳影片
+                .candidate-top__title
+                  .candidate-top__label 狀態
+                .candidate-top__title
+                  .candidate-top__label 聯絡他
+              .candidate-item
+                .candidate-item__input
+                  input.candidate__input(type="checkbox")
+                  span 01
+                .candidate-item__data
+                  .candidate-item__label 平面設計
+                .candidate-item__data
+                  .candidate-item__data__info
+                    .candidate-item__picture
+                      img.candidate-item__img()
+                    .candidate-item__info
+                      .candidate-item__info__name 吳娜莉
+                      .candidate-item__info__date
+                        .candidate-item__info__date__icon
+                        .candidate-item__info__date__label 應徵時間：2022.01.09
+                      .candidate-item__info__button__wrap
+                        .candidate-item__info__button.black
+                          .icon.user
+                          | 履歷
+                        .candidate-item__info__button.black
+                          .icon.file
+                          | 履歷
+                        .candidate-item__info__button.black
+                          .icon.file
+                          | 履歷
+                .candidate-item__data
+                  .candidate-item__question__wrap
+                    .candidate-item__question__container
+                      .candidate-item__question__title
+                        span.tips Q1
+                        p.text 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
+                      .candidate-item__question__content
+                        .candidate-item__question__progress
+                          .candidate-item__question__progress__long
+                        .candidate-item__question__link__wrap
+                          .candidate-item__question__link__container
+                            .candidate-item__question__link__item
+                              .icon.view
+                              | 觀看影片
+                            .candidate-item__question__link__item
+                              .icon.play
+                              | 播放聲音
+                            .candidate-item__question__link__item
+                              .icon.copy
+                              | 複製內容
+                      .candidate-item__question__title
+                        span.tips Q2
+                        p.text 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？
+                      .candidate-item__question__title
+                        span.tips Q3
+                        p.text 說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？
+                      .candidate-item__question__title
+                        span.tips Q4
+                        p.text 描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？
+                      .candidate-item__question__title
+                        span.tips Q5
+                        p.text 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？
+                      .candidate-item__question__more
+                        .icon
+                        | 展開所有問題
 
-            div 目前方案｜企業版
-            div 線上面試人數｜20/100
+                .candidate-item__data
+                  .candidate-item__data__status__wrap
+                    .candidate-item__data__status__container
+                      .candidate-item__data__status__title
+                        .candidate-item__data__status__icon.ok
+                        .candidate-item__data__status__label 已完成虛擬面試
+                  select.candidate-item__label
+                    option(value="0" disabled selected).candidate-item__label 請選擇狀態
+                    option(value="1").candidate-item__label 審核中
+                    option(value="2").candidate-item__label 不符合
+                    option(value="3").candidate-item__label 錄取
+                .candidate-item__data
+                  .candidate-item__contact__wrap
+                    .candidate-item__contact__container
+                      a.candidate-item__contact__button
+                        .candidate-item__contact__button__icon
+                        .candidate-item__contact__button__label 聯絡面試者
+                      a.candidate-item__contact__phone
+                        .candidate-item__contact__phone__icon
+                        .candidate-item__contact__phone__label 0912 345 678

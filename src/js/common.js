@@ -50,9 +50,6 @@ $(function () {
     e.stopPropagation()
     e.preventDefault()
 
-    console.log(e)
-
-
     const dt = e.dataTransfer
     const files = dt.files
 
@@ -82,4 +79,51 @@ $(function () {
     dropbox.addEventListener("drop", drop, false);
     dropbox.addEventListener("change", imgInput, false);
   }
+
+  const isWebsite = $('.content-article.website')
+  if (isWebsite) {
+    $('.website-link__url').on('keyup', function () {
+      const text = $(this).val()
+      const input = $('.website-preview__url')
+      if (text.length) input.text(text)
+      else input.text('www.lucy.website')
+    })
+
+    $('.form__input#company').on('keyup', function () {
+      const text = $(this).val()
+      const input = $('.website-preview__banner-center__title')
+      if (text.length) input.text(text)
+      else input.text('標題名稱')
+    })
+
+    $('.website-config__banner__input').on('change', function () {
+      const value = $(this)[0].files[0]
+      const reader = new FileReader()
+      reader.onload = (e => {
+        $('.website-preview__banner__img').attr("src", e.target.result)
+        $('.website-config__banner__img').attr("src", e.target.result)
+      })
+      reader.readAsDataURL(value)
+    })
+
+    $('.website-config__logo__input').on('change', function () {
+      const value = $(this)[0].files[0]
+      const reader = new FileReader()
+      reader.onload = (e => {
+        $('.website-preview__banner-center__logo__img').attr("src", e.target.result)
+        $('.website-config__logo__img').attr("src", e.target.result)
+      })
+      reader.readAsDataURL(value)
+    })
+  }
+
+  const isUser = $('.container.user')
+  if (isUser) {
+    $('.user-form__type__wrap').children().first().show().siblings().hide()
+    $('.user-form__chose__input').on('click', function () {
+      const chose = $(this).attr('value')
+      $(this).parents('.user-form__chose__wrap').find('.user-form__type__wrap').children(`.${chose}`).show().siblings().hide()
+    })
+  }
+
 })
