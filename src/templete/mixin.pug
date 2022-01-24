@@ -67,7 +67,7 @@ mixin header(id='')
           .remind__message__container
             .remind__message__top
               .remind__message__icon
-              .remind__message__title 通知
+              .remind__message__title.font.text-18px 通知
               a.remind__go(href="notification.html")
                 .remind__go-text 查看全部通知
                 .remind__go-icon
@@ -80,20 +80,20 @@ mixin header(id='')
           .remind__member__container
             .remind__member__title
               .remind__member__icon.user
-              .remind__member__label 諾比科技
+              .remind__member__label.font.text-18px 諾比科技
             .remind__member__list
               for value in headerList
                 if value.id === id
                   a.remind__member__item.active(href=value.href)
                     .remind__member__icon(class=value.id)
-                    .remind__member__text= value.label
+                    .remind__member__text.font.text-16px= value.label
                 else
                   a.remind__member__item(href=value.href)
                     .remind__member__icon(class=value.id)
-                    .remind__member__text= value.label
+                    .remind__member__text.font.text-16px= value.label
 
 mixin nav(id='')
-  nav.nav__wrap
+  nav.nav__wrap.font.text-16px
     a.nav__logo(href="/")
       img.icon(src="./images/nav_logo_icon.svg")
       img.text(src="./images/nav_logo_text.svg")
@@ -114,11 +114,11 @@ mixin nav(id='')
       .help__text 露西給您更多服務
 
 mixin h1(text)
-  h1.page-title= text
+  h1.page-title.font.text-24px= text
 
 mixin notification-list(title, list)
   .notification__wrap
-    .notification__title= title
+    .notification__title.font.text-16px= title
     .notification__container
       ul.notification__list
         for value in list
@@ -153,7 +153,7 @@ mixin input-wrap(value)
     else
       label.form__label(for=value.id)= value.label
     input.form__input(id=value.id placeholder=value.placeholder)
-    .form__text= value.text
+    .form__text.font.text-12px= value.text
 
 mixin textarea-wrap(value)
   .form__item

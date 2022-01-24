@@ -42,7 +42,7 @@ html(lang="en")
                           .flex
                             input.form__input(id=value.id placeholder=value.placeholder)
                             .send-verification.button.white 寄送驗證碼
-                          .form__text= value.text
+                          .form__text.font.text-12px= value.text
                       else
                         +input-wrap(value)
                 .setting-save.button.black 保存變更                        
@@ -67,7 +67,7 @@ html(lang="en")
                       .form__textarea__wrap
                         textarea.form__textarea(id="content")
                         .form__textarea-quantity 0 / 500
-                      .form__text 
+                      .form__text.font.text-12px
                         a #lucy.interview.link# 
                         | 為虛擬面試連結，會自動生成並呈現專屬連結。
                 .bottom

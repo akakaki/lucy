@@ -14,7 +14,7 @@ html(lang="en")
           .website-link
             .website-link__title.flex.items-center
               .website-link-icon.icon.icon18px.website
-              .website-link__label.font.px16 專屬貴公司的徵才網址
+              .website-link__label.font.text-16px 專屬貴公司的徵才網址
               .website-link__status.flex.items-center
                 .dot.gray
                 | 尚未創建
@@ -24,7 +24,7 @@ html(lang="en")
                 .website-link__icon
           .website-wrap.flex
             .website-config
-              .website-config__title.font.px16 網站相關資訊
+              .website-config__title.font.text-16px 網站相關資訊
               form.form__wrap
                 .form__container
                   .form__item
@@ -33,7 +33,7 @@ html(lang="en")
                     .flex
                       input.form__input(id="gmail" placeholder="Gmail @gmail.com")
                       .send-verification.button.white 寄送驗證碼
-                    .form__text 填寫完信箱後，請按下寄送驗證碼後，至信箱收信將驗證碼填入下方
+                    .form__text.font.text-12px 填寫完信箱後，請按下寄送驗證碼後，至信箱收信將驗證碼填入下方
                   +input-wrap( { id: 'verifyMail', required: true, label: '信箱驗證碼', placeholder: '信箱驗證碼' } )
                   +input-wrap( { id: 'company', required: true, label: '公司名稱標題', placeholder: '公司名稱標題' } )
                   +input-wrap( { id: 'title', required: true, label: '網站標題', placeholder: '網站標題' } )
@@ -61,11 +61,11 @@ html(lang="en")
                     .website-preview__dot
                     .website-preview__dot
                     .website-preview__dot
-                    .website-preview__url www.lucy.website
+                    .website-preview__url.font.text-12px www.lucy.website
                   .website-preview__banner
                     .website-preview__banner__tips.flex.items-center
                       .website-preview__banner__icon
-                      .website-preview__banner__label 露西助理提醒您請填寫左方資料進行預覽
+                      .website-preview__banner__label.font.text-16px 露西助理提醒您請填寫左方資料進行預覽
                     img.website-preview__banner__img
                     .website-preview__banner-center__tips
                       .website-preview__banner-center__logo Logo

@@ -13,9 +13,9 @@
 - [x] plan : 方案
 - [x] record : 交易紀錄
 - [x] notification : 通知
-- [ ] user : 應徵頁面(html)
-- [ ] user-setup-1 : 應徵頁面-setup-1(html)
-- [ ] user-setup-2 : 應徵頁面-setup-2-完成(html)
+- [x] user : 應徵頁面(html)
+- [x] user-setup-1 : 應徵頁面-setup-1(html)
+- [x] user-setup-2 : 應徵頁面-setup-2-完成(html)
 - [x] website : 徵才網站(html)
 - [x] index : 露西面試助理
 - [x] sign-in : 登入
