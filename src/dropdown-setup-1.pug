@@ -32,43 +32,80 @@ html(lang="en")
                 .vacancies-progress__item
                   .vacancies-progress__number 3
                   .vacancies-progress__label 成功創建
-          .vacancies__content
-            .vacancies-setup__title
-              .vacancies-setup__icon 1
-              .vacancies-setup__label 創建職缺
-            .vacancies-setup-detail__title
-              .vacancies-setup__icon.user 
-              .vacancies-setup__label 職缺名稱
-            +input-wrap({ id: 'name', label: '職缺名稱', placeholder: '請輸入職缺名稱', text: '您預開設的職缺名稱。' })
-            .vacancies-setup-detail__title
-              .vacancies-setup__icon.user 
-              .vacancies-setup__label 職缺填寫需求與檔案上傳
-            .vacancies-setup-detail__tips
-              | 您對求職者要求填寫個人資訊，請勾選您需要求職者上傳的基本資料。
-              br
-              |（支援檔案類型 pdf. doc. docx. jpg. png. 或 URL / 檔案上限 5 MB)  
-            .vacancies-setup-detail__type
-              .vacancies-setup-detail__type__title 必填：
-              .vacancies-setup-detail__type__list
-                for value in typeList
-                  .vacancies-setup-detail__type__item
-                    input(type="radio" id=value.id)
-                    label(for=value.id)
-                      span= value.label
-                      if value.required
-                        span *
-              .vacancies-setup-detail__type__title 選填：
-              .vacancies-setup-detail__type__list
-                for value in typeList
-                  .vacancies-setup-detail__type__item
-                    input(type="radio" id=value.id)
-                    label(for=value.id)
-                      span= value.label
-            .vacancies-setup-detail__bottom
-              .vacancies-setup-detail__button.button.white
-                .vacancies-setup-detail__icon
-                .vacancies-setup-detail__label 儲存草稿
-              .vacancies-setup-detail__button.button.black
-                .vacancies-setup-detail__icon
-                .vacancies-setup-detail__label 下一步
-
+          .vacancies__content.flex
+            .vacancies__input__data
+              .vacancies-setup__title
+                .vacancies-setup__icon 1
+                .vacancies-setup__label 創建職缺
+              .vacancies-setup-detail__title
+                .vacancies-setup__icon.user 
+                .vacancies-setup__label 職缺名稱
+              +input-wrap({ id: 'name', label: '職缺名稱', placeholder: '請輸入職缺名稱', text: '您預開設的職缺名稱。' })
+              .vacancies-setup-detail__title
+                .vacancies-setup__icon.user 
+                .vacancies-setup__label 職缺填寫需求與檔案上傳
+              .vacancies-setup-detail__tips
+                | 您對求職者要求填寫個人資訊，請勾選您需要求職者上傳的基本資料。
+                br
+                |（支援檔案類型 pdf. doc. docx. jpg. png. 或 URL / 檔案上限 5 MB)  
+              .vacancies-setup-detail__type
+                .vacancies-setup-detail__type__title 必填：
+                .vacancies-setup-detail__type__list
+                  for value in typeList
+                    .vacancies-setup-detail__type__item
+                      input(type="radio" id=value.id)
+                      label(for=value.id)
+                        span= value.label
+                        if value.required
+                          span *
+                .vacancies-setup-detail__type__title 選填：
+                .vacancies-setup-detail__type__list
+                  for value in typeList
+                    .vacancies-setup-detail__type__item
+                      input(type="radio" id=value.id)
+                      label(for=value.id)
+                        span= value.label
+              .vacancies-setup-detail__bottom
+                .vacancies-setup-detail__button.button.white
+                  .vacancies-setup-detail__icon
+                  .vacancies-setup-detail__label 儲存草稿
+                .vacancies-setup-detail__button.button.black
+                  .vacancies-setup-detail__icon
+                  .vacancies-setup-detail__label 下一步
+            .vacancies__input__preview.website-preview
+              .website-preview__wrap
+                .website-preview__container
+                  .website-preview__link.flex.items-center
+                    .website-preview__dot
+                    .website-preview__dot
+                    .website-preview__dot
+                    .website-preview__url.font.text-12px www.lucy.website
+                  .website-preview__title
+                    .website-preview__back
+                    h1.user__h1.font.text-24px E-Commerce Category Planner 品類企劃 -生活類別
+                  h2.user__h2.font.text-24px.flex.items-center
+                    .user__count.font.text-12px 1
+                    | 嗨！我們很開心能認識你。
+                    .icon.down
+                  .user__tips__zone.flex.items-center
+                    .user__tips__icon.user
+                    .user__tips__label 基本資料
+                    .user__tips__required * 必填
+                  .user-text__tips.font.text-12px 請填寫您的基本資料。
+                  -
+                    let baseList = [
+                      { id: 'name', required: true, label: '姓名', placeholder: '請輸入您的姓名' },
+                      { id: 'mail', required: true, label: '信箱', placeholder: '請輸入您的信箱' },
+                      { id: 'phone', required: true, label: '聯絡電話', placeholder: '請輸入您的聯絡電話' },
+                    ]
+                  form.user-form
+                    .form__container
+                      for value in baseList
+                        .user-form__item.form__item
+                          label.user-form__item-label.form__label(for=value.id)= value.label
+                            span *
+                                  input.user-form__item-input.form__input(id=value.id placeholder=value.placeholder)
+                  .user__bottom.flex.items-center.flex-cols
+                    .user__bottom__button.button.black.items-center.justify-center
+                      .icon.icon-18px
+                      | 確定，下一步
