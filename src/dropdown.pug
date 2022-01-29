@@ -1,17 +1,17 @@
 include ./templete/mixin.pug
 doctype html
-html(lang="en")
+html(lang="zh-TW")
   include ./templete/head.pug
   body
     .container.flex
-      +nav('body')
+      +nav('boy')
       .content
         +header()
         .content-article
           .content-dropdown__title
             +h1('職缺')
-            button.content-dropdown__button.button.green
-              .content-dropdown__button__icon
+            button.content-dropdown__button.button.green.shadow
+              .content-dropdown__button__icon.icon.icon-18px.icon-user
               .content-dropdown__button__label 創建職缺
           form.form__wrap
             .form__container.flex

@@ -17,12 +17,12 @@ mixin updateInput(value)
         .user-form__type__drop.drop
           .user-form__type__drop__container
             .website-config__banner__input__wrap.user__update
-              .icon.icon18px.plus
+              .icon.icon-18px.icon-plus
               input.website-config__banner__input(type="file")
             .user-form__type__drop__text （支援檔案類型 pdf. doc. docx. jpg. png.  / 檔案上限 5 MB) 
 
 doctype html
-html(lang="en")
+html(lang="zh-TW")
   include ./templete/head.pug
   body
     .container.user
@@ -64,7 +64,7 @@ html(lang="en")
           +updateInput({ title: '求職信', name: 'letter2' })
           +updateInput({ title: '作品集', name: 'work1' })
           +updateInput({ title: '作品集', name: 'work2' })
-          .user__bottom.flex.items-center.flex-cols
+          .user__bottom.flex.items-center.flex-col
             .user__bottom__button.button.black.items-center.justify-center
               .icon.icon-18px
               | 確定送出

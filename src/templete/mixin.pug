@@ -9,7 +9,7 @@
     { id: 'noteboard', label: '露西面試助理', href: 'index.html' },
     { id: 'website', label: '徵才網站', href: 'website.html' },
     { id: 'boy', label: '職缺', href: 'dropdown.html' },
-    { id: 'folder', label: '面試者資料', href: 'candidate-response.html' },
+    { id: 'folder', label: '面試者資料', href: 'response.html' },
     { id: 'plans', label: '方案', href: 'plan.html' },
     { id: 'share', label: '露西交流網', href: '' },
     { id: 'setting', label: '設定', href: 'setting.html' },
@@ -58,11 +58,12 @@ mixin header(id='')
   header.header__wrap
     .header__container
       .header__tool
-        .header__icon.search
+        .header__icon.icon.icon-20px.icon-search
         .header__search__wrap.hidden
           .remind__search__container
       .header__tool
-        .header__icon.remind
+        .header__icon.icon.icon-20px.icon-notification
+        .remind__message__dot.dot.bg.bg-red
         .remind__message__wrap.hidden
           .remind__message__container
             .remind__message__top
@@ -75,11 +76,11 @@ mixin header(id='')
               +notification-list('今日通知', notificationMessageToday)
               +notification-list('先前通知', notificationListBefore)
       .header__tool
-        .header__icon.member
+        .header__icon.icon.icon-20px.icon-profile
         .header__member__wrap.hidden
           .remind__member__container
-            .remind__member__title
-              .remind__member__icon.user
+            .remind__member__title.flex.items-center
+              .remind__member__icon.icon.icon-20px.icon-user-2
               .remind__member__label.font.text-18px 諾比科技
             .remind__member__list
               for value in headerList
@@ -126,7 +127,7 @@ mixin notification-list(title, list)
             if value.tips
               .notification__tips
             else
-              .notification__tips.non
+              .notification__tips.bg.bg-red
             
             if value.picture
               img.notification__picture(src=value.picture)
@@ -173,3 +174,19 @@ mixin select-wrap(value)
     else
       label.form__label(for=value.id)= value.label
     select.select(id=value.id)
+
+//- 進度條
+mixin progress(list)
+  .progress__wrap
+    .progress__container.flex.item-center
+      each item, index in list
+        if item.active
+          .progress__item.flex.flex-col.items-center.active
+            .progress__number.flex.justify-center.items-center= index + 1
+              .progress__line
+            .progress__label.font.text-12px= item.label
+        else
+          .progress__item.flex.flex-col.items-center
+            .progress__number.flex.justify-center.items-center= index + 1
+              .progress__line
+            .progress__label.font.text-12px= item.label

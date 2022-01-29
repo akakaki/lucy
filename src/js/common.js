@@ -1,13 +1,13 @@
 $(function () {
-  $('.header__icon.remind').click(() => {
+  $('.header__icon.icon-question').click(() => {
     $('.header__search__wrap').stop().fadeToggle()
   })
 
-  $('.header__icon.remind').click(() => {
+  $('.header__icon.icon-notification').click(() => {
     $('.remind__message__wrap').stop().fadeToggle()
   })
 
-  $('.header__icon.member').click(() => {
+  $('.header__icon.icon-profile').click(() => {
     $('.header__member__wrap').stop().fadeToggle()
   })
 
@@ -126,4 +126,10 @@ $(function () {
     })
   }
 
+  // message
+
+  // form validation
+  // https://www.w3schools.com/js/js_validation.asp
+  // https://www.w3schools.com/js/tryit.asp?filename=tryjs_validation_check
+  // https://www.w3schools.com/js/js_validation_api.asp
 })

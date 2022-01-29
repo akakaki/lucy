@@ -1,32 +1,72 @@
 include ./templete/mixin.pug
 doctype html
-html(lang="en")
+html(lang="zh-TW")
   include ./templete/head.pug
   body
     .container.flex
-      +nav('body')
+      +nav('boy')
       .content
         +header()
         .content-article.vacancies
-          .vacancies__top
-            .vacancies-back__title
-              .vacancies-back__icon
+          .vacancies__top.flex
+            .vacancies-back.flex.items-center
+              .vacancies-back__icon.icon.icon-16px.icon-back
               .vacancies-back__label 返回
-            .vacancies-progress__wrap
-              .vacancies-progress__container
-                .vacancies-progress__line
-                .vacancies-progress__item
-                  .vacancies-progress__number 1
-                  .vacancies-progress__label 職缺名稱
-                .vacancies-progress__item
-                  .vacancies-progress__number 2
-                  .vacancies-progress__label 選擇問題
-                .vacancies-progress__item
-                  .vacancies-progress__number 3
-                  .vacancies-progress__label 成功創建
-          .vacancies__content.flex
-            .vacancies__input__data
-              .vacancies-setup__title
-                .vacancies-setup__icon 3
-                .vacancies-setup__label 創建職缺確認
-          .vacancies__content-setup-2.flex
+
+            -
+              const PROGRESS_WRAP = [
+                { label: '職缺名稱', active: true },
+                { label: '選擇問題', active: true },
+                { label: '成功創建' },
+              ]
+            .vacancies__progress
+              +progress(PROGRESS_WRAP)
+
+          .vacancies__content-setup-3
+            .vacancies-setup__title
+              .vacancies-setup__icon 3
+              .vacancies-setup__label 創建職缺確認
+            .vacancies-setup__user
+              .vacancies-setup__label 職缺名稱
+              .vacancies-setup__label 多媒體動畫設計師
+            .vacancies-setup__content
+              .vacancies-setup__content__title 工作內容
+              .vacancies-setup__span
+                | ☞ 廣告投放：<br>制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。<br>
+                | ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。<br>
+                | ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。<br>
+            .vacancies-setup__content
+              .vacancies-setup__content__title 需求條件
+              .vacancies-setup__span
+                | ☞ 廣告投放：<br>制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。<br>
+                | ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。<br>
+                | ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。<br>
+            .vacancies-setup__content
+              .vacancies-setup__content__title 職務需求
+              .vacancies-setup__span
+                | 工作待遇：月薪＄40,000~＄80,000<br>
+                | 工作性質：全職<br>
+                | 工作地點：桃園市<br>
+                | 可否遠端：可<br>
+            .vacancies-setup__content
+              .vacancies-setup__content__title 職缺填寫需求與檔案上傳
+              .vacancies-setup__span
+                | 工作待遇：月薪＄40,000~＄80,000<br>
+                | 工作性質：全職<br>
+                | 工作地點：桃園市<br>
+                | 可否遠端：可<br>
+            .vacancies-setup-3__question
+              .vacancies-setup-3__question__title 您選擇的面試問題
+              .vacancies-setup-3__question__list
+                .vacancies-setup-3__question__item
+                  .vacancies-setup-3__question__number 1
+                  .vacancies-setup-3__question__label 設計藝術 / 多媒體動畫設計師
+                  .vacancies-setup-3__question__text 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？
+            
+            .vacancies-setup-3__bottom
+              button.button.black 再想想，回到上一頁
+              button.button.white 確定送出
+            .vacancies-setup-3__t ips
+              .vacancies-setup-3__tips_icon
+              .vacancies-setup-3__tips_label 提醒您點選「確認」後露西助理會於24小時內為您準備面試內容，題目將無法修改！
+

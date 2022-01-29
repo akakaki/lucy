@@ -14,7 +14,7 @@ const pageData = [
   { id: 'dropdown-setup-1', label: '職缺-step-1' },
   { id: 'dropdown-setup-2', label: '職缺-step-2' },
   { id: 'dropdown-setup-3', label: '職缺-step-3' },
-  { id: 'candidate-response', label: '面試者資料' },
+  { id: 'response', label: '面試者資料' },
   { id: 'plan', label: '方案' },
   // { id: '', label: '露西交流網' },
   { id: 'setting', label: '設定' },

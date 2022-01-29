@@ -1,6 +1,6 @@
 include ./templete/mixin.pug
 doctype html
-html(lang="en")
+html(lang="zh-TW")
   include ./templete/head.pug
   body
     .container.flex
@@ -10,10 +10,10 @@ html(lang="en")
         .content-article.website
           .website-title
             +h1('您專屬的徵才網站')
-            .website__question.icon.question.icon16px
+            .website__question.icon.icon-question.icon-16px
           .website-link
             .website-link__title.flex.items-center
-              .website-link-icon.icon.icon18px.website
+              .website-link-icon.icon.icon-18px.website
               .website-link__label.font.text-16px 專屬貴公司的徵才網址
               .website-link__status.flex.items-center
                 .dot.gray
@@ -21,7 +21,7 @@ html(lang="en")
             .website-link__url__wrap
               input.website-link__url(placeholder="網頁創建完成才會有網址")
               .website-link__url__img
-                .website-link__icon
+                .website-link__icon.icon.icon-18px.icon-link-line.bg.bg-white
           .website-wrap.flex
             .website-config
               .website-config__title.font.text-16px 網站相關資訊
@@ -39,18 +39,18 @@ html(lang="en")
                   +input-wrap( { id: 'title', required: true, label: '網站標題', placeholder: '網站標題' } )
                   .website-config__banner
                     .website-config__banner__title.flex.items-center
-                      .website-config__banner__icon.icon.icon18px.upload
+                      .website-config__banner__icon.icon.icon-18px.icon-upload
                       .website-config__banner__label Banner 圖檔上傳 （建議尺寸｜1920*336 / 1.5 MB)
                     .website-config__banner__input__wrap
-                      .icon.icon18px.plus
+                      .icon.icon-18px.icon-plus
                       img.website-config__banner__img
                       input.website-config__banner__input(type="file")
                   .website-config__logo
                     .website-config__logo__title.flex.items-center
-                      .website-config__logo__icon.icon.icon18px.upload
+                      .website-config__logo__icon.icon.icon-18px.icon-upload
                       .website-config__logo__label Logo圖檔上傳（建議尺寸｜250*250 / 1 MB)
                     .website-config__logo__input__wrap
-                      .icon.icon18px.plus
+                      .icon.icon-18px.icon-plus
                       img.website-config__logo__img
                       input.website-config__logo__input(type="file")
                   button.website-config__button.button.black 儲存
@@ -74,26 +74,26 @@ html(lang="en")
                   .website-preview__content
                     .website-preview__search__wrap
                       .website-preview__search__container.flex.items-center
-                        .website-preview__search__icon.icon.icon18px
+                        .website-preview__search__icon.icon.icon-18px.icon-search.bg.bg-gray
                         .website-preview__search__input 請問你在找什麼
                     .website-preview__setting__wrap
                       .website-preview__setting__container.flex.items-center
                         .website-preview__setting__item.flex.items-center
                           | Type of job
-                          .icon.dropdown.icon10px
+                          .icon.dropdown.icon-10px
                         .website-preview__setting__item.flex.items-center
                           | Remote
-                          .icon.dropdown.icon10px
+                          .icon.dropdown.icon-10px
                         .website-preview__setting__item.flex.items-center
                           | Job location
-                          .icon.dropdown.icon10px
+                          .icon.dropdown.icon-10px
                         .website-preview__setting__item.flex.items-center
                           | Company
-                          .icon.dropdown.icon10px
+                          .icon.dropdown.icon-10px
                         .website-preview__setting__item.flex.items-center
                           .icon.arrow
                           | Default order
-                          .icon.dropdown.icon10px
+                          .icon.dropdown.icon-10px
                     .website-preview__detail__wrap
                       .website-preview__detail__container
                         .website-preview__detail__button.button.black 我要應徵
