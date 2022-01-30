@@ -9,147 +9,201 @@ html(lang="zh-TW")
         +header()
         .content-article.response
           +h1('面試者資料')
-          -
-            let switchList = [
-              { id: 'all', label: '全部' },
-              { id: 'vacancies', label: '申請職缺' },
-              { id: 'interview', label: '虛擬面試' },
-              { id: 'audit', label: '審核中' },
-              { id: 'incompatible', label: '不符合' },
-              { id: 'admit', label: '錄取' },
-            ]
-          form.field__wrap
-            .field__container.flex.items-end
-              .form__item.field
-                label.label 職缺名稱
-                -
-                  const JOB_TYPE_LIST = [
-                    '平面設計',
-                    '前端工程師',
-                    '動畫製作師',
-                  ]
-                select.input
-                  option(disabled selected) 請選擇職缺名稱
-                  for item in JOB_TYPE_LIST
-                    option= item
-              .form__item.field
-                label.label 面試者姓名
-                input.input(placeholder="請輸入面試者名字")
-              .form__item.field
-                label.label 應徵日期
-                .form__input__date.input.flex.items-center
-                  input(id="date-before" placeholder="YYYY-MM-DD" type="date")
-                  | -
-                  input(id="date-after" placeholder="YYYY-MM-DD" type="date")
-                  .form__input__date__icon.icon.icon-18px.icon-calendar
+          .response-search__list.flex.items-end
+            .response-search__item.field
+              label.label 職缺名稱
+              -
+                const JOB_TYPE_LIST = [
+                  '平面設計',
+                  '前端工程師',
+                  '動畫製作師',
+                ]
+              select.input
+                option(disabled selected) 請選擇職缺名稱
+                for item in JOB_TYPE_LIST
+                  option= item
+            .response-search__item.field
+              label.label 面試者姓名
+              input.input(placeholder="請輸入面試者名字")
+            .response-search__item.field
+              label.label 應徵日期
+              .form__input__date.input.flex.items-center
+                input(id="date-before" type="date")
+                | -
+                input(id="date-after" type="date")
+                .form__input__date__icon.icon.icon-18px.icon-calendar
 
-              .response__build-button.button.green
-                .icon.icon-18px.icon-user
-                | 創建職缺
-              .response__send-button.button.black
-                .icon.icon-18px.icon-message.bg.bg-white
-                | 發送多封郵件
-          .response-switch__wrap.flex.justify-between
-            .switch__wrap
-              .switch__container
-                +switch(switchList)
-            .data__count
+            .response__build-button.button.green
+              .icon.icon-18px.icon-user
+              | 創建職缺
+            .response__send-button.button.black
+              .icon.icon-18px.icon-message.bg.bg-white
+              | 發送多封郵件
+          .response__switch.flex.justify-between.items-center
+            -
+              const SWITCH_LIST = [
+                { id: 'all', label: '全部', active: true },
+                { id: 'vacancies', label: '申請職缺' },
+                { id: 'interview', label: '虛擬面試' },
+                { id: 'audit', label: '審核中' },
+                { id: 'incompatible', label: '不符合' },
+                { id: 'admit', label: '錄取' },
+              ]
+            +switch(SWITCH_LIST)
+            .response__count.flex.flex-col.items-end
               div 目前方案｜企業版
               div 線上面試人數｜20/100
-          .candidate__wrap
-            .candidate__container
-              .candidate-top
-                .candidate-top__input
-                  input.candidate__input(type="checkbox")
-                .candidate-top__title
-                  .candidate-top__label 職缺名稱
-                .candidate-top__title
-                  .candidate-top__label 面試者資訊
-                  .candidate-top__arrow
-                .candidate-top__title
-                  .candidate-top__label 線上面試回傳影片
-                .candidate-top__title
-                  .candidate-top__label 狀態
-                .candidate-top__title
-                  .candidate-top__label 聯絡他
-              .candidate-item
-                .candidate-item__input
-                  input.candidate__input(type="checkbox")
-                  span 01
-                .candidate-item__data
-                  .candidate-item__label 平面設計
-                .candidate-item__data
-                  .candidate-item__data__info
-                    .candidate-item__picture
-                      img.candidate-item__img()
-                    .candidate-item__info
-                      .candidate-item__info__name 吳娜莉
-                      .candidate-item__info__date
-                        .candidate-item__info__date__icon
-                        .candidate-item__info__date__label 應徵時間：2022.01.09
-                      .candidate-item__info__button__wrap
-                        .candidate-item__info__button.black
-                          .icon.user
-                          | 履歷
-                        .candidate-item__info__button.black
-                          .icon.file
-                          | 履歷
-                        .candidate-item__info__button.black
-                          .icon.file
-                          | 履歷
-                .candidate-item__data
-                  .candidate-item__question__wrap
-                    .candidate-item__question__container
-                      .candidate-item__question__title
-                        span.tips Q1
-                        p.text 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
-                      .candidate-item__question__content
-                        .candidate-item__question__progress
-                          .candidate-item__question__progress__long
-                        .candidate-item__question__link__wrap
-                          .candidate-item__question__link__container
-                            .candidate-item__question__link__item
-                              .icon.view
-                              | 觀看影片
-                            .candidate-item__question__link__item
-                              .icon.play
-                              | 播放聲音
-                            .candidate-item__question__link__item
-                              .icon.copy
-                              | 複製內容
-                      .candidate-item__question__title
-                        span.tips Q2
-                        p.text 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？
-                      .candidate-item__question__title
-                        span.tips Q3
-                        p.text 說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？
-                      .candidate-item__question__title
-                        span.tips Q4
-                        p.text 描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？
-                      .candidate-item__question__title
-                        span.tips Q5
-                        p.text 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？
-                      .candidate-item__question__more
-                        .icon
-                        | 展開所有問題
 
-                .candidate-item__data
-                  .candidate-item__data__status__wrap
-                    .candidate-item__data__status__container
-                      .candidate-item__data__status__title
-                        .candidate-item__data__status__icon.ok
-                        .candidate-item__data__status__label 已完成虛擬面試
-                  select.candidate-item__label
-                    option(value="0" disabled selected).candidate-item__label 請選擇狀態
-                    option(value="1").candidate-item__label 審核中
-                    option(value="2").candidate-item__label 不符合
-                    option(value="3").candidate-item__label 錄取
-                .candidate-item__data
-                  .candidate-item__contact__wrap
-                    .candidate-item__contact__container
-                      a.candidate-item__contact__button
-                        .candidate-item__contact__button__icon
-                        .candidate-item__contact__button__label 聯絡面試者
-                      a.candidate-item__contact__phone
-                        .candidate-item__contact__phone__icon
-                        .candidate-item__contact__phone__label 0912 345 678
+          .response-candidate__wrap
+            .response-candidate__container
+              .candidate-top__title
+                input(type="checkbox")
+              -
+                const CANDIDATE_TOP_LIST = [
+                  { label: '職缺名稱' },
+                  { label: '面試者資訊', arrow: true },
+                  { label: '線上面試回傳影片' },
+                  { label: '狀態' },
+                  { label: '聯絡他' },
+                ]
+              for item in CANDIDATE_TOP_LIST
+                .candidate-top__title
+                  .candidate-top__label= item.label
+                  if item.arrow 
+                    .candidate-top__arrow
+
+              .candidate-item__data
+                .input.flex.items-center.justify-center.flex-col
+                  input.candidate__input(type="checkbox")
+                  div 01
+              .candidate-item__data
+                .candidate-item__label 平面設計
+              .candidate-item__data
+                .candidate-data__info.flex
+                  .candidate-data__picture
+                    img.candidate-item__img(src="./images/Rectangle 5990.png")
+                  .candidate-item__info
+                    .candidate-item__info__name.font.text-18px 吳娜莉
+                    .candidate-item__info__date.font.text-12px.flex.items-center
+                      .candidate-item__info__date__icon.icon.icon-14px.icon-time
+                      .candidate-item__info__date__label 應徵時間：2022.01.09
+                    .candidate-file__wrap
+                      button.candidate-item__info__button.button.sm.black
+                        .icon.icon-18px.icon-resume.bg.bg-white
+                        | 履歷
+                      button.candidate-item__info__button.button.sm.black
+                        .icon.icon-18px.icon-folder.bg.bg-white
+                        | 附件1
+                      button.candidate-item__info__button.button.sm.black
+                        .icon.icon-18px.icon-folder.bg.bg-white
+                        | 附件1
+              .candidate-item__data
+                .candidate-item__question__wrap
+                  .candidate-item__question__container
+                    .candidate-question__title.flex
+                      span.tips Q1
+                      p.text 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
+                    .candidate-item__question__content
+                      .candidate-question__progress
+                        .candidate-question__energy(style="width: 50%")
+                      .candidate-item__question__link__wrap
+                        .candidate-item__question__link__container.flex.items-center
+                          .candidate-item-question-link__item.flex.items-center
+                            .icon.icon-18px.icon-play
+                            | 觀看影片
+                          .candidate-item-question-link__item.flex.items-center
+                            .icon.icon-18px.icon-sound
+                            | 播放聲音
+                          .candidate-item-question-link__item.flex.items-center
+                            .icon.icon-18px.icon-copy
+                            | 複製內容
+                    .candidate-question__title.flex
+                      span.tips Q2
+                      p.text 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？
+                    .candidate-question__title.flex
+                      span.tips Q3
+                      p.text 說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？
+                    .candidate-question__title.flex
+                      span.tips Q4
+                      p.text 描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？
+                    .candidate-question__title.flex
+                      span.tips Q5
+                      p.text 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？
+                    .candidate-question__more.flex.items-center.justify-end
+                      | 展開所有問題
+                      .icon.icon-14px.icon-arrow-down
+
+              .candidate-item__data.field
+                .candidate-item__data__status__wrap
+                  .candidate-item__data__status__container
+                    .candidate-item__data__status__title
+                      .candidate-item__data__status__icon.ok
+                      .candidate-item__data__status__label 已完成虛擬面試
+                select.candidate-item__label.input
+                  option(value="0" disabled selected).candidate-item__label 請選擇狀態
+                  option(value="1").candidate-item__label 審核中
+                  option(value="2").candidate-item__label 不符合
+                  option(value="3").candidate-item__label 錄取
+              .candidate-item__data
+                .candidate-item__contact__wrap
+                  .candidate-item__contact__container
+                    a.candidate-contact.flex.items-center.button.black
+                      .icon.icon-18px.icon-message.bg.bg-white
+                      .label 聯絡面試者
+                    a.candidate-phone.flex.items-center
+                      .icon.icon-14px.icon-phone
+                      .label 0912 345 678
+
+              .candidate-item__data
+                .input.flex.items-center.justify-center.flex-col
+                  input.candidate__input(type="checkbox")
+                  div 02
+              .candidate-item__data
+                .candidate-item__label 平面設計
+              .candidate-item__data
+                .candidate-data__info.flex
+                  .candidate-data__picture
+                    img.candidate-item__img(src="./images/Rectangle 5990.png")
+                  .candidate-item__info
+                    .candidate-item__info__name.font.text-18px 張建霖
+                    .candidate-item__info__date.font.text-12px.flex.items-center
+                      .candidate-item__info__date__icon.icon.icon-14px.icon-time
+                      .candidate-item__info__date__label 應徵時間：2022.01.09
+                    .candidate-file__wrap
+                      button.candidate-item__info__button.button.sm.black
+                        .icon.icon-18px.icon-resume.bg.bg-white
+                        | 履歷
+                      button.candidate-item__info__button.button.sm.black
+                        .icon.icon-18px.icon-folder.bg.bg-white
+                        | 附件1
+                      button.candidate-item__info__button.button.sm.black
+                        .icon.icon-18px.icon-folder.bg.bg-white
+                        | 附件1
+                      button.candidate-item__info__button.button.sm.black
+                        .icon.icon-18px.icon-folder.bg.bg-white
+                        | 附件2
+              .candidate-item__data
+                .candidate-item__question__wrap
+                  .candidate-item__question__container
+                    .candidate-question__non --
+
+              .candidate-item__data.field
+                .candidate-item__data__status__wrap
+                  .candidate-item__data__status__container
+                    .candidate-item__data__status__title
+                      .candidate-item__data__status__icon.ok
+                      .candidate-item__data__status__label 已收到職缺申請
+                select.candidate-item__label.input
+                  option(value="0" disabled selected).candidate-item__label 請選擇狀態
+                  option(value="1").candidate-item__label 審核中
+                  option(value="2").candidate-item__label 不符合
+                  option(value="3").candidate-item__label 錄取
+              .candidate-item__data
+                .candidate-item__contact__wrap
+                  .candidate-item__contact__container
+                    a.candidate-contact.flex.items-center.button.black
+                      .icon.icon-18px.icon-message.bg.bg-white
+                      .label 聯絡面試者
+                    a.candidate-phone.flex.items-center
+                      .icon.icon-14px.icon-phone
+                      .label 0912 345 678

@@ -25,3 +25,8 @@
 - [x] sign-up : 註冊
 - [x] forget-password-step-1 : 忘記密碼-step-1
 - [x] forget-password-step-2 : 忘記密碼-step-2
+
+## 後續步驟
+- 新增input 驗證
+- 新增message
+- 優化css

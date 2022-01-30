@@ -144,7 +144,7 @@ mixin notification-list(title, list)
 mixin switch(list)
   .switch__list
     for value in list
-      .switch__item(class=value.id)= value.label
+      .switch__item(class=`${value.id} ${value.active ? 'active' : ''}`)= value.label
 
 mixin input-wrap(value)
   .form__item

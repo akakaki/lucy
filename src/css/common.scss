@@ -89,7 +89,7 @@ a {
     mask-image: url('../images/icon/Icon-video.svg');
   }
 
-  &.icon-audio {
+  &.icon-sound {
     -webkit-mask-image: url('../images/icon/Black line=sound-on.svg');
     mask-image: url('../images/icon/Black line=sound-on.svg');
   }
@@ -147,6 +147,41 @@ a {
   &.icon-calendar {
     -webkit-mask-image: url('../images/icon/Black line=calendar_none.svg');
     mask-image: url('../images/icon/Black line=calendar_none.svg');
+  }
+
+  &.icon-phone {
+    -webkit-mask-image: url('../images/icon/phone.svg');
+    mask-image: url('../images/icon/phone.svg');
+  }
+
+  &.icon-file {
+    -webkit-mask-image: url('../images/icon/Black line=File edit line.svg');
+    mask-image: url('../images/icon/Black line=File edit line.svg');
+  }
+
+  &.icon-folder {
+    -webkit-mask-image: url('../images/icon/Black line=Folder line.svg');
+    mask-image: url('../images/icon/Black line=Folder line.svg');
+  }
+
+  &.icon-resume {
+    -webkit-mask-image: url('../images/icon/Black line=resume.svg');
+    mask-image: url('../images/icon/Black line=resume.svg');
+  }
+
+  &.icon-time {
+    -webkit-mask-image: url('../images/icon/Black line=Clock line.svg');
+    mask-image: url('../images/icon/Black line=Clock line.svg');
+  }
+
+  &.icon-play {
+    -webkit-mask-image: url('../images/icon/Black line=Play circle line.svg');
+    mask-image: url('../images/icon/Black line=Play circle line.svg');
+  }
+
+  &.icon-copy {
+    -webkit-mask-image: url('../images/icon/Black line=Copy line.svg');
+    mask-image: url('../images/icon/Black line=Copy line.svg');
   }
 
   &.icon-10px {
@@ -664,12 +699,12 @@ a {
   flex-wrap: wrap;
 }
 
-.items-center {
-  align-items: center;
-}
-
 .justify-center {
   justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-between {
@@ -800,7 +835,6 @@ a {
 }
 
 // === button ===
-
 .button {
   display: inline-flex;
   border-radius: 5px;
@@ -1925,10 +1959,121 @@ a {
   margin-right: 11px;
 }
 
-// === response ===
+// === 面試者資料 response ===
+.response-search__item {
+  margin-right: 22px;
+}
+
+.response__switch {
+  margin: 20px 0 5px;
+}
+
 .response__build-button {
   margin-left: auto;
   margin-right: 15px;
+}
+
+.response-candidate__container {
+  display: grid;
+  grid-template-columns: 50px 145px 420px 1fr 202px 170px;
+}
+
+.candidate-top__title,
+.candidate-item__data {
+  padding: 16px;
+}
+
+.candidate-top__title {
+  background: #EFEFEF;
+  font-size: #686868;
+}
+
+.candidate-item__data {
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.candidate-item__info__button,
+.candidate-item__info__date {
+  .icon {
+    margin-right: 6px;
+  }
+}
+
+.candidate-question__progress {
+  position: relative;
+  height: 5px;
+  border-radius: 5px;
+  background: #EFEFEF;
+  overflow: hidden;
+}
+
+.candidate-question__energy  {
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 5px;
+  border-radius: 5px;
+  background: #C4F000;
+}
+
+.candidate-item__question__link__wrap {
+  margin: 14px 0 20px;
+}
+
+.candidate-item-question-link__item {
+  margin-right: 34px;
+
+  .icon {
+    margin-right: 9px;
+  }
+}
+
+.candidate-question__title {
+  margin: 0 0 20px;
+
+  .tips {
+    margin-top: 2px;
+  }
+
+  .text {
+    margin: 0 0 0 15px;
+  }
+}
+
+.candidate-question__more  {
+  color: #1743D7;
+
+  .icon {
+    background: #1743D7;
+    margin-left: 8px;
+  }
+}
+
+.candidate-data__picture {
+  margin-right: 17px;
+}
+
+.candidate-contact {
+  .icon {
+    margin-right: 10px;
+  }
+}
+
+.candidate-phone {
+  padding: 12px;
+  color: #191919;
+
+  .icon {
+    margin-right: 10px;
+  }
+}
+
+.candidate-file__wrap {
+  margin-top: 9px;
+
+  button {
+    margin: 0 0 6px;
+  }
 }
 
 
