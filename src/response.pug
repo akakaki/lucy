@@ -136,9 +136,9 @@ html(lang="zh-TW")
               .candidate-item__data.field
                 .candidate-item__data__status__wrap
                   .candidate-item__data__status__container
-                    .candidate-item__data__status__title
-                      .candidate-item__data__status__icon.ok
-                      .candidate-item__data__status__label 已完成虛擬面試
+                    .candidate-status__title.flex.items-center
+                      .candidate-item__data__status__icon.icon.icon-18px.icon-double-check-mark
+                      .candidate-status__label 已完成虛擬面試
                 select.candidate-item__label.input
                   option(value="0" disabled selected).candidate-item__label 請選擇狀態
                   option(value="1").candidate-item__label 審核中
@@ -163,7 +163,8 @@ html(lang="zh-TW")
               .candidate-item__data
                 .candidate-data__info.flex
                   .candidate-data__picture
-                    img.candidate-item__img(src="./images/Rectangle 5990.png")
+                    .icon.icon-26px.icon-profile.bg.bg-light-grey
+                    img.candidate-item__img.non
                   .candidate-item__info
                     .candidate-item__info__name.font.text-18px 張建霖
                     .candidate-item__info__date.font.text-12px.flex.items-center
@@ -183,16 +184,13 @@ html(lang="zh-TW")
                         .icon.icon-18px.icon-folder.bg.bg-white
                         | 附件2
               .candidate-item__data
-                .candidate-item__question__wrap
-                  .candidate-item__question__container
-                    .candidate-question__non --
-
+                .candidate-item__question__wrap.non --
               .candidate-item__data.field
                 .candidate-item__data__status__wrap
                   .candidate-item__data__status__container
-                    .candidate-item__data__status__title
-                      .candidate-item__data__status__icon.ok
-                      .candidate-item__data__status__label 已收到職缺申請
+                    .candidate-status__title.flex.items-center
+                      .candidate-item__data__status__icon.icon.icon-18px.icon-check-mark
+                      .candidate-status__label 已收到職缺申請
                 select.candidate-item__label.input
                   option(value="0" disabled selected).candidate-item__label 請選擇狀態
                   option(value="1").candidate-item__label 審核中
@@ -207,3 +205,18 @@ html(lang="zh-TW")
                     a.candidate-phone.flex.items-center
                       .icon.icon-14px.icon-phone
                       .label 0912 345 678
+          .candidate-bottom.flex.justify-between
+            .display
+              span 顯示
+              select.select
+                option 10
+                option 20
+              span ，共 3 個項目
+            .page
+              .page__prev
+              .page__list
+                a.page__item.active 1
+                a.page__item 2
+                a.page__item 3
+                a.page__item 4
+              .page__next

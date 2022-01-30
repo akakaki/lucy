@@ -8,9 +8,9 @@
 ## 頁面
 - [x] 404 : 404
 - [x] setting : 設定
-- [ ] response : 面試者資料(html)
+- [x] response : 面試者資料(html)
 - [ ] dropdown : 職缺(html)
-- [ ] dropdown-setup-1 : 職缺-step-1(html)
+- [x] dropdown-setup-1 : 職缺-step-1(html)
 - [ ] dropdown-setup-2 : 職缺-step-2(html)
 - [ ] dropdown-setup-3 : 職缺-step-3(html)
 - [x] plan : 方案

@@ -38,7 +38,10 @@ html(lang="zh-TW")
               .vacancies-setup-detail__title.flex.items-center
                 .vacancies-setup__icon.icon.icon-18px.icon-user
                 .vacancies-setup__label.font.text-18px 職缺名稱
-              +input-wrap({ id: 'name', label: '職缺名稱', placeholder: '請輸入職缺名稱', text: '您預開設的職缺名稱。' })
+              .field
+                .label 職缺名稱
+                input.input(placeholder="請輸入職缺名稱")
+              .field-tip 您預開設的職缺名稱。
               .vacancies-setup-detail__title.flex.items-center
                 .vacancies-setup__icon.icon.icon-18px.icon-upload
                 .vacancies-setup__label.font.text-18px 職缺填寫需求與檔案上傳
@@ -107,5 +110,5 @@ html(lang="zh-TW")
                                     input.user-form__item-input.form__input(id=value.id placeholder=value.placeholder)
                     .user__bottom.flex.items-center.flex-col
                       .user__bottom__button.button.black.items-center.justify-center
-                        .icon.icon-18px.icon-checkmark.bg.bg-white
+                        .icon.icon-18px.icon-double-check-mark.bg.bg-white
                         | 確定，下一步

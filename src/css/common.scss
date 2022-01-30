@@ -33,6 +33,10 @@ a {
   &.bg-gray {
     background: #686868;
   }
+
+  &.bg-light-grey {
+    background: #E0E0E0;
+  }
 }
 
 .icon {
@@ -124,7 +128,7 @@ a {
     mask-image: url('../images/icon/Black line=save.svg');
   }
 
-  &.icon-checkmark {
+  &.icon-double-check-mark {
     -webkit-mask-image: url('../images/icon/Black line=Double checkmark.svg');
     mask-image: url('../images/icon/Black line=Double checkmark.svg');
   }
@@ -184,6 +188,11 @@ a {
     mask-image: url('../images/icon/Black line=Copy line.svg');
   }
 
+  &.icon-check-mark {
+    -webkit-mask-image: url('../images/icon/Black line=Checkmark.svg');
+    mask-image: url('../images/icon/Black line=Checkmark.svg');
+  }
+
   &.icon-10px {
     width: 10px;
     height: 10px;
@@ -207,6 +216,11 @@ a {
   &.icon-20px {
     width: 20px;
     height: 20px;
+  }
+
+  &.icon-26px {
+    width: 26px;
+    height: 26px;
   }
 }
 
@@ -1542,7 +1556,7 @@ a {
   }
 }
 
-.website-link__icon {
+.website-link__url__img {
   padding: 12px;
 }
 
@@ -2050,7 +2064,15 @@ a {
 }
 
 .candidate-data__picture {
+  position: relative;
   margin-right: 17px;
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .candidate-contact {
@@ -2076,8 +2098,41 @@ a {
   }
 }
 
+.candidate-item__img {
+  border: 1px solid #E0E0E0;
+  border-radius: 5px;
+  height: 140px;
+  width: 140px;
+  box-sizing: border-box;
+}
+
+.candidate-item__question__wrap {
+  &.non {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.candidate-status__title {
+  margin-bottom: 8px;
+}
+
+.candidate-status__label {
+  margin-left: 8px;
+}
+
+.candidate-bottom {
+  margin-top: 30px;
+}
+
 
 // === input type ===
+.field-tip {
+  font-size: 12px;
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -2142,13 +2197,13 @@ a {
   }
 }
 
-.progress__item:not(:last-child) {
-  margin-right: 254px;
+.progress__item:not(:first-child) {
+  margin-left: 254px;
 
   .progress__line {
     position: absolute;
     top: 50%;
-    left: calc(3px + 100%);
+    right: calc(3px + 100%);
     transform: translateY(-50%);
     background: #E0E0E0;
     height: 3px;
