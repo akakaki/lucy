@@ -9,7 +9,7 @@
 - [x] 404 : 404
 - [x] setting : 設定
 - [x] response : 面試者資料(html)
-- [ ] dropdown : 職缺(html)
+- [x] dropdown : 職缺(html)
 - [x] dropdown-setup-1 : 職缺-step-1(html)
 - [ ] dropdown-setup-2 : 職缺-step-2(html)
 - [ ] dropdown-setup-3 : 職缺-step-3(html)
