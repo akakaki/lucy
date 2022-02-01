@@ -8,11 +8,11 @@
 ## 頁面
 - [x] 404 : 404
 - [x] setting : 設定
-- [x] response : 面試者資料(html)
-- [x] dropdown : 職缺(html)
-- [x] dropdown-setup-1 : 職缺-step-1(html)
-- [ ] dropdown-setup-2 : 職缺-step-2(html)
-- [ ] dropdown-setup-3 : 職缺-step-3(html)
+- [x] response : 面試者資料
+- [x] dropdown : 職缺
+- [x] dropdown-setup-1 : 職缺-step-1
+- [x] dropdown-setup-2 : 職缺-step-2
+- [x] dropdown-setup-3 : 職缺-step-3
 - [x] plan : 方案
 - [x] record : 交易紀錄
 - [x] notification : 通知
@@ -27,6 +27,9 @@
 - [x] forget-password-step-2 : 忘記密碼-step-2
 
 ## 後續步驟
-- 新增input 驗證
-- 新增message
-- 優化css
+- [ ] 新增input 驗證
+- [ ] 新增message
+- [ ] 優化css
+- [x] 使用圖片確認
+- [ ] 抽出page
+- [ ] 命名確認

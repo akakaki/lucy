@@ -21,78 +21,93 @@ html(lang="zh-TW")
               ]
             .vacancies__progress
               +progress(PROGRESS_WRAP)
-
-          .vacancies__content.flex
-            .vacancies__input__data
-              .vacancies-setup__title
-                .vacancies-setup__icon 2
-                .vacancies-setup__label OOOOO 職缺
-          .vacancies__content-setup-2.flex
+          .vacancies__content-setup-2
             .vacancies__content-setup-2__container.flex
-              .vacancies-setup-2__data
-                .vacancies-setup-2__data__title
-                  .vacancies-setup-2__data__icon
-                  .vacancies-setup-2__data__label 露西題庫
-                .vacancies-setup-2__data__tips
-                  .vacancies-setup-2__data__tips__type
-                    .vacancies-setup-2__data__tips__type__label 中文題庫
-                    .vacancies-setup-2__data__tips__type__icon
-                  .vacancies-setup-2__data__tips__chose
-                    .vacancies-setup-2__data__tips__chose__icon
-                    .vacancies-setup-2__data__tips__chose__label 已選擇題數：0/10
-                -
-                  const QUESTION_LEVEL_1_LIST = [
-                    '行政管理',
-                    '機械工程',
-                    '軟體開發',
-                    '商業管理',
-                    '設計藝術',
-                    '機械工程',
-                    '機械工程',
-                  ]
+              .vacancies__content-left
+                .vacancies__content.flex
+                  .vacancies__input__data
+                    .vacancies-setup__title.flex.items-center
+                      .vacancies-setup__icon.number__icon 2
+                      .vacancies-setup__label.font.text-24px OOOOO 職缺
+                .vacancies-setup-2__data
+                  .vacancies-setup-2__data__title.flex.items-center
+                    .vacancies-setup-2__data__icon.icon.icon-20px.icon-user
+                    .vacancies-setup-2__data__label.font.text-18px 露西題庫
+                    .vacancies-setup-2-lang__title.button.white
+                      .vacancies-setup-2-lang__icon.icon.icon-18px.icon-earth
+                      .vacancies-setup-2-lang__label English
 
-                  const QUESTION_LEVEL_2_LIST = [
-                    '多媒體開發主管',
-                    '廣告設計',
-                  ]
+                  .vacancies-setup-2__data__tips.flex.items-center.justify-between
+                    .vacancies-setup-2__data__tips__type
+                      .vacancies-setup-2__data__tips__type__label 中文題庫
+                      .vacancies-setup-2__data__tips__type__icon
+                    .vacancies-setup-2__data__tips__chose.flex.items-center
+                      .vacancies-setup-2__data__tips__chose__icon.icon.icon-16px.icon-file
+                      .vacancies-setup-2__data__tips__chose__label 已選擇題數：0/10
+                  -
+                    const QUESTION_LEVEL_1_LIST = [
+                      '行政管理',
+                      '機械工程',
+                      '軟體開發',
+                      '商業管理',
+                      '設計藝術',
+                      '機械工程',
+                      '機械工程',
+                    ]
 
-                  const QUESTION_LEVEL_3_LIST = [
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '什麼時候你被分配了一項具有挑戰性的任務並且不得不在沒有任何指導的情況下領導它？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '什麼時候你被分配了一項具有挑戰性的任務並且不得不在沒有任何指導的情況下領導它？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？' },
-                    { key: '設計藝術 / 多媒體動畫設計師', value: '什麼時候你被分配了一項具有挑戰性的任務並且不得不在沒有任何指導的情況下領導它？' },
-                  ]
+                    const QUESTION_LEVEL_2_LIST = [
+                      '多媒體開發主管',
+                      '廣告設計',
+                    ]
 
-                .vacancies-setup-2-level-1__list
-                  for item in QUESTION_LEVEL_1_LIST
-                    .vacancies-setup-2-level-1__item= item
+                    const QUESTION_LEVEL_3_LIST = [
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '什麼時候你被分配了一項具有挑戰性的任務並且不得不在沒有任何指導的情況下領導它？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '什麼時候你被分配了一項具有挑戰性的任務並且不得不在沒有任何指導的情況下領導它？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？' },
+                      { key: '設計藝術 / 多媒體動畫設計師', value: '什麼時候你被分配了一項具有挑戰性的任務並且不得不在沒有任何指導的情況下領導它？' },
+                    ]
+                  .vacancies-setup-2-level.flex
+                    .vacancies-setup-2-level-1__list
+                      for item in QUESTION_LEVEL_1_LIST
+                        .vacancies-setup-2-level-1__item.font.text-16px= item
 
-                .vacancies-setup-2-level-2__list
-                  for item in QUESTION_LEVEL_2_LIST
-                    .vacancies-setup-2-level-2__item= item
+                    .vacancies-setup-2-level-2__list
+                      for item in QUESTION_LEVEL_2_LIST
+                        .vacancies-setup-2-level-2__item.font.text-16px= item
 
-                .vacancies-setup-2-level-3__list
-                  for item in QUESTION_LEVEL_3_LIST
-                    .vacancies-setup-2-level-3__item
-                      .label= item.key
-                      .value= item.value
+                    .vacancies-setup-2-level-3__list
+                      for item in QUESTION_LEVEL_3_LIST
+                        .vacancies-setup-2-level-3__item.font.text-16px
+                          .label= item.key
+                          .value= item.value
 
-              .vacancies__content-setup-2__chose
-                .vacancies__content-setup-2__top
-                  .vacancies__content-setup-2__chose__title
-                    .vacancies__content-setup-2__chose__icon
+              .vacancies__content-setup-2__chose.flex.flex-col.justify-between
+                .vacancies__content-setup-2__top.flex.items-center.justify-between
+                  .vacancies__content-setup-2__chose__title.flex.items-center
+                    .vacancies__content-setup-2__chose__icon.icon.icon-edit.icon-20px
                     .vacancies__content-setup-2__chose__label.font.text-18px 您選擇的題目
-                  .vacancies__content-setup-2__chose__button 客製題目
+                  .vacancies__content-setup-2__chose__button.flex.items-center.button.white
+                    .vacancies__content-setup-2__chose__button__icon.icon.icon-18px.icon-plus
+                    .vacancies__content-setup-2__chose__button__label 客製題目
+                .vacancies__content-setup-2__chose__container.flex.flex-col
+                  .vacancies__content-setup-2__chose__non.flex.items-center
+                    .vacancies__content-setup-2__chose__non__icon.icon.icon-34px.icon-file
+                    .vacancies__content-setup-2__chose__non__label 露西助理提醒您<br>請先勾選題目
+                  
                 .vacancies__content-setup-2__chose__list
                 .vacancies__content-setup-2__chose__bottom
-                  button 儲存草稿
-                  button 下一步
+                  button.vacancies__content-setup-2__chose__bottom-save.button.white
+                    .icon.icon-18px.icon-save
+                    .vacancies__content-setup-2__chose__bottom-save-label 儲存草稿
+                  button.vacancies__content-setup-2__chose__bottom-next.button.black
+                    .icon.icon-18px.icon-next.bg.bg-white
+                    .vacancies__content-setup-2__chose__bottom-save-label 下一步
 
