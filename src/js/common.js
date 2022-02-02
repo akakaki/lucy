@@ -12,14 +12,14 @@ $(function () {
   })
 
   // non rest api
-  // $('.switch__wrap .switch__item:first-child').addClass('active')
-  // $('.switch__wrap .switch__content:first-child').removeClass('hidden')
-  // $('.switch__wrap .switch__item').click(function() {
-  //   const target = Array.from(this.classList)
-  //   const chose = target.findIndex(item => item !== 'switch__item' && item !== 'active')
-  //   $(`.switch__wrap .switch__content.${target[chose]}`).stop().removeClass('hidden').siblings().addClass('hidden')
-  //   $(this).addClass('active').siblings().removeClass('active')    
-  // })
+  $('.switch__wrap .switch__item:first-child').addClass('active')
+  $('.switch__wrap .switch__content:first-child').removeClass('hidden')
+  $('.switch__wrap .switch__item').click(function() {
+    const target = Array.from(this.classList)
+    const chose = target.findIndex(item => item !== 'switch__item' && item !== 'active')
+    $(`.switch__wrap .switch__content.${target[chose]}`).stop().removeClass('hidden').siblings().addClass('hidden')
+    $(this).addClass('active').siblings().removeClass('active')    
+  })
 
   $('.form__textarea').keypress(function() {
     $('.form__textarea-quantity').text(`${$(this).val().length} / 500`)

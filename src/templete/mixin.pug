@@ -8,7 +8,7 @@
   let navList = [
     { id: 'noteboard', label: '露西面試助理', href: 'index.html' },
     { id: 'website', label: '徵才網站', href: 'website.html' },
-    { id: 'boy', label: '職缺', href: 'dropdown.html' },
+    { id: 'boy', label: '職缺', href: 'opening.html' },
     { id: 'folder', label: '面試者資料', href: 'response.html' },
     { id: 'plans', label: '方案', href: 'plan.html' },
     { id: 'share', label: '露西交流網', href: '' },
@@ -181,3 +181,20 @@ mixin progress(list)
             .progress__label.font.text-12px= item.label
 
 //- 頁籤
+mixin page
+  .page__wrap.flex.justify-between
+    .page-select__container.flex.items-center
+      span 顯示
+      .field
+        select.input
+          option 10
+          option 20
+      span ，共 3 個項目
+    .page-unmber__container
+      .page__prev.icon.icon-10px.icon-arrow-left
+      .page__list
+        a.page__item.active 1
+        a.page__item 2
+        a.page__item 3
+        a.page__item 4
+      .page__next.icon.icon-10px.icon-arrow-left
