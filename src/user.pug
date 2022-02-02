@@ -3,10 +3,11 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
+    .message_list
     .container.user
       h1.user__h1.font.text-24px E-Commerce Category Planner 品類企劃 -生活類別
-      h2.user__h2.font.text-24px
-        .icon.icon-question
+      h2.user__h2.font.text-24px.flex.items-center
+        .number__icon.font.text-12px 1
         | 嗨！ＯＯＯ，我們隆重邀請您參與面試。
       p.user__p
         | 您好，非常感謝您應徵此職缺。
@@ -19,7 +20,7 @@ html(lang="zh-TW")
             | 準備好了嗎？
             br
             | 深吸一口氣，線上面試即將開始！
-          button.items-center.button.green
+          button.user__button.items-center.button.green
             .icon.icon-16px.icon-next
             .label 確定，開始線上面試
       .user__tips.flex.items-center.justify-center

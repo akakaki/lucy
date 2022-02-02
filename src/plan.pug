@@ -3,11 +3,12 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
+    .message_list
     .container.flex
       +nav('plans')
       .content
         +header()
-        .content-article
+        .content-article.flex.flex-col
           +h1('方案')
           .plan__wrap
             .plan-record__wrap
@@ -27,7 +28,7 @@ html(lang="zh-TW")
                           .info__item
                             .icons.plan
                             span 方案到期 2021-01-29
-                      ul.plan__list
+                      ul.plan__list.flex.items-center
                         li.plan__item
                           .icon
                           | 1 個職缺
@@ -120,7 +121,7 @@ html(lang="zh-TW")
                   .plan-record-all__button.button.black 聯絡我們
   .plan-buy__wrap
     .plan-buy__case
-      .plan-buy__case__title
+      .plan-buy__case__title.flex.flex
         .plan-buy__case__icon
         .plan-buy__case__label.font.text-18px 所選方案
       .plan-buy__case__type
@@ -130,23 +131,23 @@ html(lang="zh-TW")
           span.font.text-16px /年
       .plan-buy__case__text 獲得5個職缺及100位虛擬面試的額度，同時您也可以隨心所欲的創建題目，或是盡情使用Lucy提供的專業題庫，並為您架設貴公司專屬徵才網站。
       .plan-buy__case__list
-        .plan-buy__case__item
+        .plan-buy__case__item.flex
           .icon
           | 5 個職缺
-        .plan-buy__case__item
+        .plan-buy__case__item.flex
           .icon
           | 100 位虛擬面試
-        .plan-buy__case__item
+        .plan-buy__case__item.flex
           .icon
           | 應徵人數無上限
-        .plan-buy__case__item
+        .plan-buy__case__item.flex
           .icon
           | Lucy題庫
-        .plan-buy__case__item
+        .plan-buy__case__item.flex
           .icon
           | 專屬徵才網站
     .plan-buy__detail
-      .plan-buy__detail__title
+      .plan-buy__detail__title.flex.items-center
         .plan-buy__detail__icon
         .plan-buy__detail__label.font.text-18px 選擇付款方式
         .plan-buy__detail__close

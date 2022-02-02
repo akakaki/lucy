@@ -11,11 +11,12 @@ html(lang="zh-TW")
         { id: 'resume', label: '履歷', required: 'true' },
         { id: 'cv', label: 'CV' },
       ]
+    .message_list
     .container.flex
       +nav('boy')
       .content
         +header()
-        .content-article.vacancies
+        .content-article.flex.flex-col.vacancies
           .vacancies__top.flex
             .vacancies-back.flex.items-center
               .vacancies-back__icon.icon.icon-16px.icon-back
@@ -71,12 +72,12 @@ html(lang="zh-TW")
                 .vacancies-setup-detail__button.button.white
                   .vacancies-setup-detail__icon.icon.icon-16px.icon-save
                   .vacancies-setup-detail__label 儲存草稿
-                .vacancies-setup-detail__button.button.black.flex.items-center
+                a.vacancies-setup-detail__button.button.black.flex.items-center(href="opening-setup-2.html")
                   .vacancies-setup-detail__icon.icon.icon-16px.icon-next.bg.bg-white
                   .vacancies-setup-detail__label 下一步
             .vacancies__input__preview.website-preview
               .website-preview__wrap
-                .website-preview__container
+                .website-preview__container.bg.bg-white
                   .website-preview__link.flex.items-center
                     .website-preview__dot
                     .website-preview__dot
@@ -87,7 +88,7 @@ html(lang="zh-TW")
                       .website-preview__back.icon.icon-16px.icon-back
                       h1.user__h1.font.text-24px 職缺名稱
                     h2.user__h2.font.text-24px.flex.items-center
-                      .user__count.number__icon.font.text-12px 1
+                      .user__count.font.color-white.bg.black.flex.items-center.justify-center.number__icon.font.text-12px 1
                       | 嗨！我們很開心能認識你。
                       .icon.icon-14px.icon-arrow-down
                     .user__tips__zone.flex.items-center
@@ -101,13 +102,13 @@ html(lang="zh-TW")
                         { id: 'mail', required: true, label: '信箱', placeholder: '請輸入您的信箱' },
                         { id: 'phone', required: true, label: '聯絡電話', placeholder: '請輸入您的聯絡電話' },
                       ]
-                    form.user-form
+                    form.user-form.field
                       .form__container
                         for value in baseList
                           .user-form__item.form__item
-                            label.user-form__item-label.form__label(for=value.id)= value.label
+                            label.user-form__item-label.form__label.label(for=value.id)= value.label
                               span *
-                                    input.user-form__item-input.form__input(id=value.id placeholder=value.placeholder)
+                                    input.user-form__item-input.form__input.input(id=value.id placeholder=value.placeholder)
                     .user__bottom.flex.items-center.flex-col
                       .user__bottom__button.button.black.items-center.justify-center
                         .icon.icon-18px.icon-double-check-mark.bg.bg-white

@@ -3,17 +3,18 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
-    .sign-in__wrap
+    .message_list
+    .sign-in.flex__wrap
       .container.flex
-        .intro.flex-1.center
-          h1.text-white 使用露西助理
-          h2.text-white 面試無往不利，省時隨心所欲
-          a.button.green 註冊加入
-        .sign-in.flex-1.center
+        .intro.flex.flex-1.flex-col.items-center.justify-center
+          h1.font.color-white 使用露西助理
+          h2.font.color-white 面試無往不利，省時隨心所欲
+          a.sign__button.button.green(href="sign-in.html") 我要登入
+        .sign-in.flex.flex-1.flex-col.items-center.justify-center
           .sign-in.white-bg
             img.logo(src="./images/Lucy_logo_black-16.svg")
             .login__title
-              img.title__icon.icon(src="./images/icon/Black line=sign in.svg")
+              .title__icon.icon.icon-18px.icon-sign-in
               .login__label.font.text-18px 註冊
             .login__sub 請先填入註冊時的信箱，驗證完成後請去信箱收信確認
             -
@@ -25,7 +26,7 @@ html(lang="zh-TW")
                 { id: 'passowrd', required: true, label: '密碼', placeholder: '密碼' },
                 { id: 'checkPassword', required: true, label: '密碼確認', placeholder: '請再輸入一次上方密碼' },
               ]
-            form.form__wrap
+            form.form__wrap.field
               .form__container
                 for value in signFormList
                   +input-wrap(value)
@@ -35,8 +36,8 @@ html(lang="zh-TW")
                 label(for="remember") 我同意露西助理的隱私權條款
                 a 隱私權條款
             div 
-              button.button.black.full 確認
+              button.sign-up__button.button.black.full 確認
             .login__tips
               span 已經有帳號了嗎？
-              a 我要登入
+              a(href="sign-in.html") 我要登入
 

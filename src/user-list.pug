@@ -1,0 +1,84 @@
+include ./templete/mixin.pug
+doctype html
+html(lang="zh-TW")
+  include ./templete/head.pug
+  body
+    .message_list
+    .container.user-list
+      .user-list__banner__wrap
+        img.user-list__banner(src="./images/banner.jpg")
+        .user-list__banner__container
+          img.user-list__banner__logo(src="./images/page_logo.svg")
+          .user-list__banner__text.font.color-white The opportunity to spend your time solving hard, <br>interesting problems with smart peoples.
+      .user-list__top.flex
+        .user-list__search.flex.items-center
+          .user-list__icon.icon.icon-18px.icon-search
+          input(placeholder="輸入您想找的職缺")
+        -
+          const JOB_TYPE_LIST = [
+            '平面設計',
+            '前端工程師',
+            '動畫製作師',
+          ]
+
+        .field
+          select.user-list__select.input
+            option(disabled selected) 工作性質
+            for item in JOB_TYPE_LIST
+              option= item
+        .field
+          select.user-list__select.input
+            option(disabled selected) 工作地點
+            for item in JOB_TYPE_LIST
+              option= item
+        .field
+          select.user-list__select.input
+            option(disabled selected) 可否遠端
+            for item in JOB_TYPE_LIST
+              option= item
+
+      .user-list__container 
+        h2.font.text-24px 職缺列表
+        .user-list__content
+          h3.font.text-24px B2B Lead Generation Specialist
+          div.user-list__title.font.text-16px 工作內容
+          p.font.text-16px ☞ 廣告投放：<br>制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化
+          p.font.text-16px ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。
+          p.font.text-16px ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。
+
+          div.user-list__title.font.text-16px 需求條件
+          p.font.text-16px ☞ 廣告投放：<br>制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化
+          p.font.text-16px ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。
+          p.font.text-16px ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。
+
+          div.user-list__title.font.text-16px 職務要求
+          p.font.text-16px 工作待遇｜月薪 ＄40,000~＄80,000
+          p.font.text-16px 工作性質｜全職
+          p.font.text-16px 工作地點｜桃園市
+          p.font.text-16px 可否遠端｜可
+
+          .user-list__button__wrap.flex.justify-end
+            a.user-list__button.button.black 我想應徵
+        .user-list__content
+          h3.font.text-24px B2B Lead Generation Specialist
+          div.user-list__title.font.text-16px 工作內容
+          p.font.text-16px ☞ 廣告投放：<br>制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化
+          p.font.text-16px ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。
+          p.font.text-16px ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。
+
+          div.user-list__title.font.text-16px 需求條件
+          p.font.text-16px ☞ 廣告投放：<br>制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化
+          p.font.text-16px ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。
+          p.font.text-16px ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。
+
+          div.user-list__title.font.text-16px 職務要求
+          p.font.text-16px 工作待遇｜月薪 ＄40,000~＄80,000
+          p.font.text-16px 工作性質｜全職
+          p.font.text-16px 工作地點｜桃園市
+          p.font.text-16px 可否遠端｜可
+
+          .user-list__button__wrap.flex.justify-end
+            a.user-list__button.button.black 我想應徵
+      footer.user-list__footer 版權 2022 Lucy 保留所有權利
+
+

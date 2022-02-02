@@ -2,7 +2,7 @@ include ./templete/mixin.pug
 
 mixin updateInput(value)
   .user-form__item.form__item
-    label.user-form__item-label.form__label= value.title
+    label.user-form__item-label.form__label.label= value.title
       span *
     .user-form__chose__wrap
       .user-form__chose.flex.items-center
@@ -13,7 +13,7 @@ mixin updateInput(value)
           input.user-form__chose__input(type="radio" name=value.name value="drop")
           label 檔案
       .user-form__type__wrap
-        input.user-form__item-input.form__input.input(placeholder="https://")
+        input.user-form__item-input.form__input.input.input(placeholder="https://")
         .user-form__type__drop.drop
           .user-form__type__drop__container
             .website-config__banner__input__wrap.user__update
@@ -25,10 +25,11 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
+    .message_list
     .container.user
       h1.user__h1.font.text-24px E-Commerce Category Planner 品類企劃 -生活類別
       h2.user__h2.font.text-24px.flex.items-center
-        .user__count.font.text-12px 1
+        .number__icon.font.text-12px 1
         | 嗨！我們很開心能認識你。
         .icon.down
       .user__tips__zone.flex.items-center
@@ -42,31 +43,31 @@ html(lang="zh-TW")
           { id: 'mail', required: true, label: '信箱', placeholder: '請輸入您的信箱' },
           { id: 'phone', required: true, label: '聯絡電話', placeholder: '請輸入您的聯絡電話' },
         ]
-      form.user-form
+      form.user-form.field
         .form__container
           for value in baseList
             .user-form__item.form__item
-              label.user-form__item-label.form__label(for=value.id)= value.label
+              label.user-form__item-label.form__label.label(for=value.id)= value.label
                 span *
-              input.user-form__item-input.form__input(id=value.id placeholder=value.placeholder)
+              input.user-form__item-input.form__input.input(id=value.id placeholder=value.placeholder)
           +updateInput({ title: '求職信', name: 'letter' })
 
       h2.user__h2.font.text-24px.flex.items-center
-        .user__count.font.text-12px 2
+        .number__icon.font.text-12px 2
         | 請上傳相關檔案，讓我們更了解你。
       .user__tips__zone.flex.items-center
         .user__tips__icon.user
         .user__tips__label 其他應徵資料
         .user__tips__required * 必填
       .user-text__tips.font.text-12px 請提供您應徵此職缺相對應的學經歷資料。
-      form.user-form
+      form.user-form.field
         .form__container
           +updateInput({ title: '求職信', name: 'letter2' })
           +updateInput({ title: '作品集', name: 'work1' })
           +updateInput({ title: '作品集', name: 'work2' })
           .user__bottom.flex.items-center.flex-col
             .user__bottom__button.button.black.items-center.justify-center
-              .icon.icon-18px
+              .icon.icon-18px.icon-double-check-mark.bg.bg-white
               | 確定送出
             .agree__wrap
               input.agree__input(type="checkbox")

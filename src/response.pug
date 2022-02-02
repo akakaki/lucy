@@ -3,11 +3,12 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
+    .message_list
     .container.flex
       +nav('folder')
       .content
         +header()
-        .content-article.response
+        .content-article.flex.flex-col.response
           +h1('面試者資料')
           .response-search__list.flex.items-end
             .response-search__item.field
@@ -27,11 +28,11 @@ html(lang="zh-TW")
               input.input(placeholder="請輸入面試者名字")
             .response-search__item.field
               label.label 應徵日期
-              .form__input__date.input.flex.items-center
+              .form__input.input__date.input.flex.items-center
                 input(id="date-before" type="date")
                 | -
                 input(id="date-after" type="date")
-                .form__input__date__icon.icon.icon-18px.icon-calendar
+                .form__input.input__date__icon.icon.icon-18px.icon-calendar
 
             .response__build-button.button.green
               .icon.icon-18px.icon-user
@@ -105,7 +106,7 @@ html(lang="zh-TW")
                       p.text 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
                     .candidate-item__question__content
                       .candidate-question__progress
-                        .candidate-question__energy(style="width: 50%")
+                        .candidate-question__energy.bg.bg-green(style="width: 50%")
                       .candidate-item__question__link__wrap
                         .candidate-item__question__link__container.flex.items-center
                           .candidate-item-question-link__item.flex.items-center

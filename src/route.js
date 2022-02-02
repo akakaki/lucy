@@ -6,9 +6,7 @@ const pageData = [
   { id: 'forget-password-step-1', label: '忘記密碼-step-1' },
   { id: 'forget-password-step-2', label: '忘記密碼-step-2' },
  
-  // { id: 'index', label: '首頁' },
-  { id: 'index', label: '露西面試助理' },
-  { id: 'notification', label: '通知' },
+  { id: 'index', label: '露西面試助理&通知' },
   { id: 'website', label: '徵才網站' },
   { id: 'opening', label: '職缺' },
   { id: 'opening-setup-1', label: '職缺-step-1' },
@@ -19,6 +17,7 @@ const pageData = [
   // { id: '', label: '露西交流網' },
   { id: 'setting', label: '設定' },
   { id: 'record', label: '交易紀錄' },
+  { id: 'user-list', label: '應徵頁面列表' },
   { id: 'user', label: '應徵頁面' },
   { id: 'user-setup-1', label: '應徵頁面-setup-1' },
   { id: 'user-setup-2', label: '應徵頁面-setup-2' },
@@ -28,6 +27,7 @@ const pageData = [
 const PAGE_LIST = []
 const ENTRY_LIST = [
   path.resolve('src/css/common.scss'),
+  path.resolve('src/css/style.scss'),
   // 'jquery/dist/jquery.min.js',
 ]
 

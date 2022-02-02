@@ -3,17 +3,18 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
-    .sign-in__wrap.sign-in
+    .message_list
+    .sign-in.flex__wrap.sign-in
       .container.flex
-        .intro.flex-1.center
-          h1.text-white 使用露西助理
-          h2.text-white 面試無往不利，省時隨心所欲
-          a.button.green 註冊加入
-        .sign-in.flex-1.center
+        .intro.flex.flex-1.flex-col.items-center.justify-center
+          h1.font.color-white 使用露西助理
+          h2.font.color-white 面試無往不利，省時隨心所欲
+          a.sign__button.button.green(href="sign-up.html") 註冊加入
+        .sign-in.flex.flex-1.flex-col.items-center.justify-center
           .sign-in.white-bg
             img.logo(src="./images/Lucy_logo_black-16.svg")
             .login__title
-              img.title__icon.icon(src="./images/icon/Black line=sign in.svg")
+              .title__icon.icon.icon-18px.icon-sign-in
               .login__label.font.text-18px 登入
             .login__sub 嗨，歡迎回來
             -
@@ -21,7 +22,7 @@ html(lang="zh-TW")
                 { id: 'mail', required: true, label: 'Email', placeholder: 'Email' },
                 { id: 'passowrd', required: true, label: '密碼', placeholder: '密碼' },
               ]
-            form.form__wrap
+            form.form__wrap.field
               .form__container
                 for value in signFormList
                   +input-wrap(value)
@@ -30,10 +31,10 @@ html(lang="zh-TW")
                 input(id="remember" type="checkbox")
                 label(for="remember") 記得我的登入資訊
               .forget 
-                a 忘記密碼？
+                a(href="forget-password-step-1.html") 忘記密碼？
             div 
               button.button.black.full 確認
             .login__tips
               span 還沒使用過露西助理?
-              a 我要註冊
+              a(href="sign-up.html") 我要註冊
 

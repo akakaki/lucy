@@ -1,27 +1,27 @@
 $(function () {
-  $('.header__icon.icon-question').click(() => {
+  $('.header__icon.icon-question').on('click', function () {
     $('.header__search__wrap').stop().fadeToggle()
   })
 
-  $('.header__icon.icon-notification').click(() => {
+  $('.header__icon.icon-notification').on('click', function () {
     $('.remind__message__wrap').stop().fadeToggle()
   })
 
-  $('.header__icon.icon-profile').click(() => {
+  $('.header__icon.icon-profile').on('click', function () {
     $('.header__member__wrap').stop().fadeToggle()
   })
 
   // non rest api
   $('.switch__wrap .switch__item:first-child').addClass('active')
   $('.switch__wrap .switch__content:first-child').removeClass('hidden')
-  $('.switch__wrap .switch__item').click(function() {
+  $('.switch__wrap .switch__item').on('click', function () {
     const target = Array.from(this.classList)
     const chose = target.findIndex(item => item !== 'switch__item' && item !== 'active')
     $(`.switch__wrap .switch__content.${target[chose]}`).stop().removeClass('hidden').siblings().addClass('hidden')
     $(this).addClass('active').siblings().removeClass('active')    
   })
 
-  $('.form__textarea').keypress(function() {
+  $('.form__textarea').on('keypress', () => {
     $('.form__textarea-quantity').text(`${$(this).val().length} / 500`)
   })
 
@@ -37,17 +37,17 @@ $(function () {
 
 
   // drag input
-  function dragenter(e) {
+  const dragenter = (e) => {
     e.stopPropagation()
     e.preventDefault()
   }
 
-  function dragover(e) {
+  const dragover = (e) => {
     e.stopPropagation()
     e.preventDefault()
   }
 
-  function drop(e) {
+  const drop = (e) => {
     e.stopPropagation()
     e.preventDefault()
 
@@ -63,7 +63,7 @@ $(function () {
     reader.readAsDataURL(files[0])
   }
 
-  function imgInput (e) {
+  const imgInput = (e) => {
     $('.plan-buy__update__img__label').text(e.target.files[0].name)
     const reader = new FileReader()
     reader.onload = (e => {
@@ -90,7 +90,7 @@ $(function () {
       else input.text('www.lucy.website')
     })
 
-    $('.form__input#company').on('keyup', function () {
+    $('.form__input.input#company').on('keyup', function () {
       const text = $(this).val()
       const input = $('.website-preview__banner-center__title')
       if (text.length) input.text(text)
@@ -127,7 +127,31 @@ $(function () {
     })
   }
 
+  $('.forget-button').on('click', function () {
+    message('密碼更新成功，請輸入新密碼進行登入')
+  })
+
+  $('.sign-up__button').on('click', function () {
+    message('錯誤訊息', 'err')
+  })
+
   // message
+  const message = (text, type='secure') => {
+    const icon = $('<div class="icon icon-18px bg"></div>')
+    const typeLabel = type === 'secure' ? 'icon-double-check-mark bg-green' : 'icon-security bg-red'
+    icon.addClass(typeLabel)
+
+    const element = $('<div></div>')
+    element.text(text)
+    element.addClass(`message_item flex ${type}`)
+    element.appendTo('.message_list')
+    icon.prependTo(element)
+
+    setTimeout(() => {
+      element.fadeOut(300, function() { $(this).remove() })
+    }, 3000)
+  }
+
 
   // form validation
   // https://www.w3schools.com/js/js_validation.asp

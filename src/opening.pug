@@ -3,14 +3,15 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
+    .message_list
     .container.flex
       +nav('boy')
       .content
         +header()
-        .content-article.opening
+        .content-article.flex.flex-col.opening
           .opening-title.flex.items-center.justify-between
             +h1('職缺')
-            button.opening-build__button.button.green.shadow
+            a.opening-build__button.button.green.shadow(href="opening-setup-1.html")
               .opening-build__icon.icon.icon-18px.icon-user
               .opening-build__label 創建職缺
           form.opening-form__wrap.flex.items-end
@@ -22,11 +23,11 @@ html(lang="zh-TW")
                 option(value="2") 2
             .field
               label.label 創建日期
-              .form__input__date.input.flex.items-center
+              .form__input.input__date.input.flex.items-center
                 input(id="date-before" type="date")
                 | -
                 input(id="date-after" type="date")
-                .form__input__date__icon.icon.icon-18px.icon-calendar
+                .form__input.input__date__icon.icon.icon-18px.icon-calendar
 
             .opening-count__data.flex.flex-col.items-end
               div 目前方案｜企業版
@@ -98,7 +99,7 @@ html(lang="zh-TW")
                     .opening-question__item.flex
                       span.tips Q5
                       p.text 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？
-                    .opening-question__more.flex.items-center.justify-end
+                    .opening-question__more.font.color-blue.flex.items-center.justify-end
                       | 展開所有問題
                       .icon.icon-14px.icon-arrow-down
 
@@ -181,7 +182,7 @@ html(lang="zh-TW")
                     .opening-question__item.flex
                       span.tips Q5
                       p.text 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？
-                    .opening-question__more.flex.items-center.justify-end
+                    .opening-question__more.font.color-blue.flex.items-center.justify-end
                       | 展開所有問題
                       .icon.icon-14px.icon-arrow-down
 

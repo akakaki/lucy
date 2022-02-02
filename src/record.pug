@@ -3,11 +3,12 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
+    .message_list
     .container.flex
       +nav()
       .content
         +header('record')
-        .content-article
+        .content-article.flex.flex-col
           +h1('交易紀錄')
           -
             let settingSystemList = [
@@ -15,7 +16,7 @@ html(lang="zh-TW")
               { id: 'audit', label: '審核中' },
               { id: 'complete', label: '完成' },
             ]
-          .switch__wrap
+          .switch__wrap.flex.flex-col.flex-1
             +switch(settingSystemList)
             .switch__content
               .switch__content.all.hidden
@@ -35,7 +36,7 @@ html(lang="zh-TW")
                     td 可使用五個職缺100個面試者
                     td
                       div 付款金額
-                      .count $26,800
+                      .count.font.color-blue $26,800
                   tr
                     td 02
                     td 訂製
@@ -44,7 +45,7 @@ html(lang="zh-TW")
                     td 可使用五個職缺100個面試者
                     td
                       div 付款金額
-                      .count $26,800
+                      .count.font.color-blue $26,800
                   tr
                     td 03
                     td 訂製
@@ -53,7 +54,7 @@ html(lang="zh-TW")
                     td 可使用五個職缺100個面試者
                     td
                       div 付款金額
-                      .count $26,800
+                      .count.font.color-blue $26,800
                 +page
               .switch__content.audit.hidden
                 table.table(cellspacing="0" cellpadding="0")
@@ -72,7 +73,7 @@ html(lang="zh-TW")
                     td 可使用五個職缺100個面試者
                     td
                       div 付款金額
-                      .count $26,800
+                      .count.font.color-blue $26,800
                 +page
               .switch__content.complete.hidden
                 table.table(cellspacing="0" cellpadding="0")
@@ -91,7 +92,7 @@ html(lang="zh-TW")
                     td 可使用五個職缺100個面試者
                     td
                       div 付款金額
-                      .count $26,800
+                      .count.font.color-blue $26,800
                   tr
                     td 03
                     td 訂製
@@ -100,5 +101,5 @@ html(lang="zh-TW")
                     td 可使用五個職缺100個面試者
                     td
                       div 付款金額
-                      .count $26,800
+                      .count.font.color-blue $26,800
                 +page
