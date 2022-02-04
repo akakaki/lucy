@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LUCY</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/2e0f4bcc90e6a1f5c98f.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;700&amp;display=swap" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+  <link href="css/main.css" rel="stylesheet"></head>
+  <body>
+    <div class="message_list"></div>
+    <div class="container flex">
+      <aside class="aside__wrap bg bg-black font color-white font text-16px"><a class="aside__logo" href="/"><img class="icon" src="./images/de6803f82ae374869a39.svg"><img class="text" src="./images/235b38e0db3ffce3c40d.svg"></a>
+        <ul class="aside__list">
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="index.html">
+              <div class="aside__icon icon icon-18px icon-noteboard"></div>
+              <div class="aside__label">露西面試助理</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="website.html">
+              <div class="aside__icon icon icon-18px icon-website"></div>
+              <div class="aside__label">徵才網站</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="opening.html">
+              <div class="aside__icon icon icon-18px icon-user"></div>
+              <div class="aside__label">職缺</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="response.html">
+              <div class="aside__icon icon icon-18px icon-folder"></div>
+              <div class="aside__label">面試者資料</div></a></li>
+          <li class="aside__item active"><a class="aside__link flex items-center bg bg-green font color-black" href="plan.html">
+              <div class="aside__icon icon icon-18px icon-plans"></div>
+              <div class="aside__label">方案</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="">
+              <div class="aside__icon icon icon-18px icon-share"></div>
+              <div class="aside__label">露西交流網</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="setting.html">
+              <div class="aside__icon icon icon-18px icon-setting"></div>
+              <div class="aside__label">設定</div></a></li>
+        </ul>
+        <div class="aside__help flex items-center justify-center">
+          <div class="help__icon icon icon-20px icon-prize bg bg-green"></div>
+          <div class="help__text font text-16px">露西給您更多服務</div>
+        </div>
+      </aside>
+      <div class="content">
+        <header class="header__wrap">
+          <div class="header__container">
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-search"></div>
+              <div class="header__search__wrap hidden">
+                <div class="remind__search__container"></div>
+              </div>
+            </div>
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-notification"></div>
+              <div class="remind__message__dot dot bg bg-red"></div>
+              <div class="remind__message__wrap bg bg-white hidden">
+                <div class="remind__message__container">
+                  <div class="remind__message__top flex items-center">
+                    <div class="remind__message__icon"></div>
+                    <div class="remind__message__title font text-18px">通知</div><a class="remind__go flex" href="index.html">
+                      <div class="remind__go-text">查看全部通知</div>
+                      <div class="remind__go-icon"></div></a>
+                  </div>
+                  <div class="remind__message__list">
+                    <div class="notification__wrap">
+                      <div class="notification__title font text-16px">今日通知</div>
+                      <div class="notification__container">
+                        <ul class="notification__list">
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-user"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">平面設計師 職缺創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的職缺「平面設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-calendar-line"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您客製化題目已創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-coin"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">露西助理已收到您的款項</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！</div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="notification__wrap">
+                      <div class="notification__title font text-16px">先前通知</div>
+                      <div class="notification__container">
+                        <ul class="notification__list">
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-user"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">UI設計師 職缺創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的職缺「UI設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-calendar"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您客製化題目已創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-security"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您的「企業」方案已快到期</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您所使用的企業方案在2021-01-22即將到期，請儘速更新您的方案或是聯絡露西助理。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-24</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-profile"></div>
+              <div class="header__member__wrap bg bg-white hidden">
+                <div class="remind__member__container">
+                  <div class="remind__member__title flex items-center">
+                    <div class="remind__member__icon icon icon-20px icon-user-2"></div>
+                    <div class="remind__member__label font text-18px">諾比科技</div>
+                  </div>
+                  <div class="remind__member__list"><a class="remind__member__item flex" href="record.html">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-coin"></div>
+                      <div class="remind__member__text font text-16px color-black">交易紀錄</div></a><a class="remind__member__item flex" href="setting.html">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-setting"></div>
+                      <div class="remind__member__text font text-16px color-black">設定</div></a><a class="remind__member__item flex" href="#">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-logout"></div>
+                      <div class="remind__member__text font text-16px color-black">登出</div></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="content-article flex flex-col">
+          <h1 class="page-title font text-24px">方案</h1>
+          <div class="plan__wrap">
+            <div class="plan-record__wrap">
+              <div class="plan-type">
+                <div class="plan-label">
+                  <div class="plan-icon"></div>
+                  <div class="plan-title font text-18px">目前方案</div>
+                </div>
+                <div class="plan__wrap">
+                  <div class="plan__container">
+                    <div class="plan__content">
+                      <div class="plan__tips">
+                        <h2 class="info__title">免費版</h2>
+                        <div class="info__list">
+                          <div class="info__item"> 
+                            <div class="icons buy"></div><span>購買日期 2021-01-29</span>
+                          </div>
+                          <div class="info__item">
+                            <div class="icons plan"></div><span>方案到期 2021-01-29</span>
+                          </div>
+                        </div>
+                      </div>
+                      <ul class="plan__list flex items-center">
+                        <li class="plan__item">
+                          <div class="curor-icon"></div>1 個職缺
+                        </li>
+                        <li class="plan__item">
+                          <div class="curor-icon"></div>3 位虛擬面試
+                        </li>
+                        <li class="plan__item">
+                          <div class="curor-icon"></div>應徵人數無上限
+                        </li>
+                      </ul>
+                      <div class="plan__text">讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西助理提供的功能，歡迎切換成企業版體驗更多。</div>
+                      <div class="plan-record__title">
+                        <div class="plan-record__label font text-18px">交易紀錄</div><a class="plan-record__more" href="record.html">
+                          <div class="plan-record__more__icon icon icon-18px icon-eye"></div>
+                          <div class="plan-record__more__title">查看更多</div></a>
+                      </div>
+                      <div class="plan-record-table">
+                        <div class="plan-record-table-th">方案</div>
+                        <div class="plan-record-table-th">購買日期</div>
+                        <div class="plan-record-table-th">金額</div>
+                        <div class="plan-record-table-th">狀態</div>
+                        <div class="plan-record-table-td">體驗版</div>
+                        <div class="plan-record-table-td">2021-01-28</div>
+                        <div class="plan-record-table-td">$0</div>
+                        <div class="plan-record-table-td">
+                          <div class="dot green"></div>完成交易
+                        </div>
+                        <div class="plan-record-table-td">體驗版</div>
+                        <div class="plan-record-table-td">2021-01-28</div>
+                        <div class="plan-record-table-td">$0</div>
+                        <div class="plan-record-table-td">
+                          <div class="dot red"></div>審核中
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="plan-record-all flex flex-col">
+              <div class="plan-record-all__title font text-18px">所有方案</div>
+              <div class="plan-record-all__container">
+                <div class="plan-record-all__group active">
+                  <div class="plan-record-all__type">體驗</div>
+                  <div class="plan-record-all__label font text-24px">FREE</div>
+                  <div class="plan-record-all__text">讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想新增更多職缺並訂定屬於自己的題目，使用更多露西助理提供的功能，歡迎切換成企業版體驗更多。</div>
+                  <div class="plan-record-all__list">
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>1 個職缺
+                    </div>
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>3 位虛擬面試
+                    </div>
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>應徵人數無上限
+                    </div>
+                  </div>
+                  <div class="plan-record-all__button button black disable">目前方案</div>
+                </div>
+                <div class="plan-record-all__group">
+                  <div class="plan-record-all__type">企業</div>
+                  <div class="plan-record-all__label font text-24px">NT$16,800<span class="font text-16px">/ 年</span></div>
+                  <div class="plan-record-all__text">獲得5個職缺及100位虛擬面試的額度，同時您也可以隨心所欲的創建題目，或是盡情使用露西助理提供的專業題庫，並為您架設貴公司專屬徵才網站。</div>
+                  <div class="plan-record-all__list">
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>5 個職缺
+                    </div>
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>100 位虛擬面試
+                    </div>
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>應徵人數無上限
+                    </div>
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>露西題庫
+                    </div>
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>專屬徵才網站
+                    </div>
+                  </div>
+                  <div class="plan-record-all__button button black">選擇方案</div>
+                </div>
+                <div class="plan-record-all__group">
+                  <div class="plan-record-all__type">訂製</div>
+                  <div class="plan-record-all__label font text-24px">聯絡我們</div>
+                  <div class="plan-record-all__text">無論您有任何需求，歡迎聯絡我們！將有專人和您聯絡，露西助理將為您量身打造合適的人資系統，加快面試流程並降低時間成本。</div>
+                  <div class="plan-record-all__list">
+                    <div class="plan-record-all__item">
+                      <div class="curor-icon star"></div>量身打造
+                    </div>
+                    <div class="plan-record-all__item">
+                      <div class="curor-icon star"></div>客製職缺
+                    </div>
+                    <div class="plan-record-all__item">
+                      <div class="curor-icon star"></div>客製虛擬面試人數
+                    </div>
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>露西題庫
+                    </div>
+                    <div class="plan-record-all__item"> 
+                      <div class="curor-icon"></div>專屬徵才網站
+                    </div>
+                  </div>
+                  <div class="plan-record-all__button button black">聯絡我們</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <div class="plan-buy__wrap">
+    <div class="plan-buy__case">
+      <div class="plan-buy__case__title flex flex">
+        <div class="plan-buy__case__icon"></div>
+        <div class="plan-buy__case__label font text-18px">所選方案</div>
+      </div>
+      <div class="plan-buy__case__type">
+        <div class="plan-buy__case__type__title font text-18px">企業</div>
+        <div class="plan-buy__case__type__count font text-24px">NT$16,800<span class="font text-16px">/年</span></div>
+      </div>
+      <div class="plan-buy__case__text">獲得5個職缺及100位虛擬面試的額度，同時您也可以隨心所欲的創建題目，或是盡情使用Lucy提供的專業題庫，並為您架設貴公司專屬徵才網站。</div>
+      <div class="plan-buy__case__list">
+        <div class="plan-buy__case__item flex">
+          <div class="curor-icon"></div>5 個職缺
+        </div>
+        <div class="plan-buy__case__item flex">
+          <div class="curor-icon"></div>100 位虛擬面試
+        </div>
+        <div class="plan-buy__case__item flex">
+          <div class="curor-icon"></div>應徵人數無上限
+        </div>
+        <div class="plan-buy__case__item flex">
+          <div class="curor-icon"></div>Lucy題庫
+        </div>
+        <div class="plan-buy__case__item flex">
+          <div class="curor-icon"></div>專屬徵才網站
+        </div>
+      </div>
+    </div>
+    <div class="plan-buy__detail">
+      <div class="plan-buy__detail__title flex items-center">
+        <div class="plan-buy__detail__icon"></div>
+        <div class="plan-buy__detail__label font text-18px">選擇付款方式</div>
+        <div class="plan-buy__detail__close"></div>
+      </div>
+      <div class="plan-buy__detail__text">按下確認後，將會前往信用卡付款畫面</div>
+      <div class="plan-buy__detail__form field">
+        <div class="plan-buy__detail__form__title">付款方式</div>
+        <select class="plan-buy__detail__form__select input">
+          <option value="1">銀行轉帳1</option>
+          <option value="1">銀行轉帳2</option>
+        </select>
+        <div class="plan-buy__detail__info">
+          <div class="plan-buy__detail__info__title">
+            <div class="plan-buy__detail__info__icon"></div>
+            <div class="plan-buy__detail__info__label">選擇付款方式</div>
+          </div>
+          <div class="plan-buy__detail__info__list">
+            <div class="plan-buy__detail__info__item">戶名｜諾比科技股份有限公司</div>
+            <div class="plan-buy__detail__info__item">開戶銀行｜玉山銀行(808)</div>
+            <div class="plan-buy__detail__info__item">收款帳號｜0532-940-108246</div>
+          </div>
+        </div>
+        <div class="plan-buy__update">
+          <div class="plan-buy__update__title">
+            <div class="plan-buy__update__icon"></div>
+            <div class="plan-buy__update__label">轉帳證明上傳</div>
+          </div>
+          <div class="plan-buy__update__container">
+            <input class="plan-buy__input" type="file">
+            <div class="plan-buy__icon"></div>
+            <div class="plan-buy__label">請將一張圖片拖放到此處上傳<br>或</div>
+            <div class="plan-buy__button button black">點擊上傳</div>
+            <div class="plan-buy__sub">可接受上傳的檔案格式｜SVG, JPG, PNG, PDF</div>
+          </div>
+          <div class="plan-buy__update__img__wrap hidden"><img class="plan-buy__update__img__img">
+            <div class="plan-buy__update__img__detail">
+              <div class="plan-buy__update__img__label"></div>
+              <div class="plan-buy__update__img__process"></div>
+            </div>
+            <div class="plan-buy__update__img__icon icon"></div>
+          </div>
+        </div>
+        <div class="plan-buy__detail__button button black full">確認</div>
+      </div>
+    </div>
+  </div>
+</html>

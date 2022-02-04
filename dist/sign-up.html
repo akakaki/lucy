@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LUCY</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/2e0f4bcc90e6a1f5c98f.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;700&amp;display=swap" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+  <link href="css/main.css" rel="stylesheet"></head>
+  <body>
+    <div class="message_list"></div>
+    <div class="sign-in flex__wrap">
+      <div class="container flex">
+        <div class="intro flex flex-1 flex-col items-center justify-center">
+          <h1 class="font color-white">使用露西助理</h1>
+          <h2 class="font color-white">面試無往不利，省時隨心所欲</h2><a class="sign__button button green" href="sign-in.html">我要登入</a>
+        </div>
+        <div class="sign-in flex flex-1 flex-col items-center justify-center">
+          <div class="sign-in white-bg"><img class="logo" src="./images/a6a6a4492fa3d829b43d.svg">
+            <div class="login__title">
+              <div class="title__icon icon icon-18px icon-sign-in"></div>
+              <div class="login__label font text-18px">註冊</div>
+            </div>
+            <div class="login__sub">請先填入註冊時的信箱，驗證完成後請去信箱收信確認</div>
+            <form class="form__wrap field">
+              <div class="form__container">
+                <div class="form__item">
+                  <label class="form__label label" for="mail">Email<span>*</span></label>
+                  <input class="form__input input" id="mail" placeholder="Email">
+                  <div class="form__text font text-12px"></div>
+                </div>
+                <div class="form__item">
+                  <label class="form__label label" for="company">公司名稱<span>*</span></label>
+                  <input class="form__input input" id="company" placeholder="公司名稱">
+                  <div class="form__text font text-12px"></div>
+                </div>
+                <div class="form__item">
+                  <label class="form__label label" for="name">姓名<span>*</span></label>
+                  <input class="form__input input" id="name" placeholder="姓名">
+                  <div class="form__text font text-12px"></div>
+                </div>
+                <div class="form__item">
+                  <label class="form__label label" for="phone">電話<span>*</span></label>
+                  <input class="form__input input" id="phone" placeholder="電話">
+                  <div class="form__text font text-12px"></div>
+                </div>
+                <div class="form__item">
+                  <label class="form__label label" for="passowrd">密碼<span>*</span></label>
+                  <input class="form__input input" id="passowrd" placeholder="密碼">
+                  <div class="form__text font text-12px"></div>
+                </div>
+                <div class="form__item">
+                  <label class="form__label label" for="checkPassword">密碼確認<span>*</span></label>
+                  <input class="form__input input" id="checkPassword" placeholder="請再輸入一次上方密碼">
+                  <div class="form__text font text-12px"></div>
+                </div>
+              </div>
+            </form>
+            <div class="remember__container">
+              <div class="remember">
+                <input id="remember" type="checkbox">
+                <label for="remember">我同意露西助理的隱私權條款</label><a>隱私權條款</a>
+              </div>
+            </div>
+            <div> 
+              <button class="sign-up__button button black full">確認</button>
+            </div>
+            <div class="login__tips"><span>已經有帳號了嗎？</span><a href="sign-in.html">我要登入</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

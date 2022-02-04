@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LUCY</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/2e0f4bcc90e6a1f5c98f.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;700&amp;display=swap" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+  <link href="css/main.css" rel="stylesheet"></head>
+  <body>
+    <div class="message_list"></div>
+    <div class="container user">
+      <h1 class="user__h1 font text-24px">E-Commerce Category Planner 品類企劃 -生活類別</h1>
+      <h2 class="user__h2 font text-24px flex items-center">
+        <div class="number__icon font text-12px">1</div>嗨！我們很開心能認識你。
+        <div class="icon down"></div>
+      </h2>
+      <div class="user__tips__zone flex items-center">
+        <div class="user__tips__icon user"></div>
+        <div class="user__tips__label">基本資料</div>
+        <div class="user__tips__required">* 必填</div>
+      </div>
+      <div class="user-text__tips font text-12px">請填寫您的基本資料。</div>
+      <form class="user-form field">
+        <div class="form__container">
+          <div class="user-form__item form__item">
+            <label class="user-form__item-label form__label label" for="name">姓名<span>*</span></label>
+            <input class="user-form__item-input form__input input" id="name" placeholder="請輸入您的姓名">
+          </div>
+          <div class="user-form__item form__item">
+            <label class="user-form__item-label form__label label" for="mail">信箱<span>*</span></label>
+            <input class="user-form__item-input form__input input" id="mail" placeholder="請輸入您的信箱">
+          </div>
+          <div class="user-form__item form__item">
+            <label class="user-form__item-label form__label label" for="phone">聯絡電話<span>*</span></label>
+            <input class="user-form__item-input form__input input" id="phone" placeholder="請輸入您的聯絡電話">
+          </div>
+          <div class="user-form__item form__item">
+            <label class="user-form__item-label form__label label">求職信<span>*</span></label>
+            <div class="user-form__chose__wrap">
+              <div class="user-form__chose flex items-center">
+                <div class="user-form__chose__item">
+                  <input class="user-form__chose__input" type="radio" name="letter" value="input" checked="checked">
+                  <label>連結</label>
+                </div>
+                <div class="user-form__chose__item">
+                  <input class="user-form__chose__input" type="radio" name="letter" value="drop">
+                  <label>檔案</label>
+                </div>
+              </div>
+              <div class="user-form__type__wrap">
+                <input class="user-form__item-input form__input input input" placeholder="https://">
+                <div class="user-form__type__drop drop">
+                  <div class="user-form__type__drop__container">
+                    <div class="website-config__banner__input__wrap user__update">
+                      <div class="icon icon-18px icon-plus"></div>
+                      <input class="website-config__banner__input" type="file">
+                    </div>
+                    <div class="user-form__type__drop__text">（支援檔案類型 pdf. doc. docx. jpg. png.  / 檔案上限 5 MB) </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <h2 class="user__h2 font text-24px flex items-center">
+        <div class="number__icon font text-12px">2</div>請上傳相關檔案，讓我們更了解你。
+      </h2>
+      <div class="user__tips__zone flex items-center">
+        <div class="user__tips__icon user"></div>
+        <div class="user__tips__label">其他應徵資料</div>
+        <div class="user__tips__required">* 必填</div>
+      </div>
+      <div class="user-text__tips font text-12px">請提供您應徵此職缺相對應的學經歷資料。</div>
+      <form class="user-form field">
+        <div class="form__container">
+          <div class="user-form__item form__item">
+            <label class="user-form__item-label form__label label">求職信<span>*</span></label>
+            <div class="user-form__chose__wrap">
+              <div class="user-form__chose flex items-center">
+                <div class="user-form__chose__item">
+                  <input class="user-form__chose__input" type="radio" name="letter2" value="input" checked="checked">
+                  <label>連結</label>
+                </div>
+                <div class="user-form__chose__item">
+                  <input class="user-form__chose__input" type="radio" name="letter2" value="drop">
+                  <label>檔案</label>
+                </div>
+              </div>
+              <div class="user-form__type__wrap">
+                <input class="user-form__item-input form__input input input" placeholder="https://">
+                <div class="user-form__type__drop drop">
+                  <div class="user-form__type__drop__container">
+                    <div class="website-config__banner__input__wrap user__update">
+                      <div class="icon icon-18px icon-plus"></div>
+                      <input class="website-config__banner__input" type="file">
+                    </div>
+                    <div class="user-form__type__drop__text">（支援檔案類型 pdf. doc. docx. jpg. png.  / 檔案上限 5 MB) </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="user-form__item form__item">
+            <label class="user-form__item-label form__label label">作品集<span>*</span></label>
+            <div class="user-form__chose__wrap">
+              <div class="user-form__chose flex items-center">
+                <div class="user-form__chose__item">
+                  <input class="user-form__chose__input" type="radio" name="work1" value="input" checked="checked">
+                  <label>連結</label>
+                </div>
+                <div class="user-form__chose__item">
+                  <input class="user-form__chose__input" type="radio" name="work1" value="drop">
+                  <label>檔案</label>
+                </div>
+              </div>
+              <div class="user-form__type__wrap">
+                <input class="user-form__item-input form__input input input" placeholder="https://">
+                <div class="user-form__type__drop drop">
+                  <div class="user-form__type__drop__container">
+                    <div class="website-config__banner__input__wrap user__update">
+                      <div class="icon icon-18px icon-plus"></div>
+                      <input class="website-config__banner__input" type="file">
+                    </div>
+                    <div class="user-form__type__drop__text">（支援檔案類型 pdf. doc. docx. jpg. png.  / 檔案上限 5 MB) </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="user-form__item form__item">
+            <label class="user-form__item-label form__label label">作品集<span>*</span></label>
+            <div class="user-form__chose__wrap">
+              <div class="user-form__chose flex items-center">
+                <div class="user-form__chose__item">
+                  <input class="user-form__chose__input" type="radio" name="work2" value="input" checked="checked">
+                  <label>連結</label>
+                </div>
+                <div class="user-form__chose__item">
+                  <input class="user-form__chose__input" type="radio" name="work2" value="drop">
+                  <label>檔案</label>
+                </div>
+              </div>
+              <div class="user-form__type__wrap">
+                <input class="user-form__item-input form__input input input" placeholder="https://">
+                <div class="user-form__type__drop drop">
+                  <div class="user-form__type__drop__container">
+                    <div class="website-config__banner__input__wrap user__update">
+                      <div class="icon icon-18px icon-plus"></div>
+                      <input class="website-config__banner__input" type="file">
+                    </div>
+                    <div class="user-form__type__drop__text">（支援檔案類型 pdf. doc. docx. jpg. png.  / 檔案上限 5 MB) </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="user__bottom flex items-center flex-col">
+            <div class="user__bottom__button button black items-center justify-center">
+              <div class="icon icon-18px icon-double-check-mark bg bg-white"></div>確定送出
+            </div>
+            <div class="agree__wrap">
+              <input class="agree__input" type="checkbox">提醒您送出後將無法修改，再檢查一次是否有資料需要修改吧！
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="powerby flex items-center justify-center">
+      <div class="powerby__label">Powered by</div><img class="powerby__icon" src="./images/2b694f477c8c10d9a633.svg">
+    </div>
+  </body>
+</html>

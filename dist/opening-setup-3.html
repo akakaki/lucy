@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LUCY</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/2e0f4bcc90e6a1f5c98f.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;700&amp;display=swap" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+  <link href="css/main.css" rel="stylesheet"></head>
+  <body>
+    <div class="message_list"></div>
+    <div class="container flex">
+      <aside class="aside__wrap bg bg-black font color-white font text-16px"><a class="aside__logo" href="/"><img class="icon" src="./images/de6803f82ae374869a39.svg"><img class="text" src="./images/235b38e0db3ffce3c40d.svg"></a>
+        <ul class="aside__list">
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="index.html">
+              <div class="aside__icon icon icon-18px icon-noteboard"></div>
+              <div class="aside__label">露西面試助理</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="website.html">
+              <div class="aside__icon icon icon-18px icon-website"></div>
+              <div class="aside__label">徵才網站</div></a></li>
+          <li class="aside__item active"><a class="aside__link flex items-center bg bg-green font color-black" href="opening.html">
+              <div class="aside__icon icon icon-18px icon-user"></div>
+              <div class="aside__label">職缺</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="response.html">
+              <div class="aside__icon icon icon-18px icon-folder"></div>
+              <div class="aside__label">面試者資料</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="plan.html">
+              <div class="aside__icon icon icon-18px icon-plans"></div>
+              <div class="aside__label">方案</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="">
+              <div class="aside__icon icon icon-18px icon-share"></div>
+              <div class="aside__label">露西交流網</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="setting.html">
+              <div class="aside__icon icon icon-18px icon-setting"></div>
+              <div class="aside__label">設定</div></a></li>
+        </ul>
+        <div class="aside__help flex items-center justify-center">
+          <div class="help__icon icon icon-20px icon-prize bg bg-green"></div>
+          <div class="help__text font text-16px">露西給您更多服務</div>
+        </div>
+      </aside>
+      <div class="content">
+        <header class="header__wrap">
+          <div class="header__container">
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-search"></div>
+              <div class="header__search__wrap hidden">
+                <div class="remind__search__container"></div>
+              </div>
+            </div>
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-notification"></div>
+              <div class="remind__message__dot dot bg bg-red"></div>
+              <div class="remind__message__wrap bg bg-white hidden">
+                <div class="remind__message__container">
+                  <div class="remind__message__top flex items-center">
+                    <div class="remind__message__icon"></div>
+                    <div class="remind__message__title font text-18px">通知</div><a class="remind__go flex" href="index.html">
+                      <div class="remind__go-text">查看全部通知</div>
+                      <div class="remind__go-icon"></div></a>
+                  </div>
+                  <div class="remind__message__list">
+                    <div class="notification__wrap">
+                      <div class="notification__title font text-16px">今日通知</div>
+                      <div class="notification__container">
+                        <ul class="notification__list">
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-user"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">平面設計師 職缺創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的職缺「平面設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-calendar-line"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您客製化題目已創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-coin"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">露西助理已收到您的款項</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！</div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="notification__wrap">
+                      <div class="notification__title font text-16px">先前通知</div>
+                      <div class="notification__container">
+                        <ul class="notification__list">
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-user"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">UI設計師 職缺創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的職缺「UI設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-calendar"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您客製化題目已創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-security"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您的「企業」方案已快到期</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您所使用的企業方案在2021-01-22即將到期，請儘速更新您的方案或是聯絡露西助理。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-24</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-profile"></div>
+              <div class="header__member__wrap bg bg-white hidden">
+                <div class="remind__member__container">
+                  <div class="remind__member__title flex items-center">
+                    <div class="remind__member__icon icon icon-20px icon-user-2"></div>
+                    <div class="remind__member__label font text-18px">諾比科技</div>
+                  </div>
+                  <div class="remind__member__list"><a class="remind__member__item flex" href="record.html">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-coin"></div>
+                      <div class="remind__member__text font text-16px color-black">交易紀錄</div></a><a class="remind__member__item flex" href="setting.html">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-setting"></div>
+                      <div class="remind__member__text font text-16px color-black">設定</div></a><a class="remind__member__item flex" href="#">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-logout"></div>
+                      <div class="remind__member__text font text-16px color-black">登出</div></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="content-article flex flex-col vacancies">
+          <div class="vacancies__top flex">
+            <div class="vacancies-back flex items-center">
+              <div class="vacancies-back__icon icon icon-16px icon-back"></div>
+              <div class="vacancies-back__label">返回</div>
+            </div>
+            <div class="vacancies__progress">
+              <div class="progress__wrap">
+                <div class="progress__container flex item-center">
+                  <div class="progress__item flex flex-col items-center active">
+                    <div class="progress__number flex justify-center items-center">1
+                      <div class="progress__line"></div>
+                    </div>
+                    <div class="progress__label font text-12px">職缺名稱</div>
+                  </div>
+                  <div class="progress__item flex flex-col items-center active">
+                    <div class="progress__number flex justify-center items-center">2
+                      <div class="progress__line"></div>
+                    </div>
+                    <div class="progress__label font text-12px">選擇問題</div>
+                  </div>
+                  <div class="progress__item flex flex-col items-center active">
+                    <div class="progress__number flex justify-center items-center">3
+                      <div class="progress__line"></div>
+                    </div>
+                    <div class="progress__label font text-12px">成功創建</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="vacancies__content-setup-3">
+            <div class="vacancies-setup-3__title flex items-center">
+              <div class="vacancies-setup-3__icon number__icon">3</div>
+              <div class="vacancies-setup-3__label font text-24px">創建職缺確認</div>
+            </div>
+            <div class="vacancies-setup-3__user flex items-center">
+              <div class="vacancies-setup-3__label">職缺名稱</div>
+              <div class="vacancies-setup-3__text">多媒體動畫設計師</div>
+            </div>
+            <div class="vacancies-setup-3__data flex">
+              <div class="vacancies-setup-3__content flex-1">
+                <div class="vacancies-setup-3__content__title">工作內容</div>
+                <div class="vacancies-setup-3__span font text-12px">
+                  ☞ 廣告投放：<br>制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。<br>
+                  ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。<br>
+                  ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。<br>
+                </div>
+              </div>
+              <div class="vacancies-setup-3__content flex-1">
+                <div class="vacancies-setup-3__content__title">需求條件</div>
+                <div class="vacancies-setup-3__span font text-12px">
+                  ☞ 廣告投放：<br>制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。<br>
+                  ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。<br>
+                  ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。<br>
+                </div>
+              </div>
+              <div class="vacancies-setup-3__content flex-1">
+                <div class="vacancies-setup-3__content__title">職務需求</div>
+                <div class="vacancies-setup-3__span font text-12px">
+                  工作待遇：月薪＄40,000~＄80,000<br>
+                  工作性質：全職<br>
+                  工作地點：桃園市<br>
+                  可否遠端：可<br>
+                </div>
+              </div>
+            </div>
+            <div class="vacancies-setup-3__data">
+              <div class="vacancies-setup-3__content__title">職缺填寫需求與檔案上傳</div>
+              <div class="vacancies-setup-3__config flex">
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>姓名</span><span class="font color-red">*</span></div>
+                </div>
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>信箱</span><span class="font color-red">*</span></div>
+                </div>
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>聯絡電話</span><span class="font color-red">*</span></div>
+                </div>
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>履歷</span><span class="font color-red">*</span></div>
+                </div>
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>CV</span><span class="font color-red">*</span></div>
+                </div>
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>求職信</span><span class="font color-red">*</span></div>
+                </div>
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>作品集</span><span class="font color-red">*</span></div>
+                </div>
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>相關證照</span><span class="font color-red">*</span></div>
+                </div>
+                <div class="vacancies-setup-3__config__item flex items-center">
+                  <input class="vacancies-setup-3__config__input" type="checkbox" checked="checked" disabled="disabled">
+                  <div class="vacancies-setup-3__config__label"><span>其他加分項目</span><span class="font color-red">*</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="vacancies-setup-3__question">
+              <div class="vacancies-setup-3__question__title">您選擇的面試問題</div>
+              <div class="vacancies-setup-3__question__list flex flex-col flex-wrap">
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">1</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">2</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">3</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">4</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">5</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">6</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">7</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">8</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">9</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label">設計藝術 / 多媒體動畫設計師</div>
+                    <div class="vacancies-setup-3__question__text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</div>
+                  </div>
+                </div>
+                <div class="vacancies-setup-3__question__item flex items-center">
+                  <div class="vacancies-setup-3__question__number">10</div>
+                  <div class="vacancies-setup-3__question__info">
+                    <div class="vacancies-setup-3__question__label custom">客製化題目</div>
+                    <div class="vacancies-setup-3__question__text">如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="vacancies-setup-3__bottom flex flex-col items-end">
+              <div class="vacancies-setup-3__button__wrap">
+                <button class="vacancies-setup-3-back button black">
+                  <div class="icon icon-16px icon-back bg bg-white"></div>再想想，回到上一頁
+                </button>
+                <button class="vacancies-setup-3-send button white">
+                  <div class="icon icon-16px icon-double-check-mark"></div>確定送出
+                </button>
+              </div>
+              <div class="vacancies-setup-3__tips flex items-center">
+                <div class="vacancies-setup-3__tips_icon icon icon-14px icon-security bg bg-red"></div>
+                <div class="vacancies-setup-3__tips_label font text-12px color-red">提醒您點選「確認」後露西助理會於24小時內為您準備面試內容，題目將無法修改！</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LUCY</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/2e0f4bcc90e6a1f5c98f.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;700&amp;display=swap" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+  <link href="css/main.css" rel="stylesheet"></head>
+  <body>
+    <div class="message_list"></div>
+    <div class="container flex">
+      <aside class="aside__wrap bg bg-black font color-white font text-16px"><a class="aside__logo" href="/"><img class="icon" src="./images/de6803f82ae374869a39.svg"><img class="text" src="./images/235b38e0db3ffce3c40d.svg"></a>
+        <ul class="aside__list">
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="index.html">
+              <div class="aside__icon icon icon-18px icon-noteboard"></div>
+              <div class="aside__label">露西面試助理</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="website.html">
+              <div class="aside__icon icon icon-18px icon-website"></div>
+              <div class="aside__label">徵才網站</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="opening.html">
+              <div class="aside__icon icon icon-18px icon-user"></div>
+              <div class="aside__label">職缺</div></a></li>
+          <li class="aside__item active"><a class="aside__link flex items-center bg bg-green font color-black" href="response.html">
+              <div class="aside__icon icon icon-18px icon-folder"></div>
+              <div class="aside__label">面試者資料</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="plan.html">
+              <div class="aside__icon icon icon-18px icon-plans"></div>
+              <div class="aside__label">方案</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="">
+              <div class="aside__icon icon icon-18px icon-share"></div>
+              <div class="aside__label">露西交流網</div></a></li>
+          <li class="aside__item"><a class="aside__link flex items-center font color-white" href="setting.html">
+              <div class="aside__icon icon icon-18px icon-setting"></div>
+              <div class="aside__label">設定</div></a></li>
+        </ul>
+        <div class="aside__help flex items-center justify-center">
+          <div class="help__icon icon icon-20px icon-prize bg bg-green"></div>
+          <div class="help__text font text-16px">露西給您更多服務</div>
+        </div>
+      </aside>
+      <div class="content">
+        <header class="header__wrap">
+          <div class="header__container">
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-search"></div>
+              <div class="header__search__wrap hidden">
+                <div class="remind__search__container"></div>
+              </div>
+            </div>
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-notification"></div>
+              <div class="remind__message__dot dot bg bg-red"></div>
+              <div class="remind__message__wrap bg bg-white hidden">
+                <div class="remind__message__container">
+                  <div class="remind__message__top flex items-center">
+                    <div class="remind__message__icon"></div>
+                    <div class="remind__message__title font text-18px">通知</div><a class="remind__go flex" href="index.html">
+                      <div class="remind__go-text">查看全部通知</div>
+                      <div class="remind__go-icon"></div></a>
+                  </div>
+                  <div class="remind__message__list">
+                    <div class="notification__wrap">
+                      <div class="notification__title font text-16px">今日通知</div>
+                      <div class="notification__container">
+                        <ul class="notification__list">
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-user"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">平面設計師 職缺創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的職缺「平面設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-calendar-line"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您客製化題目已創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-coin"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">露西助理已收到您的款項</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！</div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="notification__wrap">
+                      <div class="notification__title font text-16px">先前通知</div>
+                      <div class="notification__container">
+                        <ul class="notification__list">
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-user"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">UI設計師 職缺創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的職缺「UI設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-calendar"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您客製化題目已創建完成</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips bg bg-red"></div>
+                            <div class="notification__picture bg bg-green flex items-center justify-center">
+                              <div class="icon icon-18px icon-security"></div>
+                            </div>
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">您的「企業」方案已快到期</div>
+                                <div class="date">2021-12-26</div>
+                              </div>
+                              <div class="notification__text">您所使用的企業方案在2021-01-22即將到期，請儘速更新您的方案或是聯絡露西助理。</div>
+                            </div>
+                          </li>
+                          <li class="notification__item">
+                            <div class="notification__tips"></div><img class="notification__picture bg bg-green" src="./images/bb5903970033d4bf8878.jpg">
+                            <div class="notification__detail">
+                              <div class="notification__label">
+                                <div class="label">陳俞靜 面試者應徵 平面設計師</div>
+                                <div class="date">2021-12-24</div>
+                              </div>
+                              <div class="notification__text">來自面試者 陳俞靜 應徵平面設計師一職。</div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="header__tool">
+              <div class="header__icon icon icon-20px icon-profile"></div>
+              <div class="header__member__wrap bg bg-white hidden">
+                <div class="remind__member__container">
+                  <div class="remind__member__title flex items-center">
+                    <div class="remind__member__icon icon icon-20px icon-user-2"></div>
+                    <div class="remind__member__label font text-18px">諾比科技</div>
+                  </div>
+                  <div class="remind__member__list"><a class="remind__member__item flex" href="record.html">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-coin"></div>
+                      <div class="remind__member__text font text-16px color-black">交易紀錄</div></a><a class="remind__member__item flex" href="setting.html">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-setting"></div>
+                      <div class="remind__member__text font text-16px color-black">設定</div></a><a class="remind__member__item flex" href="#">
+                      <div class="remind__member__icon bg bg-black icon icon-20px icon-logout"></div>
+                      <div class="remind__member__text font text-16px color-black">登出</div></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="content-article flex flex-col response">
+          <h1 class="page-title font text-24px">面試者資料</h1>
+          <div class="response-search__list flex items-end">
+            <div class="response-search__item field">
+              <label class="label">職缺名稱</label>
+              <select class="input">
+                <option disabled="disabled" selected="selected">請選擇職缺名稱</option>
+                <option>平面設計</option>
+                <option>前端工程師</option>
+                <option>動畫製作師</option>
+              </select>
+            </div>
+            <div class="response-search__item field">
+              <label class="label">面試者姓名</label>
+              <input class="input" placeholder="請輸入面試者名字">
+            </div>
+            <div class="response-search__item field">
+              <label class="label">應徵日期</label>
+              <div class="form__input input__date input flex items-center">
+                <input id="date-before" type="date">-
+                <input id="date-after" type="date">
+                <div class="form__input input__date__icon icon icon-18px icon-calendar"></div>
+              </div>
+            </div>
+            <div class="response__build-button button green shadow">
+              <div class="icon icon-18px icon-user"></div>創建職缺
+            </div>
+            <div class="response__send-button button black shadow">
+              <div class="icon icon-18px icon-message bg bg-white"></div>發送多封郵件
+            </div>
+          </div>
+          <div class="response__switch flex justify-between items-center">
+            <div class="switch__list flex items-center">
+              <div class="switch__item all active">全部</div>
+              <div class="switch__item vacancies">申請職缺</div>
+              <div class="switch__item interview">虛擬面試</div>
+              <div class="switch__item audit">審核中</div>
+              <div class="switch__item incompatible">不符合</div>
+              <div class="switch__item admit">錄取</div>
+            </div>
+            <div class="response__count flex flex-col items-end">
+              <div>目前方案｜企業版</div>
+              <div>線上面試人數｜20/100</div>
+            </div>
+          </div>
+          <div class="response-candidate__wrap">
+            <div class="response-candidate__container">
+              <div class="candidate-top__title">
+                <input type="checkbox">
+              </div>
+              <div class="candidate-top__title">
+                <div class="candidate-top__label">職缺名稱</div>
+              </div>
+              <div class="candidate-top__title">
+                <div class="candidate-top__label">面試者資訊</div>
+                <div class="candidate-top__arrow"></div>
+              </div>
+              <div class="candidate-top__title">
+                <div class="candidate-top__label">線上面試回傳影片</div>
+              </div>
+              <div class="candidate-top__title">
+                <div class="candidate-top__label">狀態</div>
+              </div>
+              <div class="candidate-top__title">
+                <div class="candidate-top__label">聯絡他</div>
+              </div>
+              <div class="candidate-item__data">
+                <div class="input flex items-center justify-center flex-col">
+                  <input class="candidate__input" type="checkbox">
+                  <div>01</div>
+                </div>
+              </div>
+              <div class="candidate-item__data">
+                <div class="candidate-item__label">平面設計</div>
+              </div>
+              <div class="candidate-item__data">
+                <div class="candidate-data__info flex">
+                  <div class="candidate-data__picture"><img class="candidate-item__img" src="./images/545f0ebeed73d9df4de5.png"></div>
+                  <div class="candidate-item__info">
+                    <div class="candidate-item__info__name font text-18px">吳娜莉</div>
+                    <div class="candidate-item__info__date font text-12px flex items-center">
+                      <div class="candidate-item__info__date__icon icon icon-14px icon-time"></div>
+                      <div class="candidate-item__info__date__label">應徵時間：2022.01.09</div>
+                    </div>
+                    <div class="candidate-file__wrap">
+                      <button class="candidate-item__info__button button sm black">
+                        <div class="icon icon-18px icon-resume bg bg-white"></div>履歷
+                      </button>
+                      <button class="candidate-item__info__button button sm black">
+                        <div class="icon icon-18px icon-folder bg bg-white"></div>附件1
+                      </button>
+                      <button class="candidate-item__info__button button sm black">
+                        <div class="icon icon-18px icon-folder bg bg-white"></div>附件1
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="candidate-item__data">
+                <div class="candidate-item__question__wrap">
+                  <div class="candidate-item__question__container">
+                    <div class="candidate-question__title flex"><span class="tips">Q1</span>
+                      <p class="text">如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？</p>
+                    </div>
+                    <div class="candidate-item__question__content">
+                      <div class="candidate-question__progress">
+                        <div class="candidate-question__energy bg bg-green" style="width: 50%"></div>
+                      </div>
+                      <div class="candidate-item__question__link__wrap">
+                        <div class="candidate-item__question__link__container flex items-center">
+                          <div class="candidate-item-question-link__item flex items-center">
+                            <div class="icon icon-18px icon-play"></div>觀看影片
+                          </div>
+                          <div class="candidate-item-question-link__item flex items-center">
+                            <div class="icon icon-18px icon-sound"></div>播放聲音
+                          </div>
+                          <div class="candidate-item-question-link__item flex items-center">
+                            <div class="icon icon-18px icon-copy"></div>複製內容
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="candidate-question__title flex"><span class="tips">Q2</span>
+                      <p class="text">您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？</p>
+                    </div>
+                    <div class="candidate-question__title flex"><span class="tips">Q3</span>
+                      <p class="text">說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？</p>
+                    </div>
+                    <div class="candidate-question__title flex"><span class="tips">Q4</span>
+                      <p class="text">描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？</p>
+                    </div>
+                    <div class="candidate-question__title flex"><span class="tips">Q5</span>
+                      <p class="text">描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？</p>
+                    </div>
+                    <div class="candidate-question__more flex items-center justify-end">展開所有問題
+                      <div class="icon icon-14px icon-arrow-down"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="candidate-item__data field">
+                <div class="candidate-item__data__status__wrap">
+                  <div class="candidate-item__data__status__container">
+                    <div class="candidate-status__title flex items-center">
+                      <div class="candidate-item__data__status__icon icon icon-18px icon-double-check-mark"></div>
+                      <div class="candidate-status__label">已完成虛擬面試</div>
+                    </div>
+                  </div>
+                </div>
+                <select class="candidate-item__label input">
+                  <option class="candidate-item__label" value="0" disabled="disabled" selected="selected">請選擇狀態</option>
+                  <option class="candidate-item__label" value="1">審核中</option>
+                  <option class="candidate-item__label" value="2">不符合</option>
+                  <option class="candidate-item__label" value="3">錄取</option>
+                </select>
+              </div>
+              <div class="candidate-item__data">
+                <div class="candidate-item__contact__wrap">
+                  <div class="candidate-item__contact__container"><a class="candidate-contact flex items-center button black">
+                      <div class="icon icon-18px icon-message bg bg-white"></div>
+                      <div class="label">聯絡面試者</div></a><a class="candidate-phone flex items-center">
+                      <div class="icon icon-14px icon-phone"></div>
+                      <div class="label">0912 345 678</div></a></div>
+                </div>
+              </div>
+              <div class="candidate-item__data">
+                <div class="input flex items-center justify-center flex-col">
+                  <input class="candidate__input" type="checkbox">
+                  <div>02</div>
+                </div>
+              </div>
+              <div class="candidate-item__data">
+                <div class="candidate-item__label">平面設計</div>
+              </div>
+              <div class="candidate-item__data">
+                <div class="candidate-data__info flex">
+                  <div class="candidate-data__picture">
+                    <div class="icon icon-26px icon-profile bg bg-light-grey"></div><img class="candidate-item__img non">
+                  </div>
+                  <div class="candidate-item__info">
+                    <div class="candidate-item__info__name font text-18px">張建霖</div>
+                    <div class="candidate-item__info__date font text-12px flex items-center">
+                      <div class="candidate-item__info__date__icon icon icon-14px icon-time"></div>
+                      <div class="candidate-item__info__date__label">應徵時間：2022.01.09</div>
+                    </div>
+                    <div class="candidate-file__wrap">
+                      <button class="candidate-item__info__button button sm black">
+                        <div class="icon icon-18px icon-resume bg bg-white"></div>履歷
+                      </button>
+                      <button class="candidate-item__info__button button sm black">
+                        <div class="icon icon-18px icon-folder bg bg-white"></div>附件1
+                      </button>
+                      <button class="candidate-item__info__button button sm black">
+                        <div class="icon icon-18px icon-folder bg bg-white"></div>附件1
+                      </button>
+                      <button class="candidate-item__info__button button sm black">
+                        <div class="icon icon-18px icon-folder bg bg-white"></div>附件2
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="candidate-item__data">
+                <div class="candidate-item__question__wrap non">--</div>
+              </div>
+              <div class="candidate-item__data field">
+                <div class="candidate-item__data__status__wrap">
+                  <div class="candidate-item__data__status__container">
+                    <div class="candidate-status__title flex items-center">
+                      <div class="candidate-item__data__status__icon icon icon-18px icon-check-mark"></div>
+                      <div class="candidate-status__label">已收到職缺申請</div>
+                    </div>
+                  </div>
+                </div>
+                <select class="candidate-item__label input">
+                  <option class="candidate-item__label" value="0" disabled="disabled" selected="selected">請選擇狀態</option>
+                  <option class="candidate-item__label" value="1">審核中</option>
+                  <option class="candidate-item__label" value="2">不符合</option>
+                  <option class="candidate-item__label" value="3">錄取</option>
+                </select>
+              </div>
+              <div class="candidate-item__data">
+                <div class="candidate-item__contact__wrap">
+                  <div class="candidate-item__contact__container"><a class="candidate-contact flex items-center button black">
+                      <div class="icon icon-18px icon-message bg bg-white"></div>
+                      <div class="label">聯絡面試者</div></a><a class="candidate-phone flex items-center">
+                      <div class="icon icon-14px icon-phone"></div>
+                      <div class="label">0912 345 678</div></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page__wrap flex justify-between">
+            <div class="page-select__container flex items-center"><span>顯示</span>
+              <div class="field">
+                <select class="input">
+                  <option>10</option>
+                  <option>20</option>
+                </select>
+              </div><span>，共 3 個項目</span>
+            </div>
+            <div class="page-unmber__container">
+              <div class="page__prev icon icon-10px icon-arrow-left"></div>
+              <div class="page__list"><a class="page__item active">1</a><a class="page__item">2</a><a class="page__item">3</a><a class="page__item">4</a></div>
+              <div class="page__next icon icon-10px icon-arrow-left"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
