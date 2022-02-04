@@ -3,7 +3,7 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
-    .message_list
+    +common
     .container.flex
       +nav('plans')
       .content
@@ -30,13 +30,13 @@ html(lang="zh-TW")
                             span 方案到期 2021-01-29
                       ul.plan__list.flex.items-center
                         li.plan__item
-                          .icon
+                          .curor-icon
                           | 1 個職缺
                         li.plan__item
-                          .icon
+                          .curor-icon
                           | 3 位虛擬面試
                         li.plan__item
-                          .icon
+                          .curor-icon
                           | 應徵人數無上限
                       .plan__text 讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西助理提供的功能，歡迎切換成企業版體驗更多。
                       .plan-record__title
@@ -52,12 +52,16 @@ html(lang="zh-TW")
                         .plan-record-table-td 體驗版
                         .plan-record-table-td 2021-01-28
                         .plan-record-table-td $0
-                        .plan-record-table-td.complete 完成交易
+                        .plan-record-table-td
+                          .dot.green
+                          | 完成交易
                         .plan-record-table-td 體驗版
                         .plan-record-table-td 2021-01-28
                         .plan-record-table-td $0
-                        .plan-record-table-td.audit 審核中
-            .plan-record-all
+                        .plan-record-table-td
+                          .dot.red
+                          | 審核中
+            .plan-record-all.flex.flex-col
               .plan-record-all__title.font.text-18px 所有方案
               .plan-record-all__container
                 .plan-record-all__group.active
@@ -66,13 +70,13 @@ html(lang="zh-TW")
                   .plan-record-all__text 讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想新增更多職缺並訂定屬於自己的題目，使用更多露西助理提供的功能，歡迎切換成企業版體驗更多。
                   .plan-record-all__list
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 1 個職缺
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 3 位虛擬面試
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 應徵人數無上限
                   .plan-record-all__button.button.black.disable 目前方案
                 .plan-record-all__group
@@ -83,19 +87,19 @@ html(lang="zh-TW")
                   .plan-record-all__text 獲得5個職缺及100位虛擬面試的額度，同時您也可以隨心所欲的創建題目，或是盡情使用露西助理提供的專業題庫，並為您架設貴公司專屬徵才網站。
                   .plan-record-all__list
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 5 個職缺
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 100 位虛擬面試
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 應徵人數無上限
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 露西題庫
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 專屬徵才網站
                   .plan-record-all__button.button.black 選擇方案
                 .plan-record-all__group
@@ -104,19 +108,19 @@ html(lang="zh-TW")
                   .plan-record-all__text 無論您有任何需求，歡迎聯絡我們！將有專人和您聯絡，露西助理將為您量身打造合適的人資系統，加快面試流程並降低時間成本。
                   .plan-record-all__list
                     .plan-record-all__item
-                      .icon.star
+                      .curor-icon.star
                       | 量身打造
                     .plan-record-all__item
-                      .icon.star
+                      .curor-icon.star
                       | 客製職缺
                     .plan-record-all__item
-                      .icon.star
+                      .curor-icon.star
                       | 客製虛擬面試人數
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 露西題庫
                     .plan-record-all__item 
-                      .icon
+                      .curor-icon
                       | 專屬徵才網站
                   .plan-record-all__button.button.black 聯絡我們
   .plan-buy__wrap
@@ -132,19 +136,19 @@ html(lang="zh-TW")
       .plan-buy__case__text 獲得5個職缺及100位虛擬面試的額度，同時您也可以隨心所欲的創建題目，或是盡情使用Lucy提供的專業題庫，並為您架設貴公司專屬徵才網站。
       .plan-buy__case__list
         .plan-buy__case__item.flex
-          .icon
+          .curor-icon
           | 5 個職缺
         .plan-buy__case__item.flex
-          .icon
+          .curor-icon
           | 100 位虛擬面試
         .plan-buy__case__item.flex
-          .icon
+          .curor-icon
           | 應徵人數無上限
         .plan-buy__case__item.flex
-          .icon
+          .curor-icon
           | Lucy題庫
         .plan-buy__case__item.flex
-          .icon
+          .curor-icon
           | 專屬徵才網站
     .plan-buy__detail
       .plan-buy__detail__title.flex.items-center
@@ -152,9 +156,9 @@ html(lang="zh-TW")
         .plan-buy__detail__label.font.text-18px 選擇付款方式
         .plan-buy__detail__close
       .plan-buy__detail__text 按下確認後，將會前往信用卡付款畫面
-      .plan-buy__detail__form
+      .plan-buy__detail__form.field
         .plan-buy__detail__form__title 付款方式
-        select.plan-buy__detail__form__select.select
+        select.plan-buy__detail__form__select.input
           option(value="1") 銀行轉帳1
           option(value="1") 銀行轉帳2
         .plan-buy__detail__info

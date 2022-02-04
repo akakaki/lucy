@@ -11,7 +11,7 @@ html(lang="zh-TW")
         { id: 'resume', label: '履歷', required: 'true' },
         { id: 'cv', label: 'CV' },
       ]
-    .message_list
+    +common
     .container.flex
       +nav('boy')
       .content
@@ -24,7 +24,7 @@ html(lang="zh-TW")
 
             -
               const PROGRESS_WRAP = [
-                { label: '職缺名稱' },
+                { label: '職缺名稱', active: true },
                 { label: '選擇問題' },
                 { label: '成功創建' },
               ]
@@ -69,10 +69,10 @@ html(lang="zh-TW")
                       label(for=value.id)
                         span= value.label
               .vacancies-setup-detail__bottom
-                .vacancies-setup-detail__button.button.white
+                a.vacancies-setup-detail__button.button.white.shadow
                   .vacancies-setup-detail__icon.icon.icon-16px.icon-save
                   .vacancies-setup-detail__label 儲存草稿
-                a.vacancies-setup-detail__button.button.black.flex.items-center(href="opening-setup-2.html")
+                a.vacancies-setup-detail__button.button.black.flex.items-center.shadow(href="opening-setup-2.html")
                   .vacancies-setup-detail__icon.icon.icon-16px.icon-next.bg.bg-white
                   .vacancies-setup-detail__label 下一步
             .vacancies__input__preview.website-preview
@@ -111,5 +111,5 @@ html(lang="zh-TW")
                                     input.user-form__item-input.form__input.input(id=value.id placeholder=value.placeholder)
                     .user__bottom.flex.items-center.flex-col
                       .user__bottom__button.button.black.items-center.justify-center
-                        .icon.icon-18px.icon-double-check-mark.bg.bg-white
+                        .icon.icon-18px.icon-double-check-mark.bg.bg-white.shadow
                         | 確定，下一步

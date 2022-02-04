@@ -5,6 +5,35 @@ body {
   font-family: 'Noto Sans TC', Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: #191919;
+  overflow: hidden;
+}
+
+.container {
+  &.popop {
+    filter: brightness(.5) blur(5px);
+
+    &::before {
+      opacity: 1;
+    }
+
+    & .aside__wrap,
+    & .content-article {
+      overflow: hidden;
+    }
+  }
+
+  &::before {
+    opacity: 0;
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.315);
+    z-index: 1;
+  }
 }
 
 a {
@@ -342,6 +371,11 @@ a {
     mask-image: url('../images/icon/Black line=fogetpassword.svg');
   }
 
+  &.icon-double-arrow {
+    -webkit-mask-image: url('../images/icon/double-arrow.svg');
+    mask-image: url('../images/icon/double-arrow.svg');
+  }
+
   &.icon-10px {
     width: 10px;
     height: 10px;
@@ -435,6 +469,14 @@ a {
   height: 8px;
   border-radius: 8px;
 
+  &.green {
+    background: #C4F000;
+  }
+
+  &.red {
+    background: #FF734C;
+  }
+
   &.gray {
     background: #A3A3A3;
   }
@@ -481,7 +523,47 @@ a {
   }
 }
 
-// == bottom page button ==
+// === popup ===
+.pop__wrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 25px;
+  background: #FFF;
+  border: 1px solid #EFEFEF;
+  border-radius: 10px;
+}
+
+.pop__container {
+  min-width: 400px;
+  min-height: 236px;
+}
+
+.pop__top {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.pop__content {
+  margin-top: 26px;
+}
+
+.pop__icon {
+  margin-right: 12px;
+}
+
+.pop__close {
+  cursor: pointer;
+  margin-left: auto;
+  border: 0 none;
+}
+
+.pop__cancel {
+  margin-right: 14px;
+}
+
+// === bottom page button ===
 .page__wrap {
   padding: 30px 0 0;
   margin-top: auto;
@@ -546,6 +628,8 @@ a {
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  height: 48px;
+  box-sizing: border-box;
 
   &.shadow {
     box-shadow: 2px 2px 10px 0 #9797974d;
@@ -558,6 +642,8 @@ a {
   &.sm {
     padding: 9px 6px;
     min-width: auto;
+    height: 32px;
+    line-height: 1;
   }
 
   &.full {
@@ -594,6 +680,12 @@ a {
   display: flex;
   flex-direction: column;
 
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
   input,
   select {
     border: 0 none;
@@ -601,7 +693,8 @@ a {
     line-height: 1;
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    min-width: 80px;
+    background-color: #fff;
   }
 
   .label {
@@ -619,5 +712,9 @@ a {
     &::placeholder {
       color: #A3A3A3;
     }
+  }
+
+  select.input {
+    background: url('../images/icon/Black line=arrow-down.svg') no-repeat calc(100% - 14px) center /10px;
   }
 }
