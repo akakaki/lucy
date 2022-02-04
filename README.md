@@ -31,16 +31,16 @@
 - [x] 新增message
 - [ ] 檢查css
   - [x] 404 : 404
-  - [ ] setting : 設定
-  - [ ] response : 面試者資料
-  - [ ] opening : 職缺
-  - [ ] opening-setup-1 : 職缺-step-1
+  - [x] setting : 設定
+  - [x] response : 面試者資料
+  - [x] opening : 職缺
+  - [x] opening-setup-1 : 職缺-step-1
   - [ ] opening-setup-2 : 職缺-step-2
-  - [ ] opening-setup-3 : 職缺-step-3
-  - [ ] plan : 方案
-  - [ ] record : 交易紀錄
-  - [ ] website : 徵才網站
-  - [ ] index : 露西面試助理
+  - [x] opening-setup-3 : 職缺-step-3
+  - [x] plan : 方案
+  - [x] record : 交易紀錄
+  - [x] website : 徵才網站
+  - [x] index : 露西面試助理
   - [x] user-list : 職缺頁面
   - [x] user : 應徵頁面
   - [x] user-setup-1 : 應徵頁面-setup-1

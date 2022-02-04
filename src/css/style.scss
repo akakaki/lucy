@@ -6,14 +6,15 @@
 
 .content-article {
   // view height - header height - padding bottom
-  max-height: calc(100vh - 78px - 50px);
-  overflow-y: auto;
+  max-height: calc(100vh - 78px - 40px);
+  overflow: auto;
   padding: 0 50px 50px;
   height: 100%;
 }
 
 .content {
   flex: 1;
+  overflow: hidden;
 }
 
 // == header ==
@@ -319,6 +320,7 @@
   td {
     padding: 17px 26px;
     border: 0 none;
+    font-weight: inherit;
   }
 
   tr:nth-child(1) th:nth-child(1) {
@@ -346,7 +348,8 @@
   width: 118px;
 }
 
-.letter-save {
+.letter-save,
+.letter-delete {
   margin-right: 28px;
   width: 271px;
 }
@@ -526,8 +529,7 @@
     background: #FAFAFA;
     padding: 36px 39px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+    width: 1000px;
   }
 
   & .plan-record-all__container {
@@ -605,35 +607,6 @@
     margin-right: 22px;
   }
 
-  & .icon {
-    width: 17px;
-    height: 17px;
-    border-radius: 17px;
-    background: #02BD844D;
-    border: 3px solid #02BD841A;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-
-    &::before {
-      content: '';
-      display: block;
-      width: 10px;
-      height: 10px;
-      background: url('../images/icon/Black line=Checkmark.svg') no-repeat center center /contain
-    }
-
-    &.star {
-      background: #FFCD1E4D;
-      border: 3px solid #FFCD1E1A;
-
-      &::before {
-        background: url('../images/icon/Star 1.svg') no-repeat center center /contain;
-      }
-    }
-  }
-
   & .plan-record__title {
     margin-top: auto;
     border-bottom: 1px solid #E0E0E0;
@@ -666,24 +639,8 @@
       display: flex;
       align-items: center;
 
-      &.complete,
-      &.audit {
-        &::before {
-          content: '';
-          display: block;
-          width: 8px;
-          height: 8px;
-          border-radius: 8px;
-          margin-right: 10px;
-        }
-      }
-
-      &.complete::before {
-        background: #C4F000;
-      }
-
-      &.audit::before {
-        background: #FF734C;
+      & .dot {
+        margin-right: 10px;
       }
     }
 
@@ -699,13 +656,48 @@
   }
 }
 
+.vacancies__content-setup-2__chose__bottom {
+  .button {
+    margin-left: 10px;
+  }
+}
+
+.curor-icon {
+  width: 17px;
+  height: 17px;
+  border-radius: 17px;
+  background: #02BD844D;
+  border: 3px solid #02BD841A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: url('../images/icon/Black line=Checkmark.svg') no-repeat center center /contain
+  }
+
+  &.star {
+    background: #FFCD1E4D;
+    border: 3px solid #FFCD1E1A;
+
+    &::before {
+      background: url('../images/icon/Star 1.svg') no-repeat center center /contain;
+    }
+  }
+}
+
 .plan-buy__wrap {
   position: fixed;
   top: 0;
   right: 0;
   z-index: 99;
   width: 924px;
-  height: 100vh;
+  min-height: 100vh;
   overflow-y: auto;
   background: #fff;
   padding: 45px;
@@ -841,14 +833,7 @@
   margin-bottom: 5px;
 }
 
-.plan-buy__detail__form__select {
-  padding: 14px;
-  background: #FFFFFF;
-  border: 1px solid #E0E0E0;
-  box-sizing: border-box;
-  box-shadow: inset -1px -1px 3px rgba(160, 160, 160, 0.25), inset 1px 1px 3px rgba(160, 160, 160, 0.25), inset -2px -2px 4px rgba(255, 255, 255, 0.25);
-  border-radius: 5px;
-  width: 100%;
+select.plan-buy__detail__form__select {
   margin-bottom: 40px;
 }
 
@@ -1402,6 +1387,13 @@
   margin-right: 15px;
 }
 
+.response__build-button,
+.response__send-button {
+  .icon {
+    margin-right: 10px;
+  }
+}
+
 .response-candidate__container {
   display: grid;
   grid-template-columns: 50px 145px 420px 1fr 202px 170px;
@@ -1685,7 +1677,7 @@
 
 .opening__wrap {
   display: grid;
-  grid-template-columns: 50px 128px 145px 106px 208px 1fr 197px 136px 150px;
+  grid-template-columns: 50px 128px 145px 106px 180px 1fr 197px 136px 150px;
 }
 
 .opening-top__title,
@@ -1746,6 +1738,10 @@
 
 .opening-form__wrap {
   margin-bottom: 24px;
+
+  .field {
+    margin-right: 12px;
+  }
 }
 
 .opening-alone-edit__button,
@@ -1783,6 +1779,15 @@
   border-radius: 0 0 5px 5px;
 }
 
+.vacancies-setup-detail__bottom {
+  margin-top: 24px;
+}
+
+.vacancies-setup-detail__button {
+  margin-right: 24px;
+  min-width: 138px;
+}
+
 .vacancies-setup-2__data__icon {
   margin-right: 10px;
 }
@@ -1805,9 +1810,8 @@
   }
 }
 
-.vacancies-setup-2-level-1__list,
-.vacancies-setup-2-level-2__list {
-  margin-right: 22px;
+.vacancies__content-setup-2__container {
+  overflow: auto;
 }
 
 .vacancies-setup-2-level {
@@ -1821,6 +1825,10 @@
 .vacancies-setup-2-level-3__item {
   cursor: pointer;
   padding: 16px;
+
+  &.active {
+    background: #F3FFBF;
+  }
 }
 
 .vacancies-setup-2-level-1__item,
@@ -1830,20 +1838,84 @@
 
 .vacancies-setup-2-level-1__item {
   width: 155px;
+
+  .number {
+    margin-right: 16px;
+  }
 }
 
 .vacancies-setup-2-level-2__item {
   width: 206px;
+
+  .number {
+    margin-right: 16px;
+  }
 }
 
 .vacancies-setup-2-level-3__item {
   width: 670px;
+
+  .number {
+    margin: 0 16px;
+  }
+}
+
+.vacancies-setup-2-level-4__item {
+  border-bottom: 1px solid #E6E6E9;
+  padding: 16px 12px;
+
+  .title {
+    color: #A3A3A3;
+  }
+
+  .number {
+    margin-right: 16px;
+  }
 }
 
 .vacancies__content-setup-2__top {
-  margin: 15px 0;
+  margin: 15px 0 0;
   padding-bottom: 15px;
   border-bottom: 1px solid #E6E6E9;
+}
+
+.vacancies__content-setup-2__chose {
+  width: 546px;
+}
+
+.pop__content__title {
+  color: #686868;
+}
+
+.pop__tips {
+  margin: 12px 0 17px;
+}
+
+.pop__content__textarea  {
+  border: 1px solid #E0E0E0;
+  border-radius: 5px;
+  margin-bottom: 18px;
+  width: 100%;
+  height: 208px;
+  box-sizing: border-box;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+
+
+  textarea {
+    flex: 1;
+    border: 0 none;
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.pop__bottom__tips {
+  text-align: center;
+  margin-top: 10px;
+  color: #686868;
 }
 
 .vacancies__content-setup-2__chose__bottom {
@@ -1894,17 +1966,9 @@
   border: 1px solid #E0E0E0;
   border-radius: 10px;
   margin-bottom: 18px;
-  margin-left: 18px;
+  margin-right: 18px;
   flex: 0 1 calc(100% / 10);
   max-width: 45%;
-
-  &:nth-child(1),
-  &:nth-child(2),
-  &:nth-child(3),
-  &:nth-child(4),
-  &:nth-child(5) {
-    margin-left: 0;
-  }
 }
 
 .vacancies-setup-3__question__number {
@@ -1944,4 +2008,10 @@
 
 .sign__button {
   width: 168px;
+}
+
+.table__arrow {
+  .icon {
+    margin-left: 28px;
+  }
 }

@@ -29,6 +29,7 @@ const config = {
   mode: 'development',
   entry: [
     path.resolve('src/css/common.scss'),
+    path.resolve('src/css/style.scss'),
     // path.resolve('src/images/截圖 2021-12-21 上午11.02 1.jpg'),
     // path.resolve('src/js/jquery.min.js'),
     // path.resolve('src/js/common.js'),

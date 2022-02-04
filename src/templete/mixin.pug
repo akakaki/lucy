@@ -75,11 +75,11 @@ mixin header(id='')
                 if value.id === id
                   a.remind__member__item.flex.active(href=value.href)
                     .remind__member__icon.bg.bg-black.icon.icon-20px(class=value.icon)
-                    .remind__member__text.font.text-16px= value.label
+                    .remind__member__text.font.text-16px.color-black= value.label
                 else
                   a.remind__member__item.flex(href=value.href)
                     .remind__member__icon.bg.bg-black.icon.icon-20px(class=value.icon)
-                    .remind__member__text.font.text-16px= value.label
+                    .remind__member__text.font.text-16px.color-black= value.label
 
 mixin nav(id='')
   aside.aside__wrap.bg.bg-black.font.color-white.font.text-16px
@@ -198,3 +198,8 @@ mixin page
         a.page__item 3
         a.page__item 4
       .page__next.icon.icon-10px.icon-arrow-left
+
+
+//- 共用
+mixin common
+  .message_list

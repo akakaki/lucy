@@ -3,7 +3,7 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
-    .message_list
+    +common
     .container.flex
       +nav()
       .content
@@ -24,7 +24,10 @@ html(lang="zh-TW")
                   tr
                     th 序號
                     th 購買方案
-                    th 購買日期
+                    th
+                      .flex.items-center.table__arrow
+                        | 購買日期
+                        .icon.icon-16px.icon.icon-double-arrow
                     th 方案到期日
                     th 方案細節
                     th 付款金額
@@ -35,8 +38,8 @@ html(lang="zh-TW")
                     td 2023-01-09
                     td 可使用五個職缺100個面試者
                     td
-                      div 付款金額
-                      .count.font.color-blue $26,800
+                      div $26,800
+                      .font.color-blue 已付款
                   tr
                     td 02
                     td 訂製
@@ -44,8 +47,8 @@ html(lang="zh-TW")
                     td 2023-01-09
                     td 可使用五個職缺100個面試者
                     td
-                      div 付款金額
-                      .count.font.color-blue $26,800
+                      div $26,800
+                      .font.color-blue 已付款
                   tr
                     td 03
                     td 訂製
@@ -53,8 +56,8 @@ html(lang="zh-TW")
                     td 2023-01-09
                     td 可使用五個職缺100個面試者
                     td
-                      div 付款金額
-                      .count.font.color-blue $26,800
+                      div $26,800
+                      .font.color-blue 已付款
                 +page
               .switch__content.audit.hidden
                 table.table(cellspacing="0" cellpadding="0")
@@ -72,8 +75,8 @@ html(lang="zh-TW")
                     td 2023-01-09
                     td 可使用五個職缺100個面試者
                     td
-                      div 付款金額
-                      .count.font.color-blue $26,800
+                      div $26,800
+                      .font.color-blue 已付款
                 +page
               .switch__content.complete.hidden
                 table.table(cellspacing="0" cellpadding="0")
@@ -91,8 +94,8 @@ html(lang="zh-TW")
                     td 2023-01-09
                     td 可使用五個職缺100個面試者
                     td
-                      div 付款金額
-                      .count.font.color-blue $26,800
+                      div $26,800
+                      .font.color-blue 已付款
                   tr
                     td 03
                     td 訂製
@@ -100,6 +103,6 @@ html(lang="zh-TW")
                     td 2023-01-09
                     td 可使用五個職缺100個面試者
                     td
-                      div 付款金額
-                      .count.font.color-blue $26,800
+                      div $26,800
+                      .font.color-blue 已付款
                 +page

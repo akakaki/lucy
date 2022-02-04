@@ -3,7 +3,7 @@ doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
   body
-    .message_list
+    +common
     .container.flex
       +nav('folder')
       .content
@@ -34,10 +34,10 @@ html(lang="zh-TW")
                 input(id="date-after" type="date")
                 .form__input.input__date__icon.icon.icon-18px.icon-calendar
 
-            .response__build-button.button.green
+            .response__build-button.button.green.shadow
               .icon.icon-18px.icon-user
               | 創建職缺
-            .response__send-button.button.black
+            .response__send-button.button.black.shadow
               .icon.icon-18px.icon-message.bg.bg-white
               | 發送多封郵件
           .response__switch.flex.justify-between.items-center
