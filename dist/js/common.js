@@ -368,4 +368,12 @@ $(function () {
       })
     }
   }
+
+  $('#date-before').datepicker({
+    dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
+  })
+  $('#date-after').datepicker({
+    dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
+  })
+  $('select').selectmenu()
 })
