@@ -714,7 +714,103 @@ a {
     }
   }
 
-  select.input {
+  select.input + span {
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 14px 15px;
+    height: 48px;
+    box-sizing: border-box;
     background: url('../images/icon/Black line=arrow-down.svg') no-repeat calc(100% - 14px) center /10px;
+  }
+}
+
+.ui-selectmenu-menu {
+  padding-top: 12px;
+
+  #ui-id-1-menu {
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 16px 0;
+  }
+
+  .ui-menu-item-wrapper {
+    padding: 10px;
+    font-size: 14px;
+
+    &.ui-state-active {
+      background: #A3A3A3;
+      color: #fff;
+      border: 0 none;
+    }
+  }
+}
+
+#ui-datepicker-div {
+  border: 1px solid #E0E0E0;
+  border-radius: 5px;
+  width: auto;
+
+  .ui-datepicker-calendar th {
+    font-weight: inherit;
+    font-size: 16px;
+  } 
+   
+  .ui-datepicker-header {
+    background: none;
+    border: 0 none;
+    font-size: 16px;
+    font-weight: inherit;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E8E9EA;
+    padding: 15px 30px;
+
+    .ui-datepicker-title {
+      order: 1;
+    }
+
+    .ui-datepicker-prev {
+      margin: 0 25px 0 auto;
+    }
+
+    .ui-datepicker-next {
+      transform: rotate(180deg);
+    }
+
+    .ui-state-hover {
+      border: 0 none;
+    }
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      cursor: pointer;
+      order: 2;
+      position: static;
+      top: inherit;
+      left: inherit;
+      background: #000;
+      width: 12px;
+      height: 12px;
+      display: block;
+      -webkit-mask: url('../images/icon/Black line=arrow-left.svg') no-repeat center center /contain;
+      mask: url('../images/icon/Black line=arrow-left.svg') no-repeat center center /contain;
+    }
+  }
+
+  .ui-state-default {
+    background: none;
+    border: 0 none;
+    text-align: center;
+    font-size: 16px;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.ui-state-active {
+      background: #C4F000;
+      border-radius: 100px;
+    }
   }
 }
