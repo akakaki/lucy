@@ -5,7 +5,6 @@ body {
   font-family: 'Noto Sans TC', Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: #191919;
-  overflow: hidden;
 }
 
 .container {
@@ -69,6 +68,10 @@ a {
   flex-wrap: wrap;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -104,6 +107,10 @@ a {
 
   &.bg-black {
     background: #191919;
+  }
+
+  &.bg-blue {
+    background: #1743D7;
   }
 }
 
@@ -374,6 +381,11 @@ a {
   &.icon-double-arrow {
     -webkit-mask-image: url('../images/icon/double-arrow.svg');
     mask-image: url('../images/icon/double-arrow.svg');
+  }
+
+  &.icon-union {
+    -webkit-mask-image: url('../images/icon/Union.svg');
+    mask-image: url('../images/icon/Union.svg');
   }
 
   &.icon-10px {

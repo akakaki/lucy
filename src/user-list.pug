@@ -11,7 +11,7 @@ html(lang="zh-TW")
           img.user-list__banner__logo(src="./images/page_logo.svg")
           .user-list__banner__text.font.color-white The opportunity to spend your time solving hard, <br>interesting problems with smart peoples.
       .user-list__top.flex
-        .user-list__search.flex.items-center
+        .user-list__search.flex.items-center.flex-1
           .user-list__icon.icon.icon-18px.icon-search
           input(placeholder="輸入您想找的職缺")
         -
@@ -39,6 +39,15 @@ html(lang="zh-TW")
 
       .user-list__container 
         h2.font.text-24px 職缺列表
+        // 沒有資料
+        .user-list__content
+          .non.flex.items-center
+            .icon.icon-34px.icon-union
+            .non__label.flex-1
+              h3.non__title.font.text-24px 本公司目前沒有職缺開放中
+              p.non__text.font.text-14px 謝謝你願意來本公司尋找機會，希望有緣再相見！
+
+        // 有資料
         .user-list__content
           h3.font.text-24px B2B Lead Generation Specialist
           div.user-list__title.font.text-16px 工作內容
@@ -51,14 +60,26 @@ html(lang="zh-TW")
           p.font.text-16px ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。
           p.font.text-16px ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。
 
-          div.user-list__title.font.text-16px 職務要求
-          p.font.text-16px 工作待遇｜月薪 ＄40,000~＄80,000
-          p.font.text-16px 工作性質｜全職
-          p.font.text-16px 工作地點｜桃園市
-          p.font.text-16px 可否遠端｜可
+          div.user-list__title.line.font.text-16px 職務要求
+          p.font.text-16px
+            | 工作待遇
+            span ｜
+            | 月薪 NTD$40,000~NTD$80,000
+          p.font.text-16px
+            | 工作性質
+            span ｜
+            | 全職
+          p.font.text-16px
+            | 工作地點
+            span ｜
+            | 桃園市
+          p.font.text-16px
+            | 可否遠端
+            span ｜
+            | 可
 
           .user-list__button__wrap.flex.justify-end
-            a.user-list__button.button.black 我想應徵
+            a.user-list__button.button.black.shadow 我想應徵
         .user-list__content
           h3.font.text-24px B2B Lead Generation Specialist
           div.user-list__title.font.text-16px 工作內容
@@ -71,14 +92,26 @@ html(lang="zh-TW")
           p.font.text-16px ☞ 用戶成長：<br>追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。
           p.font.text-16px ☞ A/B testing：<br>經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。
 
-          div.user-list__title.font.text-16px 職務要求
-          p.font.text-16px 工作待遇｜月薪 ＄40,000~＄80,000
-          p.font.text-16px 工作性質｜全職
-          p.font.text-16px 工作地點｜桃園市
-          p.font.text-16px 可否遠端｜可
+          div.user-list__title.line.font.text-16px 職務要求
+          p.font.text-16px
+            | 工作待遇
+            span ｜
+            | 月薪 NTD$40,000~NTD$80,000
+          p.font.text-16px
+            | 工作性質
+            span ｜
+            | 全職
+          p.font.text-16px
+            | 工作地點
+            span ｜
+            | 桃園市
+          p.font.text-16px
+            | 可否遠端
+            span ｜
+            | 可
 
           .user-list__button__wrap.flex.justify-end
-            a.user-list__button.button.black 我想應徵
+            a.user-list__button.button.black.shadow 我想應徵
       footer.user-list__footer 版權 2022 Lucy 保留所有權利
 
 

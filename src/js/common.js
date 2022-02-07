@@ -135,7 +135,7 @@ $(function () {
       const text = $(this).val()
       const input = $('.website-preview__url')
       if (text.length) input.text(text)
-      else input.text('www.lucy.website')
+      else input.text('recruit.website')
     })
 
     $('.form__input#company').on('keyup', function () {
