@@ -6,6 +6,7 @@
 
 .content-article {
   padding: 0 50px 50px;
+  min-width: 1577px;
 }
 
 .content {
@@ -13,6 +14,13 @@
 }
 
 // == header ==
+.header__wrap {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
 .header__container {
   padding: 29px 50px;
   display: flex;
@@ -243,7 +251,7 @@
   border: 1px solid #C4F000;
   border-radius: 10px;
   margin: 35px;
-  padding: 20px 15px;
+  padding: 20px 14px;
 
   .help__icon {
     margin-right: 15px;

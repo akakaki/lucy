@@ -43,7 +43,7 @@
   const userTitleObject = ['職缺名稱', '面試者資訊', '線上面試回傳影片', '狀態', '聯絡他']
 
 mixin header(id='')
-  header.header__wrap
+  header.header__wrap.bg.bg-white
     .header__container
       .header__tool
         .header__icon.icon.icon-20px.icon-search
@@ -57,7 +57,7 @@ mixin header(id='')
             .remind__message__top.flex.items-center
               .remind__message__icon
               .remind__message__title.font.text-18px 通知
-              a.remind__go.flex(href="index.html")
+              a.remind__go.flex(href="noteboard.html")
                 .remind__go-text 查看全部通知
                 .remind__go-icon
             .remind__message__list

@@ -3,18 +3,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { PAGE_LIST, ENTRY_LIST } = require('./../src/route')
 
-const plugins = []
+const plugins = [
+  new MiniCssExtractPlugin(),
+]
 
 for (const item of PAGE_LIST) {
   plugins.push(
     new HtmlWebpackPlugin({
       template: item.path,
       filename: item.file,
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true,
+      }
     }),
   )
 }
-
-plugins.push(new MiniCssExtractPlugin())
 
 const config = {
   mode: 'development',
@@ -22,10 +26,6 @@ const config = {
   devtool: 'inline-source-map',
   target: 'web',
   entry: ENTRY_LIST,
-  // {
-  //   'index.pug': path.resolve('src/index.pug'),
-  //   'about.pug': path.resolve('src/about.pug'),
-  // }
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'),
@@ -33,7 +33,6 @@ const config = {
     compress: true,
     port: 3000,
     hot: true,
-    open: true,
   },
 
   module: {
@@ -67,7 +66,6 @@ const config = {
 
       {
         test: /\.s[ac]ss$/i,
-        // 把 sass-loader 放在首要處理 (第一步)
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ]

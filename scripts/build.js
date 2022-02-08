@@ -1,13 +1,21 @@
+/*
+  webpack 載入方式為從右至左從上到下。
+  https://pjchender.dev/webpack/note-webpack/
+*/
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { PAGE_LIST } = require('./../src/route')
+const { PAGE_LIST, ENTRY_LIST } = require('./../src/route')
+const webpack = require('webpack')
 
 const plugins = [
   new MiniCssExtractPlugin({
     filename: 'css/[name].css',
-  })
+  }),
+  // new webpack.ProvidePlugin({
+  //   $: 'jquery',
+  //   jQuery: 'jquery',
+  // })
 ]
 
 for (const item of PAGE_LIST) {
@@ -23,20 +31,13 @@ for (const item of PAGE_LIST) {
   )
 }
 
-plugins.push(new CleanWebpackPlugin())
-
 const config = {
   mode: 'development',
-  entry: [
-    path.resolve('src/css/common.scss'),
-    path.resolve('src/css/style.scss'),
-    // path.resolve('src/images/截圖 2021-12-21 上午11.02 1.jpg'),
-    // path.resolve('src/js/jquery.min.js'),
-    // path.resolve('src/js/common.js'),
-  ],
+  // mode: 'none',
+  entry: ENTRY_LIST,
   output: {
+    clean: true,
     path: path.resolve('dist'),
-    // filename: 'bundle/[name].[ext]'
   },
 
   module: {
@@ -67,18 +68,18 @@ const config = {
         ],
       },
 
-      // {
-      //   test: /\.(png|jpg|gif|jpe?g|svg)$/,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: {
-      //         name: 'images/[name].[ext]',
-      //         emitFile: false
-      //       }  
-      //     },
-      //   ]
-      // },
+      {
+        /*
+          webpack 5 已經棄用file-loader 記得拔掉
+          https://stackoverflow.com/questions/67250804/html-loader-is-not-getting-correct-img-src-path
+        */
+        test: /\.(png|jpg|gif|jpe?g|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          // filename: 'img/[hash][ext]'
+          filename: 'images/[name][ext]'
+        }
+      },
 
       {
         test: /\.js$/,

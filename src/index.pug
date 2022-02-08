@@ -8,8 +8,45 @@ html(lang="zh-TW")
       +nav('noteboard')
       .content
         +header()
-        .content-article.flex.flex-col
-          +h1('所有通知')
-          +notification-list('今日通知', NOTIFICATION_LIST_TODAY)
-          +notification-list('先前通知', notificationListBefore)
+        .content-article.home
+          .home-title__label
+            .home-title__icon
+            +h1('露西面試助理')
+          .home__container
+            .home__data
+              .home-count__content
+                -
+                  const COUNT_LIST = [
+                    { icon: 'user', label: '已使用職缺數', count: '3/10' },
+                    { icon: 'user', label: '已使用人數', count: '22/100' },
+                    { icon: 'user', label: '未讀訊息', count: '14' },
+                    { icon: 'user', label: '今日應徵數', count: '3' },
+                  ]
+                for item in COUNT_LIST
+                  .home-count__item
+                    .home-count__title.flex.items-center
+                      .home-count__icon.icon.icon-20px
+                      .home-count__label= item.label
+                    .home-count__count= item.count
+              .home-question__content
+                .home-question__title
+                  .home-question__icon
+                  .home-question__label 熱門問題
+                  .home-question__button 創建職缺
+                .home-question__list
+                  -
+                    const QUEST_LIST = [
+                      { icon: 'user', label: '已使用職缺數', count: '3/10' },
+                      { icon: 'user', label: '已使用人數', count: '22/100' },
+                      { icon: 'user', label: '未讀訊息', count: '14' },
+                      { icon: 'user', label: '今日應徵數', count: '3' },
+                    ]
+                  for item in QUEST_LIST
+                    .home-question__item
+                      .home-question__title.flex.items-center
+                        .home-question__icon.icon.icon-20px
+                        .home-question__label= item.label
+                      .home-question__count= item.count
+            .home__view
+
 
