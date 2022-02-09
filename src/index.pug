@@ -9,44 +9,123 @@ html(lang="zh-TW")
       .content
         +header()
         .content-article.home
-          .home-title__label
-            .home-title__icon
+          .home-title__label.flex.items-center
+            img.home-title__icon(src="./images/icon.png")
             +h1('露西面試助理')
-          .home__container
-            .home__data
-              .home-count__content
-                -
-                  const COUNT_LIST = [
-                    { icon: 'user', label: '已使用職缺數', count: '3/10' },
-                    { icon: 'user', label: '已使用人數', count: '22/100' },
-                    { icon: 'user', label: '未讀訊息', count: '14' },
-                    { icon: 'user', label: '今日應徵數', count: '3' },
-                  ]
-                for item in COUNT_LIST
-                  .home-count__item
-                    .home-count__title.flex.items-center
-                      .home-count__icon.icon.icon-20px
-                      .home-count__label= item.label
-                    .home-count__count= item.count
-              .home-question__content
-                .home-question__title
-                  .home-question__icon
-                  .home-question__label 熱門問題
-                  .home-question__button 創建職缺
-                .home-question__list
+          .home__contaiboardner
+            .home__board.flex.items-center
+              .home__data
+                .home-count__content.flex.items-center
                   -
-                    const QUEST_LIST = [
+                    const COUNT_LIST = [
                       { icon: 'user', label: '已使用職缺數', count: '3/10' },
                       { icon: 'user', label: '已使用人數', count: '22/100' },
                       { icon: 'user', label: '未讀訊息', count: '14' },
                       { icon: 'user', label: '今日應徵數', count: '3' },
                     ]
-                  for item in QUEST_LIST
-                    .home-question__item
-                      .home-question__title.flex.items-center
-                        .home-question__icon.icon.icon-20px
-                        .home-question__label= item.label
-                      .home-question__count= item.count
-            .home__view
+                  for item in COUNT_LIST
+                    .home-count__item
+                      .home-count__title.flex.items-center
+                        .home-count__icon.icon.icon-20px
+                        .home-count__label.font.text-16px= item.label
+                      .home-count__count= item.count
+                .home-question__content
+                  .home-question__title.flex.items-center
+                    .home-question__icon.icon.icon-18px
+                    .home-question__label.font.text-18px 熱門問題
+                    .home-question__button.button.green.shadow
+                      .icon.icon-18px.icon-user
+                      | 創建職缺
+                  .home-question__list.flex.items-center
+                    -
+                      const QUEST_LIST = [
+                        { question: '1', isapple: true, count: '20', label: 'Management / Project Manager', text: 'It\'s your first day at work and you meet your team for the first time, what do you say to them to get them motivated and trust you?' },
+                        { question: '12', isapple: false, count: '54', label: '設計藝術 / 多媒體動畫設計師', text: '如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？描述一個你不得不與一位難相處的同事一起工作的經歷？' },
+                        { question: '1', isapple: true, count: '20', label: 'Management / Project Manager', text: 'It\'s your first day at work and you meet your team for the first time, what do you say to them to get them motivated and trust you?' },
+                        { question: '12', isapple: false, count: '54', label: '設計藝術 / 多媒體動畫設計師', text: '如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？描述一個你不得不與一位難相處的同事一起工作的經歷。你是如何克服任何利益衝突的？描述一個你不得不與一位難相處的同事一起工作的經歷？' },
+                      ]
+                    for item in QUEST_LIST
+                      .home-question__item
+                        .home-question__top.flex.items-center
+                          .home-question__number= `Q${item.question}`
+                          if item.isapple
+                            .home-question__apple
+                              .icon.icon-14px
+                              | Apple
+                          .home-question__count
+                            .home-question__count-icon.icon.icon-12px
+                            .home-question__count-label= item.count
+                        .home-question__title= item.label
+                        .home-question__text= item.text
+              .home__view
+                img.home-view__img(src="./images/Lucy_landing page_mobile-12 1.png")
+            .home-list__wrap
+              .home-list__container
+                -
+                  const HOME_TITLE_LIST = [
+                    { label: '' },
+                    { label: '創建時間', icon: 'arrow' },
+                    { label: '工作職稱' },
+                    { label: '面試問題 ' },
+                    { label: '職缺連結' },
+                    { label: '狀態' },
+                    { label: '操作' },
+                  ]
+                for item in HOME_TITLE_LIST
+                  .home-list__title
+                    .home-list__label=item.label
+                    if item.icon
+                      .home-list__icon.icon.icon-12px(class=item.icon)
+
+                - let DATA_COUNT = 0
+                while DATA_COUNT < 3
+                  .home-list__data= `0${DATA_COUNT++}`
+                  .home-list__data 2021.01.07
+                  .home-list__data 平面設計
+                  .home-list__data.home-list__question-list
+                    -
+                      const DATA_COUNT_LIST = [
+                        '如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？',
+                        '您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？',
+                        '說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？',
+                        '描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？',
+                        '描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？',
+                      ]
+                    for item, index in DATA_COUNT_LIST
+                      .home-list__question-item= `Q${index+1} ${item}`
+                  .home-list__data.home-list__link
+                    .home-list__link-non --
+                    .home-list__link-button
+                      .icon.icon-18px
+                      | 前往職缺頁
+                    .home-list__link-copy
+                      .icon.icon-12px
+                      | 複製連結
+                  .home-list__data.home-list__status
+                    .home-list__status-write
+                      .icon.icon-18px
+                      | 草稿編輯
+                    .home-list__status-post
+                      .icon.icon-18px
+                      | 職缺刊登
+                    .home-list__status-wait
+                      .icon.icon-18px
+                      | 職缺準備中
+                  .home-list__data.home-list__operate
+                    .home-list__operate-edit
+                      .icon.icon-18px
+                      | 繼續編輯
+                    .home-list__operate-copy
+                      .icon.icon-12px
+                      | 複製職缺
+                    .home-list__operate-delete
+                      .icon.icon-12px
+                      | 刪除職缺
+                    .home-list__operate-delete
+                      .icon.icon-16px
+                      | 關閉職缺
+
+
+
 
 
