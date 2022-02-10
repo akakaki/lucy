@@ -4,6 +4,7 @@
 - [figma圖檔，換這個，他v2有更新喔](https://www.figma.com/file/nugR8aa39mkP40s8R3231i/LUCY_User%E7%AB%AF-(Copy)?node-id=0%3A1)
 - [figma圖檔，UI完全](https://www.figma.com/file/wn1EVwiRupfMKnGr5SHrCs/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
 - [figma圖檔，UI完全-1](https://www.figma.com/file/9T9WvBoQBmMG2GTpfkgsUZ/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
+- [figma圖檔，UI完全-2?](https://www.figma.com/file/MfPZiH64D6LIv53gwUs9jn/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
 
 
 

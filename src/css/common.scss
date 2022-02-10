@@ -389,6 +389,21 @@ a {
     mask-image: url('../images/icon/Union.svg');
   }
 
+  &.icon-apple {
+    -webkit-mask-image: url('../images/icon/apple_icon.svg');
+    mask-image: url('../images/icon/apple_icon.svg');
+  }
+
+  &.icon-add {
+    -webkit-mask-image: url('../images/icon/icon_add.svg');
+    mask-image: url('../images/icon/icon_add.svg');
+  }
+
+  &.icon-both {
+    -webkit-mask-image: url('../images/icon/icon_both.svg');
+    mask-image: url('../images/icon/icon_both.svg');
+  }
+
   &.icon-10px {
     width: 10px;
     height: 10px;

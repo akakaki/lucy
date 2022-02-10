@@ -13,25 +13,25 @@ html(lang="zh-TW")
             img.home-title__icon(src="./images/icon.png")
             +h1('露西面試助理')
           .home__contaiboardner
-            .home__board.flex.items-center
+            .home__board.flex.items-end.justify-between
               .home__data
-                .home-count__content.flex.items-center
+                .home-count__content
                   -
                     const COUNT_LIST = [
-                      { icon: 'user', label: '已使用職缺數', count: '3/10' },
-                      { icon: 'user', label: '已使用人數', count: '22/100' },
-                      { icon: 'user', label: '未讀訊息', count: '14' },
-                      { icon: 'user', label: '今日應徵數', count: '3' },
+                      { icon: 'icon-user', label: '已使用職缺數', count: '3/10' },
+                      { icon: 'icon-both', label: '已使用人數', count: '22/100' },
+                      { icon: 'icon-notification', label: '未讀訊息', count: '14' },
+                      { icon: 'icon-add', label: '今日應徵數', count: '3' },
                     ]
                   for item in COUNT_LIST
                     .home-count__item
                       .home-count__title.flex.items-center
-                        .home-count__icon.icon.icon-20px
+                        .home-count__icon.icon.icon-20px(class=item.icon)
                         .home-count__label.font.text-16px= item.label
                       .home-count__count= item.count
                 .home-question__content
-                  .home-question__title.flex.items-center
-                    .home-question__icon.icon.icon-18px
+                  .home-question__top.flex.items-center
+                    .home-question__icon.icon.icon-18px.icon-prize
                     .home-question__label.font.text-18px 熱門問題
                     .home-question__button.button.green.shadow
                       .icon.icon-18px.icon-user
@@ -47,24 +47,30 @@ html(lang="zh-TW")
                     for item in QUEST_LIST
                       .home-question__item
                         .home-question__top.flex.items-center
-                          .home-question__number= `Q${item.question}`
+                          .home-question__number.font.text-16px= `Q${item.question}`
                           if item.isapple
-                            .home-question__apple
-                              .icon.icon-14px
+                            .home-question__apple.flex.items-center
+                              .icon.icon-14px.icon-apple
                               | Apple
-                          .home-question__count
-                            .home-question__count-icon.icon.icon-12px
+                          .home-question__count.flex.items-center
+                            .home-question__count-icon.icon.icon-12px.icon-profile
                             .home-question__count-label= item.count
                         .home-question__title= item.label
                         .home-question__text= item.text
               .home__view
                 img.home-view__img(src="./images/Lucy_landing page_mobile-12 1.png")
             .home-list__wrap
+              .home-list__top.flex.items-center
+                .home-list__icon.icon.icon-18px.icon-user
+                .home-list__label.font.text-18px 職缺列表
+                a.home-list__more.font.text-16px.flex.items-center(href="#")
+                  | 查看全部職缺
+                  .icon.icon-16px.bg.bg-blue.icon-next
               .home-list__container
                 -
                   const HOME_TITLE_LIST = [
                     { label: '' },
-                    { label: '創建時間', icon: 'arrow' },
+                    { label: '創建時間', icon: 's' },
                     { label: '工作職稱' },
                     { label: '面試問題 ' },
                     { label: '職缺連結' },
@@ -72,16 +78,16 @@ html(lang="zh-TW")
                     { label: '操作' },
                   ]
                 for item in HOME_TITLE_LIST
-                  .home-list__title
+                  .home-list__title.flex.items-center
                     .home-list__label=item.label
                     if item.icon
                       .home-list__icon.icon.icon-12px(class=item.icon)
 
-                - let DATA_COUNT = 0
-                while DATA_COUNT < 3
-                  .home-list__data= `0${DATA_COUNT++}`
-                  .home-list__data 2021.01.07
-                  .home-list__data 平面設計
+                - let DATA_COUNT = 1
+                while DATA_COUNT < 4
+                  .home-list__data.flex.flex-col.items-center.justify-center= `0${DATA_COUNT++}`
+                  .home-list__data.flex.flex-col.items-center.justify-center 2021.01.07
+                  .home-list__data.flex.flex-col.items-center.justify-center 平面設計
                   .home-list__data.home-list__question-list
                     -
                       const DATA_COUNT_LIST = [
@@ -92,36 +98,41 @@ html(lang="zh-TW")
                         '描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？',
                       ]
                     for item, index in DATA_COUNT_LIST
-                      .home-list__question-item= `Q${index+1} ${item}`
-                  .home-list__data.home-list__link
+                      .home-list__question-item.flex.items-center
+                        .tip= `Q${index+1}`
+                        .label= item
+                    .home-list__question-more.flex.items-center.justify-end.font.color-blue
+                      | 展開所有問題
+                      .icon.icon-14px.icon-arrow-down.bg.bg-blue
+                  .home-list__data.home-list__link.flex.flex-col.items-center.justify-center
                     .home-list__link-non --
-                    .home-list__link-button
+                    .home-list__link-button.flex.items-center
                       .icon.icon-18px
                       | 前往職缺頁
-                    .home-list__link-copy
+                    .home-list__link-copy.flex.items-center
                       .icon.icon-12px
                       | 複製連結
-                  .home-list__data.home-list__status
-                    .home-list__status-write
+                  .home-list__data.home-list__status.flex.flex-col.items-center.justify-center
+                    .home-list__status-write.flex.items-center
                       .icon.icon-18px
                       | 草稿編輯
-                    .home-list__status-post
+                    .home-list__status-post.flex.items-center
                       .icon.icon-18px
                       | 職缺刊登
-                    .home-list__status-wait
+                    .home-list__status-wait.flex.items-center
                       .icon.icon-18px
                       | 職缺準備中
-                  .home-list__data.home-list__operate
-                    .home-list__operate-edit
+                  .home-list__data.home-list__operate.flex.flex-col.items-center.justify-center
+                    .home-list__operate-edit.flex.items-center
                       .icon.icon-18px
                       | 繼續編輯
-                    .home-list__operate-copy
+                    .home-list__operate-copy.flex.items-center
                       .icon.icon-12px
                       | 複製職缺
-                    .home-list__operate-delete
+                    .home-list__operate-delete.flex.items-center
                       .icon.icon-12px
                       | 刪除職缺
-                    .home-list__operate-delete
+                    .home-list__operate-close.flex.items-center
                       .icon.icon-16px
                       | 關閉職缺
 
