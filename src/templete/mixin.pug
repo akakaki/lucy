@@ -8,7 +8,8 @@
   const NAV_LIST = [
     { id: 'noteboard', label: '露西面試助理', icon: 'icon-noteboard', href: 'index.html' },
     { id: 'website', label: '徵才網站', icon: 'icon-website', href: 'website.html' },
-    { id: 'boy', label: '職缺', icon: 'icon-user', href: 'opening.html' },
+    { id: 'boy', label: '職缺', icon: 'icon-boy', href: 'opening.html' },
+    { id: 'interview', label: '面試連結', icon: 'icon-interview', href: 'user.html' },
     { id: 'folder', label: '面試者資料', icon: 'icon-folder', href: 'response.html' },
     { id: 'plans', label: '方案', icon: 'icon-plans', href: 'plan.html' },
     { id: 'share', label: '露西交流網', icon: 'icon-share', href: '' },
@@ -68,16 +69,16 @@ mixin header(id='')
         .header__member__wrap.bg.bg-white.hidden
           .remind__member__container
             .remind__member__title.flex.items-center
-              .remind__member__icon.icon.icon-20px.icon-user-2
+              .remind__member__icon.icon.icon-20px.icon-user
               .remind__member__label.font.text-18px 諾比科技
             .remind__member__list
               for value in headerList
                 if value.id === id
-                  a.remind__member__item.flex.active(href=value.href)
+                  a.remind__member__item.my-4px.flex.items-center.active(href=value.href)
                     .remind__member__icon.bg.bg-black.icon.icon-20px(class=value.icon)
                     .remind__member__text.font.text-16px.color-black= value.label
                 else
-                  a.remind__member__item.flex(href=value.href)
+                  a.remind__member__item.my-4px.flex.items-center(href=value.href)
                     .remind__member__icon.bg.bg-black.icon.icon-20px(class=value.icon)
                     .remind__member__text.font.text-16px.color-black= value.label
 
@@ -91,15 +92,15 @@ mixin nav(id='')
         if value.id === id
           li.aside__item.active
             a.aside__link.flex.items-center.bg.bg-green.font.color-black(href=value.href)
-              .aside__icon.icon.icon-18px(class=value.icon)
+              .aside__icon.icon.icon-18px.mr-15px.bg.bg-white(class=value.icon)
               .aside__label=value.label
         else 
           li.aside__item
             a.aside__link.flex.items-center.font.color-white(href=value.href)
-              .aside__icon.icon.icon-18px(class=value.icon)
+              .aside__icon.icon.icon-18px.mr-15px.bg.bg-white(class=value.icon)
               .aside__label=value.label
     .aside__help.flex.items-center.justify-center
-      .help__icon.icon.icon-20px.icon-prize.bg.bg-green
+      .help__icon.icon.icon-20px.icon-prize.bg.bg-green.mr-15px
       .help__text.font.text-16px 露西給您更多服務
 
 mixin h1(text)

@@ -38,6 +38,20 @@ const QUESTION_LEVEL_3_LIST = [
 ]
 
 $(function () {
+  // index
+  $(document).ready(function () {
+    const swiper = new Swiper('.swiper', {  
+      spaceBetween: 23,
+      slidesPerView: 4,
+      width: 1245,
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+  })
+
   $('.header__icon.icon-question').on('click', function () {
     $('.header__search__wrap').stop().fadeToggle()
   })

@@ -56,9 +56,9 @@
 - [x] 抽出page
 - [x] 命名確認
 ## 設計稿最後完成 (第三階段)
-- 原有
-  - [x] user : 應徵頁面
+  - [x] index : 露西面試助理
   - [ ] website : 徵才網站
+  - [ ] user : 應徵頁面
   - [ ] response : 面試者資料
   - [ ] opening : 職缺
   - [ ] opening-setup-1 : 職缺-step-1
@@ -67,18 +67,12 @@
   - [ ] user-list : 職缺頁面
   - [ ] user-setup-1 : 應徵頁面-setup-1
   - [ ] user-setup-2 : 應徵頁面-setup-2-完成
-- 新增
-  - [ ] index : 露西面試助理
   - [ ] opening-setup-4: 職缺-step-4
-- 未包含
-
-- [ ] 404 : 404
-- [ ] setting : 設定
-- [ ] plan : 方案
-- [ ] record : 交易紀錄
-- [ ] index : 露西面試助理
-
-- [ ] sign-in : 登入
-- [ ] sign-up : 註冊
-- [ ] forget-password-step-1 : 忘記密碼-step-1
-- [ ] forget-password-step-2 : 忘記密碼-step-2
+  - [ ] 404 : 404
+  - [ ] setting : 設定
+  - [ ] plan : 方案
+  - [ ] record : 交易紀錄
+  - [ ] sign-in : 登入
+  - [ ] sign-up : 註冊
+  - [ ] forget-password-step-1 : 忘記密碼-step-1
+  - [ ] forget-password-step-2 : 忘記密碼-step-2

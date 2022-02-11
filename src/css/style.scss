@@ -61,11 +61,12 @@
   top: 100%;
   right: 0;
   width: 261px;
+  box-sizing: border-box;
   margin-top: 32px;
   border: 1px solid #E0E0E0;
   box-shadow: 0px 4px 10px rgba(164, 164, 164, 0.25);
   border-radius: 10px;
-  padding: 30px;
+  padding: 30px 26px;
   z-index: 1;
 }
 
@@ -93,12 +94,13 @@
 }
 
 .remind__member__item {
+  cursor: pointer;
   padding: 20px 25px;
-  border-radius: 10px;
+  border-radius: 5px;
 
   &.active,
   &:hover {
-    background: #F3FFBF;
+    background: #C4F000;
   }
 
   .remind__member__icon {
@@ -239,9 +241,6 @@
 }
 
 .aside__icon {
-  background: #fff;
-  margin-right: 15px;
-
   .active & {
     background: #191919;
   }
@@ -252,10 +251,6 @@
   border-radius: 10px;
   margin: 35px;
   padding: 20px 14px;
-
-  .help__icon {
-    margin-right: 15px;
-  }
   
   .help__text {
     font-weight: 500;
@@ -413,34 +408,6 @@
   color: #686868;
 }
 
-// 404
-.black {
-  background: #191919;
-  color: #fff;
-}
-
-.error-404 {
-  padding-bottom: 30px;
-
-  .img {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 64px;
-  }
-
-  .title {
-    font-weight: 500;
-    margin-bottom: 21px;
-  }
-
-  .text {
-    font-weight: 500;
-    margin-bottom: 97px;
-  }
-}
-
-
 .header-404__warp {
   margin: 40px 30px 0;
 
@@ -475,13 +442,10 @@
     border-bottom: 1px solid #E0E0E0;
     padding-bottom: 11px;
     margin-bottom: 11px;
-  }
 
-  & .plan-icon {
-    width: 26px;
-    height: 26px;
-    background: url('../images/icon/currentPlan.svg') no-repeat center center /contain;
-    margin-right: 17px;
+    .icon {
+      margin-right: 17px;
+    }
   }
 
   &.plan-title {
@@ -499,18 +463,8 @@
     padding: 0;
   }
 
-  & .info__list .icons {
-    width: 21px;
-    height: 21px;
+  & .info__list .icon {
     margin-right: 4px;
-
-    &.buy {
-      background: url('../images/icon/Black line=History.svg') no-repeat center center /contain;
-    }
-
-    &.plan {
-      background: url('../images/icon/Black line=Calendar line.svg') no-repeat center center /contain;
-    }
   }
 
   .info__item {
@@ -677,21 +631,9 @@
   align-items: center;
   margin-right: 10px;
 
-  &::before {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    background: url('../images/icon/Black line=Checkmark.svg') no-repeat center center /contain
-  }
-
   &.star {
     background: #FFCD1E4D;
     border: 3px solid #FFCD1E1A;
-
-    &::before {
-      background: url('../images/icon/Star 1.svg') no-repeat center center /contain;
-    }
   }
 }
 
@@ -724,7 +666,7 @@
       display: block;
       width: 10px;
       height: 10px;
-      background: url('../images/icon/Black line=Checkmark.svg') no-repeat center center /contain
+      // background: url('../images/icon/Black line=Checkmark.svg') no-repeat center center /contain
     }
 
     &.star {
@@ -732,16 +674,13 @@
       border: 3px solid #FFCD1E1A;
 
       &::before {
-        background: url('../images/icon/Star 1.svg') no-repeat center center /contain;
+        // background: url('../images/icon/Star 1.svg') no-repeat center center /contain;
       }
     }
   }
 }
 
 .plan-buy__case__icon {
-  width: 26px;
-  height: 26px;
-  background: url('../images/icon/currentPlan.svg') no-repeat center center /contain;
   margin-right: 10px;
 }
 
@@ -778,19 +717,12 @@
   flex: 1;
 }
 
-.plan-buy__detail__icon {
-  width: 26px;
-  height: 26px;
-  background: url('../images/icon/Black line=coin.svg') no-repeat center center /contain;
-  margin-right: 10px;
-}
-
 .plan-buy__detail__close {
   margin-left: auto;
   cursor: pointer;
   width: 18px;
   height: 18px;
-  background: url('../images/icon/Black line=Close.svg') no-repeat center center /contain;
+  // background: url('../images/icon/Black line=Close.svg') no-repeat center center /contain;
 }
 
 .plan-buy__detail__info__title,
@@ -804,14 +736,6 @@
   width: 18px;
   height: 18px;
   margin-right: 10px;
-}
-
-.plan-buy__detail__info__icon {
-  background: url('../images/icon/Black line=Noteboard line.svg') no-repeat center center /contain;
-}
-
-.plan-buy__update__icon {
-  background: url('../images/icon/Black line=Upload line.svg') no-repeat center center /contain;
 }
 
 .plan-buy__detail__title,
@@ -878,9 +802,6 @@ select.plan-buy__detail__form__select {
   }
 
   & .plan-buy__icon {
-    width: 26px;
-    height: 26px;
-    background: url('../images/icon/shape.svg') no-repeat center center /contain;
     margin-bottom: 10px;
   }
 
@@ -2108,12 +2029,12 @@ select.plan-buy__detail__form__select {
   }
 }
 
+.home-question__list__wrap {
+  position: relative;
+}
+
 .home-question__list {
-  display: grid;
-  // grid-template-columns: repeat(4, 294px);
-  grid-template-columns: repeat(4, minmax(0, 294px));
-  grid-template-rows: auto;
-  column-gap: 23px;
+  width: 1245px;
 }
 
 .home-question__item {
@@ -2122,6 +2043,30 @@ select.plan-buy__detail__form__select {
   border-radius: 10px;
   height: 221px;
   overflow: hidden;
+}
+
+.home-question__next.swiper-button-next,
+.home-question__prev.swiper-button-prev {
+  opacity: 0;
+  top: 0;
+  margin: 0;
+  height: 100%;
+
+  &::after {
+    content: none;
+  }
+
+  .home-question__list__wrap:hover & {
+    opacity: 1;
+  }
+}
+
+.home-question__next.swiper-button-next {
+  right: -20px;
+}
+
+.home-question__prev.swiper-button-prev {
+  left: -20px;
 }
 
 
@@ -2172,20 +2117,11 @@ select.plan-buy__detail__form__select {
 
 .home-list__more {
   margin-left: auto;
-
-  .icon {
-    margin-left: 10px;
-  }
 }
 
 .home-list__container {
   display: grid;
-  grid-template-columns: 51px 128px 120px 1fr 197px 136px 137px;
-}
-
-.home-list__title,
-.home-list__data {
-  padding: 17px;
+  grid-template-columns: 51px 128px 120px 1fr 197px 136px 160px;
 }
 
 .home-list__title {
@@ -2203,19 +2139,4 @@ select.plan-buy__detail__form__select {
 
 .home-list__data  {
   border-bottom: 1px solid #E6E6E9;
-}
-
-.home-list__question-item {
-  margin-bottom: 16px;
-
-  .tip {
-    margin-right: 15px;
-  }
-}
-
-.home-list__question-more {
-
-  .icon {
-    margin-left: 8px;
-  }
 }

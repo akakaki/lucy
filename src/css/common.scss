@@ -86,33 +86,19 @@ a {
 }
 
 .bg {
-  &.bg-green {
-    background: #C4F000;
+  $BG_LABEL_LIST: "green", "red", "white", "gray", "light-grey", "black", "blue";
+  $BG_VALUE_LIST: "#C4F000", "#FF734C", "#FFF", "#686868", "#E0E0E0", "#191919", "#1743D7";
+  @for $i from 1 through length($BG_LABEL_LIST) {
+    &.bg-#{nth($BG_LABEL_LIST, $i)} {
+      background: #{nth($BG_VALUE_LIST, $i)};
+    }
   }
-
-  &.bg-red {
-    background: #FF734C;
-  }
-
-  &.bg-white {
-    background: #FFF;
-  }
-
-  &.bg-gray {
-    background: #686868;
-  }
-
-  &.bg-light-grey {
-    background: #E0E0E0;
-  }
-
-  &.bg-black {
-    background: #191919;
-  }
-
-  &.bg-blue {
-    background: #1743D7;
-  }
+  // $BG_LIST: ("green": "#C4F000", "red": "#FF734C", "white": "#FFF", "gray": "#686868", "light-grey": "#E0E0E0", "black": "#191919", "blue": "#1743D7");
+  // @each $key, $value in $BG_LIST {
+  //   &.bg-#{$key} {
+  //     background: #{$value};
+  //   }
+  // }
 }
 
 .icon-group {
@@ -130,6 +116,7 @@ a {
   }
 }
 
+// icon
 .icon {
   background: #191919;
   -webkit-mask-repeat: no-repeat;
@@ -139,374 +126,107 @@ a {
   mask-position: center center;
   mask-size: contain;
 
-  &.icon-question {
-    -webkit-mask-image: url('../images/icon/Black line=question.svg');
-    mask-image: url('../images/icon/Black line=question.svg');
+  $ICON_BG_LIST: 'IC-play', 'add-person', 'add-user', 'amazon', 'apple', 'archive', 'arrow-horizontal', 'arrow-left', 'arrow-up', 'arrow-vertical', 'article', 'back', 'boy', 'brightness', 'calendar-none', 'calendar', 'camera', 'chart', 'chat', 'checkmark', 'click', 'clock', 'close', 'code', 'coin', 'commission', 'copy', 'dashboard', 'delete', 'direction', 'double-checkmark', 'earth', 'edit', 'eye', 'facebook', 'file-edit', 'file', 'folder', 'forget-password', 'graph', 'heartbeat', 'history', 'home', 'image', 'img', 'interview', 'link', 'lock', 'logout', 'menu', 'message', 'minus', 'movie', 'noteboard', 'notification', 'open-in-new-tab', 'person', 'phone', 'plans', 'play-circle', 'plus', 'prize', 'profile', 'question', 'refresh', 'resume-prepare', 'resume', 'safer', 'save', 'search-file', 'search', 'security', 'setting', 'share', 'sign-in', 'sound-off', 'sound-on', 'star', 'unlock', 'upload', 'user', 'voice', 'website';
+  @each $i in $ICON_BG_LIST {
+    &.icon-#{$i} {
+      -webkit-mask-image: url('../images/icon/#{$i}.svg');
+      mask-image: url('../images/icon/#{$i}.svg');
+    }
   }
 
-  &.icon-website {
-    -webkit-mask-image: url('../images/icon/Black line=website.svg');
-    mask-image: url('../images/icon/Black line=website.svg');
+  $ICON_SIZE_LIST: 10, 12, 14, 16, 18, 20, 26, 34, 46;
+  @each $i in $ICON_SIZE_LIST {
+    &.icon-#{$i}px {
+      width: #{$i}px;
+      height: #{$i}px;
+    }
   }
 
-  &.icon-upload {
-    -webkit-mask-image: url('../images/icon/Black line=Upload line.svg');
-    mask-image: url('../images/icon/Black line=Upload line.svg');
-  }
-
-  &.icon-plus {
-    -webkit-mask-image: url('../images/icon/Black line=Plus.svg');
-    mask-image: url('../images/icon/Black line=Plus.svg');
-  }
-
-  &.icon-question {
-    -webkit-mask-image: url('../images/icon/Black line=question.svg');
-    mask-image: url('../images/icon/Black line=question.svg');
-  }
-
-  &.icon-search {
-    -webkit-mask-image: url('../images/icon/Black line=Search.svg');
-    mask-image: url('../images/icon/Black line=Search.svg');
-  }
-
-  &.icon-notification {
-    -webkit-mask-image: url('../images/icon/Black line=Notification line.svg');
-    mask-image: url('../images/icon/Black line=Notification line.svg');
-  }
-
-  &.icon-profile {
-    -webkit-mask-image: url('../images/icon/Black line=Profile line.svg');
-    mask-image: url('../images/icon/Black line=Profile line.svg');
-  }
-
-  &.icon-video {
-    -webkit-mask-image: url('../images/icon/Icon-video.svg');
-    mask-image: url('../images/icon/Icon-video.svg');
-  }
-
-  &.icon-sound {
-    -webkit-mask-image: url('../images/icon/Black line=sound-on.svg');
-    mask-image: url('../images/icon/Black line=sound-on.svg');
-  }
-
-  &.icon-mic {
-    -webkit-mask-image: url('../images/icon/Icon-mic.svg');
-    mask-image: url('../images/icon/Icon-mic.svg');
-  }
-
-  &.icon-back {
-    -webkit-mask-image: url('../images/icon/Black line=back.svg');
-    mask-image: url('../images/icon/Black line=back.svg');
-  }
-
-  &.icon-next {
-    -webkit-mask-image: url('../images/icon/Black line=next.svg');
-    mask-image: url('../images/icon/Black line=next.svg');
-  }
-
-  &.icon-user {
-    -webkit-mask-image: url('../images/icon/Black line=Boy line.svg');
-    mask-image: url('../images/icon/Black line=Boy line.svg');
-  }
-
-  &.icon-user-2 {
-    -webkit-mask-image: url('../images/icon/Black line=user line.svg');
-    mask-image: url('../images/icon/Black line=user line.svg');
-  }
-
-  &.icon-save {
-    -webkit-mask-image: url('../images/icon/Black line=save.svg');
-    mask-image: url('../images/icon/Black line=save.svg');
-  }
-
-  &.icon-double-check-mark {
-    -webkit-mask-image: url('../images/icon/Black line=Double checkmark.svg');
-    mask-image: url('../images/icon/Black line=Double checkmark.svg');
-  }
-
-  &.icon-arrow-down {
-    -webkit-mask-image: url('../images/icon/Black line=arrow-down.svg');
-    mask-image: url('../images/icon/Black line=arrow-down.svg');
-  }
-
-  &.icon-link-line {
-    -webkit-mask-image: url('../images/icon/Black line=Link line.svg');
-    mask-image: url('../images/icon/Black line=Link line.svg');
-  }
-
-  &.icon-message {
-    -webkit-mask-image: url('../images/icon/Black line=Message line.svg');
-    mask-image: url('../images/icon/Black line=Message line.svg');
-  }
-
-  &.icon-calendar {
-    -webkit-mask-image: url('../images/icon/Black line=calendar_none.svg');
-    mask-image: url('../images/icon/Black line=calendar_none.svg');
-  }
-
-  &.icon-phone {
-    -webkit-mask-image: url('../images/icon/phone.svg');
-    mask-image: url('../images/icon/phone.svg');
-  }
-
-  &.icon-file {
-    -webkit-mask-image: url('../images/icon/Black line=File edit line.svg');
-    mask-image: url('../images/icon/Black line=File edit line.svg');
-  }
-
-  &.icon-folder {
-    -webkit-mask-image: url('../images/icon/Black line=Folder line.svg');
-    mask-image: url('../images/icon/Black line=Folder line.svg');
-  }
-
-  &.icon-resume {
-    -webkit-mask-image: url('../images/icon/Black line=resume.svg');
-    mask-image: url('../images/icon/Black line=resume.svg');
-  }
-
-  &.icon-time {
-    -webkit-mask-image: url('../images/icon/Black line=Clock line.svg');
-    mask-image: url('../images/icon/Black line=Clock line.svg');
-  }
-
-  &.icon-play {
-    -webkit-mask-image: url('../images/icon/Black line=Play circle line.svg');
-    mask-image: url('../images/icon/Black line=Play circle line.svg');
-  }
-
-  &.icon-copy {
-    -webkit-mask-image: url('../images/icon/Black line=Copy line.svg');
-    mask-image: url('../images/icon/Black line=Copy line.svg');
-  }
-
-  &.icon-check-mark {
-    -webkit-mask-image: url('../images/icon/Black line=Checkmark.svg');
-    mask-image: url('../images/icon/Black line=Checkmark.svg');
-  }
-
-  &.icon-edit {
-    -webkit-mask-image: url('../images/icon/Black line=Edit line.svg');
-    mask-image: url('../images/icon/Black line=Edit line.svg');
-  }
-
-  &.icon-close {
-    -webkit-mask-image: url('../images/icon/Black line=Close.svg');
-    mask-image: url('../images/icon/Black line=Close.svg');
-  }
-
-  &.icon-share {
-    -webkit-mask-image: url('../images/icon/Black line=Share line.svg');
-    mask-image: url('../images/icon/Black line=Share line.svg');
-  }
-
-  &.icon-logout {
-    -webkit-mask-image: url('../images/icon/Black line=logout.svg');
-    mask-image: url('../images/icon/Black line=logout.svg');
-  }
-
-  &.icon-resume-prepare {
-    -webkit-mask-image: url('../images/icon/Black line=resume-prepare.svg');
-    mask-image: url('../images/icon/Black line=resume-prepare.svg');
-  }
-
-  &.icon-earth {
-    -webkit-mask-image: url('../images/icon/Black line=earth.svg');
-    mask-image: url('../images/icon/Black line=earth.svg');
-  }
-
-  &.icon-security {
-    -webkit-mask-image: url('../images/icon/Black line=Security info line.svg');
-    mask-image: url('../images/icon/Black line=Security info line.svg');
-  }
-
-  &.icon-arrow {
-    -webkit-mask-image: url('../images/icon/Black line=Arrow vertical.svg');
-    mask-image: url('../images/icon/Black line=Arrow vertical.svg');
-  }
-
-  &.icon-arrow-down {
-    -webkit-mask-image: url('../images/icon/Black line=arrow-down.svg');
-    mask-image: url('../images/icon/Black line=arrow-down.svg');
-  }
-
-  &.icon-eye {
-    -webkit-mask-image: url('../images/icon/Black line=eye.svg');
-    mask-image: url('../images/icon/Black line=eye.svg');
-  }
-
-  &.icon-calendar-line {
-    -webkit-mask-image: url('../images/icon/Black line=Calendar line.svg');
-    mask-image: url('../images/icon/Black line=Calendar line.svg');
-  }
-
-  &.icon-coin {
-    -webkit-mask-image: url('../images/icon/Black line=coin.svg');
-    mask-image: url('../images/icon/Black line=coin.svg');
-  }
-
-  &.icon-setting {
-    -webkit-mask-image: url('../images/icon/Black line=setting.svg');
-    mask-image: url('../images/icon/Black line=setting.svg');
-  }
-
-  &.icon-arrow-left {
-    -webkit-mask-image: url('../images/icon/Black line=arrow-left.svg');
-    mask-image: url('../images/icon/Black line=arrow-left.svg');
-  }
-
-  &.icon-noteboard {
-    -webkit-mask-image: url('../images/icon/Black line=Noteboard line.svg');
-    mask-image: url('../images/icon/Black line=Noteboard line.svg');
-  }
-
-  &.icon-plans {
-    -webkit-mask-image: url('../images/icon/Black line=Plans.svg');
-    mask-image: url('../images/icon/Black line=Plans.svg');
-  }
-
-  &.icon-prize {
-    -webkit-mask-image: url('../images/icon/Black line=Prize line.svg');
-    mask-image: url('../images/icon/Black line=Prize line.svg');
-  }
-
-  &.icon-sign-in {
-    -webkit-mask-image: url('../images/icon/Black line=sign in.svg');
-    mask-image: url('../images/icon/Black line=sign in.svg');
-  }
-
-  &.icon-forget-password {
-    -webkit-mask-image: url('../images/icon/Black line=fogetpassword.svg');
-    mask-image: url('../images/icon/Black line=fogetpassword.svg');
-  }
-
-  &.icon-double-arrow {
-    -webkit-mask-image: url('../images/icon/double-arrow.svg');
-    mask-image: url('../images/icon/double-arrow.svg');
-  }
-
-  &.icon-union {
-    -webkit-mask-image: url('../images/icon/Union.svg');
-    mask-image: url('../images/icon/Union.svg');
-  }
-
-  &.icon-apple {
-    -webkit-mask-image: url('../images/icon/apple_icon.svg');
-    mask-image: url('../images/icon/apple_icon.svg');
-  }
-
-  &.icon-add {
-    -webkit-mask-image: url('../images/icon/icon_add.svg');
-    mask-image: url('../images/icon/icon_add.svg');
-  }
-
-  &.icon-both {
-    -webkit-mask-image: url('../images/icon/icon_both.svg');
-    mask-image: url('../images/icon/icon_both.svg');
-  }
-
-  &.icon-10px {
-    width: 10px;
-    height: 10px;
-  }
-
-  &.icon-12px {
-    width: 12px;
-    height: 12px;
-  }
-
-  &.icon-14px {
-    width: 14px;
-    height: 14px;
-  }
-
-  &.icon-16px {
-    width: 16px;
-    height: 16px;
-  }
-
-  &.icon-18px {
-    width: 18px;
-    height: 18px;
-  }
-
-  &.icon-20px {
-    width: 20px;
-    height: 20px;
-  }
-
-  &.icon-26px {
-    width: 26px;
-    height: 26px;
-  }
-
-  &.icon-34px {
-    width: 34px;
-    height: 34px;
-  }
-
-  &.icon-46px {
-    width: 46px;
-    height: 46px;
+  $ICON_ROTATE_LIST: 90, 180, 270;
+  @each $i in $ICON_ROTATE_LIST {
+    &.icon-rotate-#{$i} {
+      transform: rotate(#{$i}deg)
+    }
   }
 }
 
 .font {
-  &.text-12px {
-    font-size: 12px;
+  $FONT_SIZE_LIST: 12, 16, 18, 24, 36;
+  @each $i in $FONT_SIZE_LIST {
+    &.text-#{$i}px {
+      font-size: #{$i}px;
+    }
   }
 
-  &.text-16px {
-    font-size: 16px;
+  $FONT_COLOR_LIST: ("white": "#fff", "red": "#FF734C", "gray": "#686868", "blue": "#1743D7", "black": "#191919");
+  @each $key, $value in $FONT_COLOR_LIST {
+    &.color-#{$key} {
+      color: #{$value};
+    }
   }
 
-  &.text-18px {
-    font-size: 18px;
-  }
-
-  &.text-24px {
-    font-size: 24px;
-  }
-
-  &.text-36px {
-    font-size: 36px;
-  }
-
-  &.color-white {
-    color: #fff;
-  }
-
-  &.color-red {
-    color: #FF734C;
-  }
-
-  &.color-gray {
-    color: #686868;
-  }
-
-  &.color-blue {
-    color: #1743D7;
-  }
-
-  &.color-black {
-    color: #191919;
+  &.font-bold {
+    font-weight: 500;
   }
 }
 
+$SPACING_ARROW_LIST: ("t": "top", "l": "left", "b": "bottom", "r": "right");
+$SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
+@each $i in $SPACING_PX_LIST {
+  @each $key, $value in $SPACING_ARROW_LIST {
+    &.m#{$key}-#{$i}px {
+      margin-#{$value}: #{$i}px;
+    }
+  }
+
+  &.m-#{$i}px {
+    margin: #{$i}px;
+  }
+
+  &.my-#{$i}px {
+    margin-top: #{$i}px;
+    margin-bottom: #{$i}px;
+  }
+
+  &.mx-#{$i}px {
+    margin-left: #{$i}px;
+    margin-right: #{$i}px;
+  }
+
+  @each $key, $value in $SPACING_ARROW_LIST {
+    &.p#{$key}-#{$i}px {
+      padding-#{$value}: #{$i}px;
+    }
+  }
+
+  &.p-#{$i}px {
+    padding: #{$i}px;
+  }
+
+  &.py-#{$i}px {
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
+  }
+
+  &.px-#{$i}px {
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
+  }
+}
+
+
+
+// dot
 .dot {
   width: 8px;
   height: 8px;
   border-radius: 8px;
 
-  &.green {
-    background: #C4F000;
-  }
-
-  &.red {
-    background: #FF734C;
-  }
-
-  &.gray {
-    background: #A3A3A3;
+  $DOT_LIST: ("green": "#C4F000", "red": "#FF734C", "gray": "#A3A3A3");
+  @each $key, $value in $DOT_LIST {
+    &.#{$key} {
+      background: #{$value};
+    }
   }
 }
 
@@ -748,7 +468,7 @@ a {
     padding: 14px 15px;
     height: 48px;
     box-sizing: border-box;
-    background: url('../images/icon/Black line=arrow-down.svg') no-repeat calc(100% - 14px) center /10px;
+    // background: url('../images/icon/Black line=arrow-down.svg') no-repeat calc(100% - 14px) center /10px;
   }
 }
 
@@ -820,8 +540,8 @@ a {
       width: 12px;
       height: 12px;
       display: block;
-      -webkit-mask: url('../images/icon/Black line=arrow-left.svg') no-repeat center center /contain;
-      mask: url('../images/icon/Black line=arrow-left.svg') no-repeat center center /contain;
+      // -webkit-mask: url('../images/icon/Black line=arrow-left.svg') no-repeat center center /contain;
+      // mask: url('../images/icon/Black line=arrow-left.svg') no-repeat center center /contain;
     }
   }
 

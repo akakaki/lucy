@@ -1,15 +1,15 @@
 doctype html
 html(lang="zh-TW")
   include ./templete/head.pug
-  body.black
+  body.bg.bg-black.font.color-white
     header.header-404__warp
       .logo.flex.items-center.justify-end
         img.icon(src="./images/nav_logo_icon.svg")
         img.label(src="./images/nav_logo_text.svg")
-    .container.error-404.flex.flex-col.justify-center.items-center
-      .img
+    .container.error-404.flex.flex-col.justify-center.items-center.mb-30px
+      .img.flex.flex-col.items-center.mb-64px
         img(src="./images/Group 1000003599.png")
         img(src="./images/Group 1000003598.png")
-      .title.font.text-36px 找不到這個畫面...
-      .text.font.text-18px 沒事！莫急莫慌，露西助理帶你回家。
+      .title.font.text-36px.mb-21px.font-bold 找不到這個畫面...
+      .text.font.text-18px.mb-97px.font-bold 沒事！莫急莫慌，露西助理帶你回家。
       a.button-404__button.button.green(href="/") 我想回家
