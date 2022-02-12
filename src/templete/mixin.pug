@@ -9,7 +9,7 @@
     { id: 'noteboard', label: '露西面試助理', icon: 'icon-noteboard', href: 'index.html' },
     { id: 'website', label: '徵才網站', icon: 'icon-website', href: 'website.html' },
     { id: 'boy', label: '職缺', icon: 'icon-boy', href: 'opening.html' },
-    { id: 'interview', label: '面試連結', icon: 'icon-interview', href: 'user.html' },
+    { id: 'interview', label: '面試連結', icon: 'icon-interview', href: 'user-list.html' },
     { id: 'folder', label: '面試者資料', icon: 'icon-folder', href: 'response.html' },
     { id: 'plans', label: '方案', icon: 'icon-plans', href: 'plan.html' },
     { id: 'share', label: '露西交流網', icon: 'icon-share', href: '' },
@@ -19,7 +19,7 @@
   const NOTIFICATION_LIST_TODAY = [
     { tips: false, icon: 'icon-user', picture: '', label: '平面設計師 職缺創建完成', text: '您創建的職缺「平面設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。', date: '2021-12-26' },
     { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
-    { tips: true, icon: 'icon-calendar-line', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
+    { tips: true, icon: 'icon-calendar', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
     { tips: true, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
     { tips: true, icon: 'icon-coin', picture: '', label: '露西助理已收到您的款項', text: '露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！', date: '2021-12-26' },
     { tips: false, icon: 'icon-website', picture: '', label: '徵才網站完成創建', text: '恭喜你，擁有屬於你的徵才網站囉！可以盡情編輯你所需要的職缺內容。', date: '2021-12-26' },
@@ -28,7 +28,7 @@
   const notificationMessageToday = [
     { tips: false, icon: 'icon-user', picture: '', label: '平面設計師 職缺創建完成', text: '您創建的職缺「平面設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。', date: '2021-12-26' },
     { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
-    { tips: true, icon: 'icon-calendar-line', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
+    { tips: true, icon: 'icon-calendar', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
     { tips: true, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
     { tips: true, icon: 'icon-coin', picture: '', label: '露西助理已收到您的款項', text: '露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！', date: '2021-12-26' },
   ]
@@ -51,14 +51,13 @@ mixin header(id='')
         .header__search__wrap.hidden
           .remind__search__container
       .header__tool
-        .header__icon.icon.icon-20px.icon-notification
-        .remind__message__dot.dot.bg.bg-red
+        .header__icon.icon.icon-20px.icon-notification.icon-red-dot
         .remind__message__wrap.bg.bg-white.hidden
           .remind__message__container
             .remind__message__top.flex.items-center
               .remind__message__icon
               .remind__message__title.font.text-18px 通知
-              a.remind__go.flex(href="noteboard.html")
+              a.remind__go.flex(href="notification.html")
                 .remind__go-text 查看全部通知
                 .remind__go-icon
             .remind__message__list
@@ -112,11 +111,11 @@ mixin notification-list(title, list)
     .notification__container
       ul.notification__list
         for value in list
-          li.notification__item
+          li.notification__item.flex.items-center.mb-22px
             if value.tips
-              .notification__tips
+              .notification__tips.mr-13px.dot
             else
-              .notification__tips.bg.bg-red
+              .notification__tips.mr-13px.dot.dot-red
             
             if value.picture
               img.notification__picture.bg.bg-green(src=value.picture)
@@ -125,8 +124,8 @@ mixin notification-list(title, list)
                 .icon.icon-18px(class=value.icon)
             else
               .notification__picture.bg.bg-green
-            .notification__detail
-              .notification__label
+            .notification__detail.flex-1
+              .notification__label.flex.justify-between.mb-5px
                 .label=value.label
                 .date=value.date
               .notification__text=value.text
@@ -134,7 +133,10 @@ mixin notification-list(title, list)
 mixin switch(list)
   .switch__list.flex.items-center
     for value in list
-      .switch__item(class=`${value.id} ${value.active ? 'active' : ''}`)= value.label
+      .switch__item(class=`${value.id} ${value.active ? 'active' : ''}`)
+        span.label= value.label
+          if value.dot
+            .dot.dot-red
 
 mixin input-wrap(value)
   .form__item

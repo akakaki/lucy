@@ -86,11 +86,19 @@ a {
 }
 
 .bg {
-  $BG_LABEL_LIST: "green", "red", "white", "gray", "light-grey", "black", "blue";
-  $BG_VALUE_LIST: "#C4F000", "#FF734C", "#FFF", "#686868", "#E0E0E0", "#191919", "#1743D7";
+  $BG_LABEL_LIST: "green", "red", "white", "gray", "light-grey", "black", "blue", "green-message", "yellow", "green-dark";
+  $BG_VALUE_LIST: "#C4F000", "#FF734C", "#FFF", "#686868", "#E0E0E0", "#191919", "#1743D7", "#00BF8A", "#FF9820", "#0BB27C";
   @for $i from 1 through length($BG_LABEL_LIST) {
-    &.bg-#{nth($BG_LABEL_LIST, $i)} {
+    &:not(.icon).bg-#{nth($BG_LABEL_LIST, $i)} {
       background: #{nth($BG_VALUE_LIST, $i)};
+    }
+  }
+
+  @for $i from 1 through length($BG_LABEL_LIST) {
+    &.icon.bg-#{nth($BG_LABEL_LIST, $i)} {
+      &::before {
+        background: #{nth($BG_VALUE_LIST, $i)};
+      }
     }
   }
   // $BG_LIST: ("green": "#C4F000", "red": "#FF734C", "white": "#FFF", "gray": "#686868", "light-grey": "#E0E0E0", "black": "#191919", "blue": "#1743D7");
@@ -118,17 +126,50 @@ a {
 
 // icon
 .icon {
-  background: #191919;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center center;
-  -webkit-mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: contain;
+  position: relative;
+  background: transparent;
 
-  $ICON_BG_LIST: 'IC-play', 'add-person', 'add-user', 'amazon', 'apple', 'archive', 'arrow-horizontal', 'arrow-left', 'arrow-up', 'arrow-vertical', 'article', 'back', 'boy', 'brightness', 'calendar-none', 'calendar', 'camera', 'chart', 'chat', 'checkmark', 'click', 'clock', 'close', 'code', 'coin', 'commission', 'copy', 'dashboard', 'delete', 'direction', 'double-checkmark', 'earth', 'edit', 'eye', 'facebook', 'file-edit', 'file', 'folder', 'forget-password', 'graph', 'heartbeat', 'history', 'home', 'image', 'img', 'interview', 'link', 'lock', 'logout', 'menu', 'message', 'minus', 'movie', 'noteboard', 'notification', 'open-in-new-tab', 'person', 'phone', 'plans', 'play-circle', 'plus', 'prize', 'profile', 'question', 'refresh', 'resume-prepare', 'resume', 'safer', 'save', 'search-file', 'search', 'security', 'setting', 'share', 'sign-in', 'sound-off', 'sound-on', 'star', 'unlock', 'upload', 'user', 'voice', 'website';
+  &::before {
+    content: '';
+    display: block;
+    background: #191919;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
+  }
+
+  &.icon-red-dot::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #FF734C;
+    border-radius: 999px;
+  }
+
+  &.icon-red-delete::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(45deg);
+    transform-origin: 0 2px;
+    display: block;
+    width: 2px;
+    height: calc(100% + 4px);
+    background: #FF734C;
+    border-radius: 999px;
+  }
+
+  $ICON_BG_LIST: 'IC-play', 'add-person', 'add-user', 'amazon', 'apple', 'archive', 'arrow-horizontal', 'arrow-left', 'arrow-up', 'arrow-vertical', 'article', 'back', 'boy', 'brightness', 'calendar-none', 'calendar', 'camera', 'chart', 'chat', 'checkmark', 'click', 'clock', 'close', 'code', 'coin', 'commission', 'copy', 'cry', 'dashboard', 'delete', 'direction', 'double-checkmark', 'earth', 'edit', 'eye', 'facebook', 'file-edit', 'file', 'folder', 'forget-password', 'graph', 'heartbeat', 'history', 'home', 'image', 'img', 'interview', 'link', 'lock', 'logout', 'menu', 'message', 'minus', 'movie', 'noteboard', 'notification', 'open-in-new-tab', 'person', 'phone', 'plans', 'plans-black', 'play-circle', 'plus', 'prize', 'profile', 'question', 'refresh', 'resume-prepare', 'resume', 'safer', 'save', 'search-file', 'search', 'security', 'setting', 'share', 'sign-in', 'sound-off', 'sound-on', 'star', 'unlock', 'upload', 'user', 'voice', 'website';
   @each $i in $ICON_BG_LIST {
-    &.icon-#{$i} {
+    &.icon-#{$i}::before {
       -webkit-mask-image: url('../images/icon/#{$i}.svg');
       mask-image: url('../images/icon/#{$i}.svg');
     }
@@ -136,7 +177,7 @@ a {
 
   $ICON_SIZE_LIST: 10, 12, 14, 16, 18, 20, 26, 34, 46;
   @each $i in $ICON_SIZE_LIST {
-    &.icon-#{$i}px {
+    &.icon-#{$i}px::before {
       width: #{$i}px;
       height: #{$i}px;
     }
@@ -144,7 +185,7 @@ a {
 
   $ICON_ROTATE_LIST: 90, 180, 270;
   @each $i in $ICON_ROTATE_LIST {
-    &.icon-rotate-#{$i} {
+    &.icon-rotate-#{$i}::before {
       transform: rotate(#{$i}deg)
     }
   }
@@ -171,7 +212,7 @@ a {
 }
 
 $SPACING_ARROW_LIST: ("t": "top", "l": "left", "b": "bottom", "r": "right");
-$SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
+$SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 26, 28, 30, 34, 40, 64, 97;
 @each $i in $SPACING_PX_LIST {
   @each $key, $value in $SPACING_ARROW_LIST {
     &.m#{$key}-#{$i}px {
@@ -214,9 +255,15 @@ $SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
   }
 }
 
+@each $key, $value in $SPACING_ARROW_LIST {
+  &.m#{$key}-auto {
+    margin-#{$value}: auto;
+  }
+}
 
 
-// dot
+
+// === dot ===
 .dot {
   width: 8px;
   height: 8px;
@@ -224,7 +271,7 @@ $SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
 
   $DOT_LIST: ("green": "#C4F000", "red": "#FF734C", "gray": "#A3A3A3");
   @each $key, $value in $DOT_LIST {
-    &.#{$key} {
+    &.dot-#{$key} {
       background: #{$value};
     }
   }
@@ -254,12 +301,12 @@ $SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
   position: fixed;
   padding: 11px;
   top: 20px;
-  left: calc(50% - 263px);
-  transform: translateX(50%);
+  left: 0;
+  transform: translateX(calc(50vw - 50%));
   border-radius: 5px;
   background: #e5f9f3;
   border: 1px solid #00BF8A;
-  min-width: 184px;
+  min-width: 100px;
 
   &.err {
     background: #fff1ed;
@@ -295,10 +342,6 @@ $SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
 
 .pop__content {
   margin-top: 26px;
-}
-
-.pop__icon {
-  margin-right: 12px;
 }
 
 .pop__close {
@@ -462,13 +505,47 @@ $SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
     }
   }
 
-  select.input + span {
+  .input__date {
+    width: 298px;
+    padding: 0;
+
+    & input {
+      width: 93px;
+      text-align: center;
+      padding: 14px;
+    }
+  }
+
+  .ui-selectmenu-button {
     border: 1px solid #E0E0E0;
     border-radius: 5px;
-    padding: 14px 15px;
+    padding: 12px;
     height: 48px;
     box-sizing: border-box;
-    // background: url('../images/icon/Black line=arrow-down.svg') no-repeat calc(100% - 14px) center /10px;
+    background: transparent;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+
+    .page__wrap & {
+      width: 69px;
+      margin: 0 10px 0 22px;
+    }
+
+    .ui-icon {
+      width: 10px;
+      height: 10px;
+      background: url('../images/icon/arrow-up.svg') no-repeat center center /contain;
+    }
+
+    &.ui-selectmenu-button-open .ui-icon {
+      transform: scaleY(-1);
+    }
+
+    .ui-selectmenu-text {
+      margin: 0 auto 0 0;
+    }
   }
 }
 
@@ -540,8 +617,6 @@ $SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
       width: 12px;
       height: 12px;
       display: block;
-      // -webkit-mask: url('../images/icon/Black line=arrow-left.svg') no-repeat center center /contain;
-      // mask: url('../images/icon/Black line=arrow-left.svg') no-repeat center center /contain;
     }
   }
 
@@ -560,5 +635,51 @@ $SPACING_PX_LIST: 4, 5, 6, 8, 10, 12, 15, 16, 21, 26, 30, 64, 97;
       background: #C4F000;
       border-radius: 100px;
     }
+  }
+}
+
+// === switch ===
+.switch__list {
+  margin: 12px 0;
+
+  .switch__item {
+    padding-bottom: 9px;
+    margin-bottom: 9px;
+    border-bottom: 3px #F3FFBF solid;
+    min-width: 68px;
+    text-align: center;
+    cursor: pointer;
+
+    &.active {
+      border-bottom-color: #C4F000;
+    }
+
+    &:not(:nth-last-child(1)) {
+      margin-right: 23px;
+    }
+
+    & .label {
+      position: relative;
+    }
+    
+    & .dot {
+      position: absolute;
+      top: 0;
+      right: -8px;
+    }
+  }
+}
+
+.switch__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.setting {
+    padding: 56px 0;
   }
 }

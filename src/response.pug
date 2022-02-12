@@ -28,14 +28,14 @@ html(lang="zh-TW")
               input.input(placeholder="請輸入面試者名字")
             .response-search__item.field
               label.label 應徵日期
-              .form__input.input__date.input.flex.items-center
-                input(id="date-before")
-                | -
-                input(id="date-after")
-                .form__input.input__date__icon.icon.icon-18px.icon-calendar
+              .form__input.input__date.input.flex.items-center.p-0px
+                input(id="date-before" placeholder="YYYY-MM-DD")
+                span -
+                input(id="date-after" placeholder="YYYY-MM-DD")
+                .form__input.input__date__icon.icon.icon-18px.icon-calendar-none.ml-auto.mr-15px
 
             .response__build-button.button.green.shadow
-              .icon.icon-18px.icon-user
+              .icon.icon-18px.icon-boy
               | 創建職缺
             .response__send-button.button.black.shadow
               .icon.icon-18px.icon-message.bg.bg-white
@@ -43,9 +43,9 @@ html(lang="zh-TW")
           .response__switch.flex.justify-between.items-center
             -
               const SWITCH_LIST = [
-                { id: 'all', label: '全部', active: true },
-                { id: 'vacancies', label: '申請職缺' },
-                { id: 'interview', label: '虛擬面試' },
+                { id: 'all', label: '全部', active: true, dot: true },
+                { id: 'vacancies', label: '申請職缺', dot: true },
+                { id: 'interview', label: '虛擬面試', dot: true },
                 { id: 'audit', label: '審核中' },
                 { id: 'incompatible', label: '不符合' },
                 { id: 'admit', label: '錄取' },
@@ -62,16 +62,16 @@ html(lang="zh-TW")
               -
                 const CANDIDATE_TOP_LIST = [
                   { label: '職缺名稱' },
-                  { label: '面試者資訊', arrow: true },
+                  { label: '面試者資訊', icon: 'icon-code icon-rotate-90', },
                   { label: '線上面試回傳影片' },
                   { label: '狀態' },
                   { label: '聯絡他' },
                 ]
               for item in CANDIDATE_TOP_LIST
-                .candidate-top__title
+                .candidate-top__title.flex.items-center
                   .candidate-top__label= item.label
-                  if item.arrow 
-                    .candidate-top__arrow
+                  if item.icon 
+                    .candidate-top__arrow.icon.icon-14px.ml-6px(class=item.icon)
 
               .candidate-item__data
                 .input.flex.items-center.justify-center.flex-col
@@ -86,7 +86,7 @@ html(lang="zh-TW")
                   .candidate-item__info
                     .candidate-item__info__name.font.text-18px 吳娜莉
                     .candidate-item__info__date.font.text-12px.flex.items-center
-                      .candidate-item__info__date__icon.icon.icon-14px.icon-time
+                      .candidate-item__info__date__icon.icon.icon-14px.icon-clock
                       .candidate-item__info__date__label 應徵時間：2022.01.09
                     .candidate-file__wrap
                       button.candidate-item__info__button.button.sm.black
@@ -101,44 +101,42 @@ html(lang="zh-TW")
               .candidate-item__data
                 .candidate-item__question__wrap
                   .candidate-item__question__container
-                    .candidate-question__title.flex
-                      span.tips Q1
-                      p.text 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
-                    .candidate-item__question__content
-                      .candidate-question__progress
-                        .candidate-question__energy.bg.bg-green(style="width: 50%")
-                      .candidate-item__question__link__wrap
-                        .candidate-item__question__link__container.flex.items-center
-                          .candidate-item-question-link__item.flex.items-center
-                            .icon.icon-18px.icon-play
-                            | 觀看影片
-                          .candidate-item-question-link__item.flex.items-center
-                            .icon.icon-18px.icon-sound
-                            | 播放聲音
-                          .candidate-item-question-link__item.flex.items-center
-                            .icon.icon-18px.icon-copy
-                            | 複製內容
-                    .candidate-question__title.flex
-                      span.tips Q2
-                      p.text 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？
-                    .candidate-question__title.flex
-                      span.tips Q3
-                      p.text 說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？
-                    .candidate-question__title.flex
-                      span.tips Q4
-                      p.text 描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？
-                    .candidate-question__title.flex
-                      span.tips Q5
-                      p.text 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？
+                    -
+                      const CANDIDATE_QUESTION_LIST = [
+                        { text: '如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？', show: true },
+                        { text: '您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？' },
+                        { text: '說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？' },
+                        { text: '描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？' },
+                        { text: '描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？' },
+                      ]
+                    for value, index in CANDIDATE_QUESTION_LIST
+                      .candidate-question__title.flex
+                        span.tips= `Q${index + 1}`
+                        p.text= value.text
+                      if value.show
+                        .candidate-item__question__content
+                          .candidate-question__progress
+                            .candidate-question__energy.bg.bg-green(style="width: 50%")
+                          .candidate-item__question__link__wrap
+                            .candidate-item__question__link__container.flex.items-center
+                              .candidate-item-question-link__item.watch.flex.items-center.mr-34px
+                                .icon.icon-18px.icon-play-circle.mr-9px
+                                | 觀看影片
+                              .candidate-item-question-link__item.play.flex.items-center.mr-34px
+                                .icon.icon-18px.icon-sound-on.mr-9px
+                                | 播放聲音
+                              .candidate-item-question-link__item.copy.flex.items-center.mr-34px
+                                .icon.icon-18px.icon-copy.mr-9px
+                                | 複製內容
                     .candidate-question__more.flex.items-center.justify-end
-                      | 展開所有問題
-                      .icon.icon-14px.icon-arrow-down
+                      span.font.color-blue 展開所有問題
+                      .icon.icon-14px.icon-arrow-up.icon-rotate-180.bg.bg-blue.ml-8px
 
               .candidate-item__data.field
                 .candidate-item__data__status__wrap
                   .candidate-item__data__status__container
                     .candidate-status__title.flex.items-center
-                      .candidate-item__data__status__icon.icon.icon-18px.icon-double-check-mark
+                      .candidate-item__data__status__icon.icon.icon-18px.icon-double-checkmark
                       .candidate-status__label 已完成虛擬面試
                 select.candidate-item__label.input
                   option(value="0" disabled selected).candidate-item__label 請選擇狀態
@@ -169,7 +167,7 @@ html(lang="zh-TW")
                   .candidate-item__info
                     .candidate-item__info__name.font.text-18px 張建霖
                     .candidate-item__info__date.font.text-12px.flex.items-center
-                      .candidate-item__info__date__icon.icon.icon-14px.icon-time
+                      .candidate-item__info__date__icon.icon.icon-14px.icon-clock
                       .candidate-item__info__date__label 應徵時間：2022.01.09
                     .candidate-file__wrap
                       button.candidate-item__info__button.button.sm.black
@@ -190,7 +188,7 @@ html(lang="zh-TW")
                 .candidate-item__data__status__wrap
                   .candidate-item__data__status__container
                     .candidate-status__title.flex.items-center
-                      .candidate-item__data__status__icon.icon.icon-18px.icon-check-mark
+                      .candidate-item__data__status__icon.icon.icon-18px.icon-checkmark
                       .candidate-status__label 已收到職缺申請
                 select.candidate-item__label.input
                   option(value="0" disabled selected).candidate-item__label 請選擇狀態

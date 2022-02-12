@@ -4,7 +4,7 @@ html(lang="zh-TW")
   include ./templete/head.pug
   body
     +common
-    .sign-in.flex__wrap
+    .sign-in.flex__wrap#sign-in
       .container.flex
         .intro.flex.flex-1.flex-col.items-center.justify-center
           h1.font.color-white 使用露西助理
@@ -13,10 +13,10 @@ html(lang="zh-TW")
         .sign-in.flex.flex-1.flex-col.items-center.justify-center
           .sign-in.white-bg
             img.logo(src="./images/Lucy_logo_black-16.svg")
-            .login__title
-              .title__icon.icon.icon-18px.icon-sign-in
-              .login__label.font.text-18px 註冊
-            .login__sub 請先填入註冊時的信箱，驗證完成後請去信箱收信確認
+            .login__title.flex.items-center.pb-9px.mb-9px.mt-40px
+              .title__icon.icon.icon-18px.icon-sign-in.mr-10px
+              .login__label.font-bold.font.text-18px 註冊
+            .login__sub.mb-40px 請先填入註冊時的信箱，驗證完成後請去信箱收信確認
             -
               let signFormList = [
                 { id: 'mail', required: true, label: 'Email', placeholder: 'Email' },

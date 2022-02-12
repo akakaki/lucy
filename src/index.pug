@@ -8,7 +8,7 @@ html(lang="zh-TW")
       +nav('noteboard')
       .content
         +header()
-        .content-article.home
+        .content-article#home
           .home-title__label.flex.items-center
             img.home-title__icon(src="./images/icon.png")
             +h1('露西面試助理')
@@ -20,7 +20,7 @@ html(lang="zh-TW")
                     const COUNT_LIST = [
                       { icon: 'icon-boy', label: '已使用職缺數', count: '3/10' },
                       { icon: 'icon-person', label: '已使用人數', count: '22/100' },
-                      { icon: 'icon-notification', label: '未讀訊息', count: '14' },
+                      { icon: 'icon-notification icon-red-dot', label: '未讀訊息', count: '14' },
                       { icon: 'icon-add-user', label: '今日應徵數', count: '3' },
                     ]
                   for item in COUNT_LIST
@@ -76,7 +76,7 @@ html(lang="zh-TW")
                 -
                   const HOME_TITLE_LIST = [
                     { label: '' },
-                    { label: '創建時間', icon: 'icon-code icon-rotate-90' },
+                    { label: '創建時間', icon: ' icon-rotate-90' },
                     { label: '工作職稱' },
                     { label: '面試問題 ' },
                     { label: '職缺連結' },
@@ -139,7 +139,7 @@ html(lang="zh-TW")
                       .icon.icon-12px.icon-close.bg.bg-red.mr-6px
                       | 刪除職缺
                     .home-list__operate-close.button.white.shadowflex.items-center.my-4px
-                      .icon.icon-16px.icon-resume.mr-12px
+                      .icon.icon-16px.icon-resume.mr-12px.icon-red-delete
                       | 關閉職缺
 
 

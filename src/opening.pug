@@ -8,7 +8,7 @@ html(lang="zh-TW")
       +nav('boy')
       .content
         +header()
-        .content-article.flex.flex-col.opening
+        .content-article.flex.flex-col#opening
           .opening-title.flex.items-center.justify-between
             +h1('職缺')
             a.opening-build__button.button.green.shadow(href="opening-setup-1.html")
@@ -23,11 +23,11 @@ html(lang="zh-TW")
                 option(value="2") 2
             .field
               label.label 創建日期
-              .form__input.input__date.input.flex.items-center
-                input(id="date-before")
-                | -
-                input(id="date-after")
-                .form__input.input__date__icon.icon.icon-18px.icon-calendar
+              .form__input.input__date.input.flex.items-center.p-0px
+                input(id="date-before" placeholder="YYYY-MM-DD")
+                span -
+                input(id="date-after" placeholder="YYYY-MM-DD")
+                .form__input.input__date__icon.icon.icon-18px.icon-calendar-none.ml-auto.mr-15px
 
             .opening-count__data.flex.flex-col.items-end
               div 目前方案｜企業版

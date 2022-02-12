@@ -13,10 +13,10 @@ html(lang="zh-TW")
         .sign-in.flex.flex-1.flex-col.items-center.justify-center
           .sign-in.white-bg
             img.logo(src="./images/Lucy_logo_black-16.svg")
-            .login__title
-              .title__icon.icon.icon-18px.icon-sign-in
-              .login__label.font.text-18px 登入
-            .login__sub 嗨，歡迎回來
+            .login__title.flex.items-center.pb-9px.mb-9px.mt-40px
+              .title__icon.icon.icon-18px.icon-sign-in.mr-10px
+              .login__label.font-bold.font.text-18px 登入
+            .login__sub.mb-40px 嗨，歡迎回來
             -
               let signFormList = [
                 { id: 'mail', required: true, label: 'Email', placeholder: 'Email' },

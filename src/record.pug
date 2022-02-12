@@ -8,101 +8,105 @@ html(lang="zh-TW")
       +nav()
       .content
         +header('record')
-        .content-article.flex.flex-col
+        .content-article.record.flex.flex-col
           +h1('交易紀錄')
           -
-            let settingSystemList = [
-              { id: 'all', label: '全部' },
-              { id: 'audit', label: '審核中' },
-              { id: 'complete', label: '完成' },
+            const RECORD_TITLE_LIST = [
+              { label: '序號' },
+              { label: '購買方案' },
+              { label: '購買日期', icon: 'icon-code icon-rotate-90' },
+              { label: '方案到期日' },
+              { label: '方案細節' },
+              { label: '付款金額' },
+              { label: '付款方式' },
+              { label: '狀態' },
             ]
           .switch__wrap.flex.flex-col.flex-1
+            -
+              let settingSystemList = [
+                { id: 'all', label: '全部' },
+                { id: 'audit', label: '審核中' },
+                { id: 'complete', label: '完成' },
+              ]
             +switch(settingSystemList)
             .switch__content
               .switch__content.all.hidden
-                table.table(cellspacing="0" cellpadding="0")
-                  tr
-                    th 序號
-                    th 購買方案
-                    th
-                      .flex.items-center.table__arrow
-                        | 購買日期
-                        .icon.icon-16px.icon.icon-double-arrow
-                    th 方案到期日
-                    th 方案細節
-                    th 付款金額
-                  tr
-                    td 01
-                    td 訂製
-                    td 2022-01-09
-                    td 2023-01-09
-                    td 可使用五個職缺100個面試者
-                    td
-                      div $26,800
-                      .font.color-blue 已付款
-                  tr
-                    td 02
-                    td 訂製
-                    td 2022-01-09
-                    td 2023-01-09
-                    td 可使用五個職缺100個面試者
-                    td
-                      div $26,800
-                      .font.color-blue 已付款
-                  tr
-                    td 03
-                    td 訂製
-                    td 2022-01-09
-                    td 2023-01-09
-                    td 可使用五個職缺100個面試者
-                    td
-                      div $26,800
-                      .font.color-blue 已付款
+                .record__wrap
+                  .record__content
+                    for item in RECORD_TITLE_LIST
+                      .record-content__title.flex.items-center
+                        span= item.label
+                        if item.icon
+                          .icon.icon-16px.ml-28px(class=item.icon)
+                    - let RECORD_COUNT_1 = 1
+                    while RECORD_COUNT_1 < 4
+                      .record-content__item= `0${RECORD_COUNT_1++}`
+                      .record-content__item 訂製
+                      .record-content__item 2022-01-09
+                      .record-content__item 2023-01-09
+                      .record-content__item 讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西提供的功能，歡迎切換成企業版體驗更多。
+                      .record-content__item
+                        .record-item__count $26,800
+                        .record-item__count-type.font.color-blue 已付款
+                      .record-content__item.flex.flex-col.justify-center
+                        span 銀行轉帳
+                        span 信用卡
+                        span --
+                      .record-content__item.flex.flex-col.justify-center
+                        .record-item__status.flex.items-center
+                          .record-item__status__icon.mr-10px.dot.dot-red
+                          | 審核中
+                        .record-item__status.flex.items-center
+                          .record-item__status__icon.mr-10px.dot.dot-green
+                          | 交易完成
                 +page
               .switch__content.audit.hidden
-                table.table(cellspacing="0" cellpadding="0")
-                  tr
-                    th 序號
-                    th 購買方案
-                    th 購買日期
-                    th 方案到期日
-                    th 方案細節
-                    th 付款金額
-                  tr
-                    td 01
-                    td 訂製
-                    td 2022-01-09
-                    td 2023-01-09
-                    td 可使用五個職缺100個面試者
-                    td
-                      div $26,800
-                      .font.color-blue 已付款
+                .record__wrap
+                  .record__content
+                    for item in RECORD_TITLE_LIST
+                      .record-content__title.flex.items-center
+                        span= item.label
+                        if item.icon
+                          .icon.icon-16px.ml-28px(class=item.icon)
+                    - let RECORD_COUNT_2 = 1
+                    while RECORD_COUNT_2 < 3
+                      .record-content__item= `0${RECORD_COUNT_2++}`
+                      .record-content__item 訂製
+                      .record-content__item 2022-01-09
+                      .record-content__item 2023-01-09
+                      .record-content__item 讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西提供的功能，歡迎切換成企業版體驗更多。
+                      .record-content__item
+                        .record-item__count $26,800
+                        .record-item__count-type.font.color-blue 已付款
+                      .record-content__item.flex.flex-col.justify-center
+                        span 信用卡
+                      .record-content__item.flex.flex-col.justify-center
+                        .record-item__status.flex.items-center
+                          .record-item__status__icon.mr-10px.dot.dot-green
+                          | 交易完成
                 +page
               .switch__content.complete.hidden
-                table.table(cellspacing="0" cellpadding="0")
-                  tr
-                    th 序號
-                    th 購買方案
-                    th 購買日期
-                    th 方案到期日
-                    th 方案細節
-                    th 付款金額
-                  tr
-                    td 01
-                    td 訂製
-                    td 2022-01-09
-                    td 2023-01-09
-                    td 可使用五個職缺100個面試者
-                    td
-                      div $26,800
-                      .font.color-blue 已付款
-                  tr
-                    td 03
-                    td 訂製
-                    td 2022-01-09
-                    td 2023-01-09
-                    td 可使用五個職缺100個面試者
-                    td
-                      div $26,800
-                      .font.color-blue 已付款
+                .record__wrap
+                  .record__content
+                    for item in RECORD_TITLE_LIST
+                      .record-content__title.flex.items-center
+                        span= item.label
+                        if item.icon
+                          .icon.icon-16px.ml-28px(class=item.icon)
+                    - let RECORD_COUNT_3 = 1
+                    while RECORD_COUNT_3 < 5
+                      .record-content__item= `0${RECORD_COUNT_3++}`
+                      .record-content__item 訂製
+                      .record-content__item 2022-01-09
+                      .record-content__item 2023-01-09
+                      .record-content__item 讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西提供的功能，歡迎切換成企業版體驗更多。
+                      .record-content__item
+                        .record-item__count $26,800
+                        .record-item__count-type.font.color-blue 已付款
+                      .record-content__item.flex.flex-col.justify-center
+                        span 銀行轉帳
+                      .record-content__item.flex.flex-col.justify-center
+                        .record-item__status.flex.items-center
+                          .record-item__status__icon.mr-10px.dot.dot-red
+                          | 審核中
                 +page

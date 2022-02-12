@@ -38,19 +38,71 @@ const QUESTION_LEVEL_3_LIST = [
 ]
 
 $(function () {
-  // index
-  $(document).ready(function () {
-    const swiper = new Swiper('.swiper', {  
-      spaceBetween: 23,
-      slidesPerView: 4,
-      width: 1245,
+  // message
+  const message = (text, type='secure') => {
+    const icon = $('<div class="icon icon-18px bg"></div>')
+    const typeLabel = type === 'secure'
+      ? 'icon-double-checkmark bg-green-message'
+      : type === 'copy'
+        ? 'icon-copy  bg-green-message'
+      : type === 'mail'
+        ? 'icon-message  bg-green-message'
+        : 'icon-security bg-red'
+    icon.addClass(typeLabel)
 
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+    const element = $('<div></div>')
+    element.text(text)
+    element.addClass(`message_item flex items-center ${type}`)
+    element.appendTo('.message_list')
+    icon.prependTo(element)
+
+    setTimeout(() => {
+      element.fadeOut(300, function() { $(this).remove() })
+    }, 3000)
+  }
+
+  // popup
+  function popup (title, text) {
+    const templete = $(`
+      <div class="pop__wrap">
+        <div class="pop__container flex flex-col">
+          <div class="pop__top flex items-center">
+            <div class="pop__icon mr-12px icon icon-18px icon-notification"></div>
+            <div class="font text-18px"> ${title}</div>
+            <button class="pop__close icon icon-18px icon-close"></button>
+          </div>
+          <div class="pop__content flex-1 font text-16px">${text}</div>
+          <div class="pop__bottom flex items-center">
+            <button class="pop__cancel button black shadow flex-1">取消</button>
+            <button class="pop__confirm button white shadow flex-1">正確</button>
+          </div>
+        </div>
+      </div>
+    `)
+
+    togglePopupView(true)
+    templete.appendTo('body')
+
+    return new Promise((reslove) => {
+      templete.find('.pop__close').on('click', function () {
+        templete.fadeOut(200, function() { $(this).remove() })
+        togglePopupView(false)
+        reslove('close')
+      })
+
+      templete.find('.pop__cancel').on('click', function () {
+        templete.fadeOut(200, function() { $(this).remove() })
+        togglePopupView(false)
+        reslove('cancel')
+      })
+
+      templete.find('.pop__confirm').on('click', function () {
+        templete.fadeOut(200, function() { $(this).remove() })
+        togglePopupView(false)
+        reslove('confirm')
+      })
     })
-  })
+  }
 
   $('.header__icon.icon-question').on('click', function () {
     $('.header__search__wrap').stop().fadeToggle()
@@ -64,7 +116,7 @@ $(function () {
     $('.header__member__wrap').stop().fadeToggle()
   })
 
-  // non rest api
+  // switch
   $('.switch__wrap .switch__item:first-child').addClass('active')
   $('.switch__wrap .switch__content:first-child').removeClass('hidden')
   $('.switch__wrap .switch__item').on('click', function () {
@@ -189,6 +241,7 @@ $(function () {
     })
   }
 
+  // 註冊
   $('.forget-button').on('click', function () {
     message('密碼更新成功，請輸入新密碼進行登入')
   })
@@ -197,69 +250,62 @@ $(function () {
     message('錯誤訊息', 'err')
   })
 
-  $('.letter-delete').on('click', function () {
-    popup('刪除職缺通知', '您確定要刪除此職缺嗎？')
-  })
-
-  // message
-  const message = (text, type='secure') => {
-    const icon = $('<div class="icon icon-18px bg"></div>')
-    const typeLabel = type === 'secure' ? 'icon-double-check-mark bg-green' : 'icon-security bg-red'
-    icon.addClass(typeLabel)
-
-    const element = $('<div></div>')
-    element.text(text)
-    element.addClass(`message_item flex ${type}`)
-    element.appendTo('.message_list')
-    icon.prependTo(element)
-
-    setTimeout(() => {
-      element.fadeOut(300, function() { $(this).remove() })
-    }, 3000)
-  }
-
-  // popup
-  const popup = (title, text) => {
-    const templete = $(`
-      <div class="pop__wrap">
-        <div class="pop__container flex flex-col">
-          <div class="pop__top flex items-center">
-            <div class="pop__icon icon icon-18px icon-notification"></div>
-            <div class="font text-18px"> ${title}</div>
-            <button class="pop__close icon icon-18px icon-close"></button>
-          </div>
-          <div class="pop__content flex-1 font text-16px">${text}</div>
-          <div class="pop__bottom flex items-center">
-            <button class="pop__cancel button black shadow flex-1">取消</button>
-            <button class="pop__confirm button white shadow flex-1">正確</button>
-          </div>
-        </div>
-      </div>
-    `)
-    togglePopupView(true)
-    templete.appendTo('body')
-
-    templete.find('.pop__close').on('click', function () {
-      templete.fadeOut(200, function() { $(this).remove() })
-      togglePopupView(false)
-    })
-
-    templete.find('.pop__cancel').on('click', function () {
-      templete.fadeOut(200, function() { $(this).remove() })
-      togglePopupView(false)
-    })
-
-    templete.find('.pop__confirm').on('click', function () {
-      submit()
-      templete.fadeOut(200, function() { $(this).remove() })
-      togglePopupView(false)
+  // 首頁 index
+  if ($('body').has('#home')) {
+    $(document).ready(function () {
+      const swiper = new Swiper('.swiper', {  
+        spaceBetween: 23,
+        slidesPerView: 4,
+        width: 1245,
+  
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
     })
   }
 
-  const submit = () => {
-    message('我的寄送範本已更新')
-    console.log('submit')
+  // 設定 setting
+  if ($('body').has('#setting')) {
+    $('.send-verification').on('click', function () {
+      message('驗證碼已經寄送到所填入的信箱')
+    })
+
+    $('.setting-save').on('click', function () {
+      message('密碼完成更新！')
+    })
+
+    $('.letter-save').on('click', function () {
+      message('我的寄送範本已更新')
+    })
+  
+    $('.letter-delete').on('click', function () {
+      popup('刪除職缺通知', '您確定要刪除此職缺嗎？')
+        .then(res => {
+          switch (res) {
+            case 'confirm':
+              message('我的寄送範本已刪除')
+          }
+        })
+    })
   }
+
+  // 面試者資料 response
+  if ($('body').has('#opening')) {
+    $('.candidate-item-question-link__item.copy').on('click', function () {
+      message('複製成功！', 'copy')
+    })
+
+    $('.response__send-button').on('click', function () {
+      message('請先勾選面試者！', 'err')
+    })
+
+    // $('.response__send-button').on('click', function () {
+    //   message('寄送成功！', 'mail')
+    // })
+  }
+
 
   // question
   if ($('.vacancies__content-setup-2').length) {
@@ -339,7 +385,7 @@ $(function () {
         <div class="pop__wrap">
           <div class="pop__container flex flex-col">
             <div class="pop__top flex items-center">
-              <div class="pop__icon icon icon-18px icon-notification"></div>
+              <div class="pop__icon mr-12px icon icon-18px icon-notification"></div>
               <div class="font text-18px">客製題目</div>
               <button class="pop__close icon icon-18px icon-close"></button>
             </div>
@@ -376,7 +422,7 @@ $(function () {
       })
   
       templete.find('.pop__confirm').on('click', function () {
-        submit()
+        console.log('???')
         templete.fadeOut(200, function() { $(this).remove() })
         togglePopupView(false)
       })
@@ -385,9 +431,11 @@ $(function () {
 
   $('#date-before').datepicker({
     dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
+    dateFormat: 'yy-dd-mm',
   })
   $('#date-after').datepicker({
     dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
+    dateFormat: 'yy-dd-mm',
   })
   $('select').selectmenu()
 })

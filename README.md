@@ -56,23 +56,26 @@
 - [x] 抽出page
 - [x] 命名確認
 ## 設計稿最後完成 (第三階段)
+// https://www.minwt.com/webdesign-dev/js/21536.html
+
   - [x] index : 露西面試助理
-  - [ ] website : 徵才網站
-  - [ ] user : 應徵頁面
-  - [ ] response : 面試者資料
+  - [x] website : 徵才網站
+  - [x] response : 面試者資料
   - [ ] opening : 職缺
   - [ ] opening-setup-1 : 職缺-step-1
   - [ ] opening-setup-2 : 職缺-step-2
   - [ ] opening-setup-3 : 職缺-step-3
-  - [ ] user-list : 職缺頁面
-  - [ ] user-setup-1 : 應徵頁面-setup-1
-  - [ ] user-setup-2 : 應徵頁面-setup-2-完成
-  - [ ] opening-setup-4: 職缺-step-4
-  - [ ] 404 : 404
-  - [ ] setting : 設定
-  - [ ] plan : 方案
-  - [ ] record : 交易紀錄
-  - [ ] sign-in : 登入
-  - [ ] sign-up : 註冊
-  - [ ] forget-password-step-1 : 忘記密碼-step-1
-  - [ ] forget-password-step-2 : 忘記密碼-step-2
+  - [ ] opening-setup-4: 職缺-step-4??
+  - [x] user-list : 職缺頁面
+  - [x] user : 應徵頁面
+  - [x] user-setup-1 : 應徵頁面-setup-1
+  - [x] user-setup-2 : 應徵頁面-setup-2-完成
+  - [x] 404 : 404
+  - [x] setting : 設定
+  - [x] plan : 方案
+  - [x] record : 交易紀錄
+  - [x] notification : 通知
+  - [x] sign-in : 登入
+  - [x] sign-up : 註冊
+  - [x] forget-password-step-1 : 忘記密碼-step-1
+  - [x] forget-password-step-2 : 忘記密碼-step-2
