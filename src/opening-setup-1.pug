@@ -75,7 +75,8 @@ html(lang="zh-TW")
                 a.vacancies-setup-detail__button.button.black.flex.items-center.shadow(href="opening-setup-2.html")
                   .vacancies-setup-detail__icon.icon.icon-16px.icon-next.bg.bg-white
                   .vacancies-setup-detail__label 下一步
-            .vacancies__input__preview.website-preview
+
+            .website-preview
               .website-preview__wrap
                 .website-preview__container.bg.bg-white
                   .website-preview__link.flex.items-center
@@ -83,33 +84,99 @@ html(lang="zh-TW")
                     .website-preview__dot
                     .website-preview__dot
                     .website-preview__url.font.text-12px recruit.website
+                  .website-preview__banner
+                    img.website-preview__banner__img
+                    .website-preview__banner__content.flex.items-center.justify-between
+                      .website-preview__banner-center__tips.flex.flex-col
+                        .website-preview__banner-center__logo.flex.items-center.justify-center
+                          img.website-preview__banner-center__logo__img.flex.items-center.justify-center(alt="LOGO")
+                        .website-preview__banner-center__title.font.color-white.text-12px.mt-22px 請於左方輸入框填入貴公司所希望呈現在網頁上的簡介文字。
+                      .website-preview__banner__tips.flex.items-center
+                        .website-preview__banner__icon.icon.icon-34px.icon-edit.bg.bg-white.mr-17px
+                        .website-preview__banner__label.font.text-16px.color-white 露西助理提醒您<br>請填寫左方資料進行預覽
                   .website-preview__content
-                    .website-preview__title
-                      .website-preview__back.icon.icon-16px.icon-back
-                      h1.user__h1.font.text-24px 職缺名稱
-                    h2.user__h2.font.text-24px.flex.items-center
-                      .user__count.font.color-white.bg.black.flex.items-center.justify-center.number__icon.font.text-12px 1
-                      | 嗨！我們很開心能認識你。
-                      .icon.icon-14px.icon-arrow-down
-                    .user__tips__zone.flex.items-center
-                      .user__tips__icon.icon.icon-18px.bg.bg-gray.icon-user-2.mr-12px
-                      .user__tips__label 基本資料
-                      .user__tips__required * 必填
-                    .user-text__tips.font.text-12px 請填寫您的基本資料。
-                    -
-                      let baseList = [
-                        { id: 'name', required: true, label: '姓名', placeholder: '請輸入您的姓名' },
-                        { id: 'mail', required: true, label: '信箱', placeholder: '請輸入您的信箱' },
-                        { id: 'phone', required: true, label: '聯絡電話', placeholder: '請輸入您的聯絡電話' },
-                      ]
-                    form.user-form.field
-                      .form__container
-                        for value in baseList
-                          .user-form__item.form__item
-                            label.user-form__item-label.form__label.label(for=value.id)= value.label
-                              span *
-                                    input.user-form__item-input.form__input.input(id=value.id placeholder=value.placeholder)
-                    .user__bottom.flex.items-center.flex-col
-                      .user__bottom__button.button.black.items-center.justify-center
-                        .icon.icon-18px.icon-double-check-mark.bg.bg-white.shadow
-                        | 確定，下一步
+                    .website-preview__top.flex
+                      .website-preview__search.flex.items-center
+                        .website-preview__icon.icon.icon-18px.icon-search.mr-13px
+                        input.website-preview__input.flex-1(placeholder="輸入您想找的職缺")
+                      .field.ml-15px
+                        select.website-preview__select.input
+                          option(disabled selected) 工作性質
+                      .field.ml-15px
+                        select.website-preview__select.input
+                          option(disabled selected) 工作地點
+                      .field.ml-15px
+                        select.website-preview__select.input
+                          option(disabled selected) 可否遠端
+
+                    h2.font.text-24px 職缺列表
+
+                    .website-preview__detail__wrap
+                      .website-preview__detail__container
+                        .website-preview__detail__tips.font.text-16px.font-bold.mb-26px 工作職稱
+                        .website-preview__detail__title.font.font-bold.mt-26px.mb-19px 工作內容
+                        .website-preview__detail__detail.font.text-12px 
+                          | ☞ 廣告投放：<br>
+                          | 制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化<br><br>
+                          | ☞ 用戶成長：<br>
+                          | 追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。<br><br>
+                        .website-preview__detail__title.font.font-bold.mt-26px.mb-19px 需求條件
+                        .website-preview__detail__detail.font.text-12px 此處為需求條件細節，等待您創建職缺後即會呈現於此。
+                        .website-preview__detail__title.font.font-bold.mt-26px.mb-19px 職務要求
+                        .website-preview__detail__detail.font.text-12px
+                          -
+                            const LIST = [
+                              { label: '工作待遇', text: '此處為工作待遇說明，等待您創建職缺後即會呈現於此。' },
+                              { label: '工作性質', text: '此處為工作待遇說明，等待您創建職缺後即會呈現於此。' },
+                              { label: '工作地點', text: '此處為工作待遇說明，等待您創建職缺後即會呈現於此。' },
+                              { label: '可否遠端', text: '此處為工作待遇說明，等待您創建職缺後即會呈現於此。' },
+                            ]
+                          for item in LIST
+                            .website-preview__detail__item.flex.items-center.mb-4px
+                              span= item.label
+                              span.ml-8px.mr-17px | 
+                              span= item.text
+                        .website-preview__detail__button.button.black 我要應徵
+
+
+
+
+
+            //- .vacancies__input__preview.website-preview
+            //-   .website-preview__wrap
+            //-     .website-preview__container.bg.bg-white
+            //-       .website-preview__link.flex.items-center
+            //-         .website-preview__dot
+            //-         .website-preview__dot
+            //-         .website-preview__dot
+            //-         .website-preview__url.font.text-12px recruit.website
+            //-       .website-preview__content
+            //-         .website-preview__title
+            //-           .website-preview__back.icon.icon-16px.icon-back
+            //-           h1.user__h1.font.text-24px 職缺名稱
+            //-         h2.user__h2.font.text-24px.flex.items-center
+            //-           .user__count.font.color-white.bg.black.flex.items-center.justify-center.number__icon.font.text-12px 1
+            //-           | 嗨！我們很開心能認識你。
+            //-           .icon.icon-14px.icon-arrow-down
+            //-         .user__tips__zone.flex.items-center
+            //-           .user__tips__icon.icon.icon-18px.bg.bg-gray.icon-user-2.mr-12px
+            //-           .user__tips__label 基本資料
+            //-           .user__tips__required * 必填
+            //-         .user-text__tips.font.text-12px 請填寫您的基本資料。
+            //-         -
+            //-           let baseList = [
+            //-             { id: 'name', required: true, label: '姓名', placeholder: '請輸入您的姓名' },
+            //-             { id: 'mail', required: true, label: '信箱', placeholder: '請輸入您的信箱' },
+            //-             { id: 'phone', required: true, label: '聯絡電話', placeholder: '請輸入您的聯絡電話' },
+            //-           ]
+            //-         form.user-form.field
+            //-           .form__container
+            //-             for value in baseList
+            //-               .user-form__item.form__item
+            //-                 label.user-form__item-label.form__label.label(for=value.id)= value.label
+            //-                   span *
+            //-                         input.user-form__item-input.form__input.input(id=value.id placeholder=value.placeholder)
+            //-         .user__bottom.flex.items-center.flex-col
+            //-           .user__bottom__button.button.black.items-center.justify-center
+            //-             .icon.icon-18px.icon-double-check-mark.bg.bg-white.shadow
+            //-             | 確定，下一步

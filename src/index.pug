@@ -56,8 +56,8 @@ html(lang="zh-TW")
                                   .home-question__apple.flex.items-center
                                     .icon.icon-14px.icon-apple
                                     | Apple
-                                .home-question__count.flex.items-center
-                                  .home-question__count-icon.icon.icon-12px.icon-profile
+                                .home-question__count.flex.items-center.ml-auto
+                                  .home-question__count-icon.icon.icon-12px.icon-profile.mr-6px
                                   .home-question__count-label= item.count
                               .home-question__title= item.label
                               .home-question__text= item.text
@@ -65,18 +65,18 @@ html(lang="zh-TW")
                     .home-question__next.swiper-button-next.icon.icon-14px.icon-arrow-left.icon-rotate-180
               .home__view
                 img.home-view__img(src="./images/Lucy_landing page_mobile-12 1.png")
-            .home-list__wrap
-              .home-list__top.flex.items-center
-                .home-list__icon.icon.icon-18px.icon-boy
+            .home-list__wrap.mt-37px
+              .home-list__top.flex.items-center.mb-15px
+                .home-list__icon.icon.icon-18px.icon-boy.mr-15px
                 .home-list__label.font.text-18px 職缺列表
-                a.home-list__more.font.text-16px.flex.items-center(href="#")
+                a.home-list__more.font.text-16px.flex.items-center.ml-auto(href="#")
                   | 查看全部職缺
                   .icon.icon-16px.bg.bg-blue.icon-back.icon-rotate-180.ml-10px
               .home-list__container
                 -
                   const HOME_TITLE_LIST = [
                     { label: '' },
-                    { label: '創建時間', icon: ' icon-rotate-90' },
+                    { label: '創建時間', icon: 'icon-code icon-rotate-90' },
                     { label: '工作職稱' },
                     { label: '面試問題 ' },
                     { label: '職缺連結' },

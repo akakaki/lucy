@@ -104,18 +104,6 @@ $(function () {
     })
   }
 
-  $('.header__icon.icon-question').on('click', function () {
-    $('.header__search__wrap').stop().fadeToggle()
-  })
-
-  $('.header__icon.icon-notification').on('click', function () {
-    $('.remind__message__wrap').stop().fadeToggle()
-  })
-
-  $('.header__icon.icon-profile').on('click', function () {
-    $('.header__member__wrap').stop().fadeToggle()
-  })
-
   // switch
   $('.switch__wrap .switch__item:first-child').addClass('active')
   $('.switch__wrap .switch__content:first-child').removeClass('hidden')
@@ -148,7 +136,6 @@ $(function () {
       $('body > .container').toggleClass('popop')
     }
   }
-
 
   // drag input
   const dragenter = (e) => {
@@ -232,6 +219,32 @@ $(function () {
     })
   }
 
+  // 登入  
+  if ($('body').has('sign-in')) {
+    $('.sign-form').validate({
+      rules: {
+        mail: {
+          required: true,
+        },
+
+        password: {
+          required: true,
+        },
+      },
+      
+      errorPlacement: function(error, element) {},
+      
+      submitHandler: function(form) {
+        form.submit()
+      }
+    })
+
+    $('.sign-button').on('click', function () {
+      $('.sign-form').validate()
+      if (!$('.sign-form').valid()) message('輸入錯誤請重新輸入', 'err')
+    })
+  }
+
   const isUser = $('.container.user')
   if (isUser) {
     $('.user-form__type__wrap').children().first().show().siblings().hide()
@@ -240,6 +253,32 @@ $(function () {
       $(this).parents('.user-form__chose__wrap').find('.user-form__type__wrap').children(`.${chose}`).show().siblings().hide()
     })
   }
+
+  // header
+  $('body').on('click', function(){
+    if ($('.header__search__wrap').is(':visible')) $('.header__search__wrap').stop().fadeOut()
+    if ($('.remind__message__wrap').is(':visible')) $('.remind__message__wrap').stop().fadeOut()
+    if ($('.header__member__wrap').is(':visible')) $('.header__member__wrap').stop().fadeOut()
+  })
+
+  $('.header__search__wrap').on('click', function (e) {
+    e.stopPropagation()
+  })
+
+  $('.header__icon.icon-search').on('click', function (e) {
+    e.stopPropagation()
+    $('.header__search__wrap').stop().fadeToggle()
+  })
+
+  $('.header__icon.icon-notification').on('click', function (e) {
+    e.stopPropagation()
+    $('.remind__message__wrap').stop().fadeToggle()
+  })
+
+  $('.header__icon.icon-profile').on('click', function (e) {
+    e.stopPropagation()
+    $('.header__member__wrap').stop().fadeToggle()
+  })
 
   // 註冊
   $('.forget-button').on('click', function () {

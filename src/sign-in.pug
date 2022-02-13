@@ -4,7 +4,7 @@ html(lang="zh-TW")
   include ./templete/head.pug
   body
     +common
-    .sign-in.flex__wrap.sign-in
+    .sign-in.flex__wrap#sign-in
       .container.flex
         .intro.flex.flex-1.flex-col.items-center.justify-center
           h1.font.color-white 使用露西助理
@@ -20,9 +20,9 @@ html(lang="zh-TW")
             -
               let signFormList = [
                 { id: 'mail', required: true, label: 'Email', placeholder: 'Email' },
-                { id: 'passowrd', required: true, label: '密碼', placeholder: '密碼' },
+                { id: 'password', required: true, label: '密碼', placeholder: '密碼' },
               ]
-            form.form__wrap.field
+            form.form__wrap.field.sign-form
               .form__container
                 for value in signFormList
                   +input-wrap(value)
@@ -33,7 +33,7 @@ html(lang="zh-TW")
               .forget 
                 a(href="forget-password-step-1.html") 忘記密碼？
             div 
-              button.button.black.full 確認
+              button.button.black.full.sign-button 確認
             .login__tips
               span 還沒使用過露西助理?
               a(href="sign-up.html") 我要註冊

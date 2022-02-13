@@ -33,7 +33,7 @@
     { tips: true, icon: 'icon-coin', picture: '', label: '露西助理已收到您的款項', text: '露西助理收到款項了！恭喜您成功更換成企業版方案，享受更多露西助理提供的優質服務！', date: '2021-12-26' },
   ]
 
-  const notificationListBefore = [
+  const NOTIFICATION_LIST_BEFORE = [
     { tips: false, icon: '', picture: './images/截圖 2021-12-21 上午11.02 1.jpg', label: '陳俞靜 面試者應徵 平面設計師', text: '來自面試者 陳俞靜 應徵平面設計師一職。', date: '2021-12-26' },
     { tips: false, icon: 'icon-user', picture: '', label: 'UI設計師 職缺創建完成', text: '您創建的職缺「UI設計師」，露西助理已經為您創建成功！趕快公開連結尋覓對的人選。', date: '2021-12-26' },
     { tips: true, icon: 'icon-calendar', picture: '', label: '您客製化題目已創建完成', text: '您創建的題目「How much monthly budget have you managed in SEM? How did you spend it?」已創建完成。', date: '2021-12-26' },
@@ -45,11 +45,10 @@
 
 mixin header(id='')
   header.header__wrap.bg.bg-white
-    .header__container
-      .header__tool
+    .header__container.flex.items-center.justify-end.py-29px.px-50px
+      .header__tool.flex.items-center
         .header__icon.icon.icon-20px.icon-search
-        .header__search__wrap.hidden
-          .remind__search__container
+        input.header__search__wrap.hidden.mx-8px(type="text" placeholder="請輸入求職者名稱")
       .header__tool
         .header__icon.icon.icon-20px.icon-notification.icon-red-dot
         .remind__message__wrap.bg.bg-white.hidden
@@ -62,7 +61,7 @@ mixin header(id='')
                 .remind__go-icon
             .remind__message__list
               +notification-list('今日通知', notificationMessageToday)
-              +notification-list('先前通知', notificationListBefore)
+              +notification-list('先前通知', NOTIFICATION_LIST_BEFORE)
       .header__tool
         .header__icon.icon.icon-20px.icon-profile
         .header__member__wrap.bg.bg-white.hidden
@@ -145,7 +144,7 @@ mixin input-wrap(value)
         span *
     else
       label.form__label.label(for=value.id)= value.label
-    input.form__input.input(id=value.id placeholder=value.placeholder)
+    input.form__input.input(id=value.id placeholder=value.placeholder name=value.id)
     .form__text.font.text-12px= value.text
 
 mixin textarea-wrap(value)

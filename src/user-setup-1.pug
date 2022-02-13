@@ -14,7 +14,7 @@ mixin updateInput(value)
           label 檔案
       .user-form__type__wrap
         input.user-form__item-input.form__input.input.input(placeholder="https://")
-        .user-form__type__drop.drop
+        .user-form__type__drop.drop.hidden
           .user-form__type__drop__container
             .website-config__banner__input__wrap.user__update
               .icon.icon-18px.icon-plus
@@ -74,6 +74,9 @@ html(lang="zh-TW")
               span.font.color-gray 提醒您送出後將無法修改，再檢查一次是否有資料需要修改吧！
           
 
-    .powerby.flex.items-center.justify-center
-      .powerby__label Powered by
-      img.powerby__icon(src="./images/Lucy＿CIScc_1-14.svg")
+      .powerby.flex.items-center.justify-center.p-20px
+        .powerby__label Powered by
+        img.powerby__icon(src="./images/Lucy＿CIScc_1-14.svg")
+
+script(type='text/javascript').
+  console.log('hehe')

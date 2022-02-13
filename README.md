@@ -61,11 +61,10 @@
   - [x] index : 露西面試助理
   - [x] website : 徵才網站
   - [x] response : 面試者資料
-  - [ ] opening : 職缺
+  - [x] opening : 職缺
   - [ ] opening-setup-1 : 職缺-step-1
   - [ ] opening-setup-2 : 職缺-step-2
   - [ ] opening-setup-3 : 職缺-step-3
-  - [ ] opening-setup-4: 職缺-step-4??
   - [x] user-list : 職缺頁面
   - [x] user : 應徵頁面
   - [x] user-setup-1 : 應徵頁面-setup-1
@@ -79,3 +78,5 @@
   - [x] sign-up : 註冊
   - [x] forget-password-step-1 : 忘記密碼-step-1
   - [x] forget-password-step-2 : 忘記密碼-step-2
+
+  - 面試者資料彈窗
