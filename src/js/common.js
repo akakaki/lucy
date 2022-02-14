@@ -73,7 +73,7 @@ $(function () {
           </div>
           <div class="pop__content flex-1 font text-16px">${text}</div>
           <div class="pop__bottom flex items-center">
-            <button class="pop__cancel button black shadow flex-1">取消</button>
+            <button class="pop__cancel button black shadow flex-1 mr-14px">取消</button>
             <button class="pop__confirm button white shadow flex-1">正確</button>
           </div>
         </div>
