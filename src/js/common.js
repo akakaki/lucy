@@ -405,6 +405,7 @@ $(function () {
                     `)
                     templeteLevel4.addClass(['vacancies-setup-2-level-4__item', 'flex', 'items-center', 'font', 'text-16px'])
                     templeteLevel4.appendTo('.vacancies__content-setup-2__chose__container')
+                    $( ".vacancies__content-setup-2__chose__container").sortable()
                   }
                 })
               })
