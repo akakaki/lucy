@@ -330,6 +330,20 @@ $(function () {
     })
   }
 
+  // 職缺 opening-setup-1
+  if ($('body').has('#opening-setup-1')) {
+    let step = 1
+    $(`.opening-setup-1__step-${step}`).show().siblings().hide()
+
+    $('.setup-1-next__button').on('click', function () {
+      if (step === 3) location.href = '/opening-setup-2.html'
+      else {
+        step++
+        $(`.opening-setup-1__step-${step}`).show().siblings().hide()
+      }
+    })
+  }
+
   // 面試者資料 response
   if ($('body').has('#opening')) {
     $('.candidate-item-question-link__item.copy').on('click', function () {
