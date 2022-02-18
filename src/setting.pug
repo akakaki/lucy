@@ -64,10 +64,9 @@ html(lang="zh-TW")
                         a.setting-templete.button.white.sm 寄送範本3
                     +input-wrap( { id: 'templete', required: true, label: '範本名稱', placeholder: '我的寄送範本' } )
                     .form__item
-                      label.form__label.label(for="content") 面試邀請信件內容
-                      .form__textarea__wrap
-                        textarea.form__textarea(id="content")
-                        .form__textarea-quantity 0 / 500
+                      label.form__label.label 面試邀請信件內容
+                      .field__textarea__wrap(data-count="500")
+                        textarea.field__textarea(placeholder="請輸入您對於該職缺的工作內容。")
                       .form__text.font.text-12px
                         a #lucy.interview.link# 
                         | 為虛擬面試連結，會自動生成並呈現專屬連結。

@@ -114,10 +114,6 @@ $(function () {
     $(this).addClass('active').siblings().removeClass('active')    
   })
 
-  $('.form__textarea').on('keypress', function () {
-    $('.form__textarea-quantity').text(`${$(this).val().length} / 500`)
-  })
-
   $('.plan-buy__wrap').hide()
   $('.plan-buy__detail__close').on('click', function () {
     togglePopupView(false)
@@ -127,6 +123,29 @@ $(function () {
     togglePopupView(true)
     $('.plan-buy__wrap').show()
   })
+
+  // textarea輸入框
+  function textareaBuild () {
+    $.each($('.field__textarea__wrap'), function () {
+      const element = $(this).children('textarea')
+      const count = $(this).attr('data-count')
+      const show = $(`<div class="field__textarea-quantity"></div>`)
+      // const show = $(this).children('.field__textarea-quantity')
+      show.appendTo($(this))
+      show.text(`0 / ${count}`)
+      $(element).on('blur keyup input', function () {
+        show.text(`${element.val().length} / ${count}`)
+        if (element.val().length > parseInt(count)) {
+          const text = JSON.parse(JSON.stringify(element.val().slice(0, parseInt(count))))
+          console.log('text', text)
+          element.val(text)
+        }
+        show.text(`${element.val().length} / ${count}`)
+      })
+    })
+  }
+
+  textareaBuild ()
 
   const togglePopupView = (bol) => {
     if (bol) {
@@ -406,7 +425,6 @@ $(function () {
               templeteLevel3.on('click', function () {
                 $('.vacancies__content-setup-2__chose__container').empty()
                 $.each($('.vacancies-setup-2-level-3__item'), function(index) {
-                  console.log('aa', templeteLevel2.find('.label').text())
                   if ($(this).find('input').prop('checked')) {
                     const templeteLevel4 = $(`
                       <div>
@@ -466,7 +484,6 @@ $(function () {
 
       $('.pop__content__textarea__count').text('0 / 200')
       $('.pop__content__textarea textarea').on('keyup', () => {
-        console.log('????')
         $('.pop__content__textarea__count').text(`${$('.pop__content__textarea textarea').val().length} / 200`)
       })
   

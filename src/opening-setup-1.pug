@@ -43,18 +43,22 @@ html(lang="zh-TW")
                     .vacancies-setup__label.font.text-18px 職缺名稱
                     .vacancies-setup__step.ml-auto 1/3
                   .field
-                    .label 職缺名稱
+                    .label
+                      | 職缺名稱
+                      span.font.color-red *
                     input.input(placeholder="請輸入職缺名稱")
-                  .field
-                    .label 工作內容
-                    .form__textarea__wrap
-                      textarea.form__textarea(placeholder="請輸入您對於該職缺的工作內容。")
-                      .form__textarea-quantity 0 / 1500
-                  .field
-                    .label 工作內容
-                    .form__textarea__wrap
-                      textarea.form__textarea(placeholder="請輸入您對於該職缺的期望需求條件。")
-                      .form__textarea-quantity 0 / 1500
+                  .field.mt-20px
+                    .label
+                      | 工作內容
+                      span.font.color-red *
+                    .field__textarea__wrap(data-count="1500")
+                      textarea.field__textarea(placeholder="請輸入您對於該職缺的工作內容。")
+                  .field.mt-20px
+                    .label
+                      | 需求條件
+                      span.font.color-red *
+                    .field__textarea__wrap(data-count="1500")
+                      textarea.field__textarea(placeholder="請輸入您對於該職缺的期望需求條件。")
                 .opening-setup-1__step-2.hidden
                   .vacancies-setup-detail__title.flex.items-center
                     .vacancies-setup__icon.icon.icon-18px.icon-resume
@@ -113,7 +117,7 @@ html(lang="zh-TW")
                           input(type="checkbox" id=value.id)
                           label(for=value.id)
                             span= value.label
-              .vacancies-setup-detail__bottom.mb-24px
+              .vacancies-setup-detail__bottom.mb-24px.mt-38px
                 a.setup-1-save__button.button.white.shadow.mr-24px
                   .vacancies-setup-detail__icon.icon.icon-16px.icon-save
                   .vacancies-setup-detail__label 儲存草稿
