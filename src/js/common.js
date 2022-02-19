@@ -547,14 +547,65 @@ $(function () {
     })
 
     $('.response__send-button').on('click', function () {
-      message({ text: '請先勾選面試者！', icon: 'icon-security bg-red' })
+      const templete = $(`
+        <div class="pop__wrap">
+          <div class="pop__container flex flex-col">
+            <div class="pop__top flex items-center">
+              <div class="pop__icon mr-12px icon icon-18px icon-message"></div>
+              <div class="font text-18px">發送郵件</div>
+              <button class="pop__close icon icon-18px icon-close"></button>
+            </div>
+            <div class="pop__content flex-1 font text-14px">
+
+              <div class="field mb-14px">
+                <label class="label" for="templete">收件者<span>*</span></label>
+                <div class="form__input input flex items-center">
+                  <a class="response-chose__user mr-10px flex items-center font color-black">申愛利<span class="icon icon-6px icon-close ml-12px"></span></a>
+                  <a class="response-chose__user mr-10px flex items-center font color-black">申愛利<span class="icon icon-6px icon-close ml-12px"></span></a>
+                  <a class="response-chose__user mr-10px flex items-center font color-black">申愛利<span class="icon icon-6px icon-close ml-12px"></span></a>
+                </div>
+              </div>
+              <div class="field mb-14px">
+                <div class="label">郵件內容範本</div>
+                <div class="form__templete">
+                  <a class="setting-templete button white sm">邀請面試</a>
+                  <a class="setting-templete button black sm">活潑的邀請面試</a>
+                  <a class="setting-templete button white sm">錄取通知</a>
+                  <a class="setting-templete button white sm">風趣但不失禮儀的邀請面試</a>
+                </div>
+              </div>
+              <div class="field mb-16px">
+                <label class="label">郵件內容</label>
+                <div class="field__textarea__wrap" data-count="500">
+                  <textarea class="field__textarea" placeholder="請輸入您對於該職缺的工作內容。"></textarea>
+                <div class="field__textarea-quantity">0 / 500</div></div>
+                <div class="form__text font text-12px"><a>#lucy.interview.link# </a>為虛擬面試連結，會自動生成並呈現專屬連結。</div>
+              </div>
+
+            </div>
+            <div class="pop__bottom flex items-center justify-center">
+              <button class="pop__confirm button black shadow flex items-center">
+                <div class="icon icon-18px icon-message mr-10px bg bg-white"></div>
+                <span>確認發送<span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `)
+      togglePopupView(true)
+      templete.appendTo('body')
+      templete.find('.pop__close').on('click', function () {
+        templete.fadeOut(200, function() { $(this).remove() })
+        togglePopupView(false)
+      })
+
+      templete.find('.pop__confirm').on('click', function () {
+        templete.fadeOut(200, function() { $(this).remove() })
+        togglePopupView(false)
+        message({ text: '寄送成功！', icons: 'icon-message  bg-green-message' })
+      })
     })
-
-    // $('.response__send-button').on('click', function () {
-    //   message('寄送成功！', 'icon-message  bg-green-message')
-    // })
   }
-
 
   // 職缺 opening-setup-2
   if ($('body').has('#opening-setup-2').length) {

@@ -80,4 +80,12 @@
   - [x] forget-password-step-1 : 忘記密碼-step-1
   - [x] forget-password-step-2 : 忘記密碼-step-2
 
-  - 面試者資料彈窗
+```html
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/swiper/swiper-bundle.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="js/swiper/swiper-bundle.min.css">
+```

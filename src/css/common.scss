@@ -201,7 +201,7 @@ a {
     }
   }
 
-  $ICON_SIZE_LIST: 10, 12, 14, 16, 18, 20, 26, 34, 46;
+  $ICON_SIZE_LIST: 6, 10, 12, 14, 16, 18, 20, 26, 34, 46;
   @each $i in $ICON_SIZE_LIST {
     &.icon-#{$i}px::before {
       width: #{$i}px;
