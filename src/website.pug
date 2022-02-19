@@ -8,7 +8,7 @@ html(lang="zh-TW")
       +nav('website')
       .content
         +header()
-        .content-article.flex.flex-col.website
+        .content-article.flex.flex-col#website
           .website-title
             +h1('您專屬的徵才網站')
             .website__question.icon.icon-question.icon-16px
@@ -27,6 +27,9 @@ html(lang="zh-TW")
               a.website-view__link.flex.items-center.mr-20px(href="opening.html")
                 .website-view__icon.icon.icon-18px.icon-eye.bg.bg-blue.mr-10px.ml-20px
                 .website-view__title 查看目前職缺
+              button.website-close-all-job__button.button.button.white.shadow.ml-auto
+                .icon.icon-18px.icon-close-square.mr-10px
+                | 關閉所有職缺
             .website-tips__label.flex.items-center.justify-end.my-12px
               .website-tips__icon.icon.icon-14px.icon-security.bg.bg-gray.mr-10px
               .website-tips__title.font.text-12px.color-gray 提醒您，此為模擬徵才網頁畫面，圖片大小及位置的呈現無法完全相同。

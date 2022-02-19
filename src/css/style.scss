@@ -1352,7 +1352,32 @@ select.plan-buy__detail__form__select {
 
 .opening__wrap {
   display: grid;
-  grid-template-columns: 50px 128px 145px 106px 180px 1fr 197px 136px 150px;
+  grid-template-columns: 148px 120px 1fr 196px 289px 140px 150px;
+
+  .dot {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: #FF734C;
+      animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  }
+}
+
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 .opening__data {
@@ -1415,10 +1440,10 @@ select.plan-buy__detail__form__select {
   }
 }
 
-.opening-alone-edit__button,
-.opening-go__button {
-  .icon {
-    margin-right: 12px;
+.opening-field__label,
+.opening-field__status {
+  & .ui-selectmenu-button {
+    width: 249px;
   }
 }
 
@@ -1626,16 +1651,17 @@ select.plan-buy__detail__form__select {
 
 .vacancies-setup-3__question__list {
   height: 650px;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 18px;
+  row-gap: 18px;
+  grid-auto-flow: column;
 }
 
 .vacancies-setup-3__question__item {
   padding: 10px 20px;
   border: 1px solid #E0E0E0;
   border-radius: 10px;
-  margin-bottom: 18px;
-  margin-right: 18px;
-  flex: 0 1 calc(100% / 10);
-  max-width: 45%;
 }
 
 .vacancies-setup-3__question__number {
@@ -1826,5 +1852,29 @@ select.plan-buy__detail__form__select {
 .system-letter {
   .field__textarea__wrap {
     max-width: 349px;
+  }
+}
+
+.coin-choose {
+  .field & .ui-selectmenu-button {
+    border: 0 none;
+    width: 97px;
+  }
+
+  .field-line {
+    width: 1px;
+    height: 35px;
+    background: #E0E0E0;
+    margin: 0 10px;
+  }
+}
+
+#opening-setup-1 {
+  #opening-setup-1-type-button {
+    width: 100%;
+  }
+
+  .website-preview__step-1__container {
+    width: 803px;
   }
 }

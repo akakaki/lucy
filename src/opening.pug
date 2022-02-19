@@ -11,12 +11,13 @@ html(lang="zh-TW")
         .content-article.flex.flex-col#opening
           +h1('職缺')
           form.opening-form__wrap.flex.items-end
-            .field
+            .field.opening-field__label
               label.label 職缺名稱
               select.input
                 option(value="0" disabled selected) 請選擇職缺名稱
-                option(value="1") 1
-                option(value="2") 2
+                option(value="平面設計") 平面設計
+                option(value="前端工程師") 前端工程師
+                option(value="動畫製作師") 動畫製作師
             .field
               label.label 創建日期
               .form__input.input__date.input.flex.items-center.p-0px
@@ -24,6 +25,14 @@ html(lang="zh-TW")
                 span -
                 input(id="date-after" placeholder="YYYY-MM-DD")
                 .form__input.input__date__icon.icon.icon-18px.icon-calendar-none.ml-auto.mr-15px
+            .field.opening-field__status
+              label.label 狀態
+              select.input
+                option(value="0" disabled selected) 請選擇狀態
+                option(value="草稿編輯") 草稿編輯
+                option(value="職缺刊登") 職缺刊登
+                option(value="職缺準備中") 職缺準備中
+                option(value="職缺已關閉") 職缺已關閉
             a.opening-build__button.button.green.shadow.ml-auto(href="opening-setup-1.html")
               .opening-build__icon.icon.icon-18px.icon-user
               .opening-build__label 創建職缺
@@ -41,13 +50,11 @@ html(lang="zh-TW")
           .opening__wrap
             -
               const OPENING_TITLE = [
-                { label: '' },
-                { label: '創建時間' },
-                { label: '職缺名稱', icon: 'icon-code icon-rotate-90' },
-                { label: '應徵人數' },
+                { label: '創建時間', icon: 'icon-code icon-rotate-90' },
+                { label: '職缺名稱' },
+                { label: '工作內容 / 需求條件' },
+                { label: '職務需求' },
                 { label: '職缺填寫需求與檔案上傳' },
-                { label: '面試問題' },
-                { label: '職缺連結' },
                 { label: '狀態' },
                 { label: '操作' },
               ]
@@ -58,13 +65,23 @@ html(lang="zh-TW")
                   .opening-top__icon.icon.icon-16px.ml-6px(class=item.icon)
 
             .opening__data
-              span 01
-            .opening__data
-              .opening__label 2021.01.07
+              .flex.items-center
+                .dot.dot-red.mr-16px
+                .opening__label 2021.01.07
             .opening__data
               .opening__label 平面設計
+            .opening__data(title=`<b>工作內容：</b><br>對小請手就民不站無安支論油民地遠間為好晚，兒果以國道一們發不更車市的事多象，河就作舞陸北何建做然員萬集園他方學……與有問老是說土設。不人不鄉代的。識可也業，座來市輕下於分的去兩多並縣商色感往能；出量陸離人方有風我現就象性程為代基變：是間可級因白力黃分直子去起們經一一出子馬精好冷福大打空來職子不壓後故參上常灣了平到書上文園。男有學支國選致全大的最又孩性不：但書老兒，行及飛教營高去心施聲，位臺候起然民教後面土史期中待讀上想所非連因葉過雙質物由院前的家。以就馬。興以十有，價現開科。
+我做參門灣供上功了約這活以、很又對過界。用這舉路對無表我已中我樓無第片兩害大？而來業知。活學愛理好證的說國統，果成成上作有適分聲而：成要數，法寫下時關拉：代個語知保輪員氣認……參也下這是機然話笑，因有效說可、舉古教，些規死千。開通人古，現好燈裡……心視她性一想念天久十原氣產入生。
+車電孩；有覺從去國明媽用超上！<br><b>需求條件：</b><br>☞ 廣告投放：制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化，制定廣告目標與投放策略執行，數制定廣告目標與投放策略執，☞ 廣告投放：制定廣告目標與投放策略執行`)
+              | 工作內容：<br>
+              | ☞ 廣告投放：制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。☞ 廣告投放：制定廣告目標與投放策略執行析，進行調整及優化。☞ 廣告投放：制定廣告目標與投放策略執行...<br>
+              | 需求條件：<br>
+              | ☞ 廣告投放：制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化，制定廣告目標與投放策略執行，數制定廣告目標與投放策略執，☞ 廣告投放：制定廣告目標與投放策略執行，數...
             .opening__data
-              .opening__label 15
+              | 工作待遇：月薪 ＄40,000~＄80,000<br>
+              | 工作性質：全職<br>
+              | 工作地點：桃園市<br>
+              | 可否遠端：可<br>
             .opening__data
               .opening__span 
                 | 必填：
@@ -85,35 +102,6 @@ html(lang="zh-TW")
                 | 選填：
                 br
                 | 其他加分項目、其他
-            .opening__data
-              .candidate-item__question__wrap
-                .candidate-item__question__container
-                  .opening-question__item.flex
-                    span.tips Q1
-                    p.text 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
-                  .opening-question__item.flex
-                    span.tips Q2
-                    p.text 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？
-                  .opening-question__item.flex
-                    span.tips Q3
-                    p.text 說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？
-                  .opening-question__item.flex
-                    span.tips Q4
-                    p.text 描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？
-                  .opening-question__item.flex
-                    span.tips Q5
-                    p.text 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？
-                  .opening-question__more.font.color-blue.flex.items-center.justify-end
-                    | 展開所有問題
-                    .icon.icon-14px.icon-arrow-up.icon-rotate-180.ml-8px
-
-            .opening__data
-              button.opening-go__button.button.black
-                .icon.icon-18px.icon-logout.bg.bg-white
-                | 前往職缺頁
-              a.opening-share__button.flex.items-center
-                .icon.icon-12px.icon-share
-                | 複製連結
             .opening__data
               a.opening-edit__button.flex.items-center
                 .icon.icon-18px.icon-edit
@@ -128,27 +116,36 @@ html(lang="zh-TW")
                 .icon.icon-18px.icon-resume.icon-red-delete
                 | 職缺已關閉
             .opening__data
+              button.opening-open-response__button.button.black
+                .icon.icon-18px.icon-resume.bg.bg-white.mr-12px
+                | 開啟職缺
               button.opening-alone-edit__button.button.black
-                .icon.icon-18px.icon-edit.bg.bg-white
+                .icon.icon-18px.icon-edit.bg.bg-white.mr-12px
                 | 繼續編輯
-              button.opening-alone-edit__button.button.white
-                .icon.icon-18px.icon-resume.icon-red-delete
+              button.opening-close__button.button.white
+                .icon.icon-18px.icon-resume.icon-red-delete.mr-12px
                 | 關閉職缺
               a.opening-detele__button.flex.items-center
-                .icon.icon-12px.icon-close.bg.bg-red
+                .icon.icon-12px.icon-close.bg.bg-red.mr-12px
                 .font.color-red 刪除職缺
               a.opening-copy__button.flex.items-center
-                .icon.icon-12px.icon-copy
+                .icon.icon-12px.icon-copy.mr-12px
                 | 複製連結
 
-            .opening__data.non
-              span 02
             .opening__data.non
               .opening__label 2021.01.07
             .opening__data.non
               .opening__label 平面設計
             .opening__data.non
-              .opening__label 15
+              | 工作內容：<br>
+              | ☞ 廣告投放：制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。☞ 廣告投放：制定廣告目標與投放策略執行析，進行調整及優化。☞ 廣告投放：制定廣告目標與投放策略執行...<br>
+              | 需求條件：<br>
+              | ☞ 廣告投放：制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化，制定廣告目標與投放策略執行，數制定廣告目標與投放策略執，☞ 廣告投放：制定廣告目標與投放策略執行，數...
+            .opening__data.non
+              | 工作待遇：月薪 ＄40,000~＄80,000<br>
+              | 工作性質：全職<br>
+              | 工作地點：桃園市<br>
+              | 可否遠端：可<br>
             .opening__data.non
               .opening__span 
                 | 必填：
@@ -170,35 +167,6 @@ html(lang="zh-TW")
                 br
                 | 其他加分項目、其他
             .opening__data.non
-              .candidate-item__question__wrap
-                .candidate-item__question__container
-                  .opening-question__item.flex
-                    span.tips Q1
-                    p.text 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
-                  .opening-question__item.flex
-                    span.tips Q2
-                    p.text 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？
-                  .opening-question__item.flex
-                    span.tips Q3
-                    p.text 說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？
-                  .opening-question__item.flex
-                    span.tips Q4
-                    p.text 描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？
-                  .opening-question__item.flex
-                    span.tips Q5
-                    p.text 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？
-                  .opening-question__more.font.color-blue.flex.items-center.justify-end
-                    | 展開所有問題
-                    .icon.icon-14px.icon-arrow-up.icon-rotate-180.ml-8px
-
-            .opening__data.non
-              button.opening-go__button.button.black
-                .icon.icon-18px.icon-logout.bg.bg-white
-                | 前往職缺頁
-              a.opening-share__button.flex.items-center
-                .icon.icon-12px.icon-share
-                | 複製連結
-            .opening__data.non
               a.opening-edit__button.flex.items-center
                 .icon.icon-18px.icon-edit
                 | 草稿編輯
@@ -207,12 +175,12 @@ html(lang="zh-TW")
                 | 職缺刊登
             .opening__data.non
               button.opening-alone-edit__button.button.black
-                .icon.icon-18px.icon-resume.bg.bg-white
+                .icon.icon-18px.icon-resume.bg.bg-white.mr-12px
                 | 繼續編輯
               a.opening-detele__button.flex.items-center
-                .icon.icon-12px.icon-close.bg.bg-red
+                .icon.icon-12px.icon-close.bg.bg-red.mr-12px
                 .font.color-red 刪除職缺
               a.opening-copy__button.flex.items-center
-                .icon.icon-12px.icon-copy
+                .icon.icon-12px.icon-copy.mr-12px
                 | 複製連結
           +page

@@ -38,21 +38,29 @@ const QUESTION_LEVEL_3_LIST = [
 ]
 
 $(function () {
+  // date change
+  $('#date-before').datepicker({
+    dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
+    dateFormat: 'yy-dd-mm',
+  })
+  $('#date-after').datepicker({
+    dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
+    dateFormat: 'yy-dd-mm',
+  })
+
+  // select
+  $('select').selectmenu()
+
   // message
-  const message = (text, type='secure') => {
+  const message = ({ text, icons, type }) => {
     const icon = $('<div class="icon icon-18px bg"></div>')
-    const typeLabel = type === 'secure'
-      ? 'icon-double-checkmark bg-green-message'
-      : type === 'copy'
-        ? 'icon-copy  bg-green-message'
-      : type === 'mail'
-        ? 'icon-message  bg-green-message'
-        : 'icon-security bg-red'
+    const typeLabel = icons || 'icon-double-checkmark bg-green-message'
+    const types = type || 'secure'
     icon.addClass(typeLabel)
 
     const element = $('<div></div>')
     element.text(text)
-    element.addClass(`message_item flex items-center ${type}`)
+    element.addClass(`message_item flex items-center ${types}`)
     element.appendTo('.message_list')
     icon.prependTo(element)
 
@@ -62,7 +70,7 @@ $(function () {
   }
 
   // popup
-  function popup (title, text) {
+  function popup ({ title, sub, text }) {
     const templete = $(`
       <div class="pop__wrap">
         <div class="pop__container flex flex-col">
@@ -71,7 +79,8 @@ $(function () {
             <div class="font text-18px"> ${title}</div>
             <button class="pop__close icon icon-18px icon-close"></button>
           </div>
-          <div class="pop__content flex-1 font text-16px">${text}</div>
+          <div class="pop__sub font text-16px mb-14px mt-26px"></div>
+          <div class="pop__content flex-1 font text-14px"></div>
           <div class="pop__bottom flex items-center">
             <button class="pop__cancel button black shadow flex-1 mr-14px">取消</button>
             <button class="pop__confirm button white shadow flex-1">正確</button>
@@ -79,6 +88,9 @@ $(function () {
         </div>
       </div>
     `)
+
+    if (sub) templete.find('.pop__sub').html(sub)
+    if (text) templete.find('.pop__content').html(text)
 
     togglePopupView(true)
     templete.appendTo('body')
@@ -124,20 +136,18 @@ $(function () {
     $('.plan-buy__wrap').show()
   })
 
-  // textarea輸入框
+  // textarea
   function textareaBuild () {
     $.each($('.field__textarea__wrap'), function () {
       const element = $(this).children('textarea')
       const count = $(this).attr('data-count')
       const show = $(`<div class="field__textarea-quantity"></div>`)
-      // const show = $(this).children('.field__textarea-quantity')
       show.appendTo($(this))
       show.text(`0 / ${count}`)
       $(element).on('blur keyup input', function () {
         show.text(`${element.val().length} / ${count}`)
         if (element.val().length > parseInt(count)) {
           const text = JSON.parse(JSON.stringify(element.val().slice(0, parseInt(count))))
-          console.log('text', text)
           element.val(text)
         }
         show.text(`${element.val().length} / ${count}`)
@@ -145,64 +155,64 @@ $(function () {
     })
   }
 
-  textareaBuild ()
-
+  // popup
   const togglePopupView = (bol) => {
     if (bol) {
-      if (bol) $('body > .container').addClass('popop')
-      else $('body > .container').removeClass('popop')
-    } else {
-      $('body > .container').toggleClass('popop')
+      if (bol) $('body > .container').addClass('popup')
+      else $('body > .container').removeClass('popup')
+    } else $('body > .container').toggleClass('popup')
+  }
+
+  // drag input file
+  const drapInputFile = () => {
+    const dragenter = (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+    }
+  
+    const dragover = (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+    }
+  
+    const drop = (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+  
+      const dt = e.dataTransfer
+      const files = dt.files
+  
+      $('.plan-buy__update__img__label').text(files[0].name)
+      const reader = new FileReader()
+      reader.onload = (e => {
+        $('.plan-buy__update__img__wrap').removeClass('hidden').css('display', 'flex')
+        $('.plan-buy__update__img__img').attr("src", e.target.result)
+      })
+      reader.readAsDataURL(files[0])
+    }
+  
+    const imgInput = (e) => {
+      $('.plan-buy__update__img__label').text(e.target.files[0].name)
+      const reader = new FileReader()
+      reader.onload = (e => {
+        $('.plan-buy__update__img__wrap').removeClass('hidden').css('display', 'flex')
+        $('.plan-buy__update__img__img').attr("src", e.target.result)
+      })
+      reader.readAsDataURL(e.target.files[0])
+    }
+  
+    const dropbox = document.querySelector('.plan-buy__input')
+    if (dropbox) {
+      dropbox.addEventListener("dragenter", dragenter, false);
+      dropbox.addEventListener("dragover", dragover, false);
+      dropbox.addEventListener("drop", drop, false);
+      dropbox.addEventListener("change", imgInput, false);
     }
   }
+  drapInputFile()
 
-  // drag input
-  const dragenter = (e) => {
-    e.stopPropagation()
-    e.preventDefault()
-  }
-
-  const dragover = (e) => {
-    e.stopPropagation()
-    e.preventDefault()
-  }
-
-  const drop = (e) => {
-    e.stopPropagation()
-    e.preventDefault()
-
-    const dt = e.dataTransfer
-    const files = dt.files
-
-    $('.plan-buy__update__img__label').text(files[0].name)
-    const reader = new FileReader()
-    reader.onload = (e => {
-      $('.plan-buy__update__img__wrap').removeClass('hidden').css('display', 'flex')
-      $('.plan-buy__update__img__img').attr("src", e.target.result)
-    })
-    reader.readAsDataURL(files[0])
-  }
-
-  const imgInput = (e) => {
-    $('.plan-buy__update__img__label').text(e.target.files[0].name)
-    const reader = new FileReader()
-    reader.onload = (e => {
-      $('.plan-buy__update__img__wrap').removeClass('hidden').css('display', 'flex')
-      $('.plan-buy__update__img__img').attr("src", e.target.result)
-    })
-    reader.readAsDataURL(e.target.files[0])
-  }
-
-  const dropbox = document.querySelector('.plan-buy__input')
-  if (dropbox) {
-    dropbox.addEventListener("dragenter", dragenter, false);
-    dropbox.addEventListener("dragover", dragover, false);
-    dropbox.addEventListener("drop", drop, false);
-    dropbox.addEventListener("change", imgInput, false);
-  }
-
-  const isWebsite = $('.content-article.website')
-  if (isWebsite) {
+  // website 徵才網站
+  if ($('body').has('#website').length) {
     $('.website-link__url').on('keyup', function () {
       const text = $(this).val()
       const input = $('.website-preview__url')
@@ -236,10 +246,20 @@ $(function () {
       })
       reader.readAsDataURL(value)
     })
+
+    $('.website-close-all-job__button').on('click', function () {
+      popup({ title: '關閉所有職缺', sub: '您確定要關閉所有職缺嗎？', text: '如果按下確認，您的徵才網站的所有職缺即被關閉。' })
+        .then(res => {
+          switch (res) {
+            case 'confirm':
+              message({ text: '全部職缺已經被關閉！' })
+          }
+        })
+    })
   }
 
   // 登入  
-  if ($('body').has('sign-in')) {
+  if ($('body').has('sign-in').length) {
     $('.sign-form').validate({
       rules: {
         mail: {
@@ -260,7 +280,7 @@ $(function () {
 
     $('.sign-button').on('click', function () {
       $('.sign-form').validate()
-      if (!$('.sign-form').valid()) message('輸入錯誤請重新輸入', 'err')
+      if (!$('.sign-form').valid()) message({ text: '輸入錯誤請重新輸入', icons: 'icon-security bg-red' })
     })
   }
 
@@ -301,15 +321,15 @@ $(function () {
 
   // 註冊
   $('.forget-button').on('click', function () {
-    message('密碼更新成功，請輸入新密碼進行登入')
+    message({ text: '密碼更新成功，請輸入新密碼進行登入' })
   })
 
   $('.sign-up__button').on('click', function () {
-    message('錯誤訊息', 'err')
+    message({ text: '錯誤訊息', icons: 'icon-security bg-red' })
   })
 
   // 首頁 index
-  if ($('body').has('#home')) {
+  if ($('body').has('#home').length) {
     $(document).ready(function () {
       const swiper = new Swiper('.swiper', {  
         spaceBetween: 23,
@@ -325,32 +345,75 @@ $(function () {
   }
 
   // 設定 setting
-  if ($('body').has('#setting')) {
+  if ($('body').has('#setting').length) {
+    textareaBuild ()
+
     $('.send-verification').on('click', function () {
-      message('驗證碼已經寄送到所填入的信箱')
+      message({ text: '驗證碼已經寄送到所填入的信箱' })
     })
 
     $('.setting-save').on('click', function () {
-      message('密碼完成更新！')
+      message({ text: '密碼完成更新！' })
     })
 
     $('.letter-save').on('click', function () {
-      message('我的寄送範本已更新')
+      message({ text: '我的寄送範本已更新' })
     })
   
     $('.letter-delete').on('click', function () {
-      popup('刪除職缺通知', '您確定要刪除此職缺嗎？')
+      popup({ title: '刪除職缺通知', text: '您確定要刪除此職缺嗎？' })
         .then(res => {
           switch (res) {
             case 'confirm':
-              message('我的寄送範本已刪除')
+              message({ text: '我的寄送範本已刪除' })
           }
         })
     })
   }
 
+  // 職缺 opening
+  if ($('body').has('#opening').length) {
+    $.widget('ui.tooltip', $.ui.tooltip, {
+      options: {
+        content: function () {
+          return $(this).prop('title');
+        }
+      }
+    });
+    $(document).tooltip({
+      open: function (event, ui) {
+        ui.tooltip.css('max-width', '600px');
+      },
+      position: {
+        my: 'center center',
+        at: "center+50 center",
+      }
+    })
+
+    $('.opening-open-response__button').on('click', function () {
+      message({ text: '您已成功開啟職缺，請立即公開應徵！', icons: 'icon-boy bg-green-message' })
+    })
+
+    $('.opening-close__button').on('click', function () {
+      popup({ title: '關閉職缺通知', sub: '您確定要關閉此職缺嗎？' })
+      .then(res => {
+        switch (res) {
+          case 'confirm':
+            message({ text: '您已成功關閉職缺！', icons: 'icon-boy bg-green-message' })
+        }
+      })
+    })
+
+    $('.opening-detele__button').on('click', function () {
+      message({ text: '您已成功刪除職缺！', icons: 'icon-boy bg-green-message' })
+    })
+  }
+
   // 職缺 opening-setup-1
-  if ($('body').has('#opening-setup-1')) {
+  if ($('body').has('#opening-setup-1').length) {
+    textareaBuild ()
+    $('.website-preview__step-2').show().siblings().hide()
+
     let step = 1
     $(`.opening-setup-1__step-${step}`).show().siblings().hide()
 
@@ -359,28 +422,142 @@ $(function () {
       else {
         step++
         $(`.opening-setup-1__step-${step}`).show().siblings().hide()
+
+        const view = [1, 2].includes(step) ? 1 : 2
+        $(`.website-preview__step-${view}`).show().siblings().hide()
       }
+    })
+
+    $('#opening-setup-1-title').on('blur keyup input', function () {
+      const text = $(this).val() || '工作職稱'
+      $('#website-title').html(text)
+    })
+
+    $('#opening-setup-1-content').on('blur keyup input', function () {
+      const text = $(this).val() || '此處為工作內容細節，等待您輸入。'
+      $('#website-content').html(text)
+    })
+
+    $('#opening-setup-1-condition').on('blur keyup input', function () {
+      const text = $(this).val() || '此處為需求條件細節，等待您輸入。'
+      $('#website-condition').html(text)
+    })
+
+    $.each($('.website-preview__text'), function() {
+      $(this).text('等待您輸入')
+    })
+    
+    $('#opening-setup-1-salary').on('selectmenuchange', function() {
+      const type = `${$(this).val()} ` || ''
+      const text = $('#opening-setup-1-count').val() || '等待您輸入'
+      $('#opening-setup-1-treatment').text(type + text)
+    })
+
+    $('#opening-setup-1-count').on('blur keyup input', function() {
+      const type = `${$('#opening-setup-1-salary').val()} ` || ''
+      const text = $(this).val() || '等待您輸入'
+      $('#opening-setup-1-treatment').text(type + text)
+    })
+
+    $('#opening-setup-1-type').on('selectmenuchange', function() {
+      const text = $(this).val() || '等待您輸入'
+      $('#opening-setup-1-nature').text(text)
+    })
+
+    $('#opening-setup-1-address').on('blur keyup input', function () {
+      const text = $(this).val() || '等待您輸入'
+      $('#opening-setup-1-place').text(text)
+    })
+
+    $('input[type=radio].checkbox__input').on('change', function() {
+      const text = $(this).val() || '等待您輸入'
+      $('#opening-setup-1-remote').text(text)
+    })
+
+    $('.vacancies-setup-detail__type__list.default input').on('change', function() {
+      const $this = $(this)
+      if ($this.is(':checked')) {
+        const element = $(`
+          <div class="field mb-22px">
+            <div class="form__container flex flex-col">
+              <label class="label">
+                <span class="title">${$this.val()}</span>
+                <span class="font color-red">*</span>
+              </label>
+              <input class="input"/>
+            </div>
+          </div>
+        `)
+        $(element).appendTo('.website-preview__step-1-default__list')
+      } else {
+        $.each($('.website-preview__step-1-default__list .field'), function() {
+          if ($(this).find('.title').text().trim() === $this.val()) return $(this).remove()
+        })
+      }
+    })
+
+    $('.vacancies-setup-detail__type__list.chose input').on('change', function() {
+      $('.website-preview__step-1-chose__list').empty()
+      $.each($('.vacancies-setup-detail__type__list.chose .vacancies-setup-detail__type__item'), function() {
+        if ($(this).children('input').is(':checked')) {
+          const element = $(`
+            <div class="field">
+              <div class="form__container flex flex-col">
+                <label class="label">
+                  ${$(this).children('input').val()}
+                </label>
+
+                <div class="user-form__chose__wrap">
+                  <div class="user-form__chose flex items-center">
+                    <div class="user-form__chose__item">
+                      <input class="user-form__chose__input" type="radio" value="input" checked/>
+                      <label>連結</label>
+                    </div>
+                    <div class="user-form__chose__item">
+                      <input class="user-form__chose__input" type="radio" value="input"/>
+                      <label>檔案</label>
+                    </div>
+                  </div>
+                  <div class="user-form__type__wrap">
+                    <input class="user-form__item-input form__input input" placeholder="https://">
+                    <div class="user-form__type__drop drop hidden">
+                      <div class="user-form__type__drop__container">
+                        <div class="website-config__banner__input__wrap user__update">
+                          <div class="icon icon-18px icon-plus"></div>
+                        </div>
+                        <div class="user-form__type__drop__text">（支援檔案類型 pdf. doc. docx. jpg. png.  / 檔案上限 5 MB) </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `)
+
+          $(element).appendTo('.website-preview__step-1-chose__list')
+        }
+      })
     })
   }
 
   // 面試者資料 response
-  if ($('body').has('#opening')) {
+  if ($('body').has('#response').length) {
     $('.candidate-item-question-link__item.copy').on('click', function () {
-      message('複製成功！', 'copy')
+      message({ text: '複製成功！', icon: 'icon-copy  bg-green-message' })
     })
 
     $('.response__send-button').on('click', function () {
-      message('請先勾選面試者！', 'err')
+      message({ text: '請先勾選面試者！', icon: 'icon-security bg-red' })
     })
 
     // $('.response__send-button').on('click', function () {
-    //   message('寄送成功！', 'mail')
+    //   message('寄送成功！', 'icon-message  bg-green-message')
     // })
   }
 
 
-  // question
-  if ($('.vacancies__content-setup-2').length) {
+  // 職缺 opening-setup-2
+  if ($('body').has('#opening-setup-2').length) {
     for (const [index, value] of Object.entries(QUESTION_LEVEL_1_LIST)) {
       const templeteLevel1 = $(`
         <div>
@@ -493,20 +670,18 @@ $(function () {
       })
   
       templete.find('.pop__confirm').on('click', function () {
-        console.log('???')
         templete.fadeOut(200, function() { $(this).remove() })
         togglePopupView(false)
       })
     }
   }
 
-  $('#date-before').datepicker({
-    dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
-    dateFormat: 'yy-dd-mm',
-  })
-  $('#date-after').datepicker({
-    dayNamesMin: [ "S", "M", "T", "W", "T", "F", "S" ],
-    dateFormat: 'yy-dd-mm',
-  })
-  $('select').selectmenu()
+  // 職缺 opening-setup-3
+  if ($('body').has('#opening-setup-3').length) {
+    textareaBuild()
+
+    for (const item of [$('#opening-setup-3-content'), $('#opening-setup-3-condition')]) {
+      $(item).next().text(`${$(item).val().length} / 1500`)
+    }
+  }
 })

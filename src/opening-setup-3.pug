@@ -8,11 +8,11 @@ html(lang="zh-TW")
       +nav('boy')
       .content
         +header()
-        .content-article.flex.flex-col.vacancies
+        .content-article.flex.flex-col#opening-setup-3
           .vacancies__top.flex
-            .vacancies-back.flex.items-center
+            a.vacancies-back.flex.items-center(href="opening-setup-2.html")
               .vacancies-back__icon.icon.icon-16px.icon-back
-              .vacancies-back__label 返回
+              .vacancies-back__label.font.color-black 返回
 
             -
               const PROGRESS_WRAP = [
@@ -31,25 +31,65 @@ html(lang="zh-TW")
               .vacancies-setup-3__label 職缺名稱
               .vacancies-setup-3__text 多媒體動畫設計師
             .vacancies-setup-3__data.flex
-              .vacancies-setup-3__content.flex-1
+              .vacancies-setup-3__content.flex-1.field.disabled
                 .vacancies-setup-3__content__title 工作內容
-                textarea.vacancies-setup-3__span.font.text-12px
-                  | ☞ 廣告投放：&#13制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。&#13
-                  | ☞ 用戶成長：&#13追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。&#13
-                  | ☞ A/B testing：&#13經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。&#13
-              .vacancies-setup-3__content.flex-1
+                .field__textarea__wrap.flex-1(data-count="1500")
+                  textarea.field__textarea#opening-setup-3-content(disabled="true")
+                    | ☞ 廣告投放：&#13制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。&#13
+                    | ☞ 用戶成長：&#13追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。&#13
+                    | ☞ A/B testing：&#13經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。&#13
+              .vacancies-setup-3__content.flex-1.field.disabled
                 .vacancies-setup-3__content__title 需求條件
-                textarea.vacancies-setup-3__span.font.text-12px
-                  | ☞ 廣告投放：&#13制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。&#13
-                  | ☞ 用戶成長：&#13追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。&#13
-                  | ☞ A/B testing：&#13經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。&#13
+                .field__textarea__wrap.flex-1(data-count="1500")
+                  textarea.field__textarea#opening-setup-3-condition(disabled="true")
+                    | ☞ 11廣告投放：&#13制定廣告目標與投放策略執行，數據成效追蹤及分析，進行調整及優化。&#13
+                    | ☞ 用戶成長：&#13追蹤並分析各導流管道的成效，結合行為數據透過資料探勘挖掘用戶特性，與行銷團隊一起發想貼近用戶的溝通方式，並規劃完善的增長策略來建立用戶成長迴圈。&#13
+                    | ☞ A/B testing：&#13經由分析成果您會得到許多見解來對問題提出各種假設，並試著找出解決方案，A/B testing則是驗證假設的方法，您必須針對假設規劃完善的實驗，並不斷的驗證每個假設來達到目的。&#13
               .vacancies-setup-3__content.flex-1
-                .vacancies-setup-3__content__title 工作待遇
-                .vacancies-setup-3__span.font.text-12px
-                  | 工作待遇：月薪＄40,000~＄80,000<br>
-                  | 工作性質：全職<br>
-                  | 工作地點：桃園市<br>
-                  | 可否遠端：可<br>
+                .field.disabled.mb-20px
+                  .label
+                    | 工作待遇
+                    span.font.color-red *
+                  .input.flex.items-center.coin-choose
+                    .icon.icon-18px.icon-coin
+                    select(placeholder="計薪方式")#opening-setup-1-salary
+                      -
+                        const MONEY_LIST = [
+                          { id: 'month', label: '月薪' },
+                        ]
+                      for item in MONEY_LIST
+                        option(value=item.label)= item.label 
+                    .field-line
+                    input.flex-1#opening-setup-1-count(value="＄40,000~＄80,000")
+                .field.disabled.mb-20px
+                  .label
+                    | 工作性質
+                    span.font.color-red *
+                  select.select(value="桃園市" disabled)
+                    option(value="全職" label="")  全職
+
+                .field.disabled.mb-20px
+                  .label
+                    | 工作性質
+                    span.font.color-red *
+                  input.input(value="桃園市蘆竹區經國路892號" disabled)
+
+                .field.disabled.mb-20px
+                  .label
+                    | 可否遠端
+                    span.font.color-red *
+                  .vacancies-setup-3__span.font.text-12px
+                    -
+                      const CHECKBOX_LIST = [
+                        { id: 'yes', label: '是', checked: true },
+                        { id: 'no', label: '否' },
+                        { id: 'any', label: '彈性' },
+                      ]
+                    .checkbox__wrap.flex.items-center
+                      for item in CHECKBOX_LIST
+                        .checkbox.flex.items-center.mr-16px
+                          input.checkbox__input(id=item.id type="radio" name="job" value=item.label disabled checked=item.checked)
+                          label.ml-8px(for=item.id)= item.label
 
             .vacancies-setup-3__data
               .vacancies-setup-3__content__title 職缺填寫需求與檔案上傳
@@ -74,7 +114,7 @@ html(lang="zh-TW")
                       span.font.color-red *
             .vacancies-setup-3__question
               .vacancies-setup-3__question__title 您選擇的面試問題
-              .vacancies-setup-3__question__list.flex.flex-col.flex-wrap
+              .vacancies-setup-3__question__list
                 -
                   const QUESTION_LENGTH = 9
                   let QUESTION_COUNT = 0
@@ -93,10 +133,10 @@ html(lang="zh-TW")
             
             .vacancies-setup-3__bottom.flex.flex-col.items-end
               .vacancies-setup-3__button__wrap
-                button.vacancies-setup-3-back.button.black
+                button.vacancies-setup-3-back.button.black.mr-20px.shadow
                   .icon.icon-16px.icon-back.bg.bg-white
                   | 再想想，回到上一頁
-                button.vacancies-setup-3-send.button.white
+                button.vacancies-setup-3-send.button.white.shadow
                   .icon.icon-16px.icon-double-checkmark
                   | 確定送出
               .vacancies-setup-3__tips.flex.items-center

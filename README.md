@@ -5,6 +5,7 @@
 - [figma圖檔，UI完全](https://www.figma.com/file/wn1EVwiRupfMKnGr5SHrCs/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
 - [figma圖檔，UI完全-1](https://www.figma.com/file/9T9WvBoQBmMG2GTpfkgsUZ/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
 - [figma圖檔，UI完全-2?](https://www.figma.com/file/MfPZiH64D6LIv53gwUs9jn/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
+- [figma圖檔，UI完全-3?](https://www.figma.com/file/5xnf8PJMstxINjkuc7ASFD/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
 
 
 
@@ -62,9 +63,9 @@
   - [x] website : 徵才網站
   - [x] response : 面試者資料
   - [x] opening : 職缺
-  - [ ] opening-setup-1 : 職缺-step-1
-  - [ ] opening-setup-2 : 職缺-step-2
-  - [ ] opening-setup-3 : 職缺-step-3
+  - [x] opening-setup-1 : 職缺-step-1
+  - [x] opening-setup-2 : 職缺-step-2
+  - [x] opening-setup-3 : 職缺-step-3
   - [x] user-list : 職缺頁面
   - [x] user : 應徵頁面
   - [x] user-setup-1 : 應徵頁面-setup-1
