@@ -126,16 +126,6 @@ $(function () {
     $(this).addClass('active').siblings().removeClass('active')    
   })
 
-  $('.plan-buy__wrap').hide()
-  $('.plan-buy__detail__close').on('click', function () {
-    togglePopupView(false)
-    $('.plan-buy__wrap').hide()
-  })
-  $('.plan-record-all__button.button.black').on('click', function () {
-    togglePopupView(true)
-    $('.plan-buy__wrap').show()
-  })
-
   // textarea
   function textareaBuild () {
     $.each($('.field__textarea__wrap'), function () {
@@ -734,5 +724,26 @@ $(function () {
     for (const item of [$('#opening-setup-3-content'), $('#opening-setup-3-condition')]) {
       $(item).next().text(`${$(item).val().length} / 1500`)
     }
+  }
+
+  // 方案 plan
+  if ($('body').has('#plan').length) {
+    $('.plan-buy__wrap').hide()
+
+    $('.plan-buy__detail__close').on('click', function () {
+      togglePopupView(false)
+      $('.plan-buy__wrap').hide()
+    })
+
+    $('.plan-record-all__button.button.black').on('click', function () {
+      togglePopupView(true)
+      $('.plan-buy__wrap').show()
+    })
+
+    $('.plan-buy__detail__button').on('click', function () {
+      togglePopupView(false)
+      $('.plan-buy__wrap').hide()
+      message({ text: '付款完成，已更新為企業版方案！' })
+    })
   }
 })
