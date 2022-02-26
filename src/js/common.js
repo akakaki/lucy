@@ -52,25 +52,89 @@ $(function () {
   $('select').selectmenu()
 
   // message
-  const message = ({ text, icons, type }) => {
+  function message ({ text, icons, type, second, button }) {
     const icon = $('<div class="icon icon-18px bg"></div>')
     const typeLabel = icons || 'icon-double-checkmark bg-green-message'
     const types = type || 'secure'
+    const time = second === null ? null : Number(second) || 3000
     icon.addClass(typeLabel)
 
-    const element = $('<div></div>')
-    element.text(text)
-    element.addClass(`message_item flex items-center ${types}`)
-    element.appendTo('.message_list')
-    icon.prependTo(element)
+    return new Promise((reslove) => {
+        const element = $('<div></div>')
+        element.text(text)
+        if (button) {
+          const buttonElement = $(`<div class="massage__button flex items-center ml-34px"></div>`)
 
-    setTimeout(() => {
-      element.fadeOut(300, function() { $(this).remove() })
-    }, 3000)
+          for (const item of button) {
+            const buttonItem = $(`
+              <div class="massage__button__${item.id} button sm black shadow mx-8px">${item.label}</div>
+            `)
+
+            if (item.icon) {
+              const iconElement = $(`<div class="icon icon-18px ${item.icon} bg bg-white"></div>`)
+              iconElement.prependTo(buttonItem)
+            }
+
+            buttonItem.appendTo(buttonElement)
+
+            buttonItem.on('click', function () {
+              reslove(item.id)
+              $(element).fadeOut(300, function() { $(element).remove() })
+            })
+          }
+
+          // close button
+          const close = $('<div class="icon icon-14px icon-close cursor-pointer ml-12px"></div>')
+          close.on('click', function () {
+            $(element).fadeOut(300, function() { $(element).remove() })
+          })
+          close.appendTo(buttonElement)
+
+          buttonElement.appendTo(element)
+      }
+      element.addClass(`message_item flex items-center ${types}`)
+      element.appendTo('.message_list')
+      icon.prependTo(element)
+
+      function setTop () {
+        const itemList = $('.message_list').children()
+        $.each(itemList, function (index) {
+          if (index) $(this).css('top', `${(index * 56) + 30}px`)
+          else $(this).css('top', '20px')
+        })
+      }
+
+      setTop()
+
+      if (time) {
+        setTimeout(() => {
+          element.fadeOut(300, function() {
+            $(this).remove()
+            setTop()
+            reslove('complete')
+          })
+        }, time)
+      }
+
+    })
   }
 
   // popup
-  function popup ({ title, sub, text }) {
+  function popup ({ title, sub, text, button }) {
+    // button [ { bg: 'white', label: 'label', submit: 'any' } ]
+    let buttonElement = ''
+    if (button) {
+      for (const [index, item] of Object.entries(button)) {
+        const target = `<button class="pop__${ item.submit } button ${ item.bg } shadow flex-1 ${index !== 0 ? 'mr-14px' : ''}">${ item.label }</button>`
+        buttonElement += target
+      }
+    } else {
+      buttonElement = `
+        <button class="pop__cancel button black shadow flex-1 mr-14px">取消</button>
+        <button class="pop__confirm button white shadow flex-1">正確</button>
+      `
+    }
+
     const templete = $(`
       <div class="pop__wrap">
         <div class="pop__container flex flex-col">
@@ -81,10 +145,7 @@ $(function () {
           </div>
           <div class="pop__sub font text-16px mb-14px mt-26px"></div>
           <div class="pop__content flex-1 font text-14px"></div>
-          <div class="pop__bottom flex items-center">
-            <button class="pop__cancel button black shadow flex-1 mr-14px">取消</button>
-            <button class="pop__confirm button white shadow flex-1">正確</button>
-          </div>
+          <div class="pop__bottom flex items-center">${buttonElement}</div>
         </div>
       </div>
     `)
@@ -102,16 +163,13 @@ $(function () {
         reslove('close')
       })
 
-      templete.find('.pop__cancel').on('click', function () {
-        templete.fadeOut(200, function() { $(this).remove() })
-        togglePopupView(false)
-        reslove('cancel')
-      })
-
-      templete.find('.pop__confirm').on('click', function () {
-        templete.fadeOut(200, function() { $(this).remove() })
-        togglePopupView(false)
-        reslove('confirm')
+      $.each(templete.find('.pop__bottom').children(), function () {
+        $(this).on('click', function () {
+          templete.fadeOut(200, function() { $(this).remove() })
+          togglePopupView(false)
+          const target = $(this).attr('class').split(' ')[0].split('__')[1]
+          reslove(target)
+        })
       })
     })
   }
@@ -193,10 +251,10 @@ $(function () {
   
     const dropbox = document.querySelector('.plan-buy__input')
     if (dropbox) {
-      dropbox.addEventListener("dragenter", dragenter, false);
-      dropbox.addEventListener("dragover", dragover, false);
-      dropbox.addEventListener("drop", drop, false);
-      dropbox.addEventListener("change", imgInput, false);
+      dropbox.addEventListener('dragenter', dragenter, false);
+      dropbox.addEventListener('dragover', dragover, false);
+      dropbox.addEventListener('drop', drop, false);
+      dropbox.addEventListener('change', imgInput, false);
     }
   }
   drapInputFile()
@@ -246,6 +304,35 @@ $(function () {
           }
         })
     })
+  }
+
+  // website 徵才網站-體驗升級
+  if ($('body').has('#website-non').length) {
+    const tipsPop = () => {
+      popup({
+        title: '注意',
+        sub: '升級體驗更多',
+        text: '體驗版此功能無法使用，歡迎升級方案享受露西助理更多服務！',
+        button: [
+          { bg: 'black', label: '升級', submit: 'upgrade' }, 
+          { bg: 'white', label: '了解', submit: 'understand' }, 
+        ],
+      })
+        .then(res => {
+          switch (res) {
+            case 'upgrade':
+            case 'understand':
+              console.log(res)
+          }
+        })
+    }
+
+    $('.website-link__url').on('keyup', function () { tipsPop() })
+    $('.form__input#company').on('keyup', function () { tipsPop() })
+    $('.website-config__banner__input').on('change', function () { tipsPop() })
+    $('.website-config__logo__input').on('change', function () { tipsPop() })
+    $('.website-close-all-job__button').on('click', function () { tipsPop() })
+
   }
 
   // 登入  
@@ -315,7 +402,7 @@ $(function () {
   })
 
   $('.sign-up__button').on('click', function () {
-    message({ text: '錯誤訊息', icons: 'icon-security bg-red' })
+    message({ text: '錯誤訊息', type: 'err', icons: 'icon-security bg-red' })
   })
 
   // 首頁 index
@@ -332,6 +419,11 @@ $(function () {
         },
       })
     })
+  }
+
+  // 首頁停用 index-non
+  if ($('body').has('#home-non').length) {
+    message({ text: '您的帳號已被停用，如有任何疑問請聯繫我們！', type: 'err', icons: 'icon-security bg-red', second: null, })
   }
 
   // 設定 setting
@@ -597,74 +689,150 @@ $(function () {
     })
   }
 
-  // 職缺 opening-setup-2
-  if ($('body').has('#opening-setup-2').length) {
-    for (const [index, value] of Object.entries(QUESTION_LEVEL_1_LIST)) {
-      const templeteLevel1 = $(`
-        <div>
-          <div class="number">${ENGLISH_LABEL.at(index)}</div>
-          <div class="label">${value}</div>
-        </div>
-      `)
-      templeteLevel1.addClass(['vacancies-setup-2-level-1__item', 'flex', 'items-center', 'font', 'text-16px'])
-      templeteLevel1.appendTo('.vacancies-setup-2-level-1__list')
-      templeteLevel1.on('click', function () {
-        templeteLevel1.addClass('active').siblings().removeClass('active')
-        $('.vacancies-setup-2-level-2__list').empty()
-        $('.vacancies-setup-2-level-3__list').empty()
-        $('.vacancies__content-setup-2__chose__container').empty()
-  
-        for (const [index, items] of Object.entries(QUESTION_LEVEL_2_LIST)) {
-          const templeteLevel2 = $(`
-            <div>
-              <div class="number">${(Number(index) + 1).toString().padStart(2, '0')}</div>
-              <div class="label">${items}</div>
-            </div>
-          `)
-          templeteLevel2.addClass(['vacancies-setup-2-level-2__item', 'flex', 'items-center', 'font', 'text-16px'])
-          templeteLevel2.appendTo('.vacancies-setup-2-level-2__list')
-          templeteLevel2.on('click', function () {
-            $(templeteLevel2).addClass('active').siblings().removeClass('active')
-            $('.vacancies-setup-2-level-3__list').empty()
-            $('.vacancies__content-setup-2__chose__container').empty()
-    
-            for (const [index, item] of Object.entries(QUESTION_LEVEL_3_LIST)) {
-              const templeteLevel3 = $(`
-                <div>
-                  <input id="${index}" type="checkbox">
-                  <label for="${index}"  class="flex items-center">
-                    <div class="number">Q${ Number(index) + 1 }</div>
-                    <div class="label">${item}</div>
-                  </label>
-                </div>
-              `)
-              templeteLevel3.addClass(['vacancies-setup-2-level-3__item', 'font', 'text-16px', 'flex', 'items-center'])
-              templeteLevel3.appendTo('.vacancies-setup-2-level-3__list')
-              templeteLevel3.on('click', function () {
-                $('.vacancies__content-setup-2__chose__container').empty()
-                $.each($('.vacancies-setup-2-level-3__item'), function(index) {
-                  if ($(this).find('input').prop('checked')) {
-                    const templeteLevel4 = $(`
-                      <div>
-                        <div class="number">${index + 1}</div>
-                        <div class="label">
-                          <div class="title">${templeteLevel2.find('.label').text()}</div>
-                          <div class="sub">${templeteLevel3.find('.label').text()}</div>
-                        </div>
-                      </div>
-                    `)
-                    templeteLevel4.addClass(['vacancies-setup-2-level-4__item', 'flex', 'items-center', 'font', 'text-16px'])
-                    templeteLevel4.appendTo('.vacancies__content-setup-2__chose__container')
-                    $( ".vacancies__content-setup-2__chose__container").sortable()
-                  }
-                })
-              })
-            }
-  
-          })
+  // 面試者資料-方案到期 response-non
+  if ($('body').has('#response-non').length) {
+    message({ text: '您的方案已到期，如有任何疑問請聯繫我們！', type: 'err', icons: 'icon-security bg-red', second: null, })
+  }
+
+  // 面試者資料-體驗版 response-overlow
+  if ($('body').has('#response-overflow').length) {
+    message({ text: '您的面試者已滿，請升等方案！', type: 'err', icons: 'icon-security bg-red' })
+    message({
+      text: '您的面試者已滿，請升等方案！',
+      type: 'err',
+      icons: 'icon-security bg-red',
+      second: null,
+      button: [
+        { id: 'submit', label: '前往升等', icon: 'icon-prize' },
+      ]
+    })
+      .then(res => {
+        switch (res) {
+          case 'submit':
+            location.href = '/plan.html'
+            break          
         }
       })
+  }
+
+  // 職缺 opening-setup-2
+  if ($('body').has('#opening-setup-2').length) {
+
+    const data = new Proxy({}, {
+      set: function (target, key, value) {
+        target[key] = value
+        path(target)
+        return true
+      }
+    })
+
+    // 麵包屑
+    const path = (obj) => {
+      const target = ['中文題庫']
+      const map = Object.values(obj).map(item => item.label)
+      $('.opening-setup-2__path__list').empty()
+      for (const [index, item] of Object.entries(target.concat(map).reverse())) {
+        const pathItem = $(`
+          <div class="opening-setup-2__path__item flex items-center">
+            <div class="opening-setup-2__path__label">${item}</div>
+            ${index !== '0' ? '<div class="icon icon-12px icon-chevron mx-5px"></div>' : ''}
+          </div>
+        `)
+        pathItem.prependTo('.opening-setup-2__path__list')
+      }
     }
+    path([])
+
+    const LEVEL_TEMPLETE = (level, serial, label) => {
+      return `
+        <div class="vacancies-setup-2-level-${level}__item flex items-center font text-16px'">
+          <div class="number mr-16px">${serial}</div>
+          <div class="label">${label}</div>
+        </div>
+      `
+    }
+
+    const CHOSE_SPACE_VIEW = $(`
+      <div class="vacancies__content-setup-2__chose__non flex items-center justify-center flex-1">
+        <div class="vacancies__content-setup-2__chose__non__icon icon icon-34px icon-file mr-8px"></div>
+        <div class="vacancies__content-setup-2__chose__non__label">露西助理提醒您<br>請先勾選題目</div>
+      </div>
+    `)
+    CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
+
+    function buildLevel1 () {
+      for (const [index, value] of Object.entries(QUESTION_LEVEL_1_LIST)) {        
+        const templeteLevel1 = $(LEVEL_TEMPLETE(1, ENGLISH_LABEL.at(index), value))
+        templeteLevel1.appendTo('.vacancies-setup-2-level-1__list')
+        templeteLevel1.on('click', function () {
+          templeteLevel1.addClass('active').siblings().removeClass('active')
+          $('.vacancies-setup-2-level-2__list').empty()
+          $('.vacancies-setup-2-level-3__list').empty()
+          $('.vacancies__content-setup-2__chose__container').empty()
+          CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
+          for (const prop of Object.getOwnPropertyNames(data)) delete data[prop]
+          data.level1 = { id: index, label: value }
+          buildLevel2()
+        })
+      }
+    }
+
+    function buildLevel2 () {
+      for (const [index, items] of Object.entries(QUESTION_LEVEL_2_LIST)) {
+        const templeteLevel2 = $(LEVEL_TEMPLETE(2, (Number(index) + 1).toString().padStart(2, '0'), items))
+        templeteLevel2.appendTo('.vacancies-setup-2-level-2__list')
+        templeteLevel2.on('click', function () {
+          $(templeteLevel2).addClass('active').siblings().removeClass('active')
+          $('.vacancies-setup-2-level-3__list').empty()
+          $('.vacancies__content-setup-2__chose__container').empty()
+          CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
+          data.level2 = { id: index, label: items }
+          buildLevel3()
+        })
+      }
+    }
+
+    function buildLevel3 () {
+      for (const [index, item] of Object.entries(QUESTION_LEVEL_3_LIST)) {
+        const templeteLevel3 = $(`
+          <div class="vacancies-setup-2-level-3__item font text-16px flex items-center" data-item-id="${index}">
+            <input id="${index}" type="checkbox">
+            <label for="${index}"  class="flex items-center">
+              <div class="number mx-16px">Q${ Number(index) + 1 }</div>
+              <div class="label">${item}</div>
+            </label>
+          </div>
+        `)
+        templeteLevel3.appendTo('.vacancies-setup-2-level-3__list')
+        templeteLevel3.find('input').on('change', function () {
+          if ($(this).prop('checked')) {
+            if ($('.vacancies__content-setup-2__chose__container').find(CHOSE_SPACE_VIEW)) CHOSE_SPACE_VIEW.remove()
+
+            const element = $('.vacancies__content-setup-2__chose__container')
+            const templeteLevel4 = $(`
+              <div class="vacancies-setup-2-level-4__item flex items-center font text-16px py-16px px-12px" data-item-id="${index}">
+                <div class="number"></div>
+                <div class="label">
+                  <div class="title">${data.level1.label} / ${data.level2.label}</div>
+                  <div class="sub">${item}</div>
+                </div>
+              </div>
+            `)
+            templeteLevel4.appendTo(element)
+          } else {
+            const element = $('.vacancies__content-setup-2__chose__container')
+            element.find(`[data-item-id="${index}"]`).remove()
+          }
+          
+          if (!$('.vacancies__content-setup-2__chose__container').find('.vacancies-setup-2-level-4__item').length) {
+            CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
+            $(".vacancies__content-setup-2__chose__container").sortable('destroy')
+          } else $(".vacancies__content-setup-2__chose__container").sortable()
+        })
+      }
+    }
+
+    buildLevel1()
 
     $('.vacancies__content-setup-2__chose__button').on('click', function () {
       questopmPopup()
