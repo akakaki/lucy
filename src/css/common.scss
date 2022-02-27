@@ -12,6 +12,10 @@ body {
   position: relative;
   height: 100vh;
 
+  #sign-up & {
+    height: auto;
+  }
+
   &.popup {
     filter: blur(5px);
 

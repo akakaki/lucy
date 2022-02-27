@@ -2,20 +2,26 @@
   webpack 載入方式為從右至左從上到下。
   https://pjchender.dev/webpack/note-webpack/
 */
+
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+
 const { PAGE_LIST, ENTRY_LIST } = require('./../src/route')
-const webpack = require('webpack')
 
 const plugins = [
   new MiniCssExtractPlugin({
     filename: 'css/[name].css',
   }),
-  // new webpack.ProvidePlugin({
-  //   $: 'jquery',
-  //   jQuery: 'jquery',
-  // })
+  new CopyPlugin({
+    patterns: [
+      {
+        from: path.resolve(__dirname, '../src', 'js'),
+        to: 'js',
+      },
+    ],
+  }),
 ]
 
 for (const item of PAGE_LIST) {

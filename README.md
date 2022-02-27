@@ -85,8 +85,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui/jquery-ui.min.js"></script>
     <script src="js/swiper/swiper-bundle.min.js"></script>
-    <script src="js/common.js"></script>
     <script src="js/jquery.validate.min.js"></script>
+    <script src="js/common.js"></script>
     <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" href="js/swiper/swiper-bundle.min.css">
 ```
