@@ -494,7 +494,7 @@ $(function () {
   // 職缺 opening-setup-1
   if ($('body').has('#opening-setup-1').length) {
     textareaBuild ()
-    $('.website-preview__step-2').show().siblings().hide()
+    $('.website-preview__step-1').show().siblings().hide()
 
     let step = 1
     $(`.opening-setup-1__step-${step}`).show().siblings().hide()
