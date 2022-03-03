@@ -123,6 +123,7 @@ html(lang="zh-TW")
                           { id: 'default-phone', label: '聯絡電話', required: 'true' },
                           { id: 'default-resume', label: '履歷', required: 'true' },
                           { id: 'default-cv', label: 'CV' },
+                          { id: 'default-custom', label: '其他' },
                         ]
                       for value in TYPE_DEFAULT_LIST
                         .vacancies-setup-detail__type__item
@@ -140,12 +141,19 @@ html(lang="zh-TW")
                           { id: 'chose-phone', label: '聯絡電話' },
                           { id: 'chose-resume', label: '履歷' },
                           { id: 'chose-cv', label: 'CV' },
+                          { id: 'chose-custom', label: '其他' },
                         ]
                       for value in TYPE_CHOSE_LIST
                         .vacancies-setup-detail__type__item
                           input(type="checkbox" id=value.id value=value.label)
                           label(for=value.id)
                             span= value.label
+                    .setup-detail__custom.field.mb-22px.hide
+                      .form__container
+                        -
+                          const CUSTOM_OBJECT = { id: 'custom-label', required: true, label: '其他', placeholder: '其他' }
+                        +input-wrap(CUSTOM_OBJECT)
+
               .vacancies-setup-detail__bottom.mb-24px.mt-38px
                 a.setup-1-save__button.button.white.shadow.mr-24px
                   .vacancies-setup-detail__icon.icon.icon-16px.icon-save

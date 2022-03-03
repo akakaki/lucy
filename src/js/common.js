@@ -557,36 +557,41 @@ $(function () {
     })
 
     $('.vacancies-setup-detail__type__list.default input').on('change', function() {
-      const $this = $(this)
-      if ($this.is(':checked')) {
-        const element = $(`
-          <div class="field mb-22px">
-            <div class="form__container flex flex-col">
-              <label class="label">
-                <span class="title">${$this.val()}</span>
-                <span class="font color-red">*</span>
-              </label>
-              <input class="input"/>
+      $('.website-preview__step-1-default__list').empty()
+      $.each($('.vacancies-setup-detail__type__list.default .vacancies-setup-detail__type__item'), function() {
+        if ($(this).children('input').is(':checked')) {
+
+          const title = $(this).children('input').val() === '其他' && $('.setup-detail__custom #custom-label').val() ? $('.setup-detail__custom #custom-label').val() : $(this).children('input').val()
+
+          const element = $(`
+            <div class="field mb-22px">
+              <div class="form__container flex flex-col">
+                <label class="label label-${$(this).children('input').attr('id')}">
+                  <span class="title">${title}</span>
+                  <span class="font color-red">*</span>
+                </label>
+                <input class="input"/>
+              </div>
             </div>
-          </div>
-        `)
-        $(element).appendTo('.website-preview__step-1-default__list')
-      } else {
-        $.each($('.website-preview__step-1-default__list .field'), function() {
-          if ($(this).find('.title').text().trim() === $this.val()) return $(this).remove()
-        })
-      }
+          `)
+
+          element.appendTo('.website-preview__step-1-default__list')
+        }
+      })
     })
 
     $('.vacancies-setup-detail__type__list.chose input').on('change', function() {
       $('.website-preview__step-1-chose__list').empty()
       $.each($('.vacancies-setup-detail__type__list.chose .vacancies-setup-detail__type__item'), function() {
         if ($(this).children('input').is(':checked')) {
+          const title = $(this).children('input').val() === '其他' && $('.setup-detail__custom #custom-label').val() ? $('.setup-detail__custom #custom-label').val() : $(this).children('input').val()
+
+
           const element = $(`
-            <div class="field">
+            <div class="field mt-20px">
               <div class="form__container flex flex-col">
-                <label class="label">
-                  ${$(this).children('input').val()}
+                <label class="label label-${$(this).children('input').attr('id')}">
+                  ${title}
                 </label>
 
                 <div class="user-form__chose__wrap">
@@ -619,6 +624,29 @@ $(function () {
           $(element).appendTo('.website-preview__step-1-chose__list')
         }
       })
+    })
+
+    // custom
+    $('.vacancies-setup-detail__type__list input#default-custom').on('change', function() {
+      switchCustomInput()
+    })
+
+    $('.vacancies-setup-detail__type__list input#chose-custom').on('change', function() {
+      switchCustomInput()
+    })
+
+    function switchCustomInput () {
+      if ($('.vacancies-setup-detail__type__list input#chose-custom').is(':checked') || $('.vacancies-setup-detail__type__list input#default-custom').is(':checked')) $('.setup-detail__custom').show()
+      else {
+        $('.setup-detail__custom #custom-label').val('')
+        $('.setup-detail__custom').hide()
+      }
+    }
+
+    $('.setup-detail__custom #custom-label').on('keyup input', function () {
+      const text = $(this).val() || '其他'
+      if ($('body').has('.label-chose-custom').length) $('.label-chose-custom').text(text)
+      if ($('body').has('.label-default-custom .title').length) $('.label-default-custom .title').text(text)
     })
   }
 
