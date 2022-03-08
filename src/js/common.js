@@ -839,6 +839,7 @@ $(function () {
             const element = $('.vacancies__content-setup-2__chose__container')
             const templeteLevel4 = $(`
               <div class="vacancies-setup-2-level-4__item flex items-center font text-16px py-16px px-12px" data-item-id="${index}">
+                <div class="icon icon-16px icon-menu"></div>
                 <div class="number"></div>
                 <div class="label">
                   <div class="title">${data.level1.label} / ${data.level2.label}</div>
