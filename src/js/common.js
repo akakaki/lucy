@@ -833,7 +833,8 @@ $(function () {
         `)
         templeteLevel3.appendTo('.vacancies-setup-2-level-3__list')
         templeteLevel3.find('input').on('change', function () {
-          if ($(this).prop('checked')) {
+          const $this = $(this)
+          if ($this.prop('checked')) {
             if ($('.vacancies__content-setup-2__chose__container').find(CHOSE_SPACE_VIEW)) CHOSE_SPACE_VIEW.remove()
 
             const element = $('.vacancies__content-setup-2__chose__container')
@@ -841,13 +842,26 @@ $(function () {
               <div class="vacancies-setup-2-level-4__item flex items-center font text-16px py-16px px-12px" data-item-id="${index}">
                 <div class="icon icon-16px icon-menu"></div>
                 <div class="number"></div>
-                <div class="label">
+                <div class="label flex-1">
                   <div class="title">${data.level1.label} / ${data.level2.label}</div>
                   <div class="sub">${item}</div>
                 </div>
+                <div class="icon icon-16px icon-close ml-20px"></div>
               </div>
             `)
             templeteLevel4.appendTo(element)
+
+            templeteLevel4.find('.icon-close').on('click', function () {
+              element.find(`[data-item-id="${index}"]`).remove()
+              $this.prop('checked', false);
+
+              if ($('.vacancies__content-setup-2__chose__container').find(CHOSE_SPACE_VIEW)) CHOSE_SPACE_VIEW.remove()
+              if (!$('.vacancies__content-setup-2__chose__container').find('.vacancies-setup-2-level-4__item').length) {
+                CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
+                $(".vacancies__content-setup-2__chose__container").sortable('destroy')
+              } else $(".vacancies__content-setup-2__chose__container").sortable()
+            })
+
           } else {
             const element = $('.vacancies__content-setup-2__chose__container')
             element.find(`[data-item-id="${index}"]`).remove()
@@ -864,52 +878,90 @@ $(function () {
     buildLevel1()
 
     $('.vacancies__content-setup-2__chose__button').on('click', function () {
+      if (!$('.vacancies__content-setup-2__chose__container').find('.vacancies-setup-2-level-4__item').length) return false
+
       questopmPopup()
+        .then(res => {
+          const element = $('.vacancies__content-setup-2__chose__container')
+          const index = new Date().getTime()
+          const templeteLevel4 = $(`
+            <div class="vacancies-setup-2-level-4__item flex items-center font text-16px py-16px px-12px" data-item-id="custom-${index}">
+              <div class="icon icon-16px icon-menu"></div>
+              <div class="number"></div>
+              <div class="label flex-1">
+                <div class="title custom-type__label">客製化題目</div>
+                <div class="sub">${res}</div>
+              </div>
+              <div class="icon icon-16px icon-close ml-20px"></div>
+            </div>
+          `)
+          templeteLevel4.appendTo(element)
+
+          templeteLevel4.find('.icon-close').on('click', function () {
+            element.find(`[data-item-id="custom-${index}"]`).remove()
+
+            if ($('.vacancies__content-setup-2__chose__container').find(CHOSE_SPACE_VIEW)) CHOSE_SPACE_VIEW.remove()
+            if (!$('.vacancies__content-setup-2__chose__container').find('.vacancies-setup-2-level-4__item').length) {
+              CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
+              $(".vacancies__content-setup-2__chose__container").sortable('destroy')
+            } else $(".vacancies__content-setup-2__chose__container").sortable()
+          })
+
+          if ($('.vacancies__content-setup-2__chose__container').find(CHOSE_SPACE_VIEW)) CHOSE_SPACE_VIEW.remove()
+          if (!$('.vacancies__content-setup-2__chose__container').find('.vacancies-setup-2-level-4__item').length) {
+            CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
+            $(".vacancies__content-setup-2__chose__container").sortable('destroy')
+          } else $(".vacancies__content-setup-2__chose__container").sortable()
+        })
     })
 
     const questopmPopup = () => {
-      const templete = $(`
-        <div class="pop__wrap">
-          <div class="pop__container flex flex-col">
-            <div class="pop__top flex items-center">
-              <div class="pop__icon mr-12px icon icon-18px icon-notification"></div>
-              <div class="font text-18px">客製題目</div>
-              <button class="pop__close icon icon-18px icon-close"></button>
-            </div>
-            <div class="pop__tips flex items-center">
-              <div class="icon icon-14px icon-security bg bg-red"></div>
-              <div class="pop__label font text-12px color-red">請注意題目內容上限200字。</div>
-            </div>
-            <div class="question-pop__content flex-1 font text-16px">
-              <div class="pop__content__title font text-14px">題目內容</div>
-              <div class="pop__content__textarea">
-                <textarea placeholder="請輸入題目內容"></textarea>
-                <div class="pop__content__textarea__count"></div>
+      return new Promise(reslove => {
+        const templete = $(`
+          <div class="pop__wrap">
+            <div class="pop__container flex flex-col">
+              <div class="pop__top flex items-center">
+                <div class="pop__icon mr-12px icon icon-18px icon-notification"></div>
+                <div class="font text-18px">客製題目</div>
+                <button class="pop__close icon icon-18px icon-close"></button>
               </div>
+              <div class="pop__tips flex items-center">
+                <div class="icon icon-14px icon-security bg bg-red mr-8px"></div>
+                <div class="pop__label font text-12px color-red">請注意題目內容上限200字。</div>
+              </div>
+              <div class="question-pop__content flex-1 font text-16px">
+                <div class="pop__content__title font text-14px">題目內容</div>
+                <div class="pop__content__textarea">
+                  <textarea placeholder="請輸入題目內容"></textarea>
+                  <div class="pop__content__textarea__count"></div>
+                </div>
+              </div>
+              <div class="pop__bottom flex items-center">
+                <button class="pop__confirm button black shadow flex-1">確認</button>
+              </div>
+              <div class="pop__bottom__tips font text-12px">點選「確定」，完成客製化題目創建</div>
             </div>
-            <div class="pop__bottom flex items-center">
-              <button class="pop__confirm button black shadow flex-1">確認</button>
-            </div>
-            <div class="pop__bottom__tips font text-12px">點選「確定」，完成客製化題目創建</div>
           </div>
-        </div>
-      `)
-      togglePopupView(true)
-      templete.appendTo('body')
+        `)
+        togglePopupView(true)
+        templete.appendTo('body')
 
-      $('.pop__content__textarea__count').text('0 / 200')
-      $('.pop__content__textarea textarea').on('keyup', () => {
-        $('.pop__content__textarea__count').text(`${$('.pop__content__textarea textarea').val().length} / 200`)
-      })
-  
-      templete.find('.pop__close').on('click', function () {
-        templete.fadeOut(200, function() { $(this).remove() })
-        togglePopupView(false)
-      })
-  
-      templete.find('.pop__confirm').on('click', function () {
-        templete.fadeOut(200, function() { $(this).remove() })
-        togglePopupView(false)
+        $('.pop__content__textarea__count').text('0 / 200')
+        $('.pop__content__textarea textarea').on('keyup', () => {
+          $('.pop__content__textarea__count').text(`${$('.pop__content__textarea textarea').val().length} / 200`)
+        })
+    
+        templete.find('.pop__close').on('click', function () {
+          templete.fadeOut(200, function() { $(this).remove() })
+          togglePopupView(false)
+          reslove('')
+        })
+    
+        templete.find('.pop__confirm').on('click', function () {
+          templete.fadeOut(200, function() { $(this).remove() })
+          togglePopupView(false)
+          reslove($('.pop__content__textarea textarea').val())
+        })
       })
     }
   }

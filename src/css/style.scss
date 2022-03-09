@@ -1565,6 +1565,13 @@ select.plan-buy__detail__form__select {
   border-bottom: 1px solid #E6E6E9;
   counter-increment: line-number;
 
+  .custom-type__label {
+    border: 1px solid #E0E0E0;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
   .icon-menu {
     opacity: 0;
   }
@@ -1698,6 +1705,8 @@ select.plan-buy__detail__form__select {
 
 .vacancies-setup-3__question__number {
   margin-right: 25px;
+  text-align: center;
+  flex: 0 0 20px;
 }
 
 .vacancies-setup-3__question__label {
