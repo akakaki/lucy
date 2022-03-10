@@ -7,6 +7,7 @@
 - [figma圖檔，UI完全-2?](https://www.figma.com/file/MfPZiH64D6LIv53gwUs9jn/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
 - [figma圖檔，UI完全-3?](https://www.figma.com/file/5xnf8PJMstxINjkuc7ASFD/LUCY_User%E7%AB%AF-(Copy)?node-id=573%3A12334)
 - [figma圖檔，UI完全-4?](https://www.figma.com/file/8jy9zG0Zejf2oFCw4Aco5Q/LUCY_User%E7%AB%AF-(Copy)?node-id=1893%3A53441)
+- [figma圖檔，UI完全-5?](https://www.figma.com/file/CtM6CNqgMlwN27rizOhHFG/LUCY_User%E7%AB%AF-(Copy)?node-id=0%3A1)
 
 
 

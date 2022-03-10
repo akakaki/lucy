@@ -27,9 +27,9 @@ html(lang="zh-TW")
             .vacancies-setup-3__title.flex.items-center
               .vacancies-setup-3__icon.number__icon 3
               .vacancies-setup-3__label.font.text-24px 創建職缺確認
-            .vacancies-setup-3__user.flex.items-center
-              .vacancies-setup-3__label 職缺名稱
-              .vacancies-setup-3__text 多媒體動畫設計師
+            .vacancies-setup-3__user.flex.items-center.mt-25px
+              .vacancies-setup-3__label.font.color-gray 職缺名稱
+              .vacancies-setup-3__text.font.text-16px.ml-14px 多媒體動畫設計師
             .vacancies-setup-3__data.flex
               .vacancies-setup-3__content.flex-1.field.disabled
                 .vacancies-setup-3__content__title 工作內容
@@ -52,7 +52,7 @@ html(lang="zh-TW")
                     span.font.color-red *
                   .input.flex.items-center.coin-choose
                     .icon.icon-18px.icon-coin
-                    select(placeholder="計薪方式")#opening-setup-1-salary
+                    select(placeholder="計薪方式" disabled)#opening-setup-1-salary
                       -
                         const MONEY_LIST = [
                           { id: 'month', label: '月薪' },
@@ -60,7 +60,7 @@ html(lang="zh-TW")
                       for item in MONEY_LIST
                         option(value=item.label)= item.label 
                     .field-line
-                    input.flex-1#opening-setup-1-count(value="＄40,000~＄80,000")
+                    input.flex-1#opening-setup-1-count(value="＄40,000~＄80,000" disabled)
                 .field.disabled.mb-20px
                   .label
                     | 工作性質

@@ -1560,10 +1560,39 @@ select.plan-buy__detail__form__select {
   width: 670px;
 }
 
+.vacancies-setup-2-level-4__item:nth-child(10) ~ .vacancies-setup-2-level-4__item {
+  border-bottom: 0 none;
+
+  .vacancies-setup-2-level-4__center {
+    border: 1px solid #FF734C;
+    border-radius: 5px;
+    background: rgba(255, 115, 76, 0.2);
+  }
+
+  .number::before {
+    color: #FF734C;
+  }
+
+  &:hover {
+    background: transparent;
+    border: 0 none;
+    margin-top: 0;
+
+    .number {
+      opacity: 1;
+    }
+  }
+}
+
 .vacancies-setup-2-level-4__item {
   cursor: pointer;
   border-bottom: 1px solid #E6E6E9;
   counter-increment: line-number;
+  margin-bottom: 1px;
+
+  .vacancies-setup-2-level-4__center {
+    flex: 1;
+  }
 
   .custom-type__label {
     border: 1px solid #E0E0E0;
@@ -1572,7 +1601,8 @@ select.plan-buy__detail__form__select {
     display: inline-block;
   }
 
-  .icon-menu {
+  .icon-menu,
+  .icon-close {
     opacity: 0;
   }
 
@@ -1581,7 +1611,8 @@ select.plan-buy__detail__form__select {
     border-top: 1px solid #E6E6E9;
     margin-top: -1px;
 
-    .icon-menu {
+    .icon-menu,
+    .icon-close {
       opacity: 1;
     }
 
@@ -1917,6 +1948,26 @@ select.plan-buy__detail__form__select {
 
   .website-preview__step-1__container {
     width: 803px;
+  }
+}
+
+.opening-setup-2__path__list  {
+  color: #A3A3A3;
+
+  .opening-setup-2__path__item {
+    .icon::before{
+      background: #A3A3A3;
+    }
+  }
+
+  .opening-setup-2__path__item:last-child {
+    color: #686868;
+  }
+
+  .opening-setup-2__path__item:nth-last-child(2) {
+    .icon::before{
+      background: #686868;
+    }
   }
 }
 

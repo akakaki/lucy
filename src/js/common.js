@@ -570,7 +570,7 @@ $(function () {
                   <span class="title">${title}</span>
                   <span class="font color-red">*</span>
                 </label>
-                <input class="input"/>
+                <input class="input" disabled/>
               </div>
             </div>
           `)
@@ -597,16 +597,16 @@ $(function () {
                 <div class="user-form__chose__wrap">
                   <div class="user-form__chose flex items-center">
                     <div class="user-form__chose__item">
-                      <input class="user-form__chose__input" type="radio" value="input" checked/>
+                      <input class="user-form__chose__input" type="radio" value="input" checked disabled/>
                       <label>連結</label>
                     </div>
                     <div class="user-form__chose__item">
-                      <input class="user-form__chose__input" type="radio" value="input"/>
+                      <input class="user-form__chose__input" type="radio" value="input" disabled/>
                       <label>檔案</label>
                     </div>
                   </div>
                   <div class="user-form__type__wrap">
-                    <input class="user-form__item-input form__input input" placeholder="https://">
+                    <input class="user-form__item-input form__input input" placeholder="https://" disabled>
                     <div class="user-form__type__drop drop hidden">
                       <div class="user-form__type__drop__container">
                         <div class="website-config__banner__input__wrap user__update">
@@ -782,8 +782,8 @@ $(function () {
 
     const CHOSE_SPACE_VIEW = $(`
       <div class="vacancies__content-setup-2__chose__non flex items-center justify-center flex-1">
-        <div class="vacancies__content-setup-2__chose__non__icon icon icon-34px icon-file mr-8px"></div>
-        <div class="vacancies__content-setup-2__chose__non__label">露西助理提醒您<br>請先勾選題目</div>
+        <div class="vacancies__content-setup-2__chose__non__icon icon icon-34px icon-file-edit bg bg-gray mr-8px"></div>
+        <div class="vacancies__content-setup-2__chose__non__label font color-gray">露西助理提醒您<br>請先勾選題目</div>
       </div>
     `)
     CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
@@ -839,12 +839,14 @@ $(function () {
 
             const element = $('.vacancies__content-setup-2__chose__container')
             const templeteLevel4 = $(`
-              <div class="vacancies-setup-2-level-4__item flex items-center font text-16px py-16px px-12px" data-item-id="${index}">
-                <div class="icon icon-16px icon-menu"></div>
-                <div class="number"></div>
-                <div class="label flex-1">
-                  <div class="title">${data.level1.label} / ${data.level2.label}</div>
-                  <div class="sub">${item}</div>
+              <div class="vacancies-setup-2-level-4__item flex items-center font text-16px px-12px" data-item-id="${index}">
+                <div class="icon icon-16px icon-menu mr-4px"></div>
+                <div class="vacancies-setup-2-level-4__center flex items-center py-16px px-10px">
+                  <div class="number"></div>
+                  <div class="label flex-1">
+                    <div class="title">${data.level1.label} / ${data.level2.label}</div>
+                    <div class="sub">${item}</div>
+                  </div>
                 </div>
                 <div class="icon icon-16px icon-close ml-20px"></div>
               </div>
@@ -885,12 +887,14 @@ $(function () {
           const element = $('.vacancies__content-setup-2__chose__container')
           const index = new Date().getTime()
           const templeteLevel4 = $(`
-            <div class="vacancies-setup-2-level-4__item flex items-center font text-16px py-16px px-12px" data-item-id="custom-${index}">
-              <div class="icon icon-16px icon-menu"></div>
-              <div class="number"></div>
-              <div class="label flex-1">
-                <div class="title custom-type__label">客製化題目</div>
-                <div class="sub">${res}</div>
+            <div class="vacancies-setup-2-level-4__item flex items-center font text-16px px-12px" data-item-id="custom-${index}">
+              <div class="icon icon-16px icon-menu mr-4px"></div>
+              <div class="vacancies-setup-2-level-4__center flex items-center py-16px px-10px">
+                <div class="number"></div>
+                <div class="label flex-1">
+                  <div class="title custom-type__label">客製化題目</div>
+                  <div class="sub">${res}</div>
+                </div>
               </div>
               <div class="icon icon-16px icon-close ml-20px"></div>
             </div>
