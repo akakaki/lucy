@@ -516,12 +516,12 @@ $(function () {
     })
 
     $('#opening-setup-1-content').on('blur keyup input', function () {
-      const text = $(this).val() || '此處為工作內容細節，等待您輸入。'
+      const text = $(this).val() ? JSON.parse(JSON.stringify($(this).val()).replace(/\\n/g, '<br>')) : '此處為工作內容細節，等待您輸入。'
       $('#website-content').html(text)
     })
 
     $('#opening-setup-1-condition').on('blur keyup input', function () {
-      const text = $(this).val() || '此處為需求條件細節，等待您輸入。'
+      const text =$(this).val() ? JSON.parse(JSON.stringify($(this).val()).replace(/\\n/g, '<br>')) : '此處為需求條件細節，等待您輸入。'
       $('#website-condition').html(text)
     })
 
@@ -555,6 +555,8 @@ $(function () {
       const text = $(this).val() || '等待您輸入'
       $('#opening-setup-1-remote').text(text)
     })
+
+    $('.setup-detail__custom').hide()
 
     $('.vacancies-setup-detail__type__list.default input').on('change', function() {
       $('.website-preview__step-1-default__list').empty()
