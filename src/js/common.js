@@ -259,6 +259,66 @@ $(function () {
   }
   drapInputFile()
 
+  // record 交易紀錄
+  if ($('body').has('#record').length) {
+    const RECORD_LIST = [
+      {
+        label: '訂製',
+        date: '2022-01-09',
+        deadline: '2022-01-09',
+        detail: '細節方案1',
+        price: '26,800',
+        priceStatus: '已付款',
+        payType: '',
+        statusID: 1,
+      }, {
+        label: '訂製',
+        date: '2022-01-09',
+        deadline: '2022-01-09',
+        detail: '細節方案2:讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西提供的功能，歡迎切換成企業版體驗更多。',
+        price: '26,99999999999',
+        priceStatus: '已付款',
+        payType: '信用卡',
+        statusID: 1,
+      }, {
+        label: '訂製',
+        date: '2022-01-09',
+        deadline: '2022-01-09',
+        detail: '細節方案3:讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西提供的功能，歡迎切換成企業版體驗更多。',
+        price: '26,800',
+        priceStatus: '已付款',
+        payType: '信用卡',
+        statusID: 2,
+      },
+    ]
+
+    const templete = (obj, index) => {
+      const number = index.padStart(2, '0')
+      return `
+        <div class="record-content__item">${number}</div>
+        <div class="record-content__item">${obj.label}</div>
+        <div class="record-content__item">${obj.date}</div>
+        <div class="record-content__item">${obj.deadline}</div>
+        <div class="record-content__item">${obj.detail}</div>
+        <div class="record-content__item">
+          <div class="record-item__count">$${obj.price}</div>
+          <div class="record-item__count-type font color-blue">${obj.priceStatus}</div>
+        </div>
+        <div class="record-content__item flex flex-col justify-center">
+          <span>${obj.payType || '---'}</span>
+        </div>
+        <div class="record-content__item flex flex-col justify-center">
+          <span>${obj.statusID === 1 ? '審核中' : '交易完成'}</span>
+        </div>
+      `
+    }
+
+    for (const [index, obj] of Object.entries(RECORD_LIST)) {
+      $(templete(obj, index)).appendTo('.record__content')
+    }
+  }
+
+
   // website 徵才網站
   if ($('body').has('#website').length) {
     $('.website-link__url').on('keyup', function () {
