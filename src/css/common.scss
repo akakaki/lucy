@@ -8,6 +8,14 @@ body {
   position: relative;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
 .container {
   position: relative;
   height: 100vh;
@@ -265,7 +273,7 @@ a {
 }
 
 $SPACING_ARROW_LIST: ("t": "top", "l": "left", "b": "bottom", "r": "right");
-$SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 26, 28, 29, 30, 34, 37, 38, 40, 50, 64, 97;
+$SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 26, 28, 29, 30, 34, 37, 38, 40, 45, 50, 64, 97;
 @each $i in $SPACING_PX_LIST {
   @each $key, $value in $SPACING_ARROW_LIST {
     &.m#{$key}-#{$i}px {
@@ -498,6 +506,7 @@ $SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2
     color: #fff;
 
     &.disable {
+      cursor: not-allowed;
       background: #B8B8B8;
     }
   }
@@ -643,8 +652,6 @@ $SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2
 }
 
 .ui-selectmenu-menu {
-  padding-top: 12px;
-
   #ui-id-1-menu {
     border: 1px solid #E0E0E0;
     border-radius: 5px;

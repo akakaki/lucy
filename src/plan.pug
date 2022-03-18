@@ -23,7 +23,7 @@ html(lang="zh-TW")
                         h2.info__title.m-0.p-0 體驗
                         .info__list
                           .info__item.flex.items-center.mb-3px
-                            .icon.icon-20px.icon-history.mr-4px
+                            .icon.icon-20px.icon-history.mr-12px
                             span 購買日期 2021-01-29
                       ul.plan__list.flex.items-center
                         li.plan__item
@@ -53,13 +53,13 @@ html(lang="zh-TW")
                         .plan-record-table-td 2021-01-28
                         .plan-record-table-td $0
                         .plan-record-table-td
-                          .dot.green
+                          .dot.dot-green.mr-10px
                           | 完成交易
                         .plan-record-table-td 體驗版
                         .plan-record-table-td 2021-01-28
                         .plan-record-table-td $0
                         .plan-record-table-td
-                          .dot.red
+                          .dot.dot-red.mr-10px
                           | 審核中
             .plan-record-all.flex.flex-col
               .plan-record-all__title.font.text-18px 所有方案
@@ -136,75 +136,78 @@ html(lang="zh-TW")
                         .icon.icon-10px.icon-checkmark.bg.bg-green-dark
                       | 專屬徵才網站
                   .plan-record-all__button.button.black 聯絡我們
-  .plan-buy__wrap
-    .plan-buy__case
-      .plan-buy__case__title.flex.flex
-        .plan-buy__case__icon.icon.icon-26px.icon-plans-black.mr-10px
-        .plan-buy__case__label.font.text-18px 所選方案
-      .plan-buy__case__type
-        .plan-buy__case__type__title.font.text-18px 企業
-        .plan-buy__case__type__count.font.text-24px
-          | NT$16,800
-          span.font.text-16px /年
-      .plan-buy__case__text.my-40px 獲得5個職缺及100位虛擬面試的額度，同時您也可以隨心所欲的創建題目，或是盡情使用Lucy提供的專業題庫，並為您架設貴公司專屬徵才網站。
-      .plan-buy__case__list
-        .plan-buy__case__item.flex
-          .curor-icon.flex.items-center.justify-center
-            .icon.icon-10px.icon-checkmark.bg.bg-green-dark
-          | 5 個職缺
-        .plan-buy__case__item.flex
-          .curor-icon.flex.items-center.justify-center
-            .icon.icon-10px.icon-checkmark.bg.bg-green-dark
-          | 100 位虛擬面試
-        .plan-buy__case__item.flex
-          .curor-icon.flex.items-center.justify-center
-            .icon.icon-10px.icon-checkmark.bg.bg-green-dark
-          | 應徵人數無上限
-        .plan-buy__case__item.flex
-          .curor-icon.flex.items-center.justify-center
-            .icon.icon-10px.icon-checkmark.bg.bg-green-dark
-          | Lucy題庫
-        .plan-buy__case__item.flex
-          .curor-icon.flex.items-center.justify-center
-            .icon.icon-10px.icon-checkmark.bg.bg-green-dark
-          | 專屬徵才網站
-    .plan-buy__detail
-      .plan-buy__detail__title.flex.items-center
-        .plan-buy__detail__icon.icon.icon-26px.icon-coin.mr-10px
-        .plan-buy__detail__label.font.text-18px 選擇付款方式
-        .plan-buy__detail__close.icon.icon-18px.icon-close
-      .plan-buy__detail__text.font.color-gray.mb-40px 轉帳成功並上傳完轉帳單後請等待我們審核
-      .plan-buy__detail__form.field.pb-40px
-        .plan-buy__detail__form__title 付款方式
-        select.plan-buy__detail__form__select.input
-          option(value="1") 銀行轉帳1
-          option(value="1") 銀行轉帳2
-        .plan-buy__detail__info.mt-40px
-          .plan-buy__detail__info__title
-            .plan-buy__detail__info__icon.icon.icon-18px.icon-noteboard.mr-10px
-            .plan-buy__detail__info__label 選擇付款方式
-          .plan-buy__detail__info__list
-            .plan-buy__detail__info__item 戶名｜諾比科技股份有限公司
-            .plan-buy__detail__info__item 開戶銀行｜星展(台灣)商業銀行股份有限公司(810)
-            .plan-buy__detail__info__item 收款帳號｜6052-0557-688
-        .plan-buy__update.mt-40px
-          .plan-buy__update__title
-            .plan-buy__update__icon.icon.icon-18px.icon-upload.mr-10px
-            .plan-buy__update__label 轉帳證明上傳
-          .plan-buy__update__container
-            input.plan-buy__input(type="file")
-            .plan-buy__icon.icon.icon-26px.icon-img.bg.bg-blue
-            .plan-buy__label
-              | 請將一張圖片拖放到此處上傳
-              br
-              | 或
-            .plan-buy__button.button.black 點擊上傳
-            .plan-buy__sub 可接受上傳的檔案格式｜SVG, JPG, PNG, PDF
-          .plan-buy__update__img__wrap.hidden
-            img.plan-buy__update__img__img
-            .plan-buy__update__img__detail
-              .plan-buy__update__img__label
-              .plan-buy__update__img__process
-            .plan-buy__update__img__icon.icon.icon-8px
-        .plan-buy__detail__button.button.black.full 確認
-           
+  .plan-buy__container
+    .plan-buy__mask
+    .plan-buy__wrap
+      .plan-buy__case
+        .plan-buy__case__title.flex.flex
+          .plan-buy__case__icon.icon.icon-26px.icon-plans-black.mr-10px
+          .plan-buy__case__label.font.text-18px 所選方案
+        .plan-buy__case__type
+          .plan-buy__case__type__title.font.text-18px 企業
+          .plan-buy__case__type__count.font.text-24px
+            | NT$16,800
+            span.font.text-16px /年
+        .plan-buy__case__text.my-40px 獲得5個職缺及100位虛擬面試的額度，同時您也可以隨心所欲的創建題目，或是盡情使用Lucy提供的專業題庫，並為您架設貴公司專屬徵才網站。
+        .plan-buy__case__list
+          .plan-buy__case__item.flex
+            .curor-icon.flex.items-center.justify-center
+              .icon.icon-10px.icon-checkmark.bg.bg-green-dark
+            | 5 個職缺
+          .plan-buy__case__item.flex
+            .curor-icon.flex.items-center.justify-center
+              .icon.icon-10px.icon-checkmark.bg.bg-green-dark
+            | 100 位虛擬面試
+          .plan-buy__case__item.flex
+            .curor-icon.flex.items-center.justify-center
+              .icon.icon-10px.icon-checkmark.bg.bg-green-dark
+            | 應徵人數無上限
+          .plan-buy__case__item.flex
+            .curor-icon.flex.items-center.justify-center
+              .icon.icon-10px.icon-checkmark.bg.bg-green-dark
+            | Lucy題庫
+          .plan-buy__case__item.flex
+            .curor-icon.flex.items-center.justify-center
+              .icon.icon-10px.icon-checkmark.bg.bg-green-dark
+            | 專屬徵才網站
+      .plan-buy__detail.flex.flex-col
+        .plan-buy__detail__title.flex.items-center
+          .plan-buy__detail__icon.icon.icon-26px.icon-coin.mr-10px
+          .plan-buy__detail__label.font.text-18px 選擇付款方式
+          .plan-buy__detail__close.icon.icon-18px.icon-close
+        .plan-buy__detail__text.font.color-gray.mb-40px 轉帳成功並上傳完轉帳單後請等待我們審核
+        .plan-buy__detail__form.field.flex.flex-col.flex-1
+          .plan-buy__detail__form__title 付款方式
+          select.plan-buy__detail__form__select.input
+            option(value="0" disabled selected) 請選擇付款方式
+            option(value="1") 銀行轉帳1
+            option(value="2") 信用卡
+          .plan-buy__detail__info.mt-40px
+            .plan-buy__detail__info__title
+              .plan-buy__detail__info__icon.icon.icon-18px.icon-noteboard.mr-10px
+              .plan-buy__detail__info__label 選擇付款方式
+            .plan-buy__detail__info__list
+              .plan-buy__detail__info__item 戶名｜諾比科技股份有限公司
+              .plan-buy__detail__info__item 開戶銀行｜星展(台灣)商業銀行股份有限公司(810)
+              .plan-buy__detail__info__item 收款帳號｜6052-0557-688
+          .plan-buy__update.mt-40px
+            .plan-buy__update__title
+              .plan-buy__update__icon.icon.icon-18px.icon-upload.mr-10px
+              .plan-buy__update__label 轉帳證明上傳
+            .plan-buy__update__container
+              input.plan-buy__input(type="file")
+              .plan-buy__icon.icon.icon-26px.icon-img.bg.bg-blue
+              .plan-buy__label
+                | 請將一張圖片拖放到此處上傳
+                br
+                | 或
+              .plan-buy__button.button.black 點擊上傳
+              .plan-buy__sub 可接受上傳的檔案格式｜SVG, JPG, PNG, PDF
+            .plan-buy__update__img__wrap.hidden
+              img.plan-buy__update__img__img
+              .plan-buy__update__img__detail
+                .plan-buy__update__img__label
+                .plan-buy__update__img__process
+              .plan-buy__update__img__icon.icon.icon-8px
+          .plan-buy__detail__button.button.black.full.mt-auto 確認
+            

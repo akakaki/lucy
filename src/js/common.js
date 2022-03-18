@@ -270,7 +270,7 @@ $(function () {
         price: '26,800',
         priceStatus: '已付款',
         payType: '',
-        statusID: 1,
+        status: '審核中',
       }, {
         label: '訂製',
         date: '2022-01-09',
@@ -279,7 +279,34 @@ $(function () {
         price: '26,99999999999',
         priceStatus: '已付款',
         payType: '信用卡',
-        statusID: 1,
+        status: '審核中',
+      }, {
+        label: '訂製',
+        date: '2022-01-09',
+        deadline: '2022-01-09',
+        detail: '細節方案2:讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西提供的功能，歡迎切換成企業版體驗更多。',
+        price: '26,99999999999',
+        priceStatus: '已付款',
+        payType: '信用卡',
+        status: '審核中',
+      }, {
+        label: '訂製',
+        date: '2022-01-09',
+        deadline: '2022-01-09',
+        detail: '細節方案2:讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西提供的功能，歡迎切換成企業版體驗更多。',
+        price: '26,99999999999',
+        priceStatus: '已付款',
+        payType: '信用卡',
+        status: '審核中',
+      }, {
+        label: '訂製',
+        date: '2022-01-09',
+        deadline: '2022-01-09',
+        detail: '細節方案2:讓您體驗如何創建1個職缺並可接收3位虛擬面試，若想要新增更多職缺並訂定屬於自己的題目，使用更多露西提供的功能，歡迎切換成企業版體驗更多。',
+        price: '26,99999999999',
+        priceStatus: '已付款',
+        payType: '信用卡',
+        status: '審核中',
       }, {
         label: '訂製',
         date: '2022-01-09',
@@ -288,14 +315,31 @@ $(function () {
         price: '26,800',
         priceStatus: '已付款',
         payType: '信用卡',
-        statusID: 2,
+        status: '交易完成',
       },
     ]
 
+    $('.page-select__container').children().last().text(`，共 ${RECORD_LIST.length} 個項目`)
+
+    $('.switch__item').on('click', function () {
+      $('.record-content__item').remove()
+
+      const target = $(this).text() === '審核中'
+        ? '審核中'
+        : $(this).text() === '完成'
+          ? '交易完成' : ''
+
+      for (const [index, obj] of Object.entries(RECORD_LIST.filter(item => !target || item.status === target))) {
+        $(templete(obj, index)).appendTo('.record__content')
+      }
+
+      $('.page-select__container').children().last().text(`，共 ${RECORD_LIST.filter(item => !target || item.status === target).length} 個項目`)
+    })
+
     const templete = (obj, index) => {
-      const number = index.padStart(2, '0')
+      const number = parseInt(index) + 1
       return `
-        <div class="record-content__item">${number}</div>
+        <div class="record-content__item">${number.toString().padStart(2, '0')}</div>
         <div class="record-content__item">${obj.label}</div>
         <div class="record-content__item">${obj.date}</div>
         <div class="record-content__item">${obj.deadline}</div>
@@ -307,8 +351,9 @@ $(function () {
         <div class="record-content__item flex flex-col justify-center">
           <span>${obj.payType || '---'}</span>
         </div>
-        <div class="record-content__item flex flex-col justify-center">
-          <span>${obj.statusID === 1 ? '審核中' : '交易完成'}</span>
+        <div class="record-content__item flex items-center">
+          <div class="record-item__status__icon mr-10px dot ${obj.status === '審核中' ? 'dot-red' : 'dot-green'}"></div>
+          <span>${obj.status}</span>
         </div>
       `
     }
@@ -321,6 +366,10 @@ $(function () {
 
   // website 徵才網站
   if ($('body').has('#website').length) {
+    $('.website__question').on('click', function () {
+      $('.website-question__label').fadeToggle()
+    })
+
     $('.website-link__url').on('keyup', function () {
       const text = $(this).val()
       const input = $('.website-preview__url')
@@ -351,6 +400,7 @@ $(function () {
       reader.onload = (e => {
         $('.website-preview__banner-center__logo__img').attr("src", e.target.result)
         $('.website-config__logo__img').attr("src", e.target.result)
+        $('.website-preview__banner-center__logo').css('background', 'transparent')
       })
       reader.readAsDataURL(value)
     })
@@ -368,6 +418,10 @@ $(function () {
 
   // website 徵才網站-體驗升級
   if ($('body').has('#website-non').length) {
+    $('.website__question').on('click', function () {
+      $('.website-question__label').fadeToggle()
+    })
+
     const tipsPop = () => {
       popup({
         title: '注意',
@@ -537,7 +591,14 @@ $(function () {
     })
 
     $('.opening-close__button').on('click', function () {
-      popup({ title: '關閉職缺通知', sub: '您確定要關閉此職缺嗎？' })
+      popup({
+        title: '關閉職缺通知',
+        sub: '您確定要關閉此職缺嗎？',
+        button: [
+          { bg: 'black', label: '取消', submit: 'cancel' }, 
+          { bg: 'white', label: '確認', submit: 'confirm' }, 
+        ],
+      })
       .then(res => {
         switch (res) {
           case 'confirm':
@@ -1043,22 +1104,31 @@ $(function () {
 
   // 方案 plan
   if ($('body').has('#plan').length) {
-    $('.plan-buy__wrap').hide()
+    $('.plan-buy__container').hide()
+
+    $('.plan-buy__mask').on('click', function () {
+      togglePopupView(false)
+      $('.plan-buy__container').hide()
+    })
 
     $('.plan-buy__detail__close').on('click', function () {
       togglePopupView(false)
-      $('.plan-buy__wrap').hide()
+      $('.plan-buy__container').hide()
     })
 
     $('.plan-record-all__button.button.black').on('click', function () {
+      if ($(this).text() !== '聯絡我們') return false
+
       togglePopupView(true)
-      $('.plan-buy__wrap').show()
+      $('.plan-buy__container').show()
     })
 
     $('.plan-buy__detail__button').on('click', function () {
       togglePopupView(false)
-      $('.plan-buy__wrap').hide()
-      message({ text: '付款完成，已更新為企業版方案！' })
+      $('.plan-buy__container').hide()
+      
+      if ($('.plan-buy__detail__form .ui-selectmenu-text').text() === '信用卡') message({ text: '上傳成功，請等待審核後立即幫您更換方案！' })
+      else message({ text: '付款完成，已更新為企業版方案！' })
     })
   }
 })

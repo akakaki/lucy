@@ -11,7 +11,8 @@ html(lang="zh-TW")
         .content-article.flex.flex-col#website
           .website-title
             +h1('您專屬的徵才網站')
-            .website__question.icon.icon-question.icon-16px
+            .website__question.icon.icon-question.icon-16px.cursor-pointer
+            .website-question__label.ml-10px.hidden 請填入下方資料創建網站，您所創建的職缺會同步更新於網頁中。
           .website-link
             .website-link__title.flex.items-center
               .website-link-icon.icon.icon-18px.icon-website.mr-12px
@@ -41,7 +42,7 @@ html(lang="zh-TW")
                   +input-wrap( { id: 'company', required: true, label: '徵才網頁簡介', placeholder: '請填入貴公司所希望呈現在網頁上的簡介文字' } )
                   .website-config__banner
                     .website-config__banner__title.flex.items-center
-                      .website-config__banner__icon.icon.icon-18px.icon-upload
+                      .website-config__banner__icon.icon.icon-18px.icon-upload.bg.bg-gray
                       .website-config__banner__label Banner 圖檔上傳 （建議尺寸｜1920*336 / 1.5 MB)
                     .website-config__banner__input__wrap
                       .icon.icon-18px.icon-plus
@@ -49,7 +50,7 @@ html(lang="zh-TW")
                       input.website-config__banner__input(type="file")
                   .website-config__logo
                     .website-config__logo__title.flex.items-center
-                      .website-config__logo__icon.icon.icon-18px.icon-upload
+                      .website-config__logo__icon.icon.icon-18px.icon-upload.bg.bg-gray
                       .website-config__logo__label Logo圖檔上傳（建議尺寸｜250*250 / 1 MB)
                     .website-config__logo__input__wrap
                       .icon.icon-18px.icon-plus
@@ -80,13 +81,13 @@ html(lang="zh-TW")
                         .website-preview__icon.icon.icon-18px.icon-search.mr-13px
                         input.website-preview__input.flex-1(placeholder="輸入您想找的職缺")
                       .field.ml-15px
-                        select.website-preview__select.input
+                        select.website-preview__select.input(disabled)
                           option(disabled selected) 工作性質
                       .field.ml-15px
-                        select.website-preview__select.input
+                        select.website-preview__select.input(disabled)
                           option(disabled selected) 工作地點
                       .field.ml-15px
-                        select.website-preview__select.input
+                        select.website-preview__select.input(disabled)
                           option(disabled selected) 可否遠端
 
                     h2.font.text-24px 職缺列表
