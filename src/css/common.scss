@@ -516,6 +516,30 @@ $SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2
     background: #fff;
     color: #191919;
   }
+
+  &.animate-btn {
+    animation: pulse 1.5s alternate infinite;
+
+    &:hover {
+      animation: none;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(.9);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 50px rgba(#5a99d4, 0);
+    }
+
+    100% {
+      transform: scale(.9)ß;
+      box-shadow: 0 0 0 0 rgba(#5a99d4, 0);
+    }
+  }
 }
 
 // === input type ===
