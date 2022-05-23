@@ -240,6 +240,10 @@ $(function () {
     }
   
     const imgInput = (e) => {
+      if (!['image/svg+xml', 'image/jpg', 'image/jpeg', 'image/png', 'application/pdf'].includes(e.target.files[0].type)) {
+        $('.plan-buy__update__label.error').removeClass('hidden')
+        return false
+      } else $('.plan-buy__update__label.error').addClass('hidden')
       $('.plan-buy__update__img__label').text(e.target.files[0].name)
       const reader = new FileReader()
       reader.onload = (e => {

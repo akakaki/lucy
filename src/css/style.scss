@@ -880,6 +880,10 @@ select.plan-buy__detail__form__select {
   position: relative;
   width: 110px;
   height: 31px;
+
+  &.non-white {
+    background: none;
+  }
 }
 
 .website-preview__banner-center__title {
