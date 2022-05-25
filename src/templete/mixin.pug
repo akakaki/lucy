@@ -201,6 +201,11 @@ mixin page
         a.page__item 4
       .page__next.icon.icon-10px.icon-arrow-left
 
+//- radio
+mixin radio-input(id, name, value)
+  input.checkbox__input.view(id=id type="radio" name=name value=value)
+  .checkbox__input__view
+
 
 //- 共用
 mixin common

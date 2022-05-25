@@ -552,7 +552,35 @@ $(function () {
       message({ text: '驗證碼已經寄送到所填入的信箱' })
     })
 
-    $('.setting-save').on('click', function () {
+    $('.setting-save-account').on('click', function () {
+      message({ text: '完成更新！' })
+    })
+
+    $('.setting-save-password').on('click', function () {
+      const target = {
+        password: $('#password').val(),
+        newPassword: $('#newPassword').val(),
+        checkPassword: $('#checkPassword').val(),
+      }
+
+      if (Object.values(target).map(item => Boolean(item)).includes(false)) {
+        if (!$('#password').val()) $('#password').addClass('error')
+        else $('#password').removeClass('error')
+
+        if (!$('#newPassword').val()) $('#newPassword').addClass('error')
+        else $('#newPassword').removeClass('error')
+
+        if (!$('#checkPassword').val()) $('#checkPassword').addClass('error')
+        else $('#checkPassword').removeClass('error')
+
+        return false
+      }
+
+      if ($('#newPassword').val() !== $('#checkPassword').val()) {
+        $('#checkPassword').addClass('error')
+        return false
+      } else $('#checkPassword').removeClass('error')
+
       message({ text: '密碼完成更新！' })
     })
 
@@ -625,6 +653,46 @@ $(function () {
     $(`.opening-setup-1__step-${step}`).show().siblings().hide()
 
     $('.setup-1-next__button').on('click', function () {
+      if (step === 1) {
+        const target = {
+          'opening-setup-1-title': $('#opening-setup-1-title').val(),
+          'opening-setup-1-content': $('#opening-setup-1-content').val(),
+          'opening-setup-1-condition': $('#opening-setup-1-condition').val(),
+        }
+  
+        if (Object.values(target).map(item => Boolean(item)).includes(false)) {
+          if (!$('#opening-setup-1-title').val()) $('#opening-setup-1-title').addClass('error')
+          else $('#opening-setup-1-title').removeClass('error')
+  
+          if (!$('#opening-setup-1-content').val()) $('#opening-setup-1-content').parents('.field__textarea__wrap').addClass('error')
+          else $('#opening-setup-1-content').parents('.field__textarea__wrap').removeClass('error')
+  
+          if (!$('#opening-setup-1-condition').val()) $('#opening-setup-1-condition').parents('.field__textarea__wrap').addClass('error')
+          else $('#opening-setup-1-condition').parents('.field__textarea__wrap').removeClass('error')
+  
+          return false
+        }
+      } else if (step === 2) {
+        const target = {
+          'opening-setup-1-type': $('#opening-setup-1-type').val(),
+          'opening-setup-1-address': $('#opening-setup-1-address').val(),
+          'checkbox__input[name="job"]': $('.checkbox__input[name="job"]:checked').val()
+        }
+
+        if (Object.values(target).map(item => Boolean(item)).includes(false)) {
+          if (!$('#opening-setup-1-count').val()) $('#opening-setup-1-count').parents('.input').addClass('error')
+          else $('#opening-setup-1-count').parents('.input').removeClass('error')
+  
+          if (!$('#opening-setup-1-address').val()) $('#opening-setup-1-address').addClass('error')
+          else $('#opening-setup-1-address').removeClass('error')
+  
+          if (!$('.checkbox__input[name="job"]:checked').val()) $('.checkbox__input[name="job"]').parents('.checkbox').addClass('error')
+          else $('#opening-setup-1-condition').parents('.checkbox').removeClass('error')
+  
+          return false
+        }
+      }
+
       if (step === 3) location.href = '/opening-setup-2.html'
       else {
         step++

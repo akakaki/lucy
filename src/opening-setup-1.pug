@@ -36,18 +36,15 @@ html(lang="zh-TW")
                   .field
                     .label
                       | 職缺名稱
-                      span.font.color-red *
                     input.input#opening-setup-1-title(placeholder="請輸入職缺名稱")
                   .field.mt-20px
                     .label
                       | 工作內容
-                      span.font.color-red *
                     .field__textarea__wrap(data-count="1500")
                       textarea.field__textarea#opening-setup-1-content(placeholder="請輸入您對於該職缺的工作內容。")
                   .field.mt-20px
                     .label
                       | 需求條件
-                      span.font.color-red *
                     .field__textarea__wrap(data-count="1500")
                       textarea.field__textarea#opening-setup-1-condition(placeholder="請輸入您對於該職缺的期望需求條件。")
                 .opening-setup-1__step-2.hidden
@@ -75,7 +72,6 @@ html(lang="zh-TW")
                   .field.mb-20px
                     .label
                       | 工作性質
-                      span.font.color-red *
                     select.input#opening-setup-1-type(
                       placeholder="請選擇工作性質"
                     )
@@ -101,7 +97,7 @@ html(lang="zh-TW")
                     .checkbox__wrap.flex.items-center
                       for item in CHECKBOX_LIST
                         .checkbox.flex.items-center.mr-16px
-                          input.checkbox__input(id=item.id type="radio" name="job" value=item.label)
+                          +radio-input(item.id, 'job', item.label)
                           label.ml-8px(for=item.id)= item.label
                 .opening-setup-1__step-3.hidden
                   .vacancies-setup-detail__title.flex.items-center
@@ -189,7 +185,7 @@ html(lang="zh-TW")
                         .website-preview__top.flex
                           .website-preview__search.flex.items-center
                             .website-preview__icon.icon.icon-18px.icon-search.mr-13px
-                            input.website-preview__input.flex-1(placeholder="輸入您想找的職缺")
+                            input.website-preview__input.flex-1(placeholder="輸入您想找的職缺" disabled="true")
                           .field.ml-15px
                             select.website-preview__select.input
                               option(disabled selected) 工作性質

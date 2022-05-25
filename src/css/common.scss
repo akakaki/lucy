@@ -658,6 +658,18 @@ $SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2
     padding: 10px;
     display: flex;
     flex-direction: column;
+
+    &.error {
+      border-color: #FF734C;
+
+      textarea {
+        color: #FF734C;
+
+        &::placeholder {
+          color: #FF734C;
+        }
+      }
+    }
   
     .field__textarea {
       border: 0 none;
@@ -813,4 +825,51 @@ $SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2
   border: 1px solid #E0E0E0;
   border-radius: 5px;
   box-shadow: 0px 4px 10px rgba(164, 164, 164, .25);
+}
+
+.checkbox {
+  position: relative;
+
+  .checkbox__input.view {
+    position: absolute;
+    opacity: 0;
+    
+    & ~ .checkbox__input__view {
+      flex-shrink: 0;
+      border: 1px solid #646464;
+      width: 12px;
+      height: 12px;
+      border-radius: 99px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: none;
+        border-radius: 99px;
+      }
+    }
+
+    &:checked ~ .checkbox__input__view {
+      border-color: #0085cc;
+
+      &::before {
+        background: #0085cc;
+      }
+    }
+  }
+
+  &.error {
+    .checkbox__input.view ~ .checkbox__input__view {
+      border-color: #FF734C;
+    }
+
+    label {
+      color: #FF734C;
+    }
+  }
 }

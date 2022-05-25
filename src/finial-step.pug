@@ -1,0 +1,19 @@
+include ./templete/mixin.pug
+doctype html
+html(lang="zh-TW")
+  include ./templete/head.pug
+  body
+    +common
+    .finial.flex__wrap
+      .container.flex
+        .flex.flex-1
+        .flex.flex-1.flex-col.items-center.justify-center
+          .finial-info.white-bg
+            img.logo(src="./images/Lucy_logo_black-16.svg")
+            .login__title.flex.items-center.pb-9px.mb-9px.mt-40px
+              .title__icon.icon.icon-18px.icon-sign-in.mr-10px
+              .login__label.font-bold.font.text-18px 付款成功
+            .login__sub.mb-40px 恭喜你完成信用卡付款，可以盡情享受露西所提供的各項服務。
+            .button__wrap 
+              a.button.white.full.shadow(href="index.html") 回到系統
+

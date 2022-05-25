@@ -19,6 +19,7 @@ const pageData = [
   { id: 'response-non', label: '面試者資料-方案到期' },
   { id: 'response-overflow', label: '面試者資料-面試者已滿升級方案' },
   { id: 'plan', label: '方案' },
+  { id: 'finial-step', label: '付款完成' },
   { id: 'setting', label: '設定' },
   { id: 'record', label: '交易紀錄' },
   { id: 'user-list', label: '應徵頁面列表' },

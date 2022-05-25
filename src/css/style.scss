@@ -253,7 +253,10 @@
 
 
 .setting-save {
-  width: 118px;
+  &-account,
+  &-password {
+    width: 118px;
+  }
 }
 
 .letter-save,
@@ -810,6 +813,10 @@ select.plan-buy__detail__form__select {
 
 .website-preview__input {
   border: 0 none;
+
+  &:disabled {
+    background: none;
+  }
 }
 
 .website-preview__container {
@@ -2017,4 +2024,13 @@ select.plan-buy__detail__form__select {
   background: #F3FFBF;
   padding: 4px 9px;
   border-radius: 5px;
+}
+
+// 付款完成
+.finial.flex__wrap {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('./../images/bg/finial.jpg');
+  background-attachment: fixed;
 }
