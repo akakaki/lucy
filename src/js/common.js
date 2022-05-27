@@ -992,6 +992,7 @@ $(function () {
           $('.vacancies-setup-2-level-2__list').empty()
           $('.vacancies-setup-2-level-3__list').empty()
           $('.vacancies__content-setup-2__chose__container').empty()
+          level4Count.value = 0
           CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
           for (const prop of Object.getOwnPropertyNames(data)) delete data[prop]
           data.level1 = { id: index, label: value }
@@ -1008,12 +1009,29 @@ $(function () {
           $(templeteLevel2).addClass('active').siblings().removeClass('active')
           $('.vacancies-setup-2-level-3__list').empty()
           $('.vacancies__content-setup-2__chose__container').empty()
+          level4Count.value = 0
           CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
           data.level2 = { id: index, label: items }
           buildLevel3()
         })
       }
     }
+
+    const level4Count = new Proxy({}, {
+      set: function (target, _, value) {
+        target['value'] = isNaN(value) ? 0 : value
+        path(target)
+
+        if (target.value === 5) message({ text: '提醒您！建議面試題數為5-8題，避免面試過程過於冗長喔！', icons: 'icon-boy bg-green-message' })
+
+        if (target.value > 10) $('.vacancies-setup-2__tips').removeClass('hidden')
+        else $('.vacancies-setup-2__tips').addClass('hidden')
+          
+        return true
+      }
+    })
+
+    level4Count.value = 0
 
     function buildLevel3 () {
       for (const [index, item] of Object.entries(QUESTION_LEVEL_3_LIST)) {
@@ -1047,9 +1065,11 @@ $(function () {
               </div>
             `)
             templeteLevel4.appendTo(element)
+            level4Count.value +=1
 
             templeteLevel4.find('.icon-close').on('click', function () {
               element.find(`[data-item-id="${index}"]`).remove()
+              level4Count.value -=1
               $this.prop('checked', false);
 
               if ($('.vacancies__content-setup-2__chose__container').find(CHOSE_SPACE_VIEW)) CHOSE_SPACE_VIEW.remove()
@@ -1062,6 +1082,7 @@ $(function () {
           } else {
             const element = $('.vacancies__content-setup-2__chose__container')
             element.find(`[data-item-id="${index}"]`).remove()
+            level4Count.value -= 1
           }
           
           if (!$('.vacancies__content-setup-2__chose__container').find('.vacancies-setup-2-level-4__item').length) {
@@ -1075,6 +1096,7 @@ $(function () {
     buildLevel1()
 
     $('.vacancies__content-setup-2__chose__button').on('click', function () {
+
       if (!$('.vacancies__content-setup-2__chose__container').find('.vacancies-setup-2-level-4__item').length) return false
 
       questopmPopup()
@@ -1095,10 +1117,11 @@ $(function () {
             </div>
           `)
           templeteLevel4.appendTo(element)
+          level4Count.value += 1
 
           templeteLevel4.find('.icon-close').on('click', function () {
             element.find(`[data-item-id="custom-${index}"]`).remove()
-
+            level4Count.value -= 1
             if ($('.vacancies__content-setup-2__chose__container').find(CHOSE_SPACE_VIEW)) CHOSE_SPACE_VIEW.remove()
             if (!$('.vacancies__content-setup-2__chose__container').find('.vacancies-setup-2-level-4__item').length) {
               CHOSE_SPACE_VIEW.appendTo('.vacancies__content-setup-2__chose__container')
@@ -1157,12 +1180,28 @@ $(function () {
         })
     
         templete.find('.pop__confirm').on('click', function () {
+          if ($('.pop__content__textarea textarea').val().length === 0 || $('.pop__content__textarea textarea').val().length > 200) {
+            $('.pop__content__textarea').addClass('error')
+            return false
+          } else $('.pop__content__textarea').removeClass('error')
+
           templete.fadeOut(200, function() { $(this).remove() })
           togglePopupView(false)
           reslove($('.pop__content__textarea textarea').val())
         })
       })
     }
+
+    $('.vacancies__content-setup-2__chose__bottom-next').on('click', function () {
+      console.log('level4Count.value', level4Count.value)
+      if (level4Count.value === 0) return message({ text: '請先選擇題目！', type: 'err', icons: 'icon-security bg-red' })
+
+      location.href = '/opening-setup-3.html'
+    })
+
+    $('.vacancies-setup-2-lang__title').on('click', function () {
+      message({ text: '您為體驗版會員，請先升等方案方能使用此功能！', type: 'err', icons: 'icon-security bg-red' })
+    })
   }
 
   // 職缺 opening-setup-3

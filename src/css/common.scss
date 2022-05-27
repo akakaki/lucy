@@ -110,7 +110,7 @@ a {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .cursor-pointer {
@@ -677,6 +677,7 @@ $SPACING_PX_LIST: 0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2
       height: 100%;
       resize: none;
       font-size: 14px;
+      outline: none;
     }
   
     .field__textarea-quantity {

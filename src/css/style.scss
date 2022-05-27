@@ -1213,6 +1213,27 @@ select.plan-buy__detail__form__select {
 .candidate-data__picture {
   position: relative;
   margin-right: 17px;
+  width: 140px;
+  height: 140px;
+  border: 1px solid #E0E0E0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26px;
+    height: 26px;
+    background: url('../images/icon/profile.svg') no-repeat 0 0/contain;
+    opacity: .2;
+    z-index: -1;
+  }
 
   .icon {
     position: absolute;
@@ -1243,14 +1264,6 @@ select.plan-buy__detail__form__select {
   button {
     margin: 0 0 6px;
   }
-}
-
-.candidate-item__img {
-  border: 1px solid #E0E0E0;
-  border-radius: 5px;
-  height: 140px;
-  width: 140px;
-  box-sizing: border-box;
 }
 
 .candidate-item__question__wrap {
@@ -1642,6 +1655,10 @@ select.plan-buy__detail__form__select {
     padding: 5px;
     border-radius: 5px;
     display: inline-block;
+
+    ~ .sub {
+      word-break: break-all;
+    }
   }
 
   .icon-menu,
@@ -1707,6 +1724,17 @@ select.plan-buy__detail__form__select {
   display: flex;
   flex-direction: column;
 
+  &.error {
+    border-color: #FF734C;
+
+    textarea {
+      color: #FF734C;
+
+      &::placeholder {
+        color: #FF734C;
+      }
+    }
+  }
 
   textarea {
     flex: 1;
