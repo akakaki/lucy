@@ -1024,8 +1024,9 @@ $(function () {
 
         if (target.value === 5) message({ text: '提醒您！建議面試題數為5-8題，避免面試過程過於冗長喔！', icons: 'icon-boy bg-green-message' })
 
-        if (target.value > 10) $('.vacancies-setup-2__tips').removeClass('hidden')
-        else $('.vacancies-setup-2__tips').addClass('hidden')
+        $('.vacancies-setup-2__tips').hide()
+        if (target.value > 10) $('.vacancies-setup-2__tips').show()
+        else $('.vacancies-setup-2__tips').hide()
           
         return true
       }
@@ -1193,10 +1194,8 @@ $(function () {
     }
 
     $('.vacancies__content-setup-2__chose__bottom-next').on('click', function () {
-      console.log('level4Count.value', level4Count.value)
       if (level4Count.value === 0) return message({ text: '請先選擇題目！', type: 'err', icons: 'icon-security bg-red' })
-
-      location.href = '/opening-setup-3.html'
+      else if (level4Count.value <= 10) location.href = '/opening-setup-3.html'
     })
 
     $('.vacancies-setup-2-lang__title').on('click', function () {
