@@ -12,6 +12,7 @@ const pageData = [
   { id: 'website', label: '徵才網站' },
   { id: 'website-non', label: '徵才網站-升級提示' },
   { id: 'opening', label: '職缺' },
+  { id: 'opening-2', label: '面試連結' },
   { id: 'opening-setup-1', label: '職缺-step-1' },
   { id: 'opening-setup-2', label: '職缺-step-2' },
   { id: 'opening-setup-3', label: '職缺-step-3' },

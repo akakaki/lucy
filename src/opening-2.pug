@@ -1,0 +1,165 @@
+include ./templete/mixin.pug
+doctype html
+html(lang="zh-TW")
+  include ./templete/head.pug
+  body
+    +common
+    .container.flex
+      +nav('boy')
+      .content
+        +header()
+        .content-article.flex.flex-col#opening
+          +h1('職缺')
+          form.opening-form__wrap.flex.items-end
+            .field.opening-field__label
+              label.label 職缺名稱
+              select.input
+                option(value="0" disabled selected) 請選擇職缺名稱
+                option(value="平面設計") 平面設計
+                option(value="前端工程師") 前端工程師
+                option(value="動畫製作師") 動畫製作師
+            .field
+              label.label 創建日期
+              .form__input.input__date.input.flex.items-center.p-0px
+                input(id="date-before" placeholder="YYYY-MM-DD")
+                span -
+                input(id="date-after" placeholder="YYYY-MM-DD")
+                .form__input.input__date__icon.icon.icon-18px.icon-calendar-none.ml-auto.mr-15px
+            .field.opening-field__status
+              label.label 狀態
+              select.input
+                option(value="0" disabled selected) 請選擇狀態
+                option(value="草稿編輯") 草稿編輯
+                option(value="職缺刊登") 職缺刊登
+                option(value="職缺準備中") 職缺準備中
+                option(value="職缺已關閉") 職缺已關閉
+            a.opening-build__button.button.green.shadow.ml-auto(href="opening-setup-1.html")
+              .opening-build__icon.icon.icon-18px.icon-boy
+              .opening-build__label 創建職缺
+          .switch__wrap.flex.justify-between
+            -
+              const SYSTEM_LIST = [
+                { id: 'data', label: '職缺資訊' },
+                { id: 'link', label: '面試連結', dot: true },
+              ]
+            +switch(SYSTEM_LIST)
+            .opening-count__data.flex.flex-col.items-end
+              div 目前方案｜企業版
+              div 職缺數｜2/5
+            //- .switch__content
+          .opening__wrap.opening-2
+            -
+              const OPENING_TITLE = [
+                { label: '創建時間', icon: 'icon-code icon-rotate-90' },
+                { label: '工作名稱' },
+                { label: '面試問題' },
+                { label: '職缺連結' },
+                { label: '狀態' },
+                { label: '操作' },
+              ]
+            for item in OPENING_TITLE
+              .opening-top__title.flex.items-center.p-17px
+                .opening-top__label= item.label
+                if item.icon
+                  .opening-top__icon.icon.icon-16px.ml-6px(class=item.icon)
+
+            .opening__data.items-start
+              .opening__label 2021.01.07
+            .opening__data.items-start
+              .opening__label 平面設計
+            .opening__data.items-start
+              p Q1 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
+              p Q2 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？<br>
+              p Q3 說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？<br>
+              p Q4 描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？<br>
+              p Q5 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？<br>
+              a.opening-count__data.flex.items-center.justify-end.font.color-blue(href="#")
+                | 展開所有問題
+                .icon.icon-14px.icon-arrow-up.icon-rotate-180.bg.bg-blue.ml-8px
+            .opening__data.items-start
+              button.opening-open-response__button.button.black
+                .icon.icon-18px.icon-logout.bg.bg-white.mr-12px
+                | 前往職缺頁
+              a.opening-copy__button.flex.items-center
+                .icon.icon-12px.icon-share.mr-12px
+                | 複製連結
+            .opening__data.items-start
+              a.opening-edit__button.flex.items-center
+                .icon.icon-18px.icon-edit
+                | 草稿編輯
+              a.opening-add__button.flex.items-center
+                .icon.icon-18px.icon-resume
+                | 職缺刊登
+              a.opening-add__button.flex.items-center
+                .icon.icon-18px.icon-resume-prepare
+                | 職缺準備中
+              a.opening-add__button.flex.items-center
+                .icon.icon-18px.icon-resume.icon-red-delete
+                | 職缺已關閉
+            .opening__data
+              button.opening-open-response__button.button.black
+                .icon.icon-18px.icon-resume.bg.bg-white.mr-12px
+                | 開啟職缺
+              button.opening-alone-edit__button.button.black
+                .icon.icon-18px.icon-edit.bg.bg-white.mr-12px
+                | 繼續編輯
+              button.opening-close__button.button.white
+                .icon.icon-18px.icon-resume.icon-red-delete.mr-12px
+                | 關閉職缺
+              a.opening-detele__button.flex.items-center
+                .icon.icon-12px.icon-close.bg.bg-red.mr-12px
+                .font.color-red 刪除職缺
+              a.opening-copy__button.flex.items-center
+                .icon.icon-12px.icon-copy.mr-12px
+                | 複製連結
+
+            .opening__data.items-start.non
+              .opening__label 2021.01.07
+            .opening__data.items-start.non
+              .opening__label 平面設計
+            .opening__data.items-start.non
+              p Q1 如果客戶需要的信息要求您使用您不熟悉的系統，您會怎麼做？
+              p Q2 您是否曾經遇到過必須重新引導他人的活動以符合組織的願景和價值觀的情況？你做了什麼？<br>
+              p Q3 說出你工作量繁重並被賦予一項艱鉅的任務並且必須完成的時間。當時情況如何？<br>
+              p Q4 描述一次您看到有需要的客戶的經歷。你是如何幫助他們的，你是如何改善他們的體驗的？<br>
+              p Q5 描述一個你不得不處理壓力情況的時間，你做了什麼以及你是如何處理的？<br>
+              a.opening-count__data.flex.items-center.justify-end.font.color-blue(href="#")
+                | 展開所有問題
+                .icon.icon-14px.icon-arrow-up.icon-rotate-180.bg.bg-blue.ml-8px
+            .opening__data.items-start.non
+              button.opening-open-response__button.button.black
+                .icon.icon-18px.icon-logout.bg.bg-white.mr-12px
+                | 前往職缺頁
+              a.opening-copy__button.flex.items-center
+                .icon.icon-12px.icon-share.mr-12px
+                | 複製連結
+            .opening__data.items-start.non
+              a.opening-edit__button.flex.items-center
+                .icon.icon-18px.icon-edit
+                | 草稿編輯
+              a.opening-add__button.flex.items-center
+                .icon.icon-18px.icon-resume
+                | 職缺刊登
+              a.opening-add__button.flex.items-center
+                .icon.icon-18px.icon-resume-prepare
+                | 職缺準備中
+              a.opening-add__button.flex.items-center
+                .icon.icon-18px.icon-resume.icon-red-delete
+                | 職缺已關閉
+            .opening__data.non
+              button.opening-open-response__button.button.black
+                .icon.icon-18px.icon-resume.bg.bg-white.mr-12px
+                | 開啟職缺
+              button.opening-alone-edit__button.button.black
+                .icon.icon-18px.icon-edit.bg.bg-white.mr-12px
+                | 繼續編輯
+              button.opening-close__button.button.white
+                .icon.icon-18px.icon-resume.icon-red-delete.mr-12px
+                | 關閉職缺
+              a.opening-detele__button.flex.items-center
+                .icon.icon-12px.icon-close.bg.bg-red.mr-12px
+                .font.color-red 刪除職缺
+              a.opening-copy__button.flex.items-center
+                .icon.icon-12px.icon-copy.mr-12px
+                | 複製連結
+          +page
